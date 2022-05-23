@@ -37,13 +37,13 @@
 
                     <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
                         <div class="nav navbar-nav pull-right">
-                            <a class="nav-link active" aria-current="page" href="index.php?action=accueil">
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">
                                 Accueil
                             </a>
-                            <a class="nav-link" href="">Le concept</a>
-                            <a class="nav-link" href="">Votre projet</a>
-                            <a class="nav-link" href="">Formation</a>
-                            <a class="nav-link" href="">A propos de nous</a>
+                            <a class="nav-link" href="{{ path('app_concept') }}">Le concept</a>
+                            <a class="nav-link" href="{{ path('app_project') }}">Votre projet</a>
+                            <a class="nav-link" href="{{ path('app_formation') }}">Formation</a>
+                            <a class="nav-link" href="{{ path('app_about_us') }}">A propos de nous</a>
                         </div>
                     </div>
                 </div>

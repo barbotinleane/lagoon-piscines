@@ -18,10 +18,10 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                         sublimera votre jardin pour en faire un petit coin de paradis, pour le bonheur des
                         petits et des grands !
                     </p>
-                    <button class="btn btn-blue" onclick="window.location.href='index.php?action=concept'">
+                    <a class="btn btn-blue" href="{{ path('app_concept') }}">
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         &nbsp;Découvrez la technologie derrière ces piscines naturelles
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -152,13 +152,13 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                         <h2 class="baskerville size-2">Laissez vous inspirer...</h2>
                         <p>Découvrez quelques uns de nos plus beaux projets réalisés.</p>
                         <div class="text-center">
-                            <button
+                            <a
                                     class="btn btn-yellow"
-                                    onclick="window.location.href='index.php?action=galerie'"
+                                    href="{{ path('app_gallery') }}"
                             >
                                 <i class="fa fa-picture-o" aria-hidden="true"></i>
                                 &nbsp;Voir plus
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -274,14 +274,14 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             </p>
 
             <div class="m-2 text-center">
-                <button
+                <a
                         type="button"
                         class="btn btn-blue spoke"
-                        onclick="window.location.href='index.php?action=projet'"
+                        href="{{ path('app_project') }}"
                 >
                     <i class="fa fa-play" aria-hidden="true"></i>
                     &nbsp;Je réalise mon rêve
-                </button>
+                </a>
             </div>
         </div>
     </div>

@@ -1,0 +1,764 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProjectController!{% endblock %}
+
+{% block body %}
+    <div id="corps" class="mt-5 container-fluid">
+        <div class="row py-5 px-none px-md-4 px-lg-5 titre">
+            <div class="text-title">
+                <h1 class="baskerville size-1">VOTRE PROJET</h1>
+                <p class="w-75">
+				<span class="text-yellow the-girl-next-door size-3">
+					Votre rêve devient réalité !
+				</span><br>
+                    Découvrez les étapes menant à la construction de votre propre piscine LAGOON&reg;
+                    et commmencez à composer le LAGOON&reg; de vos rêves...
+                </p>
+                <a class="btn btn-blue btn-lg" href="#devis">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    &nbsp;Faire une demande de devis
+                </a>
+            </div>
+        </div>
+
+        <div class="row section bg-dark text-light">
+            <h2 class="text-center baskerville size-2">Les étapes de votre projet en bref</h2>
+
+            <ul class="timeline pb-5">
+                <li class="timeline-item d-flex align-items-center bg-shape-blue1 bg-shape-all">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-5 text-center">
+                            <picture>
+                                <source srcset="{{ asset('build/images/devis.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
+                                <source srcset="{{ asset('build/images/devis.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
+                                <img src="{{ asset('build/images/devis.jpg') }}" alt="Un couple devant un ordinateur composant sa demande de devis" class="m-3 m-sm-5 w-75">
+                            </picture>
+                        </div>
+                        <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">1</div>
+                        <div class="col-12 col-sm-6 p-none p-sm-2 text-center">
+                            <h3 class="baskerville">Faites une demande de devis en ligne </h3>
+                            <p>
+                                Choisissez parmi les modèles de piscines pré-dessinées ou le sur-mesure. A
+                                réception de votre demande, nos équipes vous contacteront pour affiner votre projet.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="timeline-item d-flex align-items-center bg-shape-yellow1 bg-shape-all">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-5 text-center">
+                            <picture>
+                                <source srcset="{{ asset('build/images/sur_mesure.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
+                                <source srcset="{{ asset('build/images/sur_mesure.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
+                                <img src="{{ asset('build/images/sur_mesure.jpg') }}" alt="Deux personnes penchées sur le plan du futur Lagoon de leurs rêves" class="m-3 m-sm-5 w-75">
+                            </picture>
+                        </div>
+                        <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">2</div>
+                        <div class="col-12 col-sm-6 py-none py-sm-2 px-3 text-center">
+                            <h3 class="baskerville">Design de votre projet </h3>
+                            <p>
+                                <em>Dans le cadre du sur mesure</em><br>
+                                Nous effectuons le design de votre projet par notre équipe
+                                de designers, concepteurs et paysagistes.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="timeline-item d-flex align-items-center bg-shape-blue2 bg-shape-all">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-5 text-center">
+                            <picture>
+                                <source srcset="{{ asset('build/images/assistance.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
+                                <source srcset="{{ asset('build/images/assistance.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
+                                <img src="{{ asset('build/images/assistance.jpg') }}" alt="Une femme assiste et explique à un couple les démarches nécessaires" class="m-3 m-sm-5 w-75">
+                            </picture>
+                        </div>
+                        <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">3</div>
+                        <div class="col-12 col-sm-6 py-none py-sm-2 px-3 text-center">
+                            <h3 class="baskerville">Assistance à la déclaration en mairie</h3>
+                            <p>
+                                Dès la signature du devis, LAGOON&reg; peut vous assister pour la constitution
+                                du dossier de déclaration préalable à déposer en mairie.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="timeline-item d-flex align-items-center bg-shape-yellow2 bg-shape-all">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-5 text-center">
+                            <picture>
+                                <source srcset="{{ asset('build/images/chantier.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
+                                <source srcset="{{ asset('build/images/chantier.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
+                                <img src="{{ asset('build/images/chantier.jpg') }}" alt="Vue aérienne de quatre personnes débutant un chantier" class="m-3 m-sm-5 w-75">
+                            </picture>
+                        </div>
+                        <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">4</div>
+                        <div class="col-12 col-sm-6 py-none py-sm-2 px-3 text-center">
+                            <h3 class="baskerville">Le chantier commence</h3>
+                            <p>
+                                Environ un mois après le dépôt en mairie
+                                et une fois le dossier validé par les autorités locales, votre chantier commence.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="row big-spacing align-items-center">
+                <div class="col-12 col-sm-6 baskerville size-2 pb-5">
+                    Et voilà ! Dans quelques jours, vous plongerez dans votre propre LAGOON&reg; !
+                </div>
+                <div class="col-12 col-sm-6 text-center">
+                    <picture>
+                        <source srcset="{{ asset('build/images/plonger.webp') }}" type="image/webp" class="w-100">
+                        <source srcset="{{ asset('build/images/plonger.jpg') }}" type="image/jpeg" class="w-100">
+                        <img src="{{ asset('build/images/plonger.jpg') }}" alt="Une petite fille joyeuse s'élance dans une piscine" class="w-100">
+                    </picture>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row section big-spacing" id="devis">
+            <h2 class="text-center baskerville size-2 py-3">Faire une demande de devis en ligne</h2>
+
+            <p class="m-3">
+                <em>Demander un devis LAGOON&reg; est le premier pas pour obtenir votre LAGOON&reg;,
+                    votre propre coin de paradis...</em>
+            </p>
+
+            <form class="m-none m-sm-1 m-md-3" name="formulaire_devis" action="php/envoi.php" method="post">
+                <div id="infos-perso" class="px-4 my-3 bg-yellow-clear">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Informations personnelles</h3>
+                        <div>
+                            <i class="fa fa-user form-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="px-3 pb-3">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label for="prenom">Prénom :</label><br>
+                                <input type="text" class="form-control" id="prenom" name="prenom" required>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label for="nom">Nom :</label><br>
+                                <input type="text" class="form-control" id="nom" name="nom" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-7 col-lg-4">
+                                <label for="email">Email :</label><br>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-3">
+                                <label for="telephone">Numéro de téléphone :</label><br>
+                                <input type="tel" class="form-control" id="telephone" name="telephone" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="lieu" class="px-4 pb-4 my-3 bg-form-blue">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Lieu de construction</h3>
+                        <div>
+                            <i class="fa fa-map-marker form-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="px-3 pb-3">
+                        <div class="row">
+                            <div class="col-12 col-md-11">
+                                <label for="adresse">Adresse :</label><br>
+                                <input type="text" class="form-control" id="adresse" name="adresse" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-4 col-lg-2">
+                                <label for="cp">Code Postal :</label><br>
+                                <input type="number" class="form-control" id="cp" name="cp" required>
+                            </div>
+
+                            <div class="col-12 col-md-5 col-lg-3">
+                                <label for="ville">Ville :</label><br>
+                                <input type="text" class="form-control" id="ville" name="ville" required>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <label>Département :</label><br>
+                                <select class="form-select" aria-label="department" name="departement">
+                                    <option selected>Sélectionner</option>
+
+                                    <?php
+								$departments = $bdd->query('SELECT departments.code, departments.name
+                                    FROM departments WHERE 1');
+
+
+                                    //Affichage de chaque message :
+
+                                    while ($department = $departments->fetch())
+                                    {
+                                    $msg = '<option value="' . htmlspecialchars($department['code']);
+									$msg .= '">' . htmlspecialchars($department['name']) . '</option>';
+                                    echo $msg;
+                                    }
+
+                                    $departments->closeCursor();
+
+                                    ?>
+
+                                    <option value="Autre">Autre</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label for="pays">Pays :</label><br>
+                                <input type="text" class="form-control" id="pays" name="pays" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="piscine" class="px-4 pb-4 my-3 bg-yellow-clear">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Votre LAGOON&reg;</h3>
+                        <div>
+                            <i class="fa fa-umbrella-beach form-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="p-3">
+                        <div class="row" id="m2-nombre">
+
+                            <label>Nombre de m<sup>2</sup> de surface d'eau :
+                                <span
+                                        class="tt"
+                                        data-bs-placement="top"
+                                        title="La profondeur de votre piscine sera fonction des dimensions de celle-ci et des parois en pente douce de 45°. La profondeur maximale sera entre 1m20 et 1m75."
+                                >
+								<a href="#m2-nombre">
+									<i class="fa fa-info-circle" aria-hidden="true"></i>
+								</a>
+							</span>
+                            </label>
+
+
+                            <div class="btn-group flex-wrap" role="group" aria-label="surface">
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="25m"
+                                        value="25m"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-dark" for="25m">
+                                    25 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="30m"
+                                        value="30m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="30m">
+                                    30 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="40m"
+                                        value="40m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="40m">
+                                    40 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="50m"
+                                        value="50m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="50m">
+                                    50 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="60m"
+                                        value="60m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="60m">
+                                    60 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface" id="70m"
+                                        value="70m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="70m">
+                                    70 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="80m"
+                                        value="80m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="80m">
+                                    80 m<sup>2</sup>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="surface"
+                                        id="99m"
+                                        value="99m"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="99m">
+                                    99 m<sup>2</sup>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label>Forme de la piscine :</label><br>
+
+                            <div class="btn-group" role="group" aria-label="forme1">
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="forme"
+                                        id="predessinee"
+                                        value="predessinee"
+                                        onchange="show_block('forme', 'predessinee', 'choose_forme')"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-dark" for="predessinee">
+                                    Modèle pré-dessiné
+                                    <span
+                                            class="tt"
+                                            data-bs-placement="top"
+                                            title="Possibilité de personnalisation dans les limites de la taille du modèle. Schémas de principe. Formes non contractuelles."
+                                    >
+									<a href ="#m2-nombre">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</a>
+								</span>
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="forme"
+                                        id="libre"
+                                        value="libre"
+                                        onchange="show_block('forme', 'predessinee', 'choose_forme')"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="libre">
+                                    Modèle sur-mesure
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div id="choose_forme" style="display:none;">
+                            <label>Choisir le modèle :</label><br>
+
+                            <div class="btn-group flex-wrap" role="group" aria-label="modele">
+                                <?php
+						$modeles = ['bali', 'benitiers',
+									'ibiza', 'majorque', 'moorea', 'phuket',
+									'santorin', 'seychelles', 'zanzibar'];
+
+						foreach($modeles as $modele) {
+							$option = '<input
+										type="radio"
+										class="btn-check"
+										name="modele"
+										id="'. $modele .'"
+										value="'. $modele .'"
+										autocomplete="off"
+										>
+                                <label class="btn btn-outline-dark" for="'. $modele .'">
+                                    <picture>
+                                        <source srcset="photos/projet/modeles/'. $modele .'.webp" type="image/webp" style="height:100px">
+                                        <source srcset="photos/projet/modeles/'. $modele .'.png" type="image/png" style="height:100px">
+                                        <img src="photos/projet/modeles/'. $modele .'.png" alt="modèle lagoon '. $modele .'" style="height:100px">
+                                    </picture>
+                                    <br>
+                                    '. ucfirst($modele) .'
+                                </label>';
+                                echo $option;
+                                }
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label>Couleur de la piscine (revêtement) :</label><br>
+
+                            <div class="btn-group flex-wrap" role="group" aria-label="couleur">
+                                <?php
+							$couleurs = ['Adige', 'Bianco', 'Caraibi',
+										'Corsica', 'Grecia', 'Panama', 'Rosso', 'Sardegna'];
+
+							foreach($couleurs as $couleur) {
+								$option = '<input
+											type="radio"
+											class="btn-check"
+											name="couleur"
+											id="'. $couleur .'"
+											value="'. $couleur .'"
+											autocomplete="off"
+											>
+                                <label class="btn btn-outline-dark" for="'. $couleur .'">
+                                    <picture>
+                                        <source srcset="photos/projet/couleurs/'. $couleur .'.webp" type="image/webp" style="height:70px">
+                                        <source srcset="photos/projet/couleurs/'. $couleur .'.png" type="image/png" style="height:70px">
+                                        <img src="photos/projet/couleurs/'. $couleur .'.png" alt="couleur lagoon '. $couleur .'" style="height:70px">
+                                    </picture>
+                                    <br>
+                                    '. str_replace("_", " ", $couleur) .'
+                                </label>';
+                                echo $option;
+                                }
+                                ?>
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="couleur"
+                                        value="Je ne sais pas encore"
+                                        id="jsp"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="jsp">
+                                    Je ne sais pas encore
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label>Plage non-immergée :</label><br>
+
+                            <div class="btn-group flex-wrap" role="group" aria-label="plage">
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="plage"
+                                        id="plage-oui"
+                                        value="Oui"
+                                        onchange="show_block('plage', 'Oui', 'choose_plage')"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-dark" for="plage-oui">Oui</sup></label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="plage"
+                                        id="plage-non"
+                                        value="Non"
+                                        onchange="show_block('plage', 'Oui', 'choose_plage')"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="plage-non">Non</sup></label>
+                            </div>
+                        </div>
+
+                        <div id="choose_plage" class="p-3 mt-4 bg-yellow" style="display:none;">
+                            <h4 class="text-center">PLAGE</h4>
+                            <div class="row">
+                                <label>Taille de la plage :</label><br>
+
+                                <div class="btn-group flex-wrap" role="group" aria-label="taille-plage">
+                                    <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="taille-plage"
+                                            id="5m"
+                                            value="5m"
+                                            autocomplete="off"
+                                    >
+                                    <label class="btn btn-outline-dark" for="5m">
+                                        5 m<sup>2</sup>
+                                    </label>
+
+                                    <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="taille-plage"
+                                            id="10m"
+                                            value="10m"
+                                            autocomplete="off"
+                                    >
+                                    <label class="btn btn-outline-dark" for="10m">
+                                        10 m<sup>2</sup>
+                                    </label>
+
+                                    <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="taille-plage"
+                                            id="15m"
+                                            value="15m"
+                                            autocomplete="off"
+                                    >
+                                    <label class="btn btn-outline-dark" for="15m">
+                                        15 m<sup>2</sup>
+                                    </label>
+
+                                    <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="taille-plage"
+                                            id="20m"
+                                            value="20m"
+                                            autocomplete="off"
+                                    >
+                                    <label class="btn btn-outline-dark" for="20m">
+                                        20 m<sup>2</sup>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label>Couleur de la plage (revêtement) :</label><br>
+                                <div class="btn-group flex-wrap" role="group" aria-label="couleur-plage">
+                                    <?php
+								$couleurs = ['Adige', 'Bianco', 'Caraibi',
+											'Corsica', 'Grecia', 'Panama', 'Rosso',
+											'Sardegna'];
+
+								foreach($couleurs as $couleur) {
+									$option = '<input
+												type="radio"
+												class="btn-check"
+												name="couleur-plage"
+												id="'. $couleur .'_plage"
+												value="'. $couleur .'"
+												autocomplete="off"
+												>
+                                    <label class="btn btn-outline-dark" for="'. $couleur .'_plage">
+                                        <picture>
+                                            <source srcset="photos/projet/couleurs/'. $couleur .'.webp" type="image/webp" style="height:70px">
+                                            <source srcset="photos/projet/couleurs/'. $couleur .'.png" type="image/png" style="height:70px">
+                                            <img src="photos/projet/couleurs/'. $couleur .'.png" alt="couleur lagoon '. $couleur .'" style="height:70px">
+                                        </picture>
+                                        <br>
+                                        '. str_replace("_", " ", $couleur) .'
+                                    </label>';
+                                    echo $option;
+                                    }
+                                    ?>
+                                    <input
+                                            type="radio"
+                                            class="btn-check"
+                                            name="couleur-plage"
+                                            value="Je ne sais pas encore"
+                                            id="jsp"
+                                            autocomplete="off"
+                                    >
+                                    <label class="btn btn-outline-dark" for="jsp">
+                                        Je ne sais pas encore
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <label>Type de filtration souhaité :</label><br>
+
+                            <div class="btn-group flex-wrap" role="group" aria-label="filtration">
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="filtration"
+                                        id="UV"
+                                        value="UV"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-dark" for="UV">
+                                    UV
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="filtration"
+                                        id="sel"
+                                        value="Electrolyse au sel"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="sel">
+                                    Electrolyse au sel
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="filtration"
+                                        id="ozone"
+                                        value="Ozone"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="ozone">
+                                    Système écologique
+                                </label>
+
+                                <!--<input
+                                type="radio"
+                                class="btn-check"
+                                name="filtration"
+                                id="chlore"
+                                value="chlore"
+                                autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="chlore">
+                                    Chlore <em style="color:grey;">(non conseillé)</em>
+                                </label>-->
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="filtration"
+                                        id="filtr-sais-pas"
+                                        value="Je ne sais pas encore"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="filtr-sais-pas">
+                                    Je ne sais pas encore
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label>Pompe à chaleur :</label><br>
+                            <div class="btn-group flex-wrap" role="group" aria-label="pompe">
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="pompe"
+                                        id="pompe-oui"
+                                        value="Oui"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-dark" for="pompe-oui">
+                                    Oui
+                                </label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="pompe"
+                                        id="pompe-non"
+                                        value="Non"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-dark" for="pompe-non">
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                                <label for="date">Début de construction souhaité :</label><br>
+                                <input type="date" class="form-control" id="date" name="date" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                                <label for="budget">
+                                    Budget alloué au projet <em style="color:grey">(facultatif)</em> :
+                                </label><br>
+                                <input type="text" class="form-control" id="budget" name="budget">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="autre">Dites nous en plus sur votre projet...</label><br>
+                                <textarea id="autre" class="form-control" name="autre" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check small px-5">
+                    <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            name="consentement[]"
+                            id="consentement_donnees"
+                            value="consentement_donnees"
+                            onclick="able_submit(['consentement_donnees'])"
+                    >
+                    En soumettant ce formulaire, j’accepte que mes informations soient utilisées
+                    exclusivement dans le cadre de ma demande et de la relation commerciale éthique et
+                    personnalisée qui pourrait en découler si je le souhaite et je reconnais avoir pris
+                    connaissance de la politique de traitement et d'utilisation des données relative à la RGPD
+                    disponible en
+                    <a
+                            href="./documentation/RGPD.pdf"
+                            target=_blank
+                    >
+                        cliquant ici
+                    </a>.
+                </div>
+
+                <div class="text-center">
+                    <input
+                            type="submit"
+                            class="btn btn-blue btn-lg mt-3"
+                            id="valider"
+                            value="Valider"
+                            disabled
+                    />
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

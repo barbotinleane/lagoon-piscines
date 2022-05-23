@@ -133,7 +133,7 @@
                     votre propre coin de paradis...</em>
             </p>
 
-            <form class="m-none m-sm-1 m-md-3" name="formulaire_devis" action="php/envoi.php" method="post">
+            {{ form_start(form) }}
                 <div id="infos-perso" class="px-4 my-3 bg-yellow-clear">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="baskerville size-3">Informations personnelles</h3>
@@ -145,25 +145,21 @@
                     <div class="px-3 pb-3">
                         <div class="row">
                             <div class="col-12 col-md-6 col-lg-3">
-                                <label for="prenom">Prénom :</label><br>
-                                <input type="text" class="form-control" id="prenom" name="prenom" required>
+                                {{ form_row(form.firstName) }}
                             </div>
 
                             <div class="col-12 col-md-6 col-lg-3">
-                                <label for="nom">Nom :</label><br>
-                                <input type="text" class="form-control" id="nom" name="nom" required>
+                                {{ form_row(form.lastName) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12 col-md-7 col-lg-4">
-                                <label for="email">Email :</label><br>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                {{ form_row(form.email) }}
                             </div>
 
                             <div class="col-12 col-md-5 col-lg-3">
-                                <label for="telephone">Numéro de téléphone :</label><br>
-                                <input type="tel" class="form-control" id="telephone" name="telephone" required>
+                                {{ form_row(form.phone) }}
                             </div>
                         </div>
                     </div>
@@ -181,55 +177,28 @@
                     <div class="px-3 pb-3">
                         <div class="row">
                             <div class="col-12 col-md-11">
-                                <label for="adresse">Adresse :</label><br>
-                                <input type="text" class="form-control" id="adresse" name="adresse" required>
+                                {{ form_row(form.address) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12 col-md-4 col-lg-2">
-                                <label for="cp">Code Postal :</label><br>
-                                <input type="number" class="form-control" id="cp" name="cp" required>
+                                {{ form_row(form.postalCode) }}
                             </div>
 
                             <div class="col-12 col-md-5 col-lg-3">
-                                <label for="ville">Ville :</label><br>
-                                <input type="text" class="form-control" id="ville" name="ville" required>
+                                {{ form_row(form.city) }}
                             </div>
 
 
                             <div class="col-12 col-md-6 col-lg-4">
-                                <label>Département :</label><br>
-                                <select class="form-select" aria-label="department" name="departement">
-                                    <option selected>Sélectionner</option>
-
-                                    <?php
-								$departments = $bdd->query('SELECT departments.code, departments.name
-                                    FROM departments WHERE 1');
-
-
-                                    //Affichage de chaque message :
-
-                                    while ($department = $departments->fetch())
-                                    {
-                                    $msg = '<option value="' . htmlspecialchars($department['code']);
-									$msg .= '">' . htmlspecialchars($department['name']) . '</option>';
-                                    echo $msg;
-                                    }
-
-                                    $departments->closeCursor();
-
-                                    ?>
-
-                                    <option value="Autre">Autre</option>
-                                </select>
+                                {{ form_row(form.department) }}
                             </div>
 
 
 
                             <div class="col-12 col-md-6 col-lg-3">
-                                <label for="pays">Pays :</label><br>
-                                <input type="text" class="form-control" id="pays" name="pays" required>
+                                {{ form_row(form.country) }}
                             </div>
                         </div>
                     </div>
@@ -245,160 +214,32 @@
 
                     <div class="p-3">
                         <div class="row" id="m2-nombre">
-
-                            <label>Nombre de m<sup>2</sup> de surface d'eau :
-                                <span
-                                        class="tt"
-                                        data-bs-placement="top"
-                                        title="La profondeur de votre piscine sera fonction des dimensions de celle-ci et des parois en pente douce de 45°. La profondeur maximale sera entre 1m20 et 1m75."
-                                >
-								<a href="#m2-nombre">
-									<i class="fa fa-info-circle" aria-hidden="true"></i>
-								</a>
-							</span>
-                            </label>
-
-
-                            <div class="btn-group flex-wrap" role="group" aria-label="surface">
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="25m"
-                                        value="25m"
-                                        autocomplete="off"
-                                        required
-                                >
-                                <label class="btn btn-outline-dark" for="25m">
-                                    25 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="30m"
-                                        value="30m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="30m">
-                                    30 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="40m"
-                                        value="40m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="40m">
-                                    40 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="50m"
-                                        value="50m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="50m">
-                                    50 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="60m"
-                                        value="60m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="60m">
-                                    60 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface" id="70m"
-                                        value="70m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="70m">
-                                    70 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="80m"
-                                        value="80m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="80m">
-                                    80 m<sup>2</sup>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="surface"
-                                        id="99m"
-                                        value="99m"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="99m">
-                                    99 m<sup>2</sup>
-                                </label>
+                            <label>{{ form_label(form.waterSurface) }}</label>
+                            <div class="buttons-group">
+                                {% for child in form.waterSurface.children %}
+                                    <div class="">
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
 
                         <div class="row">
-                            <label>Forme de la piscine :</label><br>
-
-                            <div class="btn-group" role="group" aria-label="forme1">
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="forme"
-                                        id="predessinee"
-                                        value="predessinee"
-                                        onchange="show_block('forme', 'predessinee', 'choose_forme')"
-                                        autocomplete="off"
-                                        required
-                                >
-                                <label class="btn btn-outline-dark" for="predessinee">
-                                    Modèle pré-dessiné
-                                    <span
-                                            class="tt"
-                                            data-bs-placement="top"
-                                            title="Possibilité de personnalisation dans les limites de la taille du modèle. Schémas de principe. Formes non contractuelles."
-                                    >
-									<a href ="#m2-nombre">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
-									</a>
-								</span>
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="forme"
-                                        id="libre"
-                                        value="libre"
-                                        onchange="show_block('forme', 'predessinee', 'choose_forme')"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="libre">
-                                    Modèle sur-mesure
-                                </label>
-
+                            <div>
+                                <label>{{ form_label(form.shape) }}</label>
+                                <div class="buttons-group">
+                                    {% for child in form.shape.children %}
+                                        <div class="">
+                                            <div class="">
+                                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
@@ -406,32 +247,7 @@
                             <label>Choisir le modèle :</label><br>
 
                             <div class="btn-group flex-wrap" role="group" aria-label="modele">
-                                <?php
-						$modeles = ['bali', 'benitiers',
-									'ibiza', 'majorque', 'moorea', 'phuket',
-									'santorin', 'seychelles', 'zanzibar'];
-
-						foreach($modeles as $modele) {
-							$option = '<input
-										type="radio"
-										class="btn-check"
-										name="modele"
-										id="'. $modele .'"
-										value="'. $modele .'"
-										autocomplete="off"
-										>
-                                <label class="btn btn-outline-dark" for="'. $modele .'">
-                                    <picture>
-                                        <source srcset="photos/projet/modeles/'. $modele .'.webp" type="image/webp" style="height:100px">
-                                        <source srcset="photos/projet/modeles/'. $modele .'.png" type="image/png" style="height:100px">
-                                        <img src="photos/projet/modeles/'. $modele .'.png" alt="modèle lagoon '. $modele .'" style="height:100px">
-                                    </picture>
-                                    <br>
-                                    '. ucfirst($modele) .'
-                                </label>';
-                                echo $option;
-                                }
-                                ?>
+                                {{ form_row(form.poolModel) }}
                             </div>
                         </div>
 
@@ -439,42 +255,7 @@
                             <label>Couleur de la piscine (revêtement) :</label><br>
 
                             <div class="btn-group flex-wrap" role="group" aria-label="couleur">
-                                <?php
-							$couleurs = ['Adige', 'Bianco', 'Caraibi',
-										'Corsica', 'Grecia', 'Panama', 'Rosso', 'Sardegna'];
-
-							foreach($couleurs as $couleur) {
-								$option = '<input
-											type="radio"
-											class="btn-check"
-											name="couleur"
-											id="'. $couleur .'"
-											value="'. $couleur .'"
-											autocomplete="off"
-											>
-                                <label class="btn btn-outline-dark" for="'. $couleur .'">
-                                    <picture>
-                                        <source srcset="photos/projet/couleurs/'. $couleur .'.webp" type="image/webp" style="height:70px">
-                                        <source srcset="photos/projet/couleurs/'. $couleur .'.png" type="image/png" style="height:70px">
-                                        <img src="photos/projet/couleurs/'. $couleur .'.png" alt="couleur lagoon '. $couleur .'" style="height:70px">
-                                    </picture>
-                                    <br>
-                                    '. str_replace("_", " ", $couleur) .'
-                                </label>';
-                                echo $option;
-                                }
-                                ?>
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="couleur"
-                                        value="Je ne sais pas encore"
-                                        id="jsp"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="jsp">
-                                    Je ne sais pas encore
-                                </label>
+                                {{ form_row(form.poolColor) }}
                             </div>
                         </div>
 
@@ -482,28 +263,7 @@
                             <label>Plage non-immergée :</label><br>
 
                             <div class="btn-group flex-wrap" role="group" aria-label="plage">
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="plage"
-                                        id="plage-oui"
-                                        value="Oui"
-                                        onchange="show_block('plage', 'Oui', 'choose_plage')"
-                                        autocomplete="off"
-                                        required
-                                >
-                                <label class="btn btn-outline-dark" for="plage-oui">Oui</sup></label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="plage"
-                                        id="plage-non"
-                                        value="Non"
-                                        onchange="show_block('plage', 'Oui', 'choose_plage')"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="plage-non">Non</sup></label>
+                                {{ form_row(form.beach) }}
                             </div>
                         </div>
 
@@ -513,96 +273,14 @@
                                 <label>Taille de la plage :</label><br>
 
                                 <div class="btn-group flex-wrap" role="group" aria-label="taille-plage">
-                                    <input
-                                            type="radio"
-                                            class="btn-check"
-                                            name="taille-plage"
-                                            id="5m"
-                                            value="5m"
-                                            autocomplete="off"
-                                    >
-                                    <label class="btn btn-outline-dark" for="5m">
-                                        5 m<sup>2</sup>
-                                    </label>
-
-                                    <input
-                                            type="radio"
-                                            class="btn-check"
-                                            name="taille-plage"
-                                            id="10m"
-                                            value="10m"
-                                            autocomplete="off"
-                                    >
-                                    <label class="btn btn-outline-dark" for="10m">
-                                        10 m<sup>2</sup>
-                                    </label>
-
-                                    <input
-                                            type="radio"
-                                            class="btn-check"
-                                            name="taille-plage"
-                                            id="15m"
-                                            value="15m"
-                                            autocomplete="off"
-                                    >
-                                    <label class="btn btn-outline-dark" for="15m">
-                                        15 m<sup>2</sup>
-                                    </label>
-
-                                    <input
-                                            type="radio"
-                                            class="btn-check"
-                                            name="taille-plage"
-                                            id="20m"
-                                            value="20m"
-                                            autocomplete="off"
-                                    >
-                                    <label class="btn btn-outline-dark" for="20m">
-                                        20 m<sup>2</sup>
-                                    </label>
+                                    {{ form_row(form.beachSize) }}
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label>Couleur de la plage (revêtement) :</label><br>
                                 <div class="btn-group flex-wrap" role="group" aria-label="couleur-plage">
-                                    <?php
-								$couleurs = ['Adige', 'Bianco', 'Caraibi',
-											'Corsica', 'Grecia', 'Panama', 'Rosso',
-											'Sardegna'];
-
-								foreach($couleurs as $couleur) {
-									$option = '<input
-												type="radio"
-												class="btn-check"
-												name="couleur-plage"
-												id="'. $couleur .'_plage"
-												value="'. $couleur .'"
-												autocomplete="off"
-												>
-                                    <label class="btn btn-outline-dark" for="'. $couleur .'_plage">
-                                        <picture>
-                                            <source srcset="photos/projet/couleurs/'. $couleur .'.webp" type="image/webp" style="height:70px">
-                                            <source srcset="photos/projet/couleurs/'. $couleur .'.png" type="image/png" style="height:70px">
-                                            <img src="photos/projet/couleurs/'. $couleur .'.png" alt="couleur lagoon '. $couleur .'" style="height:70px">
-                                        </picture>
-                                        <br>
-                                        '. str_replace("_", " ", $couleur) .'
-                                    </label>';
-                                    echo $option;
-                                    }
-                                    ?>
-                                    <input
-                                            type="radio"
-                                            class="btn-check"
-                                            name="couleur-plage"
-                                            value="Je ne sais pas encore"
-                                            id="jsp"
-                                            autocomplete="off"
-                                    >
-                                    <label class="btn btn-outline-dark" for="jsp">
-                                        Je ne sais pas encore
-                                    </label>
+                                    {{ form_row(form.beachColor) }}
                                 </div>
                             </div>
                         </div>
@@ -611,119 +289,32 @@
                             <label>Type de filtration souhaité :</label><br>
 
                             <div class="btn-group flex-wrap" role="group" aria-label="filtration">
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="filtration"
-                                        id="UV"
-                                        value="UV"
-                                        autocomplete="off"
-                                        required
-                                >
-                                <label class="btn btn-outline-dark" for="UV">
-                                    UV
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="filtration"
-                                        id="sel"
-                                        value="Electrolyse au sel"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="sel">
-                                    Electrolyse au sel
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="filtration"
-                                        id="ozone"
-                                        value="Ozone"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="ozone">
-                                    Système écologique
-                                </label>
-
-                                <!--<input
-                                type="radio"
-                                class="btn-check"
-                                name="filtration"
-                                id="chlore"
-                                value="chlore"
-                                autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="chlore">
-                                    Chlore <em style="color:grey;">(non conseillé)</em>
-                                </label>-->
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="filtration"
-                                        id="filtr-sais-pas"
-                                        value="Je ne sais pas encore"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="filtr-sais-pas">
-                                    Je ne sais pas encore
-                                </label>
+                                {{ form_row(form.filtrationType) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <label>Pompe à chaleur :</label><br>
                             <div class="btn-group flex-wrap" role="group" aria-label="pompe">
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="pompe"
-                                        id="pompe-oui"
-                                        value="Oui"
-                                        autocomplete="off"
-                                        required
-                                >
-                                <label class="btn btn-outline-dark" for="pompe-oui">
-                                    Oui
-                                </label>
-
-                                <input
-                                        type="radio"
-                                        class="btn-check"
-                                        name="pompe"
-                                        id="pompe-non"
-                                        value="Non"
-                                        autocomplete="off"
-                                >
-                                <label class="btn btn-outline-dark" for="pompe-non">
-                                    Non
-                                </label>
+                                {{ form_row(form.heatPump) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
-                                <label for="date">Début de construction souhaité :</label><br>
-                                <input type="date" class="form-control" id="date" name="date" required>
+                                {{ form_row(form.buildingStarts) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
-                                <label for="budget">
-                                    Budget alloué au projet <em style="color:grey">(facultatif)</em> :
-                                </label><br>
-                                <input type="text" class="form-control" id="budget" name="budget">
+                                {{ form_row(form.budget) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
-                                <label for="autre">Dites nous en plus sur votre projet...</label><br>
-                                <textarea id="autre" class="form-control" name="autre" rows="5"></textarea>
+                                {{ form_row(form.notes) }}
                             </div>
                         </div>
                     </div>

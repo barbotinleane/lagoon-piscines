@@ -1,3 +1,5 @@
+const datepicker = require('js-datepicker');
+
 $(function() {
 	const showInput = (id) => {
 		$('#asks_'+id).val('');
@@ -244,6 +246,18 @@ $(function() {
 				$('#asks_save').prop('disabled', true);
 			}
 		})
+	});
+
+	const picker = datepicker('.js-datepicker', {
+		startDay: 1,
+		customDays: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+		customMonths: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+		customOverlayMonths: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Jui', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+		minDate: new Date(),
+		overlayPlaceholder: 'Entrez une année',
+		formatter: (input, date, instance) => {
+			input.value = date.toDateString()
+		},
 	});
 });
 

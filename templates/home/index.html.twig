@@ -1,20 +1,300 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}LAGOON&reg; Piscines - Constructeur de piscines naturelles et écologiques basé sur la Côte d'Azur{% endblock %}
+{% block description %}Les piscines LAGOON®, piscines durables du 21ème Siècle, sont entièrement personnalisables.
+Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock description %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div id="corps" class="container-fluid">
+        <div class="row">
+            <div class="col-12 order-2 order-md-1 title-responsive">
+                <h1 class="baskerville size-1">
+                    Piscines de vos rêves...
+                </h1>
+                <div class="text-intro">
+                    <p>
+                        Issues de plus de 30 années de recherche, chacune de nos piscines naturelles est
+                        unique. Elle est réalisée sur mesure en fonction de vos envies. Cet écrin d’émeraude
+                        sublimera votre jardin pour en faire un petit coin de paradis, pour le bonheur des
+                        petits et des grands !
+                    </p>
+                    <button class="btn btn-blue" onclick="window.location.href='index.php?action=concept'">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        &nbsp;Découvrez la technologie derrière ces piscines naturelles
+                    </button>
+                </div>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <div id="image_fond" class="col-12 g-0 order-1 order-md-2 img-fond">
+                <picture>
+                    <source srcset="photos/accueil/reve.webp" type="image/webp" class="rounded-circle" height="70" width="70">
+                    <source srcset="photos/accueil/reve.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                    <img
+                            src="photos/accueil/reve.jpg"
+                            alt="un couple devant un coucher de soleil au bord d'une piscine"
+                            class="w-100 h-auto text-center"
+                    >
+                </picture>
+            </div>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/app/lagoon-piscines/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/app/lagoon-piscines/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="bg-dark row py-3 text-light">
+            <h2 class="text-center baskerville size-2 p-5">POURQUOI CHOISIR LAGOON&reg; ?</h2>
+
+            <div class="flex align-items-center p-3 left-a">
+                <div class="text-center">
+                    <picture>
+                        <source srcset="photos/accueil/avantages/securite5.webp" type="image/webp" class="w-100 h-auto">
+                        <source srcset="photos/accueil/avantages/securite5.jpg" type="image/jpeg" class="w-100 h-auto">
+                        <img src="photos/accueil/avantages/securite5.jpg" alt="un enfant dans une bouée dans une piscine et sa famille derrière" class="w-100 h-auto">
+                    </picture>
+                </div>
+                <div class="m-5">
+                    <h4 class="baskerville size-3">Sécurité</h4>
+                    <p>
+                        Son design unique en pentes douces permet à vous et votre famille de profiter
+                        des plaisirs de la nage en toute sécurité.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex align-items-center p-3 right-a">
+                <div class="text-center">
+                    <picture>
+                        <source srcset="photos/accueil/avantages/ecologique3.webp" type="image/webp" class="w-100 h-auto">
+                        <source srcset="photos/accueil/avantages/ecologique3.jpg" type="image/jpeg" class="w-100 h-auto">
+                        <img src="photos/accueil/avantages/ecologique3.jpg" alt="une jeune pousse dans un tronc" class="w-100 h-auto">
+                    </picture>
+                </div>
+                <div class="mt-5 mx-5">
+                    <h4 class="baskerville size-3">Naturelle et Ecologique</h4>
+                    <p>
+                        Sans béton, sans plastique, la réalisation de la structure des piscines
+                        LAGOON&reg; ne nécessite pas de travaux de maçonnerie mais utilise des
+                        matériaux respectueux de l’environnement.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex align-items-center p-3 left-a">
+                <div class="text-center">
+                    <picture>
+                        <source srcset="photos/accueil/avantages/sur_mesure2.webp" type="image/webp" class="w-100 h-auto">
+                        <source srcset="photos/accueil/avantages/sur_mesure2.jpg" type="image/jpeg" class="w-100 h-auto">
+                        <img src="photos/accueil/avantages/sur_mesure2.jpg" alt="dessin d'un plan de piscine" class="w-100 h-auto">
+                    </picture>
+                </div>
+                <div class="m-5">
+                    <h4 class="baskerville size-3">Sur mesure</h4>
+                    <p>
+                        La gamme de produit LAGOON&reg; permet un nombre infini de formes de piscines
+                        qui réalise chacune de vos envies et s’adapte parfaitement aux contraintes
+                        de votre terrain.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex align-items-center p-3 right-a">
+                <div class="text-center">
+                    <picture>
+                        <source srcset="photos/accueil/avantages/accompagnement.webp" type="image/webp" class="w-100 h-auto">
+                        <source srcset="photos/accueil/avantages/accompagnement.jpg" type="image/jpeg" class="w-100 h-auto">
+                        <img src="photos/accueil/avantages/accompagnement.jpg" alt="un homme explique à un couple dans un salon leur projet" class="w-100 h-auto">
+                    </picture>
+                </div>
+                <div class="m-5">
+                    <h4 class="baskerville size-3">Accompagnement</h4>
+                    <p>
+                        Notre équipe est à votre écoute et vous accompagne pas à pas dans la conception,
+                        la réalisation mais aussi les démarches administratives associées à votre
+                        projet de A à Z.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row section bg-blue-clear">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-6 col-lg-7 py-5 order-2 order-md-1">
+                    <div class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <picture>
+                                        <source srcset="photos/accueil/projet1.webp" type="image/webp" class="w-100">
+                                        <source srcset="photos/accueil/projet1.jpg" type="image/jpeg" class="w-100">
+                                        <img src="photos/accueil/projet1.jpg" alt="Une piscine lagoon vue du ciel" class="w-100">
+                                    </picture>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <picture>
+                                        <source srcset="photos/accueil/projet2.webp" type="image/webp" class="w-100">
+                                        <source srcset="photos/accueil/projet2.jpg" type="image/jpeg" class="w-100">
+                                        <img src="photos/accueil/projet2.jpg" alt="Un lagoon et la montagne derrière" class="w-100">
+                                    </picture>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <picture>
+                                        <source srcset="photos/accueil/projet3.webp" type="image/webp" class="w-100">
+                                        <source srcset="photos/accueil/projet3.jpg" type="image/jpeg" class="w-100">
+                                        <img src="photos/accueil/projet3.jpg" alt="Un bassin lagoon de rêve avec un fond bleu" class="w-100">
+                                    </picture>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-5 px-5 order-2 order-md-1">
+                    <div class="ps-none ps-md-5">
+                        <h2 class="baskerville size-2">Laissez vous inspirer...</h2>
+                        <p>Découvrez quelques uns de nos plus beaux projets réalisés.</p>
+                        <div class="text-center">
+                            <button
+                                    class="btn btn-yellow"
+                                    onclick="window.location.href='index.php?action=galerie'"
+                            >
+                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                &nbsp;Voir plus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row section">
+            <h2 class="text-center baskerville size-2 py-4">Clients satisfaits</h2>
+
+            <div id="carouselClients" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center" data-bs-interval="5000">
+                        <picture>
+                            <source srcset="photos/accueil/commentaires/carolina.webp" type="image/webp" class="rounded-circle" height="70" width="70">
+                            <source srcset="photos/accueil/commentaires/carolina.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                            <img src="photos/accueil/commentaires/carolina.jpg" alt="Photo de la cliente carolina" class="rounded-circle" height="70" width="70">
+                        </picture>
+                        <p class="w-75 mx-auto">
+                            <em>L'équipe piscine LAGOON&reg; est au top !</em>
+                        </p>
+                        <strong>Carolina<br></strong>
+                        Alpes Maritimes
+                    </div>
+
+                    <div class="carousel-item text-center" data-bs-interval="5000">
+                        <picture>
+                            <source srcset="photos/accueil/commentaires/john.webp" type="image/webp" class="rounded-circle" height="70" width="70">
+                            <source srcset="photos/accueil/commentaires/john.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                            <img src="photos/accueil/commentaires/john.jpg" alt="Photo du client john" class="rounded-circle" height="70" width="70">
+                        </picture>
+                        <p class="w-75 mx-auto">
+                            <em>
+                                Je suis vraiment satisfait par la technologie LAGOON&reg; qui permet
+                                de combiner esthétique et sécurité pour les enfants
+                            </em>
+                        </p>
+                        <strong>
+                            John<br></strong>
+                        Alpes Maritimes
+                    </div>
+
+                    <div class="carousel-item text-center">
+                        <picture>
+                            <source srcset="photos/accueil/commentaires/lisa.webp" type="image/webp" class="rounded-circle" height="70" width="70">
+                            <source srcset="photos/accueil/commentaires/lisa.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                            <img src="photos/accueil/commentaires/lisa.jpg" alt="Photo de la cliente Lisa" class="rounded-circle" height="70" width="70">
+                        </picture>
+                        <p class="w-75 mx-auto">
+                            <em>Mon spa est vraiment une réussite. Le spa ajoute de la valeur à ma
+                                propriété.</em>
+                        </p>
+                        <strong>Lisa</strong>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselClients" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselClients" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row section bg-grey">
+            <div class="row">
+                <div class="col-12 col-md-5 col-lg-6">
+                    <h2 class="baskerville size-2">Ils parlent de nous dans la presse...</h2>
+                </div>
+
+                <div class="col-12 col-md-7 col-lg-6">
+                    <div class="row lead fs-5 pt-4 align-items-center">
+                        <div class="col-6 text-center py-4">
+                            <picture>
+                                <source srcset="photos/accueil/logo_mj2.webp" type="image/webp" width=100 height=46>
+                                <source srcset="photos/accueil/logo_mj2.png" type="image/png" width=100 height=46>
+                                <img src="photos/accueil/logo_mj2.png" alt="logo maison et jardin" width=100 height=46>
+                            </picture>
+                        </div>
+                        <div class="col-6 text-center py-4">
+                            <picture>
+                                <source srcset="photos/accueil/logo_gp2.webp" type="image/webp" width=150 height=22>
+                                <source srcset="photos/accueil/logo_gp2.png" type="image/png" width=150 height=22>
+                                <img src="photos/accueil/logo_gp2.png" alt="logo guide piscine" width=150 height=22>
+                            </picture>
+                        </div>
+
+                        <div class="col-6 text-center py-4">
+                            <picture>
+                                <source srcset="photos/accueil/logo_golf2.webp" type="image/webp" width=100 height=75>
+                                <source srcset="photos/accueil/logo_golf2.png" type="image/png" width=100 height=75>
+                                <img src="photos/accueil/logo_golf2.png" alt="logo golf de biot" width=100 height=75>
+                            </picture>
+                            <br>Golfe de Biot
+                        </div>
+                        <div class="col-6 text-center py-4">
+                            <picture>
+                                <source srcset="photos/accueil/logo_fpp2.webp" type="image/webp" width=100 height=112>
+                                <source srcset="photos/accueil/logo_fpp2.png" type="image/png" width=100 height=112>
+                                <img src="photos/accueil/logo_fpp2.png" alt="logo fpp" width=100 height=112>
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row section big-spacing">
+            <p class="baskerville size-3 pb-5">
+                Un clic et... votre <span class="text-yellow">rêve</span> devient réalité !
+            </p>
+
+            <div class="m-2 text-center">
+                <button
+                        type="button"
+                        class="btn btn-blue spoke"
+                        onclick="window.location.href='index.php?action=projet'"
+                >
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    &nbsp;Je réalise mon rêve
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <?php if(isset($_REQUEST['modal'])) {
+
+	?>
+    <script>alert("Votre demande a bien été envoyée.");</script>
+
+    <?php
+}
+?>
+
+    <script src="./js/splide.js"></script>
+    <script src="splide.min.js"></script>
 {% endblock %}

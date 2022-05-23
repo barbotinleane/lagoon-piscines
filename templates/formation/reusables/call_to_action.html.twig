@@ -1,0 +1,58 @@
+<div class="row section row justify-content-around align-items-center">
+    <div class="col-12 col-md-4">
+        <div class="text-start">
+            <picture>
+                <source srcset="{{ asset('build/images/homme_confiant.webp') }}" type="image/webp" class="">
+                <source srcset="{{ asset('build/images/homme_confiant.jpeg') }}" type="image/jpeg" class="">
+                <img src="{{ asset('build/images/homme_confiant.jpeg') }}" alt="Un homme souriant confiant" class="w-75 img-rounded-left">
+            </picture>
+        </div>
+        <div class="text-end">
+            <img
+                    src="{{ asset('build/images/femme_confiante.jpeg') }}"
+                    alt="Une femme souriant confiante"
+                    class="w-25 img-rounded-right"
+            >
+        </div>
+    </div>
+    <div class="col-12 col-md-8 p-3">
+        <h2 class="text-brand">
+            Prêts à augmenter vos compétences ?
+        </h2>
+        <div>
+            <a
+                    class="btn btn-second btn-lg"
+                    href="{{ path('app_ask') }}"
+            >
+                <i class="fa fa-play" aria-hidden="true"></i>
+                &nbsp;Faites une demande de formation en ligne
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row section d-flex justify-content-around align-items-center">
+    <div class="col-12 col-sm-8 order-2 order-sm-1 pt-4">
+        <h2 class="text-brand">
+            Envie d'en savoir plus ?
+        </h2>
+        <p>
+            Parcourez notre charte de qualité, les conditions de la formation, ou encore le
+            programme de la formation proposée.
+        </p>
+        <div>
+            <button
+                    type="button"
+                    class="btn btn-second btn-lg"
+                    data-bs-toggle="modal"
+                    data-bs-target="#documentation"
+            >
+                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                &nbsp;Voir la documentation
+            </button>
+        </div>
+    </div>
+    <div class="col-12 col-sm-4 order-1 order-sm-2 text-center">
+        <i class="fas fa-file-alt size-big"></i>
+    </div>
+</div>

@@ -1,0 +1,378 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - Formation installation de bassin paysager de type LAGOON&reg;{% endblock %}
+
+{% block body %}
+    <div id="corps" class="mt-5 container-fluid">
+        <div class="row py-5 px-none px-md-4 px-lg-5 titre-formation">
+            <div class="text-title">
+                <h1 class="baskerville size-1">FORMATION</h1>
+                <div class="w-75">
+                    <p>
+                        Vous êtes paysagiste, applicateur indépendant, maçon, chef de chantiers, chef
+                        d'entreprise, carreleur ou encore pisciniste et êtes intéressé par la technologie
+                        LAGOON&reg; ?
+                    </p>
+                    <p>
+                        Devenez installateur LAGOON&reg; et entrez dans un marché en pleine expansion !
+                    </p>
+                </div>
+                <a
+                        class="btn btn-blue btn-lg"
+                        href="{{ path('app_ask') }}"
+                >
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    &nbsp;Faire une demande de formation
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto my-5">
+                <h2 class="text-center baskerville size-2">Votre formation pas à pas</h2>
+                <ul class="timeline-dark">
+                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue1 bg-shape-all">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-5 text-center">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/demande.webp') }}" type="image/webp" class="">
+                                    <source srcset="{{ asset('build/images/demande.jpg') }}" type="image/jpeg" class="">
+                                    <img
+                                            src="{{ asset('build/images/demande.jpg') }}"
+                                            alt="Une personne remplissant un formulaire de demande de formation sur un ordinateur portable"
+                                            class="m-3 m-md-5 w-75"
+                                    >
+                                </picture>
+                            </div>
+                            <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">1</div>
+                            <div class="col-12 col-md-6 px-4 p-md-2 text-center">
+                                <h3 class="baskerville size-3">
+                                    Vous faites une demande de formation en ligne
+                                </h3>
+                                <p>
+                                    En quelques clics, vous effectuez une demande de formation en ligne en
+                                    nous indiquant vos compétences, et les dates auxquelles vous souhaitez
+                                    effectuer votre formation.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item-dark row align-items-center bg-shape-yellow1 bg-shape-all">
+                        <div class="col-12 col-md-5">
+                            <div class="row">
+                                <div class="col-12 w-75 mx-auto">
+                                    <picture>
+                                        <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp" class="">
+                                        <source srcset="{{ asset('build/images/form-1.jpg') }}" type="image/jpeg" class="">
+                                        <img src="{{ asset('build/images/form-1.jpg') }}"
+                                             alt="Un homme apprenant à appliquer de l'enduit ou de la résine sur les bords d'un bassin LAGOON"
+                                             class="mx-3 mx-md-none my-3 w-100">
+                                    </picture>
+                                </div>
+                                <div class="col-12 d-flex align-items-start w-75 mx-auto">
+                                    <picture>
+                                        <source srcset="{{ asset('build/images/form-2.webp') }}" type="image/webp" class="">
+                                        <source srcset="{{ asset('build/images/form-2.jpg') }}" type="image/jpeg" class="">
+                                        <img src="{{ asset('build/images/form-2.jpg') }}" alt="Un homme en formation LAGOON" class="ms-3 me-3 w-75">
+                                    </picture>
+                                    <picture>
+                                        <source srcset="{{ asset('build/images/form-4.webp') }}" type="image/webp" class="">
+                                        <source srcset="{{ asset('build/images/form-4.jpg') }}" type="image/jpeg" class="">
+                                        <img src="{{ asset('build/images/form-4.jpg') }}" alt="Plusieurs personnes à une table écoutant un formateur LAGOON" class="w-100">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">2</div>
+                        <div class="col-12 col-md-6 text-center px-4 px-md-none">
+                            <h2 class="baskerville size-3">
+                                Vous démarrez une formation personnalisée, rapide, pratique et
+                                efficace
+                            </h2>
+                            <p>
+                                Sur une durée maximale de 4 jours dans les conditions réelles d’un
+                                chantier, vous apprendrez aux côtés de formateurs expérimentés :
+                            <ul>
+                                <li>Etanchéité de bassin</li>
+                                <li>Aménagement paysager</li>
+                                <li>Hydraulique</li>
+                                <li>Application d’enduit ou de résine décorative</li>
+                                <li>
+                                    Maitrise des outils professionnels pour obtenir un résultat
+                                    de qualité
+                                </li>
+                                <li>
+                                    Les gestes et postures de sécurité pour des réalisations en
+                                    toute sécurité
+                                </li>
+                            </ul>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue2 bg-shape-all">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-5 text-center">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/attestation.webp') }}" type="image/webp" class="">
+                                    <source srcset="{{ asset('build/images/attestation.jpg') }}" type="image/jpeg" class="">
+                                    <img src="{{ asset('build/images/attestation.jpg') }}" alt="Une personne donne une attestation à une autre personne" class="m-3 m-md-5 w-75">
+                                </picture>
+                            </div>
+                            <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">3</div>
+                            <div class="col-12 col-md-6 py-none py-sm-2 px-3 text-center px-4 px-md-none">
+                                <h3 class="baskerville size-3">
+                                    Vous obtenez une attestation de formation professionnelle
+                                </h3>
+                                <p>
+                                    Cette formation est sanctionnée par une attestation de formation valable
+                                    2 ans.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item-dark d-flex align-items-center bg-shape-yellow2 bg-shape-all">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-5 text-center">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/partenariat.webp') }}" type="image/webp" class="">
+                                    <source srcset="{{ asset('build/images/partenariat.jpg') }}" type="image/jpeg" class="">
+                                    <img src="{{ asset('build/images/partenariat.jpg') }}" alt="Poignée de main" class="m-3 m-md-5 w-75">
+                                </picture>
+                            </div>
+                            <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">4</div>
+                            <div class="col-12 col-md-6 py-none py-sm-2 px-3 text-center px-4 px-md-none">
+                                <h3 class="baskerville size-3">
+                                    Un partenariat sur la durée
+                                </h3>
+                                <p>
+                                    Après votre formation, vous ne serez pas livrés à vous-mêmes ! Si vous le désirez,
+                                    vous pourrez faire partie du réseau des installateurs LAGOON&reg;.
+                                    <span
+                                            class="tt"
+                                            data-bs-placement="top"
+                                            title="Pour faire partie du réseau des installateurs LAGOON&reg;, vous devez avoir constitué une équipe de 2 personnes formées et ayant réussi l'examen de fin de formation. De plus, vous devez avoir réussi le contrôle qualité de votre premier chantier. Ce partenariat est renouvelable tous les deux ans."
+                                    >
+									<a href="#partenariat"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+								</span><br>
+                                    Vous pourrez alors bénéficier :
+                                <ul><li>de prix préférentiels</li>
+                                    <li>d’une assistance commerciale pour créer votre clientèle</li>
+                                    <li>
+                                        d'une assistance technique qui vous suivra dans la réalisation de vos chantiers
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row section big-spacing bg-blue">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-sm-2 pb-2 text-center">
+                    <i class="fa fa-university size-big" aria-hidden="true"></i>
+                </div>
+                <div class="col-12 col-sm-10 ps-none ps-sm-5">
+                    <h2 class="baskerville size-2">
+                        Notre formation peut être financée en tout ou partie par l’état
+                    </h2>
+                    <p>
+                        N'hésitez pas à contacter votre organisme collecteur qui vous aidera pour son
+                        financement (<a href="https://www.fifpl.fr/" target="_blank" class="text-darkblue">
+                            FIFPL</a>, <a href="https://www.ocapiat.fr/" target="_blank" class="text-darkblue">
+                            OCAPIAT</a>, <a href="https://www.fafcea.com/" target="_blank" class="text-darkblue">
+                            FAFCEA</a>, <a href="https://communication-agefice.fr/" target="_blank" class="text-darkblue">
+                            AGEFICE</a>...).
+                    </p>
+                    <div class="w-adaptative mx-auto bg-blue d-flex justify-content-around">
+                        <picture>
+                            <source srcset="{{ asset('build/images/datadock.webp') }}" type="image/webp" class="img-size">
+                            <source srcset="{{ asset('build/images/datadock.png') }}" type="image/png" class="img-size">
+                            <img src="{{ asset('build/images/datadock.png') }}" alt="Datadock LAGOON" class="img-size">
+                        </picture>
+                        <div class="d-flex align-items-center">
+                            <picture>
+                                <source srcset="{{ asset('build/images/qualiopi.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/qualiopi.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/qualiopi.png') }}" alt="Qualiopi LAGOON" class="img-size">
+                            </picture>
+                            <a
+                                    href="https://certificats-attestations.afnor.org/certification=128289183752"
+                                    target="_blank"
+                            >
+                                <picture>
+                                    <source srcset="{{ asset('build/images/qr.webp') }}" type="image/webp" class="img-size">
+                                    <source srcset="{{ asset('build/images/qr.png') }}" type="image/png" class="img-size">
+                                    <img src="{{ asset('build/images/qr.png') }}" alt="Qualiopi QR code LAGOON" class="img-size">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row section big-spacing bg-light">
+            <div class="row">
+                <h2 class="text-center baskerville size-2 mb-5">Nos partenaires sont satisfaits</h2>
+
+                <div class="col-12 col-sm-4 text-center">
+                    <div class="baskerville size-1">
+                        85%
+                    </div>
+                    Taux d'agrément entreprise
+                </div>
+
+                <div class="col-12 col-sm-4 text-center">
+                    <div class="baskerville size-1">
+                        100%
+                    </div>
+                    Taux de réussite individuelle
+                </div>
+
+                <div class="col-12 col-sm-4 text-center">
+                    <div class="baskerville size-1">
+                        95%
+                    </div>
+                    Taux de satisfaction
+                </div>
+            </div>
+        </div>
+
+        <div class="row section bg-dark text-light">
+            <h2 class="text-center thin">Des commentaires</h2>
+
+            <div id="carouselClients" class="carousel carousel-light slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center mt-4" data-bs-interval="5000">
+                        <p class="w-75 mx-auto">
+                            <em>
+                                Top ! L'équilibre temps de théorie et de pratique était très bien. De plus,
+                                les formateurs savent très bien se mobiliser et s'adapter aux participants.
+                            </em>
+                        </p>
+
+                        <p class="w-75 mx-auto">
+                            <strong>Christophe<br></strong>
+                            Paris
+                        </p>
+                    </div>
+
+                    <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                        <p class="w-75 mx-auto">
+                            <em>Merci pour tout, super équipe, formateurs au top !</em>
+                        </p>
+                        <strong>Florian<br></strong>
+                        Alsace
+                    </div>
+
+                    <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                        <p class="w-75 mx-auto">
+                            <em>
+                                Parfaits formateurs ! Les supports pédagogiques sont suffisants et clairs,
+                                utilisables et exploitables pour la suite
+                            </em>
+                        </p>
+
+                        <p class="w-75 mx-auto">
+                            <strong>Ludovic<br></strong>
+                            Salon de Provence
+                        </p>
+                    </div>
+
+                    <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                        <p class="w-75 mx-auto">
+                            <em>
+                                Un grand merci à toute l'équipe ! J'ai kiffé grave.
+                            </em>
+                        </p>
+
+                        <p class="w-75 mx-auto">
+                            <strong>Lancelot<br></strong>
+                            Alsace
+                        </p>
+                    </div>
+                </div>
+
+                <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselClients"
+                        data-bs-slide="prev"
+                >
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselClients"
+                        data-bs-slide="next"
+                >
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="row section big-spacing row justify-content-around align-items-center">
+            <div class="col-12 col-sm-4">
+                <picture>
+                    <source srcset="{{ asset('build/images/demarrer_metier.webp') }}" type="image/webp" class="w-100">
+                    <source srcset="{{ asset('build/images/demarrer_metier.jpg') }}" type="image/jpeg" class="w-100">
+                    <img src="{{ asset('build/images/demarrer_metier.jpg') }}" alt="Trois personnes démarrant leur équipe et ayant été formées par LAGOON" class="w-100">
+                </picture>
+            </div>
+            <div class="col-12 col-sm-8">
+                <h2 class="baskerville size-2">
+                    Prêts à démarrer votre nouveau métier ?
+                </h2
+                <div class="text-center">
+                    <a
+                            type="button"
+                            class="btn btn-blue btn-lg"
+                            href="{{ path('app_ask') }}"
+                    >
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        &nbsp;Faites une demande de formation en ligne
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row section d-flex justify-content-around align-items-center">
+            <div class="col-12 col-sm-8 order-2 order-sm-1 pt-4">
+                <h2 class="baskerville size-3">
+                    Envie d'en savoir plus ?
+                </h2>
+                <p>
+                    Parcourez notre charte de qualité, les conditions de la formation, ou encore le
+                    programme de la formation proposée.
+                </p>
+                <div>
+                    <button
+                            type="button"
+                            class="btn btn-dark btn-lg"
+                            data-bs-toggle="modal"
+                            data-bs-target="#documentation"
+                            style="background-color:#212529; color:white"
+                    >
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        &nbsp;Voir la documentation
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4 order-1 order-sm-2 text-center">
+                <i class="fas fa-file-alt size-big"></i>
+            </div>
+        </div>
+    </div>
+    {% include 'formation/reusables/documentation.html.twig' %}
+
+{% endblock %}

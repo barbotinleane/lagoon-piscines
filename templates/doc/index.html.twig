@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ name }}</title>
+        <link rel="shortcut icon" href="photos/favicon.ico" type="image/x-icon">
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="https://kit.fontawesome.com/43f9248d84.js" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+
+    <body class="vh-100">
+        <div id="corps" class="container-fluid w-100 h-100">
+            <iframe src="{{ asset('build/pdf/'~fileName~'.pdf') }}" width="100%" height="100%"> </iframe>
+        </div>
+    </body>
+</html>

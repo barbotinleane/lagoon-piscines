@@ -63,6 +63,11 @@ Encore
         to: 'images/[path][name].[hash:8].[ext]',
     })
 
+    .copyFiles({
+        from: './assets/pdf',
+        to: 'pdf/[path][name].[hash:8].[ext]',
+    })
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
@@ -74,7 +79,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

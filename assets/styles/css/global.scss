@@ -141,16 +141,16 @@
 {
   background-image: url("../../photos/fond_bleu_2.png");
   background-repeat: no-repeat;
-  background-position:right;
-  background-size:auto 100%;
+  background-position: right;
+  background-size: auto 100%;
 }
 
 .bg-shape-yellow2
 {
   background-image: url("../../photos/fond_jaune_2.png");
   background-repeat: no-repeat;
-  background-position:right;
-  background-size:auto 100%;
+  background-position: right;
+  background-size: auto 100%;
 }
 
 .bg-shape-all
@@ -159,6 +159,10 @@
 }
 
 
+/*List styles : */
+.decoration-none {
+  list-style-type: none;
+}
 
 
 /*Image treatment : */
@@ -171,34 +175,34 @@ img {
 /*Links for the website: */
 a
 {
-  color:#5ebfce;
-  text-decoration:none;
+  color: #5ebfce;
+  text-decoration: none;
 }
 
 a:hover
 {
-  color:grey;
+  color: grey;
 }
 
 .blank-link
 {
-  color:white;
-  text-decoration:none;
+  color: white;
+  text-decoration: none;
 }
 
 .blank-link:hover
 {
-  color:#5ebfce;
+  color: #5ebfce;
 }
 
 .dark-link
 {
-  color:#212529;
+  color: #212529;
 }
 
 .dark-link:hover
 {
-  color:#5ebfce;
+  color: #5ebfce;
 }
 
 
@@ -219,11 +223,6 @@ a:hover
 
 
 /*For forms: */
-label
-{
-  margin-top:12px!important;
-}
-
 .form-icon {
   position: relative;
   top: -9px;
@@ -232,7 +231,62 @@ label
 }
 
 .mt-none {
-  margin-top:0px!important;
+  margin-top: 0px!important;
+}
+
+.buttons-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-weight: bold;
+
+  input[type="radio"]{
+    display: none;
+  }
+
+  .form-check {
+    margin: 3px;
+    padding-left: 0px;
+  }
+
+  .form-check-label {
+    height: 100%;
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 0px 8px;
+    border: 1px solid black;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  input[type="radio"]:checked:checked+label {
+    background-color: black;
+    color: white;
+  }
+}
+
+.alert-success-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 100px;
+  margin-left: -150px;
+  margin-top: -50px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 100px 400px;
 }
 
 

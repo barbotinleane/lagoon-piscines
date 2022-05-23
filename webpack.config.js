@@ -56,7 +56,12 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
+
+    .copyFiles({
+        from: './assets/photos',
+        to: 'images/[path][name].[hash:8].[ext]',
+    })
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

@@ -1,0 +1,334 @@
+@import "~bootstrap/scss/bootstrap";
+
+/*Fonts : */
+
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../fonts/LibreBaskerville-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Philosopher';
+  src: url('../fonts/Philosopher-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TheGirlNextDoor';
+  src: url('../fonts/TheGirlNextDoor-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+
+/*Boxes with paddings and margins : */
+.no-padding {
+  padding-left:0px;
+  padding-right:0px;
+}
+
+/*Sizes :*/
+.size-4 {
+  font-size:1.1em;
+}
+
+
+/*Colors : */
+.text-blue {
+  color:#5ebfce;
+}
+
+.text-darkblue {
+  color:#546e72;
+}
+
+.text-yellow {
+  color:#FFD454;
+}
+
+
+
+/*Fonts : */
+.philosopher
+{
+  font-family: 'Philosopher', serif;
+}
+
+.baskerville
+{
+  font-family: 'Baskerville', serif;
+}
+
+.the-girl-next-door
+{
+  font-family: 'TheGirlNextDoor', serif;
+}
+
+
+
+
+/*Buttons : */
+.btn-blue
+{
+  background-color:#3cb1c3;
+  color:white
+}
+
+.btn-yellow {
+  background-color:#FFD454;
+  border-color: #FFD454;
+}
+
+.btn-yellow:hover {
+  background-color:#FFDC7A;
+  border-color:#FFDC7A;
+}
+
+
+
+/*Backgrounds : */
+.bg-grey
+{
+  background-color:#F2f2f2;
+}
+
+.bg-clear {
+  background-color: rgba(255,255,255,0.684939306777398462);
+}
+
+.bg-yellow {
+  background-color:#FFD454;
+}
+
+.bg-yellow-clear {
+  background-color:rgba(253,223,133,0.66);
+}
+
+.bg-blue {
+  background-color:#5ebfce;
+}
+
+.bg-form-blue {
+  background-color:rgba(140, 208, 218, 0.65);
+}
+
+.bg-blue-clear {
+  background-color:#e3f5f7;
+}
+
+.bg-shape-blue1
+{
+  background-image: url("../../photos/fond_bleu.png");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size:auto 100%;
+}
+
+.bg-shape-yellow1
+{
+  background-image: url("../../photos/fond_jaune.png");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size:auto 100%;
+}
+
+.bg-shape-blue2
+{
+  background-image: url("../../photos/fond_bleu_2.png");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size:auto 100%;
+}
+
+.bg-shape-yellow2
+{
+  background-image: url("../../photos/fond_jaune_2.png");
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size:auto 100%;
+}
+
+.bg-shape-all
+{
+  background-size: 98% 89%;
+}
+
+
+
+
+/*Image treatment : */
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+
+
+/*Links for the website: */
+a
+{
+  color:#5ebfce;
+  text-decoration:none;
+}
+
+a:hover
+{
+  color:grey;
+}
+
+.blank-link
+{
+  color:white;
+  text-decoration:none;
+}
+
+.blank-link:hover
+{
+  color:#5ebfce;
+}
+
+.dark-link
+{
+  color:#212529;
+}
+
+.dark-link:hover
+{
+  color:#5ebfce;
+}
+
+
+
+/*Adding yellow spokes to a block: */
+.spoke:after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 80px;
+  background-image: url("../../photos/rayons.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: -50px;
+  margin-left: 10px;
+}
+
+
+
+/*For forms: */
+label
+{
+  margin-top:12px!important;
+}
+
+.form-icon {
+  position: relative;
+  top: -9px;
+  right: -28px;
+  font-size: 5em;
+}
+
+.mt-none {
+  margin-top:0px!important;
+}
+
+
+
+
+/*Timeline : */
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+
+ul.timeline:before {
+  content: ' ';
+  background: #ffffff;
+  display: inline-block;
+  position: absolute;
+  left: 16px;
+  width: 4px;
+  height: 100%;
+  z-index: 400;
+  border-radius: 0.8rem;
+}
+
+li.timeline-item {
+  margin: 20px 0;
+}
+
+
+li.timeline-item::before {
+  content: ' ';
+  background: #ffffff;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
+
+
+
+/*Timeline : */
+ul.timeline-dark {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+
+ul.timeline-dark:before {
+  content: ' ';
+  background: #000000;
+  display: inline-block;
+  position: absolute;
+  left: 16px;
+  width: 4px;
+  height: 100%;
+  z-index: 400;
+  border-radius: 0.8rem;
+}
+
+li.timeline-item-dark {
+  margin: 20px 0;
+}
+
+
+li.timeline-item-dark::before {
+  content: ' ';
+  background: #000000;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
+
+
+
+
+/*For nous.php*/
+.bg-contact {
+  background-image:url(../../photos/fond-jaune.png);
+  background-repeat:no-repeat;
+  background-position:bottom;
+  background-size:cover;
+  height:600px;
+}
+
+.splide__slide {
+  opacity:0.5;
+  margin:auto 0px;
+}
+
+.splide__slide.is-active {
+  opacity:1;
+}
+

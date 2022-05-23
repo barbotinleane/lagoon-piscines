@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -14,6 +15,90 @@
         {% endblock %}
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top baskerville bg-white p-0">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ path('app_home') }}">
+                        <img src="{{ asset('build/images/logo.png') }}" alt="Logo de Lagoon Piscines" height="40" width="130">
+                    </a>
+
+                    <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
+                        <div class="nav navbar-nav pull-right">
+                            <a class="nav-link active" aria-current="page" href="index.php?action=accueil">
+                                Accueil
+                            </a>
+                            <a class="nav-link" href="">Le concept</a>
+                            <a class="nav-link" href="">Votre projet</a>
+                            <a class="nav-link" href="">Formation</a>
+                            <a class="nav-link" href="">A propos de nous</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
+        <footer class="bg-dark text-light pad">
+            <div class="row py-5">
+                <div class="col-5">
+                    <ul style="list-style:none">
+                        <li><a
+                                    href="https://www.iubenda.com/privacy-policy/77195636"
+                                    class="iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe blank-link"
+                                    title="Politique de confidentialité"
+                            >
+                                Politique de confidentialité
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                    href="https://www.iubenda.com/privacy-policy/77195636/cookie-policy"
+                                    class="iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe blank-link"
+                                    title="Politique relative aux cookies "
+                            >
+                                Politique relative aux cookies
+                            </a>
+                        </li>
+                        <li><a href="" class="blank-link">Demande de devis</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-5">
+                    <ul style="list-style:none">
+                        <li><a href="" class="blank-link">Qui sommes nous ?</a></li>
+                        <li>
+                            <a href="" class="blank-link">
+                                Votre projet piscine LAGOON&reg; pas-à-pas expliqué
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-2">
+                    <a href="https://www.facebook.com/lagoonpiscinesetspa" class="blank-link" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true" style="font-size:2em"></i>
+                    </a>&ensp;
+                    <a href="https://www.instagram.com/lagoonpiscines/" class="blank-link" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true" style="font-size:2em"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <i class="fa fa-copyright" aria-hidden="true"></i>
+                &nbsp;Copyright 2021 LAGOON&reg; DISTRIBUTION CORPORATION
+            </div>
+        </footer>
     </body>
 </html>

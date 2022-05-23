@@ -179,7 +179,7 @@ $(function() {
 
 		const removeFormButton = document.createElement('button');
 		removeFormButton.classList.add("btn");
-		removeFormButton.classList.add("btn-warning");
+		removeFormButton.classList.add("btn-danger");
 		removeFormButton.innerHTML = '<i class="fas fa-user-minus"></i>&nbsp;Supprimer ce stagiaire';
 
 		container.appendChild(removeFormButton);
@@ -193,18 +193,14 @@ $(function() {
 
 	const addStagiaireToCollection = (e) => {
 		const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
-
-		/*const container = document.createElement('div');
-        container.classList.add("col-12");
-        container.classList.add("col-sm-6");*/
+		collectionHolder.classList.add("decoration-none");
+		collectionHolder.classList.add("px-1");
 
 		const item = document.createElement('li');
-		item.classList.add("bg-brand-dark");
-		item.classList.add("text-light");
+		item.classList.add("bg-blue");
 		item.classList.add("shadow-lg");
 		item.classList.add("p-4");
 		item.classList.add("m-2");
-
 
 		item.innerHTML = '<h4 class="text-center">STAGIAIRE</h4>';
 

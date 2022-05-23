@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - A Propos de Nous{% endblock %}
+{% block description %}Apprenez à mieux connaître l'équipe LAGOON&reg;, notre centre de formation et notre histoire.{% endblock description %}
+
+{% block body %}
+    <div id="corps" class="mt-5 container-fluid">
+        <div class="row py-5 px-none px-md-4 px-lg-5">
+            <h1 class="baskerville size-1">A PROPOS DE NOUS</h1>
+            <div>
+                <p>
+                    Apprenez un peu plus à nous connaître en découvrant notre histoire et notre équipe. <br>
+                    Vous souhaitez prendre contact avec nous ? N'hésitez plus, cliquez sur le bouton ci-dessous.
+                </p>
+                <a class="btn btn-blue btn-lg" href="#contact">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    &nbsp;Nous contacter
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row section bg-blue-clear">
+            <h2 class="text-center baskerville size-2">Notre histoire</h2>
+            <div class="row my-4">
+                <div class="col-12 col-md-8">
+                    <p>
+                        Tout commence en 2019, lorsque les trois associés de la LAGOON&reg; Distribution Corporation
+                        décident d’unir leurs compétences pour répondre aux besoins de la nouvelle génération de propriétaires
+                        de maisons et jardins. Ils créent en 2020 la LAGOON&reg; DISTRIBUTION CORPORATION S.A.S.
+                    </p>
+
+                    <p>
+                        Dans un objectif de partage de ce savoir-faire breveté dont nous sommes les
+                        exploitants exclusifs en France et dans d’autres pays, le
+                        <a href="{{ path('app_formation') }}" class="text-darkblue">centre de formation
+                            professionnelle</a> voit ensuite le jour.
+                    </p>
+
+                    <p>
+                        Aujourd’hui, LAGOON&reg; DISTRIBUTION CORPORATION est adhérente à la
+                        <a href="https://www.propiscines.fr/" class="text-darkblue">FPP</a>. Expert
+                        dans la construction et le Développement Durable, nous nous engageons aux plus
+                        hautes normes de qualité. LAGOON&reg; est une marque déposée.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <img src="{{ asset('build/images/histoire.jpg') }}" alt="Une cascade au bord d'un bassin Lagoon" style="width:100%">
+                </div>
+            </div>
+        </div>
+
+        <div class="row section bg-contact" id="contact">
+            <h2 class="text-center baskerville size-2">Nous contacter</h2>
+
+            <p class="">
+                <em>Nous contacter ne vous engage à rien. Notre équipe sera heureuse de répondre à vos
+                    questions !</em>
+            </p>
+
+            <div class="">
+                <div class="d-flex align-items-center m-4">
+                    <i class="fa fa-map-marker text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
+                    <p class="ms-4 fw-bold">
+                        633 route de Nice, Antibes 06600, France
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center m-4">
+                    <i class="fa fa-phone text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
+                    <p class="ms-4 fw-bold">
+                        <a href="tel:0953837665" title="Cliquez pour nous appeler" class="dark-link">
+                            +33 9 53 83 76 65
+                        </a>
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center m-4">
+                    <i class="fa fa-envelope-o text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
+                    <p class="ms-4 fw-bold">
+                        <a
+                                href="mailto:contact@lagoon-piscines.com"
+                                title="Cliquez pour nous envoyer un email"
+                                class="dark-link"
+                        >
+                            contact@lagoon-piscines.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

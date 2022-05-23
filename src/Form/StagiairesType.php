@@ -22,22 +22,62 @@ class StagiairesType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, [
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label'
+                ]
             ])
             ->add('lastName', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label'
+                ]
             ])
             ->add('email', TextType::class, [
-                'label' => 'Email'
+                'label' => 'Email',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label'
+                ]
             ])
             ->add('phoneNumber', NumberType::class, [
-                'label' => 'Numéro de Téléphone'
+                'label' => 'Numéro de Téléphone',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label'
+                ]
             ])
             ->add('currentJob', TextType::class, [
-                'label' => 'Poste occupé et depuis combien de temps'
+                'label' => 'Poste occupé et depuis combien de temps',
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'label_attr' => [
+                    'class' => 'form-label'
+                ]
             ])
             ->add('handicap', CheckboxType::class, [
+                'attr' => [
+                    'value' => 'null',
+                    'class' => 'form-check-input ps-2 pe-1 me-1'
+                ],
+                'row_attr' => [
+                    'class' => 'd-flex flex-row-reverse my-3'
+                ],
                 'label' => 'Stagiaire en situation de handicap, je souhaite que vous étudiiez les solutions possibles pour qu\'il accède à cette formation.',
+                'label_attr' => [
+                    'class' => 'form-check-label'
+                ],
                 'required' => false,
             ])
         ;

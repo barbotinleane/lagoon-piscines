@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - Constructeur de piscines naturelles et écologiques basé sur la Côte d'Azur{% endblock %}
+{% block description %}Erreur 404{% endblock description %}
+
+{% block body %}
+<div id="corps" class="container mt-5 px-5 pb-5 pt-3 text-center profondeur">
+    <h1 class="text-center mt-5 baskerville size-big">404</h1>
+
+    <p>
+        Oups ! Vous vous êtes perdus dans les profondeurs d'un LAGOON&reg; !
+        La page que vous recherchez semble introuvable
+    </p>
+
+    <p>
+        Non non, vous pouvez toujours chercher, il n'y a pas encore de coraux à observer dans les fonds...
+    </p>
+
+    <p class="baskerville size-3">
+        Alors... on remonte à la surface ?
+    </p>
+
+    <div class="text-center">
+        <a class="btn btn-outline-dark" href="{{ path('app_home') }}">
+            <i class="fas fa-arrow-right"></i>
+            &nbsp;Retour à la page d'accueil
+        </a>
+    </div>
+</div>
+{% endblock %}

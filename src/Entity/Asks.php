@@ -87,9 +87,10 @@ class Asks
     #[ORM\ManyToMany(targetEntity: Stagiaires::class, inversedBy: 'asks', cascade: ['persist'])]
     private $stagiaires;
 
-    public function __construct()
+    public function __construct($formationLibelle)
     {
         $this->stagiaires = new ArrayCollection();
+        $this->setFormationLibelle($formationLibelle);
     }
 
     public function getId(): ?int

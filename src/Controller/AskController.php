@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Asks;
 use App\Form\AsksType;
 use App\Repository\DepartmentsRepository;
+use App\Repository\FormationLibellesRepository;
 use App\Service\AskSaver;
 use App\Service\CustomMailer;
 use Doctrine\ORM\EntityManagerInterface;
@@ -34,9 +35,10 @@ class AskController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     #[Route('/demande-de-formation', name: 'app_ask')]
-    public function ask(EntityManagerInterface $entityManager, Request $request, DepartmentsRepository $departmentsRepository, CustomMailer $mailer, AskSaver $askSaver)
+    public function ask(EntityManagerInterface $entityManager, Request $request, FormationLibellesRepository $formationLibellesRepository, DepartmentsRepository $departmentsRepository, CustomMailer $mailer, AskSaver $askSaver)
     {
-        $ask = new Asks();
+        $formation = $formationLibellesRepository->find(1);
+        $ask = new Asks($formation);
         $departments = $departmentsRepository->findAll();
         $form = $this->createForm(AsksType::class, $ask, ['departments' => $departments]);
         $form->handleRequest($request);
@@ -50,6 +52,7 @@ class AskController extends AbstractController
                         $entityManager->persist($stagiaire);
                     }
                 }
+                $ask->setFormationLibelle($formation);
                 $entityManager->persist($ask);
                 $entityManager->flush();
 

@@ -17,6 +17,17 @@ class HomeController extends AbstractController
     #[Route('/a-propos-de-nous', name: 'app_about_us')]
     public function aboutUs(): Response
     {
-        return $this->render('home/index.html.twig', []);
+        return $this->render('home/aboutUs.html.twig', []);
+    }
+
+    /***
+     * Called when an error 404 is returned
+     *
+     * @return Response
+     */
+    #[Route('/404', name: 'app_404_error')]
+    public function error()
+    {
+        return $this->render('home/404.html.twig');
     }
 }

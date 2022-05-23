@@ -85,15 +85,6 @@ class AsksType extends AbstractType
                 'label' => 'Quel est votre objectif :',
                 'expanded' => true
             ])
-            ->add('formationLibelle', TextType::class, [
-                'attr' => [
-                    'class' => 'd-none',
-                    'value' => '1',
-                ],
-                'row_attr' => [
-                    'class' => 'd-none'
-                ],
-            ])
             ->add('formationSession', EntityType::class, [
                 'class' => FormationSessions::class,
                 'query_builder' => function (FormationSessionsRepository $fsr) {
@@ -302,6 +293,7 @@ class AsksType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Asks::class,
             'departments' => null,
+            'formation' => null,
         ]);
     }
 }

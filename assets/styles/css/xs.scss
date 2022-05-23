@@ -1,0 +1,322 @@
+/* xs */
+
+/*Sizes :*/
+.size-big {
+  font-size:6em;
+}
+
+.size-1
+{
+  font-size:2.7em;
+}
+
+.size-2
+{
+  font-size:1.8em;
+}
+
+.size-3
+{
+  font-size:1.5em;
+}
+
+
+/*responsive classes*/
+.w-adaptative {
+  width:100%;
+}
+
+.img-size {
+  height:60px;
+}
+
+/*specific classes : */
+.title-responsive {
+  margin: -25px auto;
+  position: relative;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgb(255, 255, 255) 96%, rgba(255,255,255,0) 100%);
+  height: auto;
+  width: 100%;
+  text-align: center;
+  border-radius: 0%;
+  padding: 25px 0px 60px;
+}
+
+.titre-intro
+{
+  padding-left: 30px;
+  padding-right:30px;
+}
+
+.text-intro
+{
+  padding-left: 50px;
+  padding-right:50px;
+}
+
+.btn-intro {
+  margin-left: 90px;
+  margin-right: 90px;
+  font-size: 0.4em;
+}
+
+.img-fond {
+  margin-top:70px;
+}
+
+.titre
+{
+  background-image: url(../../photos/photo-projet-petit.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center top;
+  color:rgba(255,255,255,0);
+  margin-top:70px;
+}
+
+.section {
+  padding-top:50px;
+  padding-bottom:50px;
+  padding-right: 10px;
+  padding-left:10px;
+}
+
+.big-spacing {
+  padding-top:70px;
+  padding-bottom:70px;
+  padding-right: 20px;
+  padding-left:20px;
+}
+
+.pad {
+  padding:0px 20px;
+}
+
+/*for concept*/
+
+.titre-concept
+{
+  background-image: url(../../photos/concept.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center top;
+  color:rgba(255,255,255,0);
+  margin-top:70px;
+}
+
+.text-video {
+  padding: 30px 20px;
+}
+
+.bg-video {
+  background-image: url(../../photos/schema.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 95vw auto;
+  height: 500px;
+}
+
+.etapes {
+  margin:auto;
+  width:100%;
+}
+
+/*for timeline*/
+.overlay-picture {
+  position: relative;
+  margin-left: 0px;
+  margin-top:-60px;
+}
+
+.overlay-picture-right {
+  position: relative;
+  margin-right: 0px;
+  margin-top:-60px;
+}
+
+/*for formation*/
+
+.titre-formation
+{
+  background-image: url(../../photos/formation.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center top;
+  color:rgba(255,255,255,0);
+  margin-top:70px;
+}
+
+.text-title
+{
+  background: linear-gradient(90deg, rgba(255,255,255,0.9220063025210083) 6%, rgba(255,255,255,0.3897934173669467) 70%);
+  margin-top: 230px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #212529;
+  padding: 5px 15px 15px 15px;
+  width: 98%;
+}
+
+.left-a
+{
+  width:100%;
+  background-color:#212529;
+  color:white;
+  padding:5px 5px;
+}
+
+.right-a
+{
+  width:100%;
+  background-color:#5ebfce;
+  color:white;
+  padding:5px 5px;
+}
+
+.plus
+{
+  padding-bottom: 13px;
+  border-bottom:1px solid #212529;
+}
+
+.bg-formation-video {
+  background-image: url(../../photos/travailleurs.jpeg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 95vw auto;
+  height: 450px;
+  font-size: 1.3em;
+}
+
+.text-formation
+{
+  margin-top:-380px;
+  z-index:3;
+  padding-top:395px;
+}
+
+/*for gallery*/
+.gallery-title
+{
+  background-image: url(../../photos/couple_piscine_petit.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center top;
+  color:rgba(255,255,255,0);
+  margin-top:70px;
+}
+
+.carousel-comment {
+  position:relative;
+  margin-top:-20px;
+  padding:20px;
+  text-align: center;
+  background-color:rgba(33,37,41,0.49082109210872);
+}
+
+/*for 404*/
+
+.profondeur
+{
+  background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 40%),
+  no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  font-size:0.8em;
+}
+
+
+
+@media (min-width: 400px) {
+  .text-video {
+    padding: 30px 20px;
+  }
+
+  .bg-video {
+    background-image: url(../../photos/schema.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 95vw auto;
+    height: 550px;
+  }
+
+  .profondeur
+  {
+    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 65%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+
+  .bg-formation-video {
+    background-image: url(../../photos/travailleurs.jpeg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 95vw auto;
+    height: 500px;
+    font-size: 1.3em;
+  }
+}
+
+@media (min-width: 450px) {
+
+
+  .text-video {
+    padding: 30px 20px;
+  }
+
+  .bg-video {
+    background-image: url(../../photos/schema.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 95vw auto;
+    height: 500px;
+  }
+
+  .profondeur
+  {
+    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 70%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+
+  .bg-formation-video {
+    background-image: url(../../photos/travailleurs.jpeg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 95vw auto;
+    height: 450px;
+    font-size: 1.3em;
+  }
+}
+
+@media (min-width: 510px) {
+  .size-big {
+    font-size:7em;
+  }
+
+  .text-video {
+    padding: 30px 20px;
+  }
+
+  .bg-video {
+    background-image: url(../../photos/schema.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 95vw auto;
+    height: 600px;
+  }
+
+  .profondeur
+  {
+    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 70%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+
+  .bg-formation-video {
+    background-image: url(../../photos/travailleurs.jpeg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 95vw auto;
+    height: 550px;
+    font-size: 1.3em;
+  }
+}
+
+

@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
+        "@splidejs/splide": "^4.0.2",
         "bootstrap": "^5.1.3"
     }
 }

@@ -27,10 +27,10 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
 
             <div id="image_fond" class="col-12 g-0 order-1 order-md-2 img-fond">
                 <picture>
-                    <source srcset="photos/accueil/reve.webp" type="image/webp" class="rounded-circle" height="70" width="70">
-                    <source srcset="photos/accueil/reve.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                    <source srcset="{{ asset('build/images/reve.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
+                    <source srcset="{{ asset('build/images/reve.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
                     <img
-                            src="photos/accueil/reve.jpg"
+                            src="{{ asset('build/images/reve.jpg') }}"
                             alt="un couple devant un coucher de soleil au bord d'une piscine"
                             class="w-100 h-auto text-center"
                     >
@@ -44,9 +44,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             <div class="flex align-items-center p-3 left-a">
                 <div class="text-center">
                     <picture>
-                        <source srcset="photos/accueil/avantages/securite5.webp" type="image/webp" class="w-100 h-auto">
-                        <source srcset="photos/accueil/avantages/securite5.jpg" type="image/jpeg" class="w-100 h-auto">
-                        <img src="photos/accueil/avantages/securite5.jpg" alt="un enfant dans une bouée dans une piscine et sa famille derrière" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/securite5.webp') }}" type="image/webp" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/securite5.jpg') }}" type="image/jpeg" class="w-100 h-auto">
+                        <img src="{{ asset('build/images/securite5.jpg') }}" alt="un enfant dans une bouée dans une piscine et sa famille derrière" class="w-100 h-auto">
                     </picture>
                 </div>
                 <div class="m-5">
@@ -61,9 +61,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             <div class="flex align-items-center p-3 right-a">
                 <div class="text-center">
                     <picture>
-                        <source srcset="photos/accueil/avantages/ecologique3.webp" type="image/webp" class="w-100 h-auto">
-                        <source srcset="photos/accueil/avantages/ecologique3.jpg" type="image/jpeg" class="w-100 h-auto">
-                        <img src="photos/accueil/avantages/ecologique3.jpg" alt="une jeune pousse dans un tronc" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/ecologique3.webp') }}" type="image/webp" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/ecologique3.jpg') }}" type="image/jpeg" class="w-100 h-auto">
+                        <img src="{{ asset('build/images/ecologique3.jpg') }}" alt="une jeune pousse dans un tronc" class="w-100 h-auto">
                     </picture>
                 </div>
                 <div class="mt-5 mx-5">
@@ -79,9 +79,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             <div class="flex align-items-center p-3 left-a">
                 <div class="text-center">
                     <picture>
-                        <source srcset="photos/accueil/avantages/sur_mesure2.webp" type="image/webp" class="w-100 h-auto">
-                        <source srcset="photos/accueil/avantages/sur_mesure2.jpg" type="image/jpeg" class="w-100 h-auto">
-                        <img src="photos/accueil/avantages/sur_mesure2.jpg" alt="dessin d'un plan de piscine" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/sur_mesure2.webp') }}" type="image/webp" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/sur_mesure2.jpg') }}" type="image/jpeg" class="w-100 h-auto">
+                        <img src="{{ asset('build/images/sur_mesure2.jpg') }}" alt="dessin d'un plan de piscine" class="w-100 h-auto">
                     </picture>
                 </div>
                 <div class="m-5">
@@ -97,9 +97,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             <div class="flex align-items-center p-3 right-a">
                 <div class="text-center">
                     <picture>
-                        <source srcset="photos/accueil/avantages/accompagnement.webp" type="image/webp" class="w-100 h-auto">
-                        <source srcset="photos/accueil/avantages/accompagnement.jpg" type="image/jpeg" class="w-100 h-auto">
-                        <img src="photos/accueil/avantages/accompagnement.jpg" alt="un homme explique à un couple dans un salon leur projet" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/accompagnement.webp') }}" type="image/webp" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/accompagnement.jpg') }}" type="image/jpeg" class="w-100 h-auto">
+                        <img src="{{ asset('build/images/accompagnement.jpg') }}" alt="un homme explique à un couple dans un salon leur projet" class="w-100 h-auto">
                     </picture>
                 </div>
                 <div class="m-5">
@@ -121,25 +121,25 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                             <ul class="splide__list">
                                 <li class="splide__slide">
                                     <picture>
-                                        <source srcset="photos/accueil/projet1.webp" type="image/webp" class="w-100">
-                                        <source srcset="photos/accueil/projet1.jpg" type="image/jpeg" class="w-100">
-                                        <img src="photos/accueil/projet1.jpg" alt="Une piscine lagoon vue du ciel" class="w-100">
+                                        <source srcset="{{ asset('build/images/projet1.webp') }}" type="image/webp" class="w-100">
+                                        <source srcset="{{ asset('build/images/projet1.jpg') }}" type="image/jpeg" class="w-100">
+                                        <img src="{{ asset('build/images/projet1.jpg') }}" alt="Une piscine lagoon vue du ciel" class="w-100">
                                     </picture>
                                 </li>
 
                                 <li class="splide__slide">
                                     <picture>
-                                        <source srcset="photos/accueil/projet2.webp" type="image/webp" class="w-100">
-                                        <source srcset="photos/accueil/projet2.jpg" type="image/jpeg" class="w-100">
-                                        <img src="photos/accueil/projet2.jpg" alt="Un lagoon et la montagne derrière" class="w-100">
+                                        <source srcset="{{ asset('build/images/projet2.webp') }}" type="image/webp" class="w-100">
+                                        <source srcset="{{ asset('build/images/projet2.jpg') }}" type="image/jpeg" class="w-100">
+                                        <img src="{{ asset('build/images/projet2.jpg') }}" alt="Un lagoon et la montagne derrière" class="w-100">
                                     </picture>
                                 </li>
 
                                 <li class="splide__slide">
                                     <picture>
-                                        <source srcset="photos/accueil/projet3.webp" type="image/webp" class="w-100">
-                                        <source srcset="photos/accueil/projet3.jpg" type="image/jpeg" class="w-100">
-                                        <img src="photos/accueil/projet3.jpg" alt="Un bassin lagoon de rêve avec un fond bleu" class="w-100">
+                                        <source srcset="{{ asset('build/images/projet3.webp') }}" type="image/webp" class="w-100">
+                                        <source srcset="{{ asset('build/images/projet3.jpg') }}" type="image/jpeg" class="w-100">
+                                        <img src={{ asset('build/images/projet3.jpg') }}" alt="Un bassin lagoon de rêve avec un fond bleu" class="w-100">
                                     </picture>
                                 </li>
                             </ul>
@@ -172,9 +172,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                 <div class="carousel-inner">
                     <div class="carousel-item active text-center" data-bs-interval="5000">
                         <picture>
-                            <source srcset="photos/accueil/commentaires/carolina.webp" type="image/webp" class="rounded-circle" height="70" width="70">
-                            <source srcset="photos/accueil/commentaires/carolina.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
-                            <img src="photos/accueil/commentaires/carolina.jpg" alt="Photo de la cliente carolina" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/carolina.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/carolina.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                            <img src="{{ asset('build/images/carolina.jpg') }}" alt="Photo de la cliente carolina" class="rounded-circle" height="70" width="70">
                         </picture>
                         <p class="w-75 mx-auto">
                             <em>L'équipe piscine LAGOON&reg; est au top !</em>
@@ -185,9 +185,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
 
                     <div class="carousel-item text-center" data-bs-interval="5000">
                         <picture>
-                            <source srcset="photos/accueil/commentaires/john.webp" type="image/webp" class="rounded-circle" height="70" width="70">
-                            <source srcset="photos/accueil/commentaires/john.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
-                            <img src="photos/accueil/commentaires/john.jpg" alt="Photo du client john" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/john.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/john.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                            <img src="{{ asset('build/images/john.jpg') }}" alt="Photo du client john" class="rounded-circle" height="70" width="70">
                         </picture>
                         <p class="w-75 mx-auto">
                             <em>
@@ -202,9 +202,9 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
 
                     <div class="carousel-item text-center">
                         <picture>
-                            <source srcset="photos/accueil/commentaires/lisa.webp" type="image/webp" class="rounded-circle" height="70" width="70">
-                            <source srcset="photos/accueil/commentaires/lisa.jpg" type="image/jpeg" class="rounded-circle" height="70" width="70">
-                            <img src="photos/accueil/commentaires/lisa.jpg" alt="Photo de la cliente Lisa" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/lisa.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/lisa.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                            <img src="{{ asset('build/images/lisa.jpg') }}" alt="Photo de la cliente Lisa" class="rounded-circle" height="70" width="70">
                         </picture>
                         <p class="w-75 mx-auto">
                             <em>Mon spa est vraiment une réussite. Le spa ajoute de la valeur à ma
@@ -235,32 +235,32 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                     <div class="row lead fs-5 pt-4 align-items-center">
                         <div class="col-6 text-center py-4">
                             <picture>
-                                <source srcset="photos/accueil/logo_mj2.webp" type="image/webp" width=100 height=46>
-                                <source srcset="photos/accueil/logo_mj2.png" type="image/png" width=100 height=46>
-                                <img src="photos/accueil/logo_mj2.png" alt="logo maison et jardin" width=100 height=46>
+                                <source srcset="{{ asset('build/images/logo_mj2.webp') }}" type="image/webp" width=100 height=46>
+                                <source srcset="{{ asset('build/images/logo_mj2.png') }}" type="image/png" width=100 height=46>
+                                <img src="{{ asset('build/images/logo_mj2.png') }}" alt="logo maison et jardin" width=100 height=46>
                             </picture>
                         </div>
                         <div class="col-6 text-center py-4">
                             <picture>
-                                <source srcset="photos/accueil/logo_gp2.webp" type="image/webp" width=150 height=22>
-                                <source srcset="photos/accueil/logo_gp2.png" type="image/png" width=150 height=22>
-                                <img src="photos/accueil/logo_gp2.png" alt="logo guide piscine" width=150 height=22>
+                                <source srcset="{{ asset('build/images/logo_gp2.webp') }}" type="image/webp" width=150 height=22>
+                                <source srcset="{{ asset('build/images/logo_gp2.png') }}" type="image/png" width=150 height=22>
+                                <img src="{{ asset('build/images/logo_gp2.png') }}" alt="logo guide piscine" width=150 height=22>
                             </picture>
                         </div>
 
                         <div class="col-6 text-center py-4">
                             <picture>
-                                <source srcset="photos/accueil/logo_golf2.webp" type="image/webp" width=100 height=75>
-                                <source srcset="photos/accueil/logo_golf2.png" type="image/png" width=100 height=75>
-                                <img src="photos/accueil/logo_golf2.png" alt="logo golf de biot" width=100 height=75>
+                                <source srcset="{{ asset('build/images/logo_golf2.webp') }}" type="image/webp" width=100 height=75>
+                                <source srcset="{{ asset('build/images/logo_golf2.png') }}" type="image/png" width=100 height=75>
+                                <img src="{{ asset('build/images/logo_golf2.png') }}" alt="logo golf de biot" width=100 height=75>
                             </picture>
-                            <br>Golfe de Biot
+                            <br>Golf de Biot
                         </div>
                         <div class="col-6 text-center py-4">
                             <picture>
-                                <source srcset="photos/accueil/logo_fpp2.webp" type="image/webp" width=100 height=112>
-                                <source srcset="photos/accueil/logo_fpp2.png" type="image/png" width=100 height=112>
-                                <img src="photos/accueil/logo_fpp2.png" alt="logo fpp" width=100 height=112>
+                                <source srcset="{{ asset('build/images/logo_fpp2.webp') }}" type="image/webp" width=100 height=112>
+                                <source srcset="{{ asset('build/images/logo_fpp2.png') }}" type="image/png" width=100 height=112>
+                                <img src="{{ asset('build/images/logo_fpp2.png') }}" alt="logo fpp" width=100 height=112>
                             </picture>
                         </div>
                     </div>
@@ -285,16 +285,4 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             </div>
         </div>
     </div>
-
-    <?php if(isset($_REQUEST['modal'])) {
-
-	?>
-    <script>alert("Votre demande a bien été envoyée.");</script>
-
-    <?php
-}
-?>
-
-    <script src="./js/splide.js"></script>
-    <script src="splide.min.js"></script>
 {% endblock %}

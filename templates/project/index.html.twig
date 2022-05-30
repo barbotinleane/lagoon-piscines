@@ -190,12 +190,9 @@
                                 {{ form_row(form.city) }}
                             </div>
 
-
                             <div class="col-12 col-md-6 col-lg-4">
                                 {{ form_row(form.department) }}
                             </div>
-
-
 
                             <div class="col-12 col-md-6 col-lg-3">
                                 {{ form_row(form.country) }}
@@ -244,65 +241,153 @@
                         </div>
 
                         <div id="choose_forme" style="display:none;">
-                            <label>Choisir le modèle :</label><br>
-
-                            <div class="btn-group flex-wrap" role="group" aria-label="modele">
-                                {{ form_row(form.poolModel) }}
+                            <div>
+                                <label>{{ form_label(form.poolModel) }}</label>
+                                <div class="buttons-group">
+                                    {% for child in form.poolModel.children %}
+                                        <div class="">
+                                            <div class="">
+                                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
+                                                    <div>
+                                                        <img src="{{ asset('build/images/'~child.vars.label|lower~'.png') }}"
+                                                             height="100">
+                                                    </div>
+                                                    <div>
+                                                        {{ child.vars.label }}
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <label>Couleur de la piscine (revêtement) :</label><br>
-
-                            <div class="btn-group flex-wrap" role="group" aria-label="couleur">
-                                {{ form_row(form.poolColor) }}
+                            <div>
+                                <label>{{ form_label(form.poolColor) }}</label>
+                                <div class="buttons-group">
+                                    {% for child in form.poolColor.children %}
+                                        <div class="">
+                                            <div class="">
+                                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
+                                                    {% if child.vars.label != 'Je ne sais pas encore' %}
+                                                        <div>
+                                                            <img src="{{ asset('build/images/'~child.vars.label~'.png') }}"
+                                                                 height="100">
+                                                        </div>
+                                                    {% endif %}
+                                                    <div>
+                                                        {{ child.vars.label }}
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <label>Plage non-immergée :</label><br>
-
-                            <div class="btn-group flex-wrap" role="group" aria-label="plage">
-                                {{ form_row(form.beach) }}
+                            <div>
+                                <label>{{ form_label(form.beach) }}</label>
+                                <div class="buttons-group">
+                                    {% for child in form.beach.children %}
+                                        <div class="">
+                                            <div class="">
+                                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
                         <div id="choose_plage" class="p-3 mt-4 bg-yellow" style="display:none;">
                             <h4 class="text-center">PLAGE</h4>
                             <div class="row">
-                                <label>Taille de la plage :</label><br>
-
-                                <div class="btn-group flex-wrap" role="group" aria-label="taille-plage">
-                                    {{ form_row(form.beachSize) }}
+                                <div>
+                                    <label>{{ form_label(form.beachSize) }}</label>
+                                    <div class="buttons-group">
+                                        {% for child in form.beachSize.children %}
+                                            <div class="">
+                                                <div class="">
+                                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                    <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <label>Couleur de la plage (revêtement) :</label><br>
-                                <div class="btn-group flex-wrap" role="group" aria-label="couleur-plage">
-                                    {{ form_row(form.beachColor) }}
+                                <div>
+                                    <label>{{ form_label(form.beachColor) }}</label>
+                                    <div class="buttons-group">
+                                        {% for child in form.beachColor.children %}
+                                            <div class="">
+                                                <div class="">
+                                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                    <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
+                                                        {% if child.vars.label != 'Je ne sais pas encore' %}
+                                                            <div>
+                                                                <img src="{{ asset('build/images/'~child.vars.label~'.png') }}"
+                                                                     height="100">
+                                                            </div>
+                                                        {% endif %}
+                                                        <div>
+                                                            {{ child.vars.label }}
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row mt-3">
-                            <label>Type de filtration souhaité :</label><br>
-
-                            <div class="btn-group flex-wrap" role="group" aria-label="filtration">
-                                {{ form_row(form.filtrationType) }}
+                            <div>
+                                <label>{{ form_label(form.filtrationType) }}</label>
+                                <div class="buttons-group">
+                                    {% for child in form.filtrationType.children %}
+                                        <div class="">
+                                            <div class="">
+                                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <label>Pompe à chaleur :</label><br>
-                            <div class="btn-group flex-wrap" role="group" aria-label="pompe">
-                                {{ form_row(form.heatPump) }}
+                            <div>
+                                <label>{{ form_label(form.heatPump) }}</label>
+                                <div class="buttons-group">
+                                    {% for child in form.heatPump.children %}
+                                        <div class="">
+                                            <div class="">
+                                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                                <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
-                                {{ form_row(form.buildingStarts) }}
+                                <label>{{ form_label(form.buildingStarts) }}</label>
+                                <br>
+                                {{ form_widget(form.buildingStarts) }}
                             </div>
                         </div>
 

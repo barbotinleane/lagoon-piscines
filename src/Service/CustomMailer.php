@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Asks;
+use App\Entity\ProjectAsk;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
@@ -53,6 +54,24 @@ class CustomMailer
                 'stagiaires' => $stagiaires,
                 'prerequisites' => $prerequisites,
                 'status' => $status,
+            ])
+        ;
+
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            return new RedirectResponse($this->router->generate('app_404_error'));
+        }
+    }
+
+    public function sendProjectAskMail(ProjectAsk $projectAsk) {
+        $email = (new TemplatedEmail())
+            ->from('form@lagoon-formations.com')
+            ->to('barbotinleane@gmail.com')
+            ->subject('Nouvelle demande de devis !')
+            ->htmlTemplate('email/email_project_ask.html.twig')
+            ->context([
+                'projectAsk' => $projectAsk,
             ])
         ;
 

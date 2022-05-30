@@ -1,0 +1,82 @@
+<h1>Nouvelle demande de devis !</h1>
+
+<p>
+    Une nouvelle demande de devis a été effectuée sur <a href="https://lagoon-piscines.com">LAGOON&reg; Piscines</a>
+    le {{ 'now'|date("d/m/Y \\à H:i") }}.
+</p>
+
+<div>
+    <h2>Informations personnelles : </h2>
+    <ul>
+        {% if projectAsk.lastName and projectAsk.lastName != "null" %}
+            <li>Nom : {{ projectAsk.lastName }}</li>
+        {% endif %}
+        {% if projectAsk.firstName %}
+            <li>Prénom : {{ projectAsk.firstName }}</li>
+        {% endif %}
+        {% if projectAsk.email %}
+            <li>Email : {{ projectAsk.email }}</li>
+        {% endif %}
+        {% if projectAsk.phone %}
+            <li>Numéro de téléphone : {{ projectAsk.phone }}</li>
+        {% endif %}
+        {% if projectAsk.address %}
+            <li>Adresse : {{ projectAsk.address }}</li>
+        {% endif %}
+        {% if projectAsk.postalCode %}
+            <li>Code Postal : {{ projectAsk.postalCode }}</li>
+        {% endif %}
+        {% if projectAsk.city %}
+            <li>Ville : {{ projectAsk.city }}</li>
+        {% endif %}
+        {% if projectAsk.department %}
+            <li>Département : {{ projectAsk.department }}</li>
+        {% endif %}
+        {% if projectAsk.country %}
+            <li>Pays : {{ projectAsk.country }}</li>
+        {% endif %}
+    </ul>
+</div>
+
+<div>
+    <h2>La piscine : </h2>
+    <ul>
+        {% if projectAsk.waterSurface %}
+            <li>Surface : {{ projectAsk.waterSurface }}</li>
+        {% endif %}
+        {% if projectAsk.shape %}
+            <li>Forme : {{ projectAsk.shape }}</li>
+        {% endif %}
+        {% if projectAsk.poolModel and projectAsk.poolModel != "null" %}
+            <li>Modèle : {{ projectAsk.poolModel }}</li>
+        {% endif %}
+        {% if projectAsk.beach %}
+            <li>Plage non-immergée : {{ projectAsk.beach }}</li>
+            {% if projectAsk.beach == 'Oui' %}
+                <ul>
+                {% if projectAsk.beachSize %}
+                    <li>Surface : {{ projectAsk.beachSize }}</li>
+                {% endif %}
+                {% if projectAsk.beachColor %}
+                    <li>Couleur : {{ projectAsk.beachColor }}</li>
+                {% endif %}
+                </ul>
+            {% endif %}
+        {% endif %}
+        {% if projectAsk.filtrationType %}
+            <li>Type de filtration : {{ projectAsk.filtrationType }}</li>
+        {% endif %}
+        {% if projectAsk.heatPump %}
+            <li>Pompe à chaleur : {{ projectAsk.heatPump }}</li>
+        {% endif %}
+        {% if projectAsk.buildingStarts %}
+            <li>Début de construction souhaité : {{ projectAsk.buildingStarts }}</li>
+        {% endif %}
+        {% if projectAsk.budget %}
+            <li>Budget alloué au projet : {{ projectAsk.budget }}</li>
+        {% endif %}
+        {% if projectAsk.notes %}
+            <li>Autres commentaires : {{ projectAsk.notes }}</li>
+        {% endif %}
+    </ul>
+</div>

@@ -256,7 +256,7 @@ $(function() {
 		minDate: new Date(),
 		overlayPlaceholder: 'Entrez une année',
 		formatter: (input, date, instance) => {
-			input.value = date.toDateString()
+			input.value = date.toLocaleDateString("fr");
 		},
 	});
 });

@@ -6,7 +6,9 @@ use App\Entity\PoolColor;
 use App\Entity\PoolShape;
 use App\Entity\ProjectAsk;
 use App\Entity\Status;
+use Doctrine\DBAL\Types\StringType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bundle\MakerBundle\Str;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -142,24 +144,28 @@ class ProjectAskType extends AbstractType
             ])
             ->add('poolModel', EntityType::class, [
                 'class' => PoolShape::class,
-                'label' => 'Forme de la piscine : ',
+                'label' => 'Choisir le modèle : ',
                 'attr' => [
                     'class' => 'buttons-group',
                     'role' => 'group',
                 ],
-                'expanded' => true
+                'expanded' => true,
+                'required' => false,
+                'placeholder' => false
             ])
             ->add('poolColor', EntityType::class, [
                 'class' => PoolColor::class,
                 'label' => 'Couleur de la piscine (revêtement) : ',
+                'choice_attr' => function() {
+                    return ['class' => 'form_check_input'];
+                },
                 'attr' => [
                     'class' => 'buttons-group',
-                    'role' => 'group',
                 ],
-                'expanded' => true
+                'expanded' => true,
             ])
             ->add('beach', ChoiceType::class, [
-                'label' => 'Forme de la piscine : ',
+                'label' => 'Plage non-immergée : ',
                 'choices' => [
                     'Oui' => 'Oui',
                     'Non' => 'Non',
@@ -186,16 +192,22 @@ class ProjectAskType extends AbstractType
                 'attr' => [
                     'class' => 'buttons-group',
                 ],
-                'expanded' => true
+                'expanded' => true,
+                'required' => false,
+                'placeholder' => false,
             ])
             ->add('beachColor', EntityType::class, [
                 'class' => PoolColor::class,
                 'label' => 'Couleur de la plage (revêtement) : ',
+                'choice_attr' => function() {
+                    return ['class' => 'form_check_input'];
+                },
                 'attr' => [
                     'class' => 'buttons-group',
-                    'role' => 'group',
                 ],
-                'expanded' => true
+                'expanded' => true,
+                'required' => false,
+                'placeholder' => false,
             ])
             ->add('filtrationType', ChoiceType::class, [
                 'label' => 'Type de filtration souhaité :',
@@ -227,11 +239,9 @@ class ProjectAskType extends AbstractType
                 ],
                 'expanded' => true
             ])
-            ->add('buildingStarts', DateType::class, [
+            ->add('buildingStarts', TextType::class, [
                 'label' => 'Début de construction souhaité :',
-                'widget' => 'single_text',
-                'html5' => false,
-                'attr' => ['class' => 'js-datepicker'],
+                'attr' => ['class' => 'form-control js-datepicker'],
             ])
             ->add('budget', TextType::class, [
                 'label' => 'Budget alloué au projet (facultatif) : ',
@@ -240,7 +250,8 @@ class ProjectAskType extends AbstractType
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('notes', TextareaType::class, [
                 'label' => 'Dites nous en plus sur votre projet...',

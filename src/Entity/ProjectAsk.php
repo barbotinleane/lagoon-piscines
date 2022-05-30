@@ -46,16 +46,16 @@ class ProjectAsk
     #[ORM\Column(type: 'string', length: 255)]
     private $shape;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $poolModel;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $poolColor;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'string', length: 255)]
     private $beach;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $beachSize;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -64,13 +64,13 @@ class ProjectAsk
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $filtrationType;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(type: 'string', length: 255)]
     private $heatPump;
 
-    #[ORM\Column(type: 'date')]
+    #[ORM\Column(type: 'string', length: 255)]
     private $buildingStarts;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $budget;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -189,12 +189,12 @@ class ProjectAsk
         return $this;
     }
 
-    public function getWaterSurface(): ?int
+    public function getWaterSurface(): ?string
     {
         return $this->waterSurface;
     }
 
-    public function setWaterSurface(?int $waterSurface): self
+    public function setWaterSurface(?string $waterSurface): self
     {
         $this->waterSurface = $waterSurface;
 
@@ -237,24 +237,24 @@ class ProjectAsk
         return $this;
     }
 
-    public function isBeach(): ?bool
+    public function getBeach(): ?string
     {
         return $this->beach;
     }
 
-    public function setBeach(bool $beach): self
+    public function setBeach(string $beach): self
     {
         $this->beach = $beach;
 
         return $this;
     }
 
-    public function getBeachSize(): ?int
+    public function getBeachSize(): ?string
     {
         return $this->beachSize;
     }
 
-    public function setBeachSize(?int $beachSize): self
+    public function setBeachSize(?string $beachSize): self
     {
         $this->beachSize = $beachSize;
 
@@ -285,24 +285,24 @@ class ProjectAsk
         return $this;
     }
 
-    public function isHeatPump(): ?bool
+    public function getHeatPump(): ?string
     {
         return $this->heatPump;
     }
 
-    public function setHeatPump(bool $heatPump): self
+    public function setHeatPump(string $heatPump): self
     {
         $this->heatPump = $heatPump;
 
         return $this;
     }
 
-    public function getBuildingStarts(): ?\DateTimeInterface
+    public function getBuildingStarts(): ?string
     {
         return $this->buildingStarts;
     }
 
-    public function setBuildingStarts(\DateTimeInterface $buildingStarts): self
+    public function setBuildingStarts(string $buildingStarts): self
     {
         $this->buildingStarts = $buildingStarts;
 

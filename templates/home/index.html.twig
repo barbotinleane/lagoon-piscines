@@ -6,6 +6,12 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
 
 {% block body %}
     <div id="corps" class="container-fluid">
+        {% for message in app.flashes('success') %}
+            <div class="alert bg-white alert-success-form alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
         <div class="row">
             <div class="col-12 order-2 order-md-1 title-responsive">
                 <h1 class="baskerville size-1">
@@ -116,7 +122,7 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
         <div class="row section bg-blue-clear">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 col-md-6 col-lg-7 py-5 order-2 order-md-1">
-                    <div class="splide">
+                    <div class="splide" role="group" aria-label="gallery">
                         <div class="splide__track">
                             <ul class="splide__list">
                                 <li class="splide__slide">

@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~@splidejs/splide/dist/css/splide.min.css";
 @import "~js-datepicker/dist/datepicker.min.css";
 @import "./xs.scss";
 @import "./sm.scss";
@@ -225,10 +226,7 @@ a:hover
 
 /*For forms: */
 .form-icon {
-  position: relative;
-  top: -9px;
-  right: -28px;
-  font-size: 5em;
+  font-size: 4.5em;
 }
 
 .mt-none {
@@ -288,6 +286,7 @@ a:hover
   margin-left: -150px;
   margin-top: -50px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 100px 400px;
+  z-index: 10;
 }
 
 

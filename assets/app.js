@@ -14,4 +14,8 @@ import './bootstrap';
 const $ = require('jquery');
 require('bootstrap');
 
+import Splide from '@splidejs/splide';
+new Splide( '.splide' ).mount();
+
 import './form';
+import './project';

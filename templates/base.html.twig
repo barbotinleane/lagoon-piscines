@@ -12,6 +12,7 @@
         {% endblock %}
 
         {% block javascripts %}
+            <script src="https://kit.fontawesome.com/43f9248d84.js" crossorigin="anonymous"></script>
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
@@ -20,7 +21,7 @@
             <nav class="navbar navbar-expand-lg navbar-light fixed-top baskerville bg-white p-0">
                 <div class="container">
                     <a class="navbar-brand" href="{{ path('app_home') }}">
-                        <img src="{{ asset('build/images/logo.png') }}" alt="Logo de Lagoon Piscines" height="40" width="130">
+                        <img src="{{ asset('build/images/logo.png') }}" alt="Logo de Lagoon Piscines" height="45" width="160">
                     </a>
 
                     <button
@@ -40,7 +41,20 @@
                             <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">
                                 Accueil
                             </a>
-                            <a class="nav-link" href="{{ path('app_concept') }}">Le concept</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   id="concept"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Le concept
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="concept">
+                                    <li><a class="dropdown-item" href="{{ path('app_concept') }}">Le concept</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_gallery') }}">Galerie</a></li>
+                                </ul>
+                            </li>
                             <a class="nav-link" href="{{ path('app_project') }}">Votre projet</a>
                             <a class="nav-link" href="{{ path('app_formation') }}">Formation</a>
                             <a class="nav-link" href="{{ path('app_about_us') }}">A propos de nous</a>

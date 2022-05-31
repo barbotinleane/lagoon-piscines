@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\FormationAsks;
+use App\Entity\ProjectAsk;
 use Asana\Client;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\RouterInterface;
@@ -55,13 +56,15 @@ class AsanaManager
         try {
             $result = $this->asana->tasks->createTask(array(
                 'workspace' => $workspaceId,
-                'name' => 'Nouvelle demande de formation',
+                'name' => $ask->getFirstName().' '.$ask->getLastName(),
                 'approval_status' => 'pending',
                 'projects' => $projectId,
                 'html_notes' => $html
             ), array(
-                'headers' => ['Asana-Disable' => 'new_project_templates',
-                    'Asana-Enable' => 'new_user_task_lists',],
+                'headers' => [
+                    'Asana-Disable' => 'new_project_templates',
+                    'Asana-Enable' => 'new_user_task_lists',
+                ],
                 'fields' => ['html_notes'],
             ));
         } catch (\Exception $e) {
@@ -69,5 +72,61 @@ class AsanaManager
         }
 
         return $result;
+    }
+
+    public function addProjectTask(ProjectAsk $ask)
+    {
+        $workspaceId = '1202209729086808';
+
+        // Test department and change project and subtasks
+        if($ask->getDepartment() === "06") {
+            $projectId = "1202209874110531";
+            $subtasks = [
+                "Prise de contact par téléphone",
+                "Prise de RDV sur place",
+                "Devis",
+                "Présentation du devis"
+            ];
+        } else {
+            $projectId = "1202209874110538";
+            $subtasks = [
+                "Envoi à l'applicateur",
+                "Retour"
+            ];
+        }
+
+        // Load Twig File
+        $html = $this->twig->render('asana_task/project_task.html.twig', [
+            'projectAsk' => $ask
+        ]);
+
+        //Create task
+        $result = $this->asana->tasks->createTask(array(
+            'workspace' => $workspaceId,
+            'name'      => $ask->getFirstName().' '.$ask->getLastName(),
+            'approval_status' => 'pending',
+            'projects' => $projectId,
+            'html_notes' => $html
+        ), array(
+            'headers' => [
+                'Asana-Disable' => 'new_project_templates',
+                'Asana-Enable' => 'new_user_task_lists',
+            ],
+            'fields' => ['html_notes'],
+        ));
+
+        //Create subtasks
+        foreach ($subtasks as $subtask) {
+            $task = $this->asana->tasks->createSubtaskForTask($result->gid, array(
+                'name'      => $subtask,
+                'approval_status' => 'pending',
+            ), array(
+                'opt_pretty' => 'true',
+                'headers' => [
+                    'Asana-Disable' => 'new_project_templates',
+                    'Asana-Enable' => 'new_user_task_lists',
+                ],
+            ));
+        }
     }
 }

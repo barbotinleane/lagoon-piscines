@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ProjectAsk;
 use App\Form\ProjectAskType;
 use App\Repository\DepartmentsRepository;
+use App\Service\AsanaManager;
 use App\Service\AskSaver;
 use App\Service\CustomMailer;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,7 +25,7 @@ class ProjectController extends AbstractController
      * @return Response
      */
     #[Route('/votre-projet', name: 'app_project')]
-    public function index(EntityManagerInterface $entityManager, Request $request, DepartmentsRepository $departmentsRepository, CustomMailer $mailer, AskSaver $askSaver): Response
+    public function index(EntityManagerInterface $entityManager, Request $request, DepartmentsRepository $departmentsRepository, AsanaManager $asanaManager, CustomMailer $mailer, AskSaver $askSaver): Response
     {
         $projectAsk = new ProjectAsk();
         $departments = $departmentsRepository->findAll();
@@ -36,6 +37,7 @@ class ProjectController extends AbstractController
                 $entityManager->persist($projectAsk);
                 $entityManager->flush();
 
+                $asanaManager->addProjectTask($projectAsk);
                 $mailer->sendProjectAskMail($projectAsk);
 
                 $this->addFlash('success', 'Votre demande de devis a bien été envoyée.');

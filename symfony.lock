@@ -5,6 +5,9 @@
     "asana/asana": {
         "version": "v0.10.8"
     },
+    "deployer/deployer": {
+        "version": "v7.0.0-rc.8"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {

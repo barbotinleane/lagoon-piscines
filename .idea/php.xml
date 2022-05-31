@@ -78,6 +78,7 @@
       <path value="$PROJECT_DIR$/vendor/nategood/httpful" />
       <path value="$PROJECT_DIR$/vendor/asana/asana" />
       <path value="$PROJECT_DIR$/vendor/adoy/oauth2" />
+      <path value="$PROJECT_DIR$/vendor/deployer/deployer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

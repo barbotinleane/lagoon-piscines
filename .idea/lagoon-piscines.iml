@@ -81,6 +81,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/nategood/httpful" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/asana/asana" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/adoy/oauth2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/deployer/deployer" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

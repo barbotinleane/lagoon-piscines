@@ -2,17 +2,17 @@ const datepicker = require('js-datepicker');
 
 $(function() {
 	const showInput = (id) => {
-		$('#asks_'+id).val('');
+		$('#formation_asks_'+id).val('');
 		$('#'+id).show();
 	}
 
 	const hideInput = (id) => {
-		$('#asks_'+id).val('null');
+		$('#formation_asks_'+id).val('null');
 		$('#'+id).hide();
 	}
 
-	$('input[name^="asks[status]"]').change(function() {
-		let status = parseInt($("input[name='asks[status]']:checked").val());
+	$('input[name^="formation_asks[status]"]').change(function() {
+		let status = parseInt($("input[name='formation_asks[status]']:checked").val());
 
 		if (status === 1) {
 			let fieldsToShow = [
@@ -136,8 +136,8 @@ $(function() {
 		}
 	});
 
-	$('input[name^="asks[status]"]').change(() => {
-		let status = parseInt($("input[name='asks[status]']:checked").val());
+	$('input[name^="formation_asks[status]"]').change(() => {
+		let status = parseInt($("input[name='formation_asks[status]']:checked").val());
 
 		if(status === 5) {
 			$('#autre_statut_champ').show();
@@ -146,8 +146,8 @@ $(function() {
 		}
 	})
 
-	$('input[name^="asks[activityCategory]"]').change(() => {
-		let activityCategory = $("input[name='asks[activityCategory]']:checked").val();
+	$('input[name^="formation_asks[activityCategory]"]').change(() => {
+		let activityCategory = $("input[name='formation_asks[activityCategory]']:checked").val();
 
 		if(activityCategory === "Autre") {
 			$('#autre_activite_champ').show();
@@ -156,8 +156,8 @@ $(function() {
 		}
 	})
 
-	$('input[name^="asks[goal]"]').change(() => {
-		let goal = $("input[name='asks[goal]']:checked").val();
+	$('input[name^="formation_asks[goal]"]').change(() => {
+		let goal = $("input[name='formation_asks[goal]']:checked").val();
 
 		if(goal === "Autre") {
 			$('#autre_obj_champ').show();
@@ -166,8 +166,8 @@ $(function() {
 		}
 	})
 
-	$('#asks_knowsUs_5').on("click", () => {
-		if($('#asks_knowsUs_5').prop('checked')){
+	$('#formation_asks_knowsUs_5').on("click", () => {
+		if($('#formation_asks_knowsUs_5').prop('checked')){
 			$('#autre_cnn_champ').show();
 		} else {
 			$('#autre_cnn_champ').hide();
@@ -235,15 +235,15 @@ $(function() {
 		})
 
 
-	var $consents = [$('#asks_consents_0'), $('#asks_consents_1'), $('#asks_consents_2')];
+	var $consents = [$('#formation_asks_consents_0'), $('#formation_asks_consents_1'), $('#formation_asks_consents_2')];
 
 	$.each($consents, function( index, value ) {
 		value.change(function() {
 			//if all checked
 			if($consents[0].is(':checked') && $consents[1].is(':checked') && $consents[2].is(':checked')) {
-				$('#asks_save').prop('disabled', false);
+				$('#formation_asks_save').prop('disabled', false);
 			} else {
-				$('#asks_save').prop('disabled', true);
+				$('#formation_asks_save').prop('disabled', true);
 			}
 		})
 	});

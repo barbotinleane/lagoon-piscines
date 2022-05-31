@@ -1,10 +1,8 @@
 <body>
     <strong>Statut : </strong>
     <ul>
-        {% if ask.status.statusName and status is null %}
+        {% if ask.status %}
             <li>Statut : {{ ask.status.statusName }}</li>
-        {% elseif status is not null %}
-            <li>Statut : {{ status }}</li>
         {% endif %}
 
         {% if ask.goal %}
@@ -74,6 +72,7 @@
     </ul>
 
     <strong>Pré-requis : </strong>
+    <em>Sait utiliser...</em>
     <ul>
         {% for key, value in prerequisites %}
             <li>{{ key }} : {{ value }}</li>

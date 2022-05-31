@@ -12,7 +12,7 @@ import './styles/css/global.scss';
 import './bootstrap';
 
 const $ = require('jquery');
-require('bootstrap');
+const bootstrap = require('bootstrap');
 
 import Splide from '@splidejs/splide';
 new Splide( '.splide' ).mount();

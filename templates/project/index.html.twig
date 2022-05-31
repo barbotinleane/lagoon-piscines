@@ -211,7 +211,14 @@
 
                     <div class="p-3">
                         <div class="row" id="m2-nombre">
-                            <label>{{ form_label(form.waterSurface) }}</label>
+                            <label>
+                                {{ form_label(form.waterSurface) }}
+                                <span class="tool"
+                                      data-tip="La profondeur de votre piscine sera fonction des dimensions de celle-ci et des parois en pente douce de 45°. La profondeur maximale sera entre 1m20 et 1m75."
+                                      tabindex="1">
+                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                </span>
+                            </label>
                             <div class="buttons-group">
                                 {% for child in form.waterSurface.children %}
                                     <div class="">
@@ -232,7 +239,16 @@
                                         <div class="">
                                             <div class="">
                                                 {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                                <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                                <label class="form-check-label required" for="{{ child.vars.id }}" >
+                                                    {{ child.vars.label }}
+                                                    {% if child.vars.label == "Modèle pré-dessiné" %}
+                                                        <span class="tool"
+                                                              data-tip="Possibilité de personnalisation dans les limites de la taille du modèle. Schémas de principe. Formes non contractuelles."
+                                                              tabindex="1">
+                                                            <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                                        </span>
+                                                    {% endif %}
+                                                </label>
                                             </div>
                                         </div>
                                     {% endfor %}
@@ -249,9 +265,22 @@
                                             <div class="">
                                                 {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
                                                 <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
-                                                    <div>
-                                                        <img src="{{ asset('build/images/'~child.vars.label|lower~'.png') }}"
-                                                             height="100">
+                                                    <div class="card bg-inherit d-flex flex-row align-items-start justify-content-start">
+                                                        <img class="card-img"
+                                                             src="{{ asset('build/images/'~child.vars.label|lower~'.png') }}"
+                                                             height="100"
+                                                             id="{{ 'img_'~child.vars.label }}">
+                                                        <div class="card-img-overlay p-1 d-flex align-items-start justify-content-end">
+                                                            <button type="button"
+                                                                    class="btn-zoom"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#myModal"
+                                                                    id="{{ child.vars.label }}"
+                                                                    name="shapeButton"
+                                                                    value="{{ asset('build/images/'~child.vars.label~'.png') }}">
+                                                                <i class="fas fa-search-plus"></i>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                     <div>
                                                         {{ child.vars.label }}
@@ -274,9 +303,22 @@
                                                 {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
                                                 <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
                                                     {% if child.vars.label != 'Je ne sais pas encore' %}
-                                                        <div>
-                                                            <img src="{{ asset('build/images/'~child.vars.label~'.png') }}"
-                                                                 height="100">
+                                                        <div class="card bg-inherit d-flex flex-row align-items-start justify-content-start">
+                                                            <img class="card-img"
+                                                                src="{{ asset('build/images/'~child.vars.label~'.png') }}"
+                                                                 height="100"
+                                                                id="{{ 'img_'~child.vars.label }}">
+                                                            <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                                                                <button type="button"
+                                                                        class="btn-zoom"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#myModal"
+                                                                        id="{{ child.vars.label }}"
+                                                                        name="colorButton"
+                                                                        value="{{ asset('build/images/'~child.vars.label~'.png') }}">
+                                                                    <i class="fas fa-search-plus"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     {% endif %}
                                                     <div>
@@ -334,9 +376,22 @@
                                                     {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
                                                     <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
                                                         {% if child.vars.label != 'Je ne sais pas encore' %}
-                                                            <div>
-                                                                <img src="{{ asset('build/images/'~child.vars.label~'.png') }}"
-                                                                     height="100">
+                                                            <div class="card bg-inherit d-flex flex-row align-items-start justify-content-start">
+                                                                <img class="card-img"
+                                                                     src="{{ asset('build/images/'~child.vars.label~'.png') }}"
+                                                                     height="100"
+                                                                     id="{{ 'img_'~child.vars.label }}">
+                                                                <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                                                                    <button type="button"
+                                                                            class="btn-zoom"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#myModal"
+                                                                            id="{{ child.vars.label }}"
+                                                                            name="colorButton"
+                                                                            value="{{ asset('build/images/'~child.vars.label~'.png') }}">
+                                                                        <i class="fas fa-search-plus"></i>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         {% endif %}
                                                         <div>
@@ -439,5 +494,21 @@
                 </div>
             </form>
         </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="text-white bg-transparent border-0 fs-2" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="content"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
 {% endblock %}

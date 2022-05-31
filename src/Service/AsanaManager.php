@@ -5,6 +5,8 @@ namespace App\Service;
 use App\Entity\FormationAsks;
 use App\Entity\ProjectAsk;
 use Asana\Client;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
@@ -20,9 +22,9 @@ class AsanaManager
     private $router;
     private $twig;
 
-    public function __construct(RouterInterface $router, Environment $twig)
+    public function __construct(ContainerBagInterface $params, RouterInterface $router, Environment $twig)
     {
-        $this->asana = Client::accessToken("1/1201982160009227:2dcaa27ff26c3696011cffe21e09c708");
+        $this->asana = Client::accessToken($params->get('asana_key'));
         $this->router = $router;
         $this->twig = $twig;
     }

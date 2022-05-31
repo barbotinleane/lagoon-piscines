@@ -44,7 +44,7 @@ class FormationLibelles
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: FormationSessions::class, orphanRemoval: true)]
     private $formationSessions;
 
-    #[ORM\OneToMany(mappedBy: 'formationLibelle', targetEntity: Asks::class)]
+    #[ORM\OneToMany(mappedBy: 'formationLibelle', targetEntity: FormationAsks::class)]
     private $asks;
 
     public function __construct()
@@ -179,14 +179,14 @@ class FormationLibelles
     }
 
     /**
-     * @return Collection<int, Asks>
+     * @return Collection<int, FormationAsks>
      */
     public function getAsks(): Collection
     {
         return $this->asks;
     }
 
-    public function addAsk(Asks $ask): self
+    public function addAsk(FormationAsks $ask): self
     {
         if (!$this->asks->contains($ask)) {
             $this->asks[] = $ask;
@@ -196,7 +196,7 @@ class FormationLibelles
         return $this;
     }
 
-    public function removeAsk(Asks $ask): self
+    public function removeAsk(FormationAsks $ask): self
     {
         if ($this->asks->removeElement($ask)) {
             // set the owning side to null (unless already changed)

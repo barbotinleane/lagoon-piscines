@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Asks;
+use App\Entity\FormationAsks;
 use App\Entity\FormationLibelles;
 use App\Entity\FormationSessions;
 use App\Repository\FormationLibellesRepository;
@@ -26,11 +26,11 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /***
- * Form related to Asks entity to make a formation ask
+ * Form related to FormationAsks entity to make a formation ask
  *
  * @author Léane Barbotin <barbotinleane@gmail.com>
  */
-class AsksType extends AbstractType
+class FormationAsksType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -291,7 +291,7 @@ class AsksType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Asks::class,
+            'data_class' => FormationAsks::class,
             'departments' => null,
             'formation' => null,
         ]);

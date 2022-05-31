@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Asks;
+use App\Entity\FormationAsks;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Asks|null find($id, $lockMode = null, $lockVersion = null)
- * @method Asks|null findOneBy(array $criteria, array $orderBy = null)
- * @method Asks[]    findAll()
- * @method Asks[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method FormationAsks|null find($id, $lockMode = null, $lockVersion = null)
+ * @method FormationAsks|null findOneBy(array $criteria, array $orderBy = null)
+ * @method FormationAsks[]    findAll()
+ * @method FormationAsks[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AsksRepository extends ServiceEntityRepository
+class FormationAsksRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Asks::class);
+        parent::__construct($registry, FormationAsks::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Asks $entity, bool $flush = true): void
+    public function add(FormationAsks $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class AsksRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Asks $entity, bool $flush = true): void
+    public function remove(FormationAsks $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class AsksRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Asks[] Returns an array of Asks objects
+    //  * @return FormationAsks[] Returns an array of FormationAsks objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class AsksRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Asks
+    public function findOneBySomeField($value): ?FormationAsks
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

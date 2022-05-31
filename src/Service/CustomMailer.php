@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Entity\Asks;
+use App\Entity\FormationAsks;
 use App\Entity\ProjectAsk;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -20,20 +20,21 @@ class CustomMailer
     private $mailer;
     private $router;
 
-    public function __construct(MailerInterface $mailer, RouterInterface $router)
+    public function __construct(MailerInterface $mailer, RouterInterface $router, AsanaManager $asana)
     {
         $this->mailer = $mailer;
         $this->router = $router;
+        $this->asanaManager = $asana;
     }
 
     /***
      * Send an email which displays the informations of a formation ask made
      *
-     * @param Asks $ask
+     * @param FormationAsks $ask
      * @param $status
      * @return RedirectResponse|void
      */
-    public function sendAskMail(Asks $ask, $status = null) {
+    public function sendAskMail(FormationAsks $ask, $status = null) {
         $stagiaires = [];
         if($ask->getStatus()->getId() == 1) {
             $stagiaires = $ask->getStagiaires();

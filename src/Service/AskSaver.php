@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Entity\Asks;
+use App\Entity\FormationAsks;
 
 /***
  * Service used to save unmapped fields in the form to ask for a formation in a formation object
@@ -15,10 +15,10 @@ class AskSaver
      * If they exists, save the prerequisites in json in the ask object
      *
      * @param $data
-     * @param Asks $ask
+     * @param FormationAsks $ask
      * @return void
      */
-    public function savePrerequisites($data, Asks $ask) {
+    public function savePrerequisites($data, FormationAsks $ask) {
         if($data['asks']['prerequisites'] === "true") {
             $prerequisites = [
                 'visseuse' => $data['visseuse'],
@@ -39,10 +39,10 @@ class AskSaver
      * Save the custom values in an ask object
      *
      * @param $data
-     * @param Asks $ask
+     * @param FormationAsks $ask
      * @return void
      */
-    public function saveCustomValuesInFields($data, Asks $ask) {
+    public function saveCustomValuesInFields($data, FormationAsks $ask) {
         foreach ($data['other'] as $key => $value) {
             if($value !== "") {
                 switch($key) {
@@ -71,10 +71,10 @@ class AskSaver
      * Use fonctions defined before to save all the added values to the ask object
      *
      * @param $data
-     * @param Asks $ask
-     * @return Asks
+     * @param FormationAsks $ask
+     * @return FormationAsks
      */
-    public function saveUnMappedFormFieldsToAsk($data, Asks $ask) {
+    public function saveUnMappedFormFieldsToAsk($data, FormationAsks $ask) {
         $this->savePrerequisites($data, $ask);
         $this->saveCustomValuesInFields($data, $ask);
 

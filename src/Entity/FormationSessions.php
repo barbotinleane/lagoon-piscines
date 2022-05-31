@@ -36,7 +36,7 @@ class FormationSessions
     #[ORM\JoinColumn(nullable: false)]
     private $formation;
 
-    #[ORM\OneToMany(mappedBy: 'formationSession', targetEntity: Asks::class)]
+    #[ORM\OneToMany(mappedBy: 'formationSession', targetEntity: FormationAsks::class)]
     private $asks;
 
     public function __construct()
@@ -118,14 +118,14 @@ class FormationSessions
     }
 
     /**
-     * @return Collection<int, Asks>
+     * @return Collection<int, FormationAsks>
      */
     public function getAsks(): Collection
     {
         return $this->asks;
     }
 
-    public function addAsk(Asks $ask): self
+    public function addAsk(FormationAsks $ask): self
     {
         if (!$this->asks->contains($ask)) {
             $this->asks[] = $ask;
@@ -135,7 +135,7 @@ class FormationSessions
         return $this;
     }
 
-    public function removeAsk(Asks $ask): self
+    public function removeAsk(FormationAsks $ask): self
     {
         if ($this->asks->removeElement($ask)) {
             // set the owning side to null (unless already changed)

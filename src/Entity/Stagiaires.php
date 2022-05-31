@@ -38,7 +38,7 @@ class Stagiaires
     #[ORM\Column(type: 'boolean')]
     private $handicap;
 
-    #[ORM\ManyToMany(targetEntity: Asks::class, mappedBy: 'workers')]
+    #[ORM\ManyToMany(targetEntity: FormationAsks::class, mappedBy: 'stagiaires')]
     private $asks;
 
     public function __construct()
@@ -124,14 +124,14 @@ class Stagiaires
     }
 
     /**
-     * @return Collection<int, Asks>
+     * @return Collection<int, FormationAsks>
      */
     public function getAsks(): Collection
     {
         return $this->asks;
     }
 
-    public function addAsk(Asks $ask): self
+    public function addAsk(FormationAsks $ask): self
     {
         if (!$this->asks->contains($ask)) {
             $this->asks[] = $ask;
@@ -141,7 +141,7 @@ class Stagiaires
         return $this;
     }
 
-    public function removeAsk(Asks $ask): self
+    public function removeAsk(FormationAsks $ask): self
     {
         if ($this->asks->removeElement($ask)) {
             $ask->removeStagiaire($this);

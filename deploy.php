@@ -4,7 +4,7 @@ namespace Deployer;
 require 'recipe/symfony.php';
 
 // Project repository
-set('repository', 'git@github.com:barbotinleane/lagoon-piscines.git');
+set('repository', 'https://github.com/barbotinleane/lagoon-piscines.git');
 
 // Shared files/dirs between deploys
 add('shared_files', []);

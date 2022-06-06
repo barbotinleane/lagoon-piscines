@@ -309,12 +309,12 @@ class ProjectAsk
         return $this;
     }
 
-    public function getBudget(): ?int
+    public function getBudget(): ?string
     {
         return $this->budget;
     }
 
-    public function setBudget(?int $budget): self
+    public function setBudget(?string $budget): self
     {
         $this->budget = $budget;
 

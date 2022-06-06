@@ -120,52 +120,85 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
         </div>
 
         <div class="row section bg-blue-clear">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 col-md-6 col-lg-7 py-5 order-2 order-md-1">
-                    <div class="splide" role="group" aria-label="gallery">
-                        <div class="splide__track">
-                            <ul class="splide__list">
-                                <li class="splide__slide">
-                                    <picture>
-                                        <source srcset="{{ asset('build/images/projet1.webp') }}" type="image/webp" class="w-100">
-                                        <source srcset="{{ asset('build/images/projet1.jpg') }}" type="image/jpeg" class="w-100">
-                                        <img src="{{ asset('build/images/projet1.jpg') }}" alt="Une piscine lagoon vue du ciel" class="w-100">
-                                    </picture>
-                                </li>
-
-                                <li class="splide__slide">
-                                    <picture>
-                                        <source srcset="{{ asset('build/images/projet2.webp') }}" type="image/webp" class="w-100">
-                                        <source srcset="{{ asset('build/images/projet2.jpg') }}" type="image/jpeg" class="w-100">
-                                        <img src="{{ asset('build/images/projet2.jpg') }}" alt="Un lagoon et la montagne derrière" class="w-100">
-                                    </picture>
-                                </li>
-
-                                <li class="splide__slide">
-                                    <picture>
-                                        <source srcset="{{ asset('build/images/projet3.webp') }}" type="image/webp" class="w-100">
-                                        <source srcset="{{ asset('build/images/projet3.jpg') }}" type="image/jpeg" class="w-100">
-                                        <img src={{ asset('build/images/projet3.jpg') }}" alt="Un bassin lagoon de rêve avec un fond bleu" class="w-100">
-                                    </picture>
-                                </li>
-                            </ul>
+            <div class="col-12 col-lg-6 col-xl-8 px-5 py-4 py-lg-none order-1 order-md-2">
+                <div class="row align-items-center justify-content-center">
+                    <div id="carouselProjects" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button"
+                                    data-bs-target="#carouselProjects"
+                                    data-bs-slide-to="0"
+                                    class="active"
+                                    aria-current="true"
+                                    aria-label="Slide 1">
+                            </button>
+                            <button type="button"
+                                    data-bs-target="#carouselProjects"
+                                    data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            <button type="button"
+                                    data-bs-target="#carouselProjects"
+                                    data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
                         </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/projet1.webp') }}" type="image/webp" class="w-100">
+                                    <source srcset="{{ asset('build/images/projet1.jpg') }}" type="image/jpeg" class="w-100">
+                                    <img src="{{ asset('build/images/projet1.jpg') }}"
+                                         alt="Une piscine lagoon vue du ciel"
+                                         class="w-100">
+                                </picture>
+                            </div>
+                            <div class="carousel-item">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/projet2.webp') }}" type="image/webp" class="w-100">
+                                    <source srcset="{{ asset('build/images/projet2.jpg') }}" type="image/jpeg" class="w-100">
+                                    <img src="{{ asset('build/images/projet2.jpg') }}"
+                                         alt="Un lagoon et la montagne derrière"
+                                         class="w-100">
+                                </picture>
+                            </div>
+                            <div class="carousel-item">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/projet3.webp') }}" type="image/webp" class="w-100">
+                                    <source srcset="{{ asset('build/images/projet3.jpg') }}" type="image/jpeg" class="w-100">
+                                    <img src="{{ asset('build/images/projet3.jpg') }}"
+                                         alt="Un bassin lagoon de rêve avec un fond bleu"
+                                         class="w-100">
+                                </picture>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#carouselProjects"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next"
+                                type="button"
+                                data-bs-target="#carouselProjects"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-12 col-md-6 col-lg-5 px-5 order-2 order-md-1">
-                    <div class="ps-none ps-md-5">
-                        <h2 class="baskerville size-2">Laissez vous inspirer...</h2>
-                        <p>Découvrez quelques uns de nos plus beaux projets réalisés.</p>
-                        <div class="text-center">
-                            <a
-                                    class="btn btn-yellow"
-                                    href="{{ path('app_gallery') }}"
-                            >
-                                <i class="fa fa-picture-o" aria-hidden="true"></i>
-                                &nbsp;Voir plus
-                            </a>
-                        </div>
+            <div class="col-12 col-lg-6 col-xl-4 px-5 order-2 order-lg-1 align-self-center">
+                <div class="ps-none ps-md-5">
+                    <h2 class="baskerville size-2">Laissez vous inspirer...</h2>
+                    <p>Découvrez quelques uns de nos plus beaux projets réalisés.</p>
+                    <div class="text-center">
+                        <a
+                                class="btn btn-yellow"
+                                href="{{ path('app_gallery') }}"
+                        >
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            &nbsp;Voir plus
+                        </a>
                     </div>
                 </div>
             </div>

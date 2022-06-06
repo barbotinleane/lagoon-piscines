@@ -1,5 +1,4 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~@splidejs/splide/dist/css/splide.min.css";
 @import "~js-datepicker/dist/datepicker.min.css";
 @import "./xs.scss";
 @import "./sm.scss";
@@ -395,15 +394,6 @@ li.timeline-item-dark::before {
   background-position:bottom;
   background-size:cover;
   height:600px;
-}
-
-.splide__slide {
-  opacity:0.5;
-  margin:auto 0px;
-}
-
-.splide__slide.is-active {
-  opacity:1;
 }
 
 

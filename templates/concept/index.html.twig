@@ -146,32 +146,85 @@
             </div>
         </div>
 
-        <div class="row bg-blue-clear section">
-            <h2 class="text-center pb-4 baskerville size-2">
-                La construction d'une piscine étape par étape
-            </h2>
+        <div class="row section">
+            <div class="col-lg-10 mx-auto mt-5">
+                <h2 class="text-center baskerville size-2">La construction d'une piscine étape par étape</h2>
+                <ul class="timeline-dark pb-5">
+                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue1 bg-shape-all">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-2 size-big baskerville text-center">1</div>
+                            <div class="col-12 col-md-9 px-4 p-md-2 text-center">
+                                <h3 class="baskerville">Modelage du bassin</h3>
+                                <p class="size-4 p-3">
+                                    Une fois le terrassement exécuté, nous modelons la forme du bassin de baignade
+                                    à votre convenance puis nous procédons à l'installation du réseau primaire de
+                                    distribution d'eau.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
 
-            <div class="etapes">
-                <picture>
-                    <source srcset="{{ asset('build/images/etapes-grand.webp') }}" type="image/webp" media="(min-width: 1200px)" class="w-50">
-                    <source srcset="{{ asset('build/images/etapes-grand.jpg') }}" type="image/jpeg" media="(min-width: 1200px)" class="w-50">
-                    <source srcset="{{ asset('build/images/etapes-grand.webp') }}" type="image/webp" media="(min-width: 800px)" class="w-75">
-                    <source srcset="{{ asset('build/images/etapes-grand.jpg') }}" type="image/jpeg" media="(min-width: 800px)" class="w-75">
-                    <source srcset="{{ asset('build/images/etapes-petit.webp') }}" type="image/webp" media="(max-width: 800px)" class="w-100">
-                    <img src="{{ asset('build/images/etapes-petit.jpg') }}" class="w-100" alt="Les 4 étapes du concept de construction des piscines Lagoon">
-                </picture>
+                    <li class="timeline-item-dark row align-items-center bg-shape-yellow1 bg-shape-all">
+                        <div class="col-12 col-md-2 size-big baskerville text-center">2</div>
+                        <div class="col-12 col-md-9 text-center px-4 px-md-none">
+                            <h3 class="baskerville">Pose de la membrane d'étancheité EPDM</h3>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue2 bg-shape-all">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-2 size-big baskerville text-center">3</div>
+                            <div class="col-12 col-md-9 py-none py-sm-2 px-3 text-center px-4 px-md-none">
+                                <h3 class="baskerville">Installation du réseau de distribution d'eau</h3>
+                                <p class="size-4 p-3">
+                                    Installation du réseau secondaire de distribution d'eau dans tout le bassin
+                                    selon le système breveté LAGOON&reg; by Sorgiva.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item-dark d-flex align-items-center bg-shape-yellow2 bg-shape-all">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-2 size-big baskerville text-center">4</div>
+                            <div class="col-12 col-md-9 py-none py-sm-2 px-3 text-center px-4 px-md-none">
+                                <h3 class="baskerville">Application du revêtement</h3>
+                                <p class="size-4 p-3">
+                                    Application d'un revêtement bi-composant en quartz et marbre mélangé à la résine
+                                    brevetée LAGOON&reg; by Sorgiva.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row pb-5 align-items-center">
+                <div class="col-12 col-sm-7 text-center">
+                    <picture>
+                        <source srcset="{{ asset('build/images/projet1.webp') }}" type="image/webp" class="w-100">
+                        <source srcset="{{ asset('build/images/projet1.jpg') }}" type="image/jpeg" class="w-100">
+                        <img src="{{ asset('build/images/projet1.jpg') }}" alt="Bassin d'une piscine lagoon en résine" class="w-100 rounded-circle">
+                    </picture>
+                </div>
+                <div class="col-12 col-sm-5 d-flex">
+                        <div class="size-3 baskerville ps-5">
+                            Mise en eau quelques jours plus tard et...
+                            <span class="size-2 text-blue">profitez !</span>
+                        </div>
+                </div>
             </div>
         </div>
 
-        <div class="big-spacing">
+        <div class="row big-spacing bg-yellow-clear">
             <p class="baskerville size-3 pb-5">
-                Un clic et... votre <span class="text-yellow">rêve</span> devient réalité !
+                Un clic et... votre <span class="text-blue">rêve</span> devient réalité !
             </p>
 
             <div class="m-2 text-center">
                 <a
                         type="button"
-                        class="btn btn-blue spoke"
+                        class="btn btn-yellow spoke"
                         href="{{ path('app_project') }}"
                 >
                     <i class="fa fa-play" aria-hidden="true"></i>

@@ -114,42 +114,47 @@
                 <h2 class="text-center baskerville size-2 py-4">Découvrez quelques projets hors normes !</h2>
             </div>
 
-            <div class="splide px-md-5">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
+            <div class="">
+                <div id="carouselOtherProjects" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselOtherProjects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselOtherProjects" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselOtherProjects" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
                             <picture>
                                 <source srcset="{{ asset('build/images/hors-2.webp') }}" type="image/webp" class="w-100">
                                 <source srcset="{{ asset('build/images/hors-2.jpg') }}" type="image/jpeg" class="w-100">
                                 <img src="{{ asset('build/images/hors-2.jpg') }}"
                                      alt="Une piscine Lagoon dans une grotte souterraine illuminée"
-                                     class="w-100">
+                                     class="d-block w-75 mx-auto">
                             </picture>
-                            <div class="carousel-comment">
+                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Dans une grotte...</h5>
                             </div>
-                        </li>
-                        <li class="splide__slide">
+                        </div>
+                        <div class="carousel-item">
                             <picture>
                                 <source srcset="{{ asset('build/images/hors-5.webp') }}" type="image/webp" class="w-100">
                                 <source srcset="{{ asset('build/images/hors-5.jpg') }}" type="image/jpeg" class="w-100">
                                 <img src="{{ asset('build/images/hors-5.jpg') }}"
                                      alt="Une cascade avec de l'eau coulant entre des rochers sur le bord d'une plage Lagoon"
-                                     class="w-100">
+                                     class="d-block w-75 mx-auto">
                             </picture>
-                            <div class="carousel-comment">
+                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Avec une cascade...</h5>
                             </div>
-                        </li>
-                        <li class="splide__slide">
+                        </div>
+                        <div class="carousel-item">
                             <picture>
                                 <source srcset="{{ asset('build/images/hors-1.webp') }}" type="image/webp" class="w-100">
                                 <source srcset="{{ asset('build/images/hors-1.jpg') }}" type="image/jpeg" class="w-100">
                                 <img src="{{ asset('build/images/hors-1.jpg') }}"
                                      alt="Une vaste plage Lagoon au milieu de cocotiers surplombant la mer"
-                                     class="w-100">
+                                     class="d-block w-75 mx-auto">
                             </picture>
-                            <div class="carousel-comment">
+                            <div class="carousel-caption d-none d-md-block">
                                 <h5>Comme à la plage...</h5>
                                 <p>
                                     800 m<sup>2</sup> de plan d'eau<br>
@@ -164,8 +169,16 @@
                                     <i class="fa fa-play" aria-hidden="true"></i>&nbsp;Voir la vidéo de la construction
                                 </a>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselOtherProjects" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Précédent</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselOtherProjects" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Suivant</span>
+                    </button>
                 </div>
             </div>
         </div>

@@ -12,8 +12,8 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
-        <div class="row">
-            <div class="card border-0">
+        <div class="row g-0">
+            <div class="card g-0">
                 <picture>
                     <source srcset="{{ asset('build/images/piscine_rampe.webp') }}"
                             type="image/webp"
@@ -30,7 +30,7 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                 <div class="card-img-overlay bg-lightdark text-white text-center d-flex justify-content-around flex-column">
                     <h1 class="text-roboto-bold">La piscine de vos rêves</h1>
                     <div class="text-center">
-                        <a class="btn button-primary" href="#">
+                        <a class="btn button-blue" href="#">
                             DEMANDEZ VOTRE DEVIS
                         </a>
                     </div>
@@ -296,20 +296,34 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             </div>
         </div>
 
-        <div class="row section bg-grey">
-            <p class="baskerville size-3 pb-5">
-                Un clic et... votre <span class="text-blue">rêve</span> devient réalité !
-            </p>
-
-            <div class="m-2 text-center">
-                <a
-                        type="button"
-                        class="btn btn-yellow spoke"
-                        href="#"
-                >
-                    <i class="fa fa-play" aria-hidden="true"></i>
-                    &nbsp;Je réalise mon rêve
-                </a>
+        <div class="row g-0 section bg-grey pt-0 px-0 pt-sm-auto px-sm-auto pe-sm-0 py-sm-0 align-items-center">
+            <div class="col-12 col-sm-5 order-1 order-sm-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/piscine_maison.webp') }}" type="image/webp">
+                    <source srcset="{{ asset('build/images/piscine_maison.jpg') }}" type="image/jpeg">
+                    <img src="{{ asset('build/images/piscine_maison.jpg') }}"
+                         alt="Piscine LAGOON avec plage, transat et villa"
+                        class="w-100">
+                </picture>
+            </div>
+            <div class="col-12 col-sm-7 order-2 order-sm-1 p-4 p-sm-auto">
+                <h2 class="text-roboto-bold">Réalisez votre rêve</h2>
+                <p>
+                    Avec notre outil de demande de devis, vous êtes à un clic de votre rêve.
+                </p>
+                <p>
+                    Prenez quelques minutes et remplissez la demande de devis en ligne, un membre de notre équipe vous
+                    rappelera.
+                </p>
+                <div class="m-2 text-center">
+                    <a
+                            type="button"
+                            class="btn button-blue"
+                            href="#"
+                    >
+                        DEMANDEZ VOTRE DEVIS
+                    </a>
+                </div>
             </div>
         </div>
     </div>

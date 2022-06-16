@@ -8,10 +8,10 @@ $secondary: #ffc300;
 $dark: #2c2c2c;
 $grey: #f0eeee;
 
-$colors: (blue, $primary),
-        (yellow, $secondary),
-        (dark, $dark),
-        (grey, $grey);
+$colors: ('blue', $primary),
+        ('yellow', $secondary),
+        ('dark', $dark),
+        ('grey', $grey);
 
 /* Bootstrap import */
 @import "~bootstrap/dist/css/bootstrap.min.css";
@@ -88,6 +88,17 @@ $fonts: (roboto, $roboto),
       background-color: transparent;
       transition: background-color 0.5s;
     }
+  }
+}
+
+/***
+  Links
+ */
+a {
+  text-decoration: none;
+
+  &:hover {
+    color:darkgrey;
   }
 }
 

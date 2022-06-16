@@ -55,55 +55,64 @@
             </div>
         </section>
         {% block body %}{% endblock body %}
-        <footer class="bg-dark text-light pad">
-            <div class="row py-5">
-                <div class="col-5">
-                    <ul style="list-style:none">
-                        <li><a
-                                    href="https://www.iubenda.com/privacy-policy/77195636"
-                                    class="iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe blank-link"
-                                    title="Politique de confidentialité"
-                            >
-                                Politique de confidentialité
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                    href="https://www.iubenda.com/privacy-policy/77195636/cookie-policy"
-                                    class="iubenda-nostyle no-brand iubenda-noiframe iubenda-embed iubenda-noiframe blank-link"
-                                    title="Politique relative aux cookies "
-                            >
-                                Politique relative aux cookies
-                            </a>
-                        </li>
-                        <li><a href="#" class="blank-link">Demande de devis</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-5">
-                    <ul style="list-style:none">
-                        <li><a href="#" class="blank-link">Qui sommes nous ?</a></li>
-                        <li>
-                            <a href="#" class="blank-link">
-                                Votre projet piscine LAGOON&reg; pas-à-pas expliqué
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-2">
-                    <a href="https://www.facebook.com/lagoonpiscinesetspa" class="blank-link" target="_blank">
-                        <i class="fa fa-facebook" aria-hidden="true" style="font-size:2em"></i>
-                    </a>&ensp;
-                    <a href="https://www.instagram.com/lagoonpiscines/" class="blank-link" target="_blank">
-                        <i class="fa fa-instagram" aria-hidden="true" style="font-size:2em"></i>
-                    </a>
+        <footer class="bg-blue text-light pt-2 row section align-items-center">
+            <div class="col-12 col-md-4 order-1 order-md-2 text-center">
+                <picture>
+                    <source srcset="{{ asset('build/images/logo_blanc.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/logo_blanc.png') }}"
+                            type="image/png">
+                    <img src="{{ asset('build/images/logo_blanc.png') }}"
+                         alt="Logo lagoon blanc"
+                         height="100">
+                </picture>
+                <p>
+                    Lagoon s'est fixé la mission de vous offrir des piscines naturelles…
+                    <br>
+                    Tel : +33 9 53 83 76 75
+                    <br>
+                    SAS au capital de ...
+                    <br>
+                    RCS Grasse ...
+                </p>
+                <div class="d-flex flex-row fs-2 justify-content-center">
+                    <div class="px-2">
+                        <a class="link-light" href="https://www.linkedin.com/company/lagoon-piscines/">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="px-2">
+                        <a class="link-light" href="https://www.instagram.com/lagoonpiscines/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="px-2">
+                        <a class="link-light" href="https://www.facebook.com/lagoonpiscinesetspa">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <div class="text-center">
+            <div class="col-12 col-md-4 order-2 order-md-1 text-roboto-bold">
+                <ul class="list-unstyled text-center">
+                    <li><a class="link-light" href="#">Construction</a></li>
+                    <li><a class="link-light" href="#">Formation</a></li>
+                    <li><a class="link-light" href="#">Le Concept</a></li>
+                    <li><a class="link-light" href="#">Dates des formations</a></li>
+                </ul>
+            </div>
+            <hr class="d-block d-md-none order-3 w-50 mx-auto">
+            <div class="col-12 col-md-4 order-4 text-roboto-bold">
+                <ul class="list-unstyled text-center">
+                    <li><a class="link-light" href="#">Politique de confidentialité</a></li>
+                    <li><a class="link-light" href="#">Politique des cookies</a></li>
+                    <li><a class="link-light" href="#">Contact</a></li>
+                    <li><a class="link-light" href="{{ path('app_login') }}">Espace privé</a></li>
+                </ul>
+            </div>
+            <div class="text-center order-5">
                 <i class="fa fa-copyright" aria-hidden="true"></i>
-                &nbsp;Copyright 2021 LAGOON&reg; DISTRIBUTION CORPORATION
+                &nbsp;Copyright {{ "now"|date("Y") }} LAGOON&reg; DISTRIBUTION CORPORATION
             </div>
         </footer>
     </body>

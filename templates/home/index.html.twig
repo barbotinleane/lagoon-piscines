@@ -13,50 +13,46 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
             </div>
         {% endfor %}
         <div class="row">
-            <div class="col-12 order-2 order-md-1 title-responsive">
-                <h1 class="baskerville size-1">
-                    Piscines de vos rêves...
-                </h1>
-                <div class="text-intro">
-                    <p>
-                        Issues de plus de 30 années de recherche, chacune de nos piscines naturelles est
-                        unique. Elle est réalisée sur mesure en fonction de vos envies. Cet écrin d’émeraude
-                        sublimera votre jardin pour en faire un petit coin de paradis, pour le bonheur des
-                        petits et des grands !
-                    </p>
-                    <a class="btn btn-blue" href="{{ path('app_concept') }}">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        &nbsp;Découvrez la technologie derrière ces piscines naturelles
-                    </a>
-                </div>
-            </div>
-
-            <div id="image_fond" class="col-12 g-0 order-1 order-md-2 img-fond">
+            <div class="card border-0">
                 <picture>
-                    <source srcset="{{ asset('build/images/reve.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
-                    <source srcset="{{ asset('build/images/reve.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
+                    <source srcset="{{ asset('build/images/piscine_rampe.webp') }}"
+                            type="image/webp"
+                    >
+                    <source srcset="{{ asset('build/images/piscine_rampe.jpg') }}"
+                            type="image/jpeg"
+                    >
                     <img
-                            src="{{ asset('build/images/reve.jpg') }}"
-                            alt="un couple devant un coucher de soleil au bord d'une piscine"
-                            class="w-100 h-auto text-center"
+                            src="{{ asset('build/images/piscine_rampe.jpg') }}"
+                            class="img-fluid img-home"
+                            alt="Une piscine lagoon en résine naturelle EPDM avec plage"
                     >
                 </picture>
+                <div class="card-img-overlay bg-lightdark text-white text-center d-flex justify-content-around flex-column">
+                    <h1 class="text-roboto-bold">La piscine de vos rêves</h1>
+                    <div class="text-center">
+                        <a class="btn button-primary" href="#">
+                            DEMANDEZ VOTRE DEVIS
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="bg-dark row py-3 text-light">
-            <h2 class="text-center baskerville size-2 p-5">POURQUOI CHOISIR LAGOON&reg; ?</h2>
-
-            <div class="flex align-items-center p-3 left-a">
+        <div class="row section">
+            <div class="col-12 col-sm-4 p-3">
                 <div class="text-center">
                     <picture>
-                        <source srcset="{{ asset('build/images/securite5.webp') }}" type="image/webp" class="w-100 h-auto">
-                        <source srcset="{{ asset('build/images/securite5.jpg') }}" type="image/jpeg" class="w-100 h-auto">
-                        <img src="{{ asset('build/images/securite5.jpg') }}" alt="un enfant dans une bouée dans une piscine et sa famille derrière" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/securite5.webp') }}"
+                                type="image/webp">
+                        <source srcset="{{ asset('build/images/securite5.jpg') }}"
+                                type="image/jpeg">
+                        <img src="{{ asset('build/images/securite5.jpg') }}"
+                             alt="un enfant dans une bouée dans une piscine et sa famille derrière"
+                             class="w-100 img-card-col">
                     </picture>
                 </div>
                 <div class="m-5">
-                    <h4 class="baskerville size-3">Sécurité</h4>
+                    <h4 class="text-roboto-bold">Sécurité</h4>
                     <p>
                         Son design unique en pentes douces permet à vous et votre famille de profiter
                         des plaisirs de la nage en toute sécurité.
@@ -64,16 +60,20 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                 </div>
             </div>
 
-            <div class="flex align-items-center p-3 right-a">
+            <div class="col-12 col-sm-4 p-3">
                 <div class="text-center">
                     <picture>
-                        <source srcset="{{ asset('build/images/ecologique3.webp') }}" type="image/webp" class="w-100 h-auto">
-                        <source srcset="{{ asset('build/images/ecologique3.jpg') }}" type="image/jpeg" class="w-100 h-auto">
-                        <img src="{{ asset('build/images/ecologique3.jpg') }}" alt="une jeune pousse dans un tronc" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/ecologique3.webp') }}"
+                                type="image/webp">
+                        <source srcset="{{ asset('build/images/ecologique3.jpg') }}"
+                                type="image/jpeg">
+                        <img src="{{ asset('build/images/ecologique3.jpg') }}"
+                             alt="une jeune pousse dans un tronc"
+                             class="w-100 img-card-col">
                     </picture>
                 </div>
                 <div class="mt-5 mx-5">
-                    <h4 class="baskerville size-3">Naturelle et Ecologique</h4>
+                    <h4 class="text-roboto-bold">Naturelle et Ecologique</h4>
                     <p>
                         Sans béton, sans plastique, la réalisation de la structure des piscines
                         LAGOON&reg; ne nécessite pas de travaux de maçonnerie mais utilise des
@@ -82,16 +82,20 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                 </div>
             </div>
 
-            <div class="flex align-items-center p-3 left-a">
+            <div class="col-12 col-sm-4 p-3">
                 <div class="text-center">
                     <picture>
-                        <source srcset="{{ asset('build/images/sur_mesure2.webp') }}" type="image/webp" class="w-100 h-auto">
-                        <source srcset="{{ asset('build/images/sur_mesure2.jpg') }}" type="image/jpeg" class="w-100 h-auto">
-                        <img src="{{ asset('build/images/sur_mesure2.jpg') }}" alt="dessin d'un plan de piscine" class="w-100 h-auto">
+                        <source srcset="{{ asset('build/images/sur_mesure2.webp') }}"
+                                type="image/webp">
+                        <source srcset="{{ asset('build/images/sur_mesure2.jpg') }}"
+                                type="image/jpeg">
+                        <img src="{{ asset('build/images/sur_mesure2.jpg') }}"
+                             alt="dessin d'un plan de piscine"
+                             class="w-100 img-card-col">
                     </picture>
                 </div>
                 <div class="m-5">
-                    <h4 class="baskerville size-3">Sur mesure</h4>
+                    <h4 class="text-roboto-bold">Sur mesure</h4>
                     <p>
                         La gamme de produit LAGOON&reg; permet un nombre infini de formes de piscines
                         qui réalise chacune de vos envies et s’adapte parfaitement aux contraintes
@@ -99,215 +103,200 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                     </p>
                 </div>
             </div>
-
-            <div class="flex align-items-center p-3 right-a">
-                <div class="text-center">
-                    <picture>
-                        <source srcset="{{ asset('build/images/accompagnement.webp') }}" type="image/webp" class="w-100 h-auto">
-                        <source srcset="{{ asset('build/images/accompagnement.jpg') }}" type="image/jpeg" class="w-100 h-auto">
-                        <img src="{{ asset('build/images/accompagnement.jpg') }}" alt="un homme explique à un couple dans un salon leur projet" class="w-100 h-auto">
-                    </picture>
-                </div>
-                <div class="m-5">
-                    <h4 class="baskerville size-3">Accompagnement</h4>
-                    <p>
-                        Notre équipe est à votre écoute et vous accompagne pas à pas dans la conception,
-                        la réalisation mais aussi les démarches administratives associées à votre
-                        projet de A à Z.
-                    </p>
-                </div>
-            </div>
         </div>
 
-        <div class="row section bg-yellow-clear">
-            <div class="col-12 col-lg-6 col-xl-8 px-5 py-4 py-lg-none order-1 order-md-2">
-                <div class="row align-items-center justify-content-center">
-                    <div id="carouselProjects" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button"
-                                    data-bs-target="#carouselProjects"
-                                    data-bs-slide-to="0"
-                                    class="active"
-                                    aria-current="true"
-                                    aria-label="Slide 1">
-                            </button>
-                            <button type="button"
-                                    data-bs-target="#carouselProjects"
-                                    data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                            <button type="button"
-                                    data-bs-target="#carouselProjects"
-                                    data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <picture>
-                                    <source srcset="{{ asset('build/images/lagoon-1.webp') }}" type="image/webp" class="w-100">
-                                    <source srcset="{{ asset('build/images/lagoon-1.jpg') }}" type="image/jpeg" class="w-100">
-                                    <img src="{{ asset('build/images/lagoon-1.jpg') }}"
-                                         alt="Une piscine lagoon et son eau bleue"
-                                         class="w-100">
-                                </picture>
-                            </div>
-                            <div class="carousel-item">
-                                <picture>
-                                    <source srcset="{{ asset('build/images/projet2.webp') }}" type="image/webp" class="w-100">
-                                    <source srcset="{{ asset('build/images/projet2.jpg') }}" type="image/jpeg" class="w-100">
-                                    <img src="{{ asset('build/images/projet2.jpg') }}"
-                                         alt="Un lagoon et la montagne derrière"
-                                         class="w-100">
-                                </picture>
-                            </div>
-                            <div class="carousel-item">
-                                <picture>
-                                    <source srcset="{{ asset('build/images/projet3.webp') }}" type="image/webp" class="w-100">
-                                    <source srcset="{{ asset('build/images/projet3.jpg') }}" type="image/jpeg" class="w-100">
-                                    <img src="{{ asset('build/images/projet3.jpg') }}"
-                                         alt="Un bassin lagoon de rêve avec un fond bleu"
-                                         class="w-100">
-                                </picture>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev"
-                                type="button"
-                                data-bs-target="#carouselProjects"
-                                data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next"
-                                type="button"
-                                data-bs-target="#carouselProjects"
-                                data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
+        <div class="row section text-center">
+            <h2 class="mb-2 text-roboto-bold">Nos réalisations</h2>
+            <div class="col-12 col-sm-6 my-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/piscine_plage_fond.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/piscine_plage_fond.jpg') }}"
+                            type="image/jpeg">
+                    <img src="{{ asset('build/images/piscine_plage_fond.jpg') }}"
+                         alt="Piscine LAGOON entourée de plage, rochers, et verdure"
+                         class="w-100">
+                </picture>
             </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 px-5 order-2 order-lg-1 align-self-center">
-                <div class="ps-none ps-lg-5">
-                    <h2 class="baskerville size-2">Laissez vous inspirer...</h2>
-                    <p>Découvrez quelques uns de nos plus beaux projets réalisés.</p>
-                    <div class="text-center">
-                        <a
-                                class="btn btn-blue"
-                                href="{{ path('app_gallery') }}"
-                        >
-                            <i class="fa fa-picture-o" aria-hidden="true"></i>
-                            &nbsp;Voir plus
-                        </a>
-                    </div>
-                </div>
+            <div class="col-12 col-sm-6 my-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/projet1.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/projet1.jpg') }}"
+                            type="image/jpeg">
+                    <img src="{{ asset('build/images/projet1.jpg') }}"
+                         alt="Vue entière d'une piscine LAGOON de haut"
+                         class="w-100">
+                </picture>
+            </div>
+            <div class="col-12 my-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/projet3.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/projet3.jpg') }}"
+                            type="image/jpeg">
+                    <img src="{{ asset('build/images/projet3.jpg') }}"
+                         alt="Vue de près du fond bleu d'une piscine LAGOON"
+                         class="w-100">
+                </picture>
+            </div>
+            <div class="col-12 col-sm-6 my-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/bain.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/bain.jpg') }}"
+                            type="image/jpeg">
+                    <img src="{{ asset('build/images/bain.jpg') }}"
+                         alt="Piscine LAGOON avec fontaine et bains relaxants"
+                         class="w-100">
+                </picture>
+            </div>
+            <div class="col-12 col-sm-6 my-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/marbre_vert.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/marbre_vert.jpg') }}"
+                            type="image/jpeg">
+                    <img src="{{ asset('build/images/marbre_vert.jpg') }}"
+                         alt="Bassin LAGOON à la rencontre du marbre vert et de l'eau"
+                         class="w-100">
+                </picture>
+            </div>
+            <div class="col-12 my-2">
+                <picture>
+                    <source srcset="{{ asset('build/images/lagoon_entier.webp') }}"
+                            type="image/webp">
+                    <source srcset="{{ asset('build/images/lagoon_entier.jpg') }}"
+                            type="image/jpeg">
+                    <img src="{{ asset('build/images/lagoon_entier.jpg') }}"
+                         alt="Piscine LAGOON entière dans un jardin"
+                         class="w-100">
+                </picture>
             </div>
         </div>
 
         <div class="row section">
-            <h2 class="text-center baskerville size-2 py-4">Clients satisfaits</h2>
+            <h2 class="text-center text-roboto-bold py-4">Clients satisfaits</h2>
+            <div class="col-12 col-sm-6 col-md-4 text-center">
+                <picture>
+                    <source srcset="{{ asset('build/images/carolina.webp') }}"
+                            type="image/webp"
+                            class="rounded-circle"
+                            height="70"
+                            width="70">
+                    <source srcset="{{ asset('build/images/carolina.jpg') }}"
+                            type="image/jpeg"
+                            class="rounded-circle"
+                            height="70"
+                            width="70">
+                    <img src="{{ asset('build/images/carolina.jpg') }}"
+                         alt="Photo de la cliente carolina"
+                         class="rounded-circle"
+                         height="70"
+                         width="70">
+                </picture>
+                <p class="w-75 mx-auto">
+                    <em>L'équipe piscine LAGOON&reg; est au top !</em>
+                </p>
+                <strong>Carolina<br></strong>
+                Alpes Maritimes
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 text-center">
+                <picture>
+                    <source srcset="{{ asset('build/images/john.webp') }}"
+                            type="image/webp"
+                            class="rounded-circle"
+                            height="70"
+                            width="70">
+                    <source srcset="{{ asset('build/images/john.jpg') }}"
+                            type="image/jpeg"
+                            class="rounded-circle"
+                            height="70"
+                            width="70">
+                    <img src="{{ asset('build/images/john.jpg') }}"
+                         alt="Photo du client john"
+                         class="rounded-circle"
+                         height="70"
+                         width="70">
+                </picture>
+                <p class="w-75 mx-auto">
+                    <em>
+                        Je suis vraiment satisfait par la technologie LAGOON&reg; qui permet
+                        de combiner esthétique et sécurité pour les enfants
+                    </em>
+                </p>
+                <strong>
+                    John<br></strong>
+                Alpes Maritimes
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 text-center">
+                <picture>
+                    <source srcset="{{ asset('build/images/lisa.webp') }}"
+                            type="image/webp"
+                            class="rounded-circle"
+                            height="70"
+                            width="70">
+                    <source srcset="{{ asset('build/images/lisa.jpg') }}"
+                            type="image/jpeg"
+                            class="rounded-circle"
+                            height="70"
+                            width="70">
+                    <img src="{{ asset('build/images/lisa.jpg') }}"
+                         alt="Photo de la cliente Lisa"
+                         class="rounded-circle"
+                         height="70"
+                         width="70">
+                </picture>
+                <p class="w-75 mx-auto">
+                    <em>Mon spa est vraiment une réussite. Le spa ajoute de la valeur à ma
+                        propriété.</em>
+                </p>
+                <strong>Lisa</strong>
+            </div>
+        </div>
 
-            <div id="carouselClients" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active text-center" data-bs-interval="5000">
+        <div class="row section">
+            <div class="col-12 col-md-5 col-lg-6">
+                <h2 class="text-roboto-bold">Ils parlent de nous dans la presse...</h2>
+            </div>
+
+            <div class="col-12 col-md-7 col-lg-6">
+                <div class="row lead fs-5 pt-4 align-items-center">
+                    <div class="col-6 text-center py-4">
                         <picture>
-                            <source srcset="{{ asset('build/images/carolina.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
-                            <source srcset="{{ asset('build/images/carolina.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
-                            <img src="{{ asset('build/images/carolina.jpg') }}" alt="Photo de la cliente carolina" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/logo_mj2.webp') }}" type="image/webp" width=100 height=46>
+                            <source srcset="{{ asset('build/images/logo_mj2.png') }}" type="image/png" width=100 height=46>
+                            <img src="{{ asset('build/images/logo_mj2.png') }}" alt="logo maison et jardin" width=100 height=46>
                         </picture>
-                        <p class="w-75 mx-auto">
-                            <em>L'équipe piscine LAGOON&reg; est au top !</em>
-                        </p>
-                        <strong>Carolina<br></strong>
-                        Alpes Maritimes
+                    </div>
+                    <div class="col-6 text-center py-4">
+                        <picture>
+                            <source srcset="{{ asset('build/images/logo_gp2.webp') }}" type="image/webp" width=150 height=22>
+                            <source srcset="{{ asset('build/images/logo_gp2.png') }}" type="image/png" width=150 height=22>
+                            <img src="{{ asset('build/images/logo_gp2.png') }}" alt="logo guide piscine" width=150 height=22>
+                        </picture>
                     </div>
 
-                    <div class="carousel-item text-center" data-bs-interval="5000">
+                    <div class="col-6 text-center py-4">
                         <picture>
-                            <source srcset="{{ asset('build/images/john.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
-                            <source srcset="{{ asset('build/images/john.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
-                            <img src="{{ asset('build/images/john.jpg') }}" alt="Photo du client john" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/logo_golf2.webp') }}" type="image/webp" width=100 height=75>
+                            <source srcset="{{ asset('build/images/logo_golf2.png') }}" type="image/png" width=100 height=75>
+                            <img src="{{ asset('build/images/logo_golf2.png') }}" alt="logo golf de biot" width=100 height=75>
                         </picture>
-                        <p class="w-75 mx-auto">
-                            <em>
-                                Je suis vraiment satisfait par la technologie LAGOON&reg; qui permet
-                                de combiner esthétique et sécurité pour les enfants
-                            </em>
-                        </p>
-                        <strong>
-                            John<br></strong>
-                        Alpes Maritimes
+                        <br>Golf de Biot
                     </div>
-
-                    <div class="carousel-item text-center">
+                    <div class="col-6 text-center py-4">
                         <picture>
-                            <source srcset="{{ asset('build/images/lisa.webp') }}" type="image/webp" class="rounded-circle" height="70" width="70">
-                            <source srcset="{{ asset('build/images/lisa.jpg') }}" type="image/jpeg" class="rounded-circle" height="70" width="70">
-                            <img src="{{ asset('build/images/lisa.jpg') }}" alt="Photo de la cliente Lisa" class="rounded-circle" height="70" width="70">
+                            <source srcset="{{ asset('build/images/logo_fpp2.webp') }}" type="image/webp" width=100 height=112>
+                            <source srcset="{{ asset('build/images/logo_fpp2.png') }}" type="image/png" width=100 height=112>
+                            <img src="{{ asset('build/images/logo_fpp2.png') }}" alt="logo fpp" width=100 height=112>
                         </picture>
-                        <p class="w-75 mx-auto">
-                            <em>Mon spa est vraiment une réussite. Le spa ajoute de la valeur à ma
-                                propriété.</em>
-                        </p>
-                        <strong>Lisa</strong>
                     </div>
                 </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselClients" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselClients" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
 
         <div class="row section bg-grey">
-            <div class="row">
-                <div class="col-12 col-md-5 col-lg-6">
-                    <h2 class="baskerville size-2">Ils parlent de nous dans la presse...</h2>
-                </div>
-
-                <div class="col-12 col-md-7 col-lg-6">
-                    <div class="row lead fs-5 pt-4 align-items-center">
-                        <div class="col-6 text-center py-4">
-                            <picture>
-                                <source srcset="{{ asset('build/images/logo_mj2.webp') }}" type="image/webp" width=100 height=46>
-                                <source srcset="{{ asset('build/images/logo_mj2.png') }}" type="image/png" width=100 height=46>
-                                <img src="{{ asset('build/images/logo_mj2.png') }}" alt="logo maison et jardin" width=100 height=46>
-                            </picture>
-                        </div>
-                        <div class="col-6 text-center py-4">
-                            <picture>
-                                <source srcset="{{ asset('build/images/logo_gp2.webp') }}" type="image/webp" width=150 height=22>
-                                <source srcset="{{ asset('build/images/logo_gp2.png') }}" type="image/png" width=150 height=22>
-                                <img src="{{ asset('build/images/logo_gp2.png') }}" alt="logo guide piscine" width=150 height=22>
-                            </picture>
-                        </div>
-
-                        <div class="col-6 text-center py-4">
-                            <picture>
-                                <source srcset="{{ asset('build/images/logo_golf2.webp') }}" type="image/webp" width=100 height=75>
-                                <source srcset="{{ asset('build/images/logo_golf2.png') }}" type="image/png" width=100 height=75>
-                                <img src="{{ asset('build/images/logo_golf2.png') }}" alt="logo golf de biot" width=100 height=75>
-                            </picture>
-                            <br>Golf de Biot
-                        </div>
-                        <div class="col-6 text-center py-4">
-                            <picture>
-                                <source srcset="{{ asset('build/images/logo_fpp2.webp') }}" type="image/webp" width=100 height=112>
-                                <source srcset="{{ asset('build/images/logo_fpp2.png') }}" type="image/png" width=100 height=112>
-                                <img src="{{ asset('build/images/logo_fpp2.png') }}" alt="logo fpp" width=100 height=112>
-                            </picture>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row section big-spacing">
             <p class="baskerville size-3 pb-5">
                 Un clic et... votre <span class="text-blue">rêve</span> devient réalité !
             </p>
@@ -316,7 +305,7 @@ Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock desc
                 <a
                         type="button"
                         class="btn btn-yellow spoke"
-                        href="{{ path('app_project') }}"
+                        href="#"
                 >
                     <i class="fa fa-play" aria-hidden="true"></i>
                     &nbsp;Je réalise mon rêve

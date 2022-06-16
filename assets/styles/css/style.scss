@@ -1,0 +1,337 @@
+/***
+  Colors
+ */
+
+/* Bootstrap colors personalised */
+$primary: #5EBFCE;
+$secondary: #ffc300;
+$dark: #2c2c2c;
+$grey: #f0eeee;
+
+$colors: (primary, $primary),
+        (secondary, $secondary),
+        (dark, $dark),
+        (grey, $grey);
+
+/* Bootstrap import */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* Datepicker import */
+@import "~js-datepicker/dist/datepicker.min.css";
+
+/***
+  Responsive : mixins and breakpoints
+ */
+$breakpoints: (
+        "xs": 500px,
+        "sm": 768px,
+        "md": 992px,
+        "lg": 1200px,
+        "xl": 1400px
+);
+
+@mixin media-min($_min-width) {
+  @media screen and (min-width: $_min-width) {
+    &{ @content; }
+  }
+}
+
+/***
+  Fonts
+ */
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  src: url("../fonts/Roboto-Thin.ttf") format("truetype");
+}
+
+$roboto: 'Roboto', serif;
+$roboto-bold: 'Roboto Bold', serif;
+$roboto-light: 'Roboto Light', sans-serif;
+
+$fonts: (roboto, $roboto),
+        (roboto-bold, $roboto-bold),
+        (roboto-light, $roboto-light);
+
+@each $name, $font in $fonts {
+  .text-#{$name} {
+    font-family: #{$font};
+  }
+}
+
+/***
+  Buttons
+ */
+@mixin button {
+  border-radius: 22px;
+  padding: 3px 20px;
+  font-family: $roboto;
+}
+
+@each $name, $color in $colors {
+  .button-#{$name} {
+    @include button;
+    background-color: $color;
+    border: 2px solid $color;
+    color: white;
+
+    &:hover {
+      background-color: transparent;
+      transition: background-color 0.5s;
+    }
+  }
+}
+
+/***
+  Backgrounds
+ */
+.bg-lightdark {
+  background-color: rgba(0,0,0,0.2);
+}
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+/***
+  Margin and padding
+ */
+
+.section {
+  padding: 50px 10px 50px 10px;
+
+  @include media-min(map-get($breakpoints, "sm")) {
+    padding: 40px 50px 40px 50px;
+  }
+
+  @include media-min(map-get($breakpoints, "md")) {
+    padding: 40px 80px 40px 80px;
+  }
+
+  @include media-min(map-get($breakpoints, "lg")) {
+    padding: 40px 120px 30px 120px;
+  }
+
+  @include media-min(map-get($breakpoints, "xl")) {
+    padding: 50px 200px 50px 200px;
+  }
+}
+
+/***
+  Navbar
+ */
+$content-width: 1500px;
+$breakpoint: 950px;
+$nav-height: 60px;
+$nav-background: #fff;
+$nav-font-color: $dark;
+$link-hover-color: $primary;
+
+.navigation {
+  height: $nav-height;
+  background: $nav-background;
+}
+
+.nav-container {
+  max-width: $content-width;
+  margin: 0 auto;
+  display:flex;
+  justify-content: space-between;
+}
+
+.brand {
+  padding: 0px 20px;
+  line-height: $nav-height;
+  text-transform: uppercase;
+  font-size: 1.4em;
+
+  a,
+  a:visited {
+    color: $nav-font-color;
+    text-decoration: none;
+  }
+}
+
+nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      position: relative;
+      background: $nav-background;
+      a {
+        display: block;
+        padding: 5px 20px 5px 20px;
+        line-height: 50px;
+        background: $nav-background;
+        color: $nav-font-color;
+        font-size: 1em;
+        font-family: $roboto-bold;
+        text-decoration: none;
+
+        &::before {
+          transition: 300ms;
+          height: 5px;
+          content: "";
+          position: absolute;
+          background-color: $link-hover-color;
+          width: 0%;
+          bottom: 0px;
+        }
+
+        &:hover::before{
+          width: 70%;
+        }
+        &:not(:only-child):after {
+          padding-left: 4px;
+          content: ' ▾';
+        }
+      }
+    }
+  }
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $nav-background;
+  height: $nav-height;
+  width: $nav-height;
+}
+.phone-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: $breakpoint) {
+  .nav-container {
+    display: block;
+  }
+  .nav-mobile {
+    display: block;
+  }
+  .phone-mobile {
+    display:block;
+  }
+  .phone {
+    display: none;
+  }
+  .brand {
+    width: 100%;
+    display: flex;
+  }
+  .brand-link {
+    margin: auto;
+  }
+  nav {
+    width: 100%;
+    padding: 0;
+    background: $nav-background;
+    ul {
+      display: none;
+
+      li{
+        float: none;
+        z-index: 9999;
+
+        a {
+          padding: 15px;
+          line-height: 20px;
+          font-size: 1.5em;
+
+          &:hover::before{
+            width: 20%;
+          }
+        }
+
+        &:first-child {
+          padding-top: 50px;
+        }
+
+        &:last-child {
+          padding-top: 30px;
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: 28px;
+    background: $dark;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+  &.active span {
+    background-color: transparent;
+    &:before,
+    &:after {
+      top: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint) {
+  .nav-list {
+    display: block !important;
+  }
+  .phone {
+    display:block;
+  }
+}
+
+
+/***
+  Images
+ */
+.img-home {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.img-card-col {
+  height: 160px;
+  width: 250px;
+  object-fit: cover;
+}

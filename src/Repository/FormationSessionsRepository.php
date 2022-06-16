@@ -45,22 +45,19 @@ class FormationSessionsRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return FormationSessions[] Returns an array of FormationSessions objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return FormationSessions[] Returns an array of FormationSessions objects
+    */
+    public function findAllByFormation()
     {
         return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('f.formation')
+            ->addOrderBy('f.formation', 'ASC')
+            ->addOrderBy('f.formation', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?FormationSessions

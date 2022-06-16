@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3308/lagoonpiscines</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="lagoonpiscines@localhost [2]" uuid="651ecdf7-1f62-4439-b272-6d1a30d4857a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/lagoonpiscines</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

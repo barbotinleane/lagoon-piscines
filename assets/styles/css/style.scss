@@ -335,3 +335,25 @@ nav {
   width: 250px;
   object-fit: cover;
 }
+
+.img-gallery {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+
+  @include media-min(map-get($breakpoints, "sm")) {
+    height: 300px;
+  }
+
+  @include media-min(map-get($breakpoints, "md")) {
+    height: 350px;
+  }
+
+  @include media-min(map-get($breakpoints, "lg")) {
+    height: 400px;
+  }
+
+  @include media-min(map-get($breakpoints, "xl")) {
+    height: 450px;
+  }
+}

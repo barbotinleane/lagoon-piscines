@@ -4,13 +4,13 @@
 
 {% block body %}
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="container-fluid">
-            <div class="row section justify-content-between bg-blck text-light">
+        <div class="container-fluid pt-5">
+            <div class="row section justify-content-between bg-dark text-light">
                 <div class="col-12 col-sm-10 order-2 order-sm-1">
-                    <h1 class="text-roboto-bold size-1 pt-4 pt-sm-0">Administration</h1>
+                    <h1 class="baskerville size-1 pt-4 pt-sm-0">Administration</h1>
                 </div>
                 <div class="col-12 col-sm-2 order-1 order-sm-2">
-                    <a class="btn button-outline-grey btn-sm" href="{{ path('app_logout') }}">
+                    <a class="btn btn-outline-light btn-sm" href="{{ path('app_logout') }}">
                         <i class="fa fa-sign-out"></i>
                         Se déconnecter
                     </a>
@@ -54,9 +54,9 @@
                 </div>
             </div>
 
-            <div class="row section bg-blck">
+            <div class="row section bg-dark">
                 <div class="text-end">
-                    <a class="btn button-outline-grey btn-sm" href="{{ path('app_logout') }}">
+                    <a class="btn btn-outline-light btn-sm" href="{{ path('app_logout') }}">
                         <i class="fa fa-sign-out"></i>
                         Se déconnecter
                     </a>

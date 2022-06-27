@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - Administration{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="container-fluid">
+            <div class="row section justify-content-between bg-blck text-light">
+                <div class="col-12 col-sm-10 order-2 order-sm-1">
+                    <h1 class="text-roboto-bold size-1 pt-4 pt-sm-0">Administration</h1>
+                </div>
+                <div class="col-12 col-sm-2 order-1 order-sm-2">
+                    <a class="btn button-outline-grey btn-sm" href="{{ path('app_logout') }}">
+                        <i class="fa fa-sign-out"></i>
+                        Se déconnecter
+                    </a>
+                </div>
+            </div>
+            <div class="row section">
+                <h2 class="text-center py-3 text-roboto-bold">Sessions de formation</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><strong>Formation</strong></th>
+                            <th>Date de début</th>
+                            <th>Date de fin</th>
+                            <th>Inscrits</th>
+                            <th>Capacité</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for formation_session in formation_sessions %}
+                            <tr class='clickable-row' data-href='{{ path('app_dashboard_edit', {'id': formation_session.id}) }}'>
+                                <td>{{ formation_session.formation.libelle }}</td>
+                                <td>{{ formation_session.dateStart ? formation_session.dateStart|date('d/m/Y') : '' }}</td>
+                                <td>{{ formation_session.dateEnd ? formation_session.dateEnd|date('d/m/Y') : '' }}</td>
+                                <td>{{ formation_session.registered }}</td>
+                                <td>{{ formation_session.capacity }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">Pas de sessions de formations enregistrées</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-lg button-blue" href="{{ path('app_dashboard_new') }}">
+                        <i class="fa fa-plus"></i>
+                        Ajouter une session
+                    </a>
+                </div>
+            </div>
+
+            <div class="row section bg-blck">
+                <div class="text-end">
+                    <a class="btn button-outline-grey btn-sm" href="{{ path('app_logout') }}">
+                        <i class="fa fa-sign-out"></i>
+                        Se déconnecter
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>Vous n'avez pas accès à cette page.</p>
+        <div class="text-center">
+            <a class="btn btn-blue" href="{{ path('app_home') }}">
+                Retour à la page d'accueil
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}

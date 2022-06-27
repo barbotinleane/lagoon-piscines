@@ -51,9 +51,10 @@ class FormationSessionsRepository extends ServiceEntityRepository
     public function findAllByFormation()
     {
         return $this->createQueryBuilder('f')
+            ->where('f.dateEnd > CURRENT_DATE()')
             ->orderBy('f.formation')
             ->addOrderBy('f.formation', 'ASC')
-            ->addOrderBy('f.formation', 'ASC')
+            ->addOrderBy('f.dateStart', 'ASC')
             ->getQuery()
             ->getResult()
             ;

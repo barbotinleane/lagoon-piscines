@@ -50,6 +50,12 @@
                             <a class="nav-link" href="{{ path('app_project') }}">Votre projet</a>
                             <a class="nav-link" href="{{ path('app_formation') }}">Formation</a>
                             <a class="nav-link" href="{{ path('app_about_us') }}">A propos de nous</a>
+                            {% if app.user %}
+                                <a class="nav-link bg-dark text-white ms-4"
+                                   href="{{ path('app_dashboard_index')}} }">
+                                    Administration
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

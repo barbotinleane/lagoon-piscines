@@ -67,7 +67,7 @@ class CustomMailer
     }
 
     public function sendProjectAskMail(ProjectAsk $projectAsk) {
-        $email = (new TemplatedEmail())
+        /*$email = (new TemplatedEmail())
             ->from('leanepublicite@gmail.com')
             ->to('leaneb83@gmail.com')
             ->subject('Nouvelle demande de devis !')
@@ -80,8 +80,11 @@ class CustomMailer
         try {
             $emailSent = $this->mailer->send($email);
             dump($emailSent->getDebug());
+
         } catch (TransportExceptionInterface $e) {
             return new RedirectResponse($this->router->generate('app_404_error'));
-        }
+        }*/
+
+        mail('leaneb83@gmail.com', 'True', 'True');
     }
 }

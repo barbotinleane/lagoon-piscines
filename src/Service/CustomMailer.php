@@ -68,7 +68,7 @@ class CustomMailer
     public function sendProjectAskMail(ProjectAsk $projectAsk) {
         $email = (new TemplatedEmail())
             ->from('form@lagoon-formations.com')
-            ->to('barbotinleane@gmail.com')
+            ->to('leaneb83@gmail.com')
             ->subject('Nouvelle demande de devis !')
             ->htmlTemplate('email/email_project_ask.html.twig')
             ->context([

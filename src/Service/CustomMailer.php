@@ -21,6 +21,7 @@ class CustomMailer
 {
     private $mailer;
     private $router;
+    private $asanaManager;
     private $twig;
 
     public function __construct(TransportInterface $mailer, RouterInterface $router, AsanaManager $asana, Environment $twig)

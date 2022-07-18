@@ -8,6 +8,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 /***
@@ -20,7 +21,7 @@ class CustomMailer
     private $mailer;
     private $router;
 
-    public function __construct(MailerInterface $mailer, RouterInterface $router, AsanaManager $asana)
+    public function __construct(TransportInterface $mailer, RouterInterface $router, AsanaManager $asana)
     {
         $this->mailer = $mailer;
         $this->router = $router;
@@ -77,7 +78,8 @@ class CustomMailer
         ;
 
         try {
-            $this->mailer->send($email);
+            $emailSent = $this->mailer->send($email);
+            dump($emailSent->getDebug());
         } catch (TransportExceptionInterface $e) {
             return new RedirectResponse($this->router->generate('app_404_error'));
         }

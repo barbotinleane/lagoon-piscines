@@ -10,6 +10,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Twig\Environment;
 
 /***
  * Service used to send custom emails
@@ -20,12 +21,14 @@ class CustomMailer
 {
     private $mailer;
     private $router;
+    private $twig;
 
-    public function __construct(TransportInterface $mailer, RouterInterface $router, AsanaManager $asana)
+    public function __construct(TransportInterface $mailer, RouterInterface $router, AsanaManager $asana, Environment $twig)
     {
         $this->mailer = $mailer;
         $this->router = $router;
         $this->asanaManager = $asana;
+        $this->twig = $twig;
     }
 
     /***
@@ -85,6 +88,10 @@ class CustomMailer
             return new RedirectResponse($this->router->generate('app_404_error'));
         }*/
 
-        mail('leaneb83@gmail.com', 'True', 'True');
+        $content = $this->twig->render('email/email_project_ask.html.twig', [
+            'projectAsk' => $projectAsk,
+        ]);
+
+        mail('leaneb83@gmail.com', 'Nouvelle demande de devis !', $content);
     }
 }

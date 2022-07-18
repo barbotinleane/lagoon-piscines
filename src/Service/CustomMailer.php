@@ -89,10 +89,15 @@ class CustomMailer
             return new RedirectResponse($this->router->generate('app_404_error'));
         }*/
 
+        $to = 'leaneb83@gmail.com';
+        $subject = 'Nouvelle demande de devis !';
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
         $content = $this->twig->render('email/email_project_ask.html.twig', [
             'projectAsk' => $projectAsk,
         ]);
 
-        mail('leaneb83@gmail.com', 'Nouvelle demande de devis !', $content);
+
+        mail($to, $subject, $content, implode("\r\n", $headers));
     }
 }

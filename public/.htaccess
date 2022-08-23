@@ -66,12 +66,6 @@ DirectoryIndex index.php
 </IfModule>
 
 <IfModule mod_rewrite.c>
-	RewriteEngine on
-	RewriteCond %{HTTP_HOST} ^www.lagoon-piscines.com
-	RewriteRule (.*) https://lagoon-piscines.com/$1 [R=301,L]
-</IfModule>
-
-<IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{HTTP_HOST} ^lagoon-piscines\.com [NC]
     RewriteCond %{HTTPS} off

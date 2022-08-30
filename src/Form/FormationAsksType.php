@@ -43,7 +43,7 @@ class FormationAsksType extends AbstractType
         $builder
             ->add('status', EntityType::class, [
                 'class' => Status::class,
-                'label' => 'Vous êtes...',
+                'label' => 'Je suis...',
                 'attr' => [
                     'class' => 'buttons-group',
                     'role' => 'group',
@@ -70,10 +70,10 @@ class FormationAsksType extends AbstractType
             ])
             ->add('goal', ChoiceType::class, [
                 'choices' => [
-                    'Reconversion professionnelle' => 'Reconversion professionnelle',
-                    'Création d\'une entreprise' => 'Création d\'une entreprise',
-                    'Création d\'un département LAGOON® dans votre entreprise' => 'Création d\'un département LAGOON® dans votre entreprise',
-                    'Simplement acquérir les compétences liées à cette formation' => 'Simplement acquérir les compétences liées à cette formation',
+                    'Acquérir les compétences liées à cette formation et postuler auprès d\'entreprise installatrice de piscine LAGON' => 'Acquérir les compétences liées à cette formation et postuler auprès d\'entreprise installatrice de piscine LAGON',
+                    'Créer une entreprise installatrice de piscine LAGON' => 'Créer une entreprise installatrice de piscine LAGON',
+                    'Créer un département LAGON dans mon entreprise et installer des piscines LAGON' => 'Créer un département LAGON dans mon entreprise et installer des piscines LAGON',
+                    'Créer une piscine LAGON chez moi' => 'Créer une piscine LAGON chez moi',
                     'Autre' => 'Autre',
                 ],
                 'choice_attr' => function() {
@@ -82,7 +82,7 @@ class FormationAsksType extends AbstractType
                 'row_attr' => [
                     'class' => 'form-check',
                 ],
-                'label' => 'Quel est votre objectif :',
+                'label' => 'Mon objectif :',
                 'expanded' => true
             ])
             ->add('formationSession', EntityType::class, [

@@ -33,6 +33,14 @@
   padding-right:0px;
 }
 
+.f-start {
+  float: start;
+}
+
+.f-end {
+  float: end;
+}
+
 /*Sizes :*/
 .size-4 {
   font-size:1.1em;
@@ -50,6 +58,10 @@
 
 .text-yellow {
   color:#FEDB00;
+}
+
+.text-red {
+  color: red;
 }
 
 
@@ -78,6 +90,12 @@
 {
   background-color:#3cb1c3;
   color:white
+}
+
+.btn-grey
+{
+  background-color:#e2e2e2;
+  color: #212529;
 }
 
 .btn-yellow {
@@ -290,6 +308,27 @@ a:hover {
     }
   }
 
+  input[type="radio"][disabled]+label {
+    opacity: 1;
+    color: grey;
+    background-color: rgba(1,1,1,0.15);
+    border-color: gray;
+
+    &:hover {
+      background-color: rgba(1,1,1,0.15);
+      color: grey;
+      cursor: default;
+    }
+
+    &::after {
+      content: "REMPLIE";
+      position: absolute;
+      color: red;
+      font-weight: bold;
+      font-size: 2em;
+    }
+  }
+
   input[type="radio"]:checked:checked+label {
     background-color: black;
     color: white;
@@ -389,7 +428,25 @@ li.timeline-item-dark::before {
   z-index: 400;
 }
 
+/*For formation asks */
+#formation_asks_stagiaires {
+  > div {
+    flex: 0 0 auto;
+    width: 50%;
+    padding: 1.5rem;
+    background-color: #5ebfce;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
 
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+    > label {
+      font-size: calc(1.275rem + .3vw);
+      text-align: center;
+    }
+  }
+}
 
 
 /*For nous.php*/

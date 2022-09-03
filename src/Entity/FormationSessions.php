@@ -47,9 +47,22 @@ class FormationSessions
 
     public function __toString()
     {
-        $numberOfRegisteredUnderPercent = round($this->registered*100/$this->capacity);
+        $string = '<div class="mb-3">Du ' . date_format($this->dateStart, 'd/m/Y') . ' au ' . date_format($this->dateEnd, 'd/m/Y') . '<br>';
+        $string .= '<div class="text-center">';
 
-        return 'Du ' . date_format($this->dateStart, 'd/m/Y') . ' au ' . date_format($this->dateEnd, 'd/m/Y') . ' | Remplissage : ' . $numberOfRegisteredUnderPercent . '%';
+        for($i = 1; $i<=$this->capacity; $i++) {
+            if($i <= $this->registered) {
+                $string .= '<i class="fas fa-user"></i>&#32;';
+            } else {
+                $string .= '<i class="far fa-user"></i>&#32;';
+            }
+        }
+
+        if($this->capacity - $this->registered === 1) {
+            $string .= '<div class="fst-italic text-red">Reste une place !</div>';
+        }
+
+        return $string . '</div></div>';
     }
 
     public function getId(): ?int

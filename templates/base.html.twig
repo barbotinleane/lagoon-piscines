@@ -6,6 +6,7 @@
         <title>{% block title %}LAGOON&reg; Piscines - Constructeur de piscines naturelles et écologiques basé sur la Côte d'Azur{% endblock %}</title>
         <meta name="description" content="{% block description %}{% endblock description %}">
         <link rel="icon" href="{{ asset('build/images/favicon.ico') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('bundles/craueformflow/css/buttons.css') }}" />
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}

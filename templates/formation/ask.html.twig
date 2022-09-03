@@ -38,413 +38,535 @@
             </div>
         </div>
 
+        <div class="pt-5">
+            {% include '@CraueFormFlow/FormFlow/stepList.html.twig' with {
+                craue_flow_stepList_class: 'list-group-item',
+            } %}
+        </div>
+
         {{ form_start(form) }}
-        <div id="objectif" class="p-4 my-3 bg-yellow-clear">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="baskerville size-3">Mon statut</h3>
-                <div>
-                    <i class="fas fa-briefcase form-icon"></i>
-                </div>
-            </div>
 
-            <div class="pt-2">
-                <label>{{ form_label(form.status) }}</label>
-                <div class="buttons-group">
-                    {% for child in form.status.children %}
-                        <div class="">
+        {% if not form.vars.valid %}
+            <div class="alert alert-danger" role="alert">
+                {{ form_errors(form) }}
+            </div>
+        {% endif %}
+
+            {% if flow.getCurrentStepNumber() == 1 %}
+                <div id="objectif" class="p-4 my-3 bg-yellow-clear">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Mon statut</h3>
+                        <div>
+                            <i class="fas fa-briefcase form-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <label>{{ form_label(form.status) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.status.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row text-secondary mx-3" id="autre_statut_champ" style="display:none;">
+                        <div class="col-12">
+                            <label for="autre1" class="mt-none">
+                                Veuillez préciser :
+                            </label><br>
+                            <input type="text" class="form-control" id="autre1" name="other[status]">
+                        </div>
+                    </div><br>
+
+                    <div class="mt-2 ms-1">
+                        {{ form_label(form.goal) }}
+                        {% for child in form.goal.children %}
                             <div class="">
-                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                <div class="">
+                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                    <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="col-12 col-md-8" id="autre_obj_champ" style="display:none;">
+                        <label for="autre_objectif_champ">Veuillez renseigner votre objectif :</label><br>
+                        <input type="text" class="form-control" id="autre_objectif_champ" name="other[goal]">
+                    </div>
+                </div>
+            {% elseif flow.getCurrentStepNumber() == 2 %}
+                <div id="la-formation" class="p-4 my-3 bg-form-blue">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Ma formation</h3>
+                        <div>
+                            <i class="fas fa-chalkboard-teacher form-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="my-3">
+                            <label>Formation demandée :</label>
+                            <div class="text-center d-grid gap-2">
+                                <div class="btn btn-dark" style="cursor:default;">
+                                    <strong>
+                                        Installation de bassins de type LAGON
+                                    </strong><br>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                     Au centre de formation LAGOON®
+                                </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <br>
 
-            <div class="row text-secondary mx-3" id="autre_statut_champ" style="display:none;">
-                <div class="col-12">
-                    <label for="autre1" class="mt-none">
-                        Veuillez préciser :
-                    </label><br>
-                    <input type="text" class="form-control" id="autre1" name="other[status]">
-                </div>
-            </div><br>
-
-            <div class="mt-2 ms-1">
-                {{ form_label(form.goal) }}
-                {% for child in form.goal.children %}
-                    <div class="">
-                        <div class="">
-                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                            <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                        <div id="session">
+                            {{ form_label(form.formationSession) }}
+                            <div class="buttons-group">
+                                {% for child in form.formationSession.children %}
+                                    <div class="">
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label fw-normal text-center" for="{{ child.vars.id }}" >
+                                                {{ child.vars.label|raw }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
 
+                {% if flow.formData.status.getId != 1 %}
+                    <div class="text-end fw-bold mb-4">
+                        Coût estimé :
+                        <div class="size-2">
+                            2200 €
+                        </div>
+                    </div>
+                {% endif %}
 
-            <div class="col-12 col-md-8" id="autre_obj_champ" style="display:none;">
-                <label for="autre_objectif_champ">Veuillez renseigner votre objectif :</label><br>
-                <input type="text" class="form-control" id="autre_objectif_champ" name="other[goal]">
-            </div>
-        </div>
+            {% elseif flow.getCurrentStepNumber() == 3 %}
+                <div id="entreprise" class="p-4 my-3 bg-yellow-clear">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Mes coordonnées</h3>
+                        <div>
+                            <i class="fas fa-user form-icon"></i>
+                        </div>
+                    </div>
 
-        <div id="la-formation" class="p-4 my-3 bg-form-blue">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="baskerville size-3">Ma formation</h3>
+                    <div class="row">
+                        {% if form.companyName is defined %}
+                            <div class="col-12 col-md-6 col-lg-3" id="companyName">
+                                {{ form_row(form.companyName) }}
+                            </div>
+                        {% endif %}
+                        {% if form.sirenOrRm is defined %}
+                            <div class="col-12 col-md-6 col-lg-3" id="sirenOrRm">
+                                {{ form_row(form.sirenOrRm) }}
+                            </div>
+                        {% endif %}
+                        {% if form.siret is defined %}
+                            <div class="col-12 col-md-6 col-lg-3">
+                                {{ form_row(form.siret) }}
+                            </div>
+                        {% endif %}
+                        {% if form.idPoleEmploi is defined %}
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                {{ form_row(form.idPoleEmploi) }}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            {{ form_row(form.firstName) }}
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            {{ form_row(form.lastName) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-7 col-lg-4">
+                            {{ form_row(form.email) }}
+                        </div>
+
+                        <div class="col-12 col-md-5 col-lg-3">
+                            {{ form_row(form.phoneNumber) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-11">
+                            {{ form_row(form.address) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-md-5 col-lg-2">
+                            {{ form_row(form.postalCode) }}
+                        </div>
+
+                        <div class="col-12 col-md-7 col-lg-3">
+                            {{ form_row(form.city) }}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="form-label">{{ form_label(form.department) }}</div>
+                                {{ form_widget(form.department) }}
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                {{ form_row(form.country) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if form.activityCategory is defined %}
+                        <div class="mt-2 ms-1">
+                            {{ form_label(form.activityCategory) }}
+                            {% for child in form.activityCategory.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-12 col-md-8" id="autre_activite_champ" style="display: none;">
+                            <label for="autre_act_champ">Veuillez renseigner votre catégorie d'activité :</label><br>
+                            <input type="text" class="form-control" id="autre_act_champ" name="other[activityCategory]">
+                        </div>
+                    {% endif %}
+
+                    {% if form.handicap is defined %}
+                        <div class="mt-4" id="handicap">
+                            {{ form_widget(form.handicap) }}
+                            {{ form_label(form.handicap) }}
+                        </div>
+                    {% endif %}
+                </div>
+
+            {% elseif flow.getCurrentStepNumber() == 4 %}
+                {% if form.isStagiaireMultiple is defined %}
+                    <div id="stagiaires" class="p-4 my-3 bg-yellow-clear">
+                        <h3 class="baskerville size-3">
+                            Les stagiaires :
+                        </h3>
+
+                        <div class="pt-2">
+                            <label>{{ form_label(form.isStagiaireMultiple) }}</label>
+                            <div class="buttons-group">
+                                {% for child in form.isStagiaireMultiple.children %}
+                                    <div class="">
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-end fw-bold mb-4" id="cost-when-alone" style="display:none;">
+                        Coût estimé pour une personne :
+                        <div class="size-2">
+                            2200 €
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% elseif flow.getCurrentStepNumber() == 5 %}
+                {% if form.stagiaires is defined %}
+                    <div id="stagiaires" class="p-4 my-3 bg-yellow-clear">
+                        <h3 class="baskerville size-3">
+                            Les stagiaires :
+                        </h3>
+
+                        <ul class="stagiaires row ps-0 g-2"
+                            id="asks_stagiaires"
+                            data-index="{{ form.stagiaires|length }}"
+                            data="{{ form.stagiaires|length }}"
+                            data-prototype="{{ form_widget(form.stagiaires.vars.prototype)|e('html_attr') }}"
+                        >
+                            <div class="d-block">
+                                {{ form_row(form.stagiaires) }}
+                            </div>
+                        </ul>
+
+                        <div class="text-center">
+                            <button type="button" class="add_stagiaire_link btn btn-success" data-collection-holder-class="stagiaires">
+                                <i class="fas fa-user-plus"></i>
+                                Ajouter un stagiaire
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-end fw-bold mb-4" id="cost-when-multiple" data={{ prices|json_encode }}>
+                        Coût estimé :
+                        <div class="size-2" id="cost-calculated">
+                            {{ priceForStagiairesSaved }} €
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% elseif flow.getCurrentStepNumber() == 6 %}
+                <div class="p-4 my-3 bg-form-blue">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Pré-requis : </h3>
+                        <div>
+                            <i class="fas fa-tools form-icon"></i>
+                        </div>
+                    </div>
+
+                    {% if flow.getFormData.isStagiaireMultiple == 1 %}
+                        <label class="mt-1" id="prerequis_stagiaires">
+                            Les stagiaires savent-ils utiliser les outils suivants ?
+                        </label>
+                    {% else %}
+                        <label class="mt-1" id="prerequis_autre">
+                            Savez-vous utiliser les outils suivants ?
+                        </label>
+                    {% endif %}
+
+                    <div style="display:none">
+                        {{ form_row(form.prerequisites) }}
+                    </div>
+
+                    <div class="ms-3">
+                        <div>
+                            <label>Visseuse</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="visseuse"
+                                    id="oui-visseuse"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-visseuse">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="visseuse"
+                                    id="non-visseuse"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-visseuse">Non</label>
+                        </div>
+
+                        <div>
+                            <label>Perceuse</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="perceuse"
+                                    id="oui-perceuse"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-perceuse">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="perceuse"
+                                    id="non-perceuse"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-perceuse">Non</label>
+                        </div>
+
+                        <div>
+                            <label>Taloche</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="taloche"
+                                    id="oui-taloche"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-taloche">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="taloche"
+                                    id="non-taloche"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-taloche">Non</label>
+                        </div>
+
+                        <div>
+                            <label>Malaxeur à main</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="malaxeur"
+                                    id="oui-malaxeur"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-malaxeur">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="malaxeur"
+                                    id="non-malaxeur"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-malaxeur">Non</label>
+                        </div>
+
+                        <div>
+                            <label>Malaxeur vertical</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="malaxeurv"
+                                    id="oui-malaxeurv"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-malaxeurv">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="malaxeurv"
+                                    id="non-malaxeurv"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-malaxeurv">Non</label>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="commentaires-outils">Commentaires</label><br>
+                            <textarea
+                                    id="commentaires-outils"
+                                    class="form-control"
+                                    name="commentaires-outils"
+                                    rows="4"
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="renseignements" class="p-4 my-3 bg-yellow-clear">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Renseignements utiles</h3>
+                        <div>
+                            <i class="far fa-file-alt form-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div>
+                            {{ form_label(form.knowsUs) }}
+                            {% for child in form.knowsUs.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-12 col-md-8" id="autre_cnn_champ" style="display:none;">
+                            <label for="autre_connu_champ">A quel autre moyen pensez vous ?</label><br>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="autre_connu_champ"
+                                    name="other[knowsUs]"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div>
+                            {{ form_label(form.funding) }}
+                            {% for child in form.funding.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% if form.handicap is defined %}
+                        <div class="mt-3" id="handicap">
+                            <div>Situation de handicap</div>
+                            {{ form_widget(form.handicap) }}
+                            {{ form_label(form.handicap) }}
+                        </div>
+                    {% endif %}
+                </div>
+
                 <div>
-                    <i class="fas fa-chalkboard-teacher form-icon"></i>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="my-3">
-                    <label>Formation demandée :</label>
-                    <div class="text-center d-grid gap-2">
-                        <div class="btn btn-dark" style="cursor:default;">
-                            <strong>
-                                Installation de bassins de type LAGON
-                            </strong><br>
-                            <i class="fa fa-eur" aria-hidden="true"></i>
-                             Coût pédagogique : 1850 €/personne<br>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                             Au centre de formation LAGOON®
-                        </div>
-                    </div>
-                </div>
-
-                <div id="session>
-                    {{ form_label(form.formationSession) }}
-                    {% for child in form.formationSession.children %}
+                    {{ form_label(form.consents) }}
+                    {% for child in form.consents.children %}
                         <div class="">
-                            <div class="">
+                            <div class="form-check">
                                 {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
                                 <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
-            </div>
-        </div>
-        </div>
-
-        <div id="entreprise" class="p-4 my-3 bg-yellow-clear">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="baskerville size-3">Mes coordonnées</h3>
-                <div>
-                    <i class="fas fa-user form-icon"></i>
-                </div>
-            </div>
+            {% endif %}
 
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3" id="companyName" style="display:none;">
-                    {{ form_row(form.companyName) }}
-                </div>
-                <div class="col-12 col-md-6 col-lg-3" id="sirenOrRm" style="display:none;">
-                    {{ form_row(form.sirenOrRm) }}
-                </div>
+                {% if flow.getCurrentStepNumber() == 1 %}
+                    {% include '@CraueFormFlow/FormFlow/buttons.html.twig' with {
+                        craue_formflow_button_class_last: 'btn btn-lg btn-blue',
+                        craue_formflow_button_class_back: 'btn btn-lg btn-grey float-start',
+                        craue_formflow_button_class_reset: 'd-none',
+                        craue_formflow_button_class_finish: 'btn btn-lg btn-blue',
+                        craue_formflow_button_label_finish: '✓ Valider',
+                        craue_formflow_button_label_reset: '⭯ Réinitialiser',
+                        craue_formflow_button_label_next: 'Suivant 🡺',
+                        craue_formflow_button_label_back: '🡸 Précédent',
+                    } %}
+                {% else %}
+                    {% include '@CraueFormFlow/FormFlow/buttons.html.twig' with {
+                        craue_formflow_button_class_last: 'btn btn-lg btn-blue',
+                        craue_formflow_button_class_back: 'btn btn-lg btn-grey float-start',
+                        craue_formflow_button_class_reset: 'btn btn-yellow mt-1',
+                        craue_formflow_button_class_finish: 'btn btn-lg btn-blue',
+                        craue_formflow_button_label_finish: '✓ Valider',
+                        craue_formflow_button_label_reset: '⭯ Réinitialiser',
+                        craue_formflow_button_label_next: 'Suivant 🡺',
+                        craue_formflow_button_label_back: '🡸 Précédent',
+                    } %}
+                {% endif %}
             </div>
 
-            <div class="row" id="siret" style="display:none;">
-                <div class="col-12 col-md-6 col-lg-3">
-                    {{ form_row(form.siret) }}
-                </div>
-            </div>
-
-            <div class="row" id="idPoleEmploi" style="display:none;">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                    {{ form_row(form.idPoleEmploi) }}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-3">
-                    {{ form_row(form.firstName) }}
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
-                    {{ form_row(form.lastName) }}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-7 col-lg-4">
-                    {{ form_row(form.email) }}
-                </div>
-
-                <div class="col-12 col-md-5 col-lg-3">
-                    {{ form_row(form.phoneNumber) }}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-11">
-                    {{ form_row(form.address) }}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-5 col-lg-2">
-                    {{ form_row(form.postalCode) }}
-                </div>
-
-                <div class="col-12 col-md-7 col-lg-3">
-                    {{ form_row(form.city) }}
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="form-label">{{ form_label(form.department) }}</div>
-                        {{ form_widget(form.department) }}
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        {{ form_row(form.country) }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-2 ms-1">
-                {{ form_label(form.activityCategory) }}
-                {% for child in form.activityCategory.children %}
-                    <div class="">
-                        <div class="">
-                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                            <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-
-            <div class="col-12 col-md-8" id="autre_activite_champ" style="display:none;">
-                <label for="autre_act_champ">Veuillez renseigner votre catégorie d'activité :</label><br>
-                <input type="text" class="form-control" id="autre_act_champ" name="other[activityCategory]">
-            </div>
-
-            <div class="mt-4" id="handicap">
-                {{ form_widget(form.handicap) }}
-                {{ form_label(form.handicap) }}
-            </div>
-        </div>
-
-        <div id="stagiaires" class="p-4 my-3 bg-yellow-clear" style="display:none;">
-            <h3 class="baskerville size-3">
-                Les stagiaires :
-            </h3>
-
-            <ul class="stagiaires row"
-                id="asks_stagiaires"
-                data-index="{{ form.stagiaires|length }}"
-                data-prototype="{{ form_widget(form.stagiaires.vars.prototype)|e('html_attr') }}"
-            >
-                <div class="d-none">
-                    {{ form_row(form.stagiaires) }}
-                </div>
-            </ul>
-
-            <div class="text-center">
-                <button type="button" class="add_stagiaire_link btn btn-success" data-collection-holder-class="stagiaires">
-                    <i class="fas fa-user-plus"></i>
-                    Ajouter un stagiaire
-                </button>
-            </div>
-        </div>
-
-        <div class="p-4 my-3 bg-form-blue">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="baskerville size-3">Pré-requis : </h3>
-                <div>
-                    <i class="fas fa-tools form-icon"></i>
-                </div>
-            </div>
-
-            <label class="mt-1" id="prerequis_stagiaires" style="display:none;">
-                Les stagiaires savent-ils utiliser les outils suivants ?
-            </label>
-            <label class="mt-1" id="prerequis_autre">
-                Savez-vous utiliser les outils suivants ?
-            </label>
-
-            <div style="display:none">
-                {{ form_row(form.prerequisites) }}
-            </div>
-
-            <div class="ms-3">
-                <div>
-                    <label>Visseuse</label><br>
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="visseuse"
-                            id="oui-visseuse"
-                            value="oui"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-success" for="oui-visseuse">Oui</label>
-
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="visseuse"
-                            id="non-visseuse"
-                            value="non"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-danger" for="non-visseuse">Non</label>
-                </div>
-
-                <div>
-                    <label>Perceuse</label><br>
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="perceuse"
-                            id="oui-perceuse"
-                            value="oui"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-success" for="oui-perceuse">Oui</label>
-
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="perceuse"
-                            id="non-perceuse"
-                            value="non"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-danger" for="non-perceuse">Non</label>
-                </div>
-
-                <div>
-                    <label>Taloche</label><br>
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="taloche"
-                            id="oui-taloche"
-                            value="oui"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-success" for="oui-taloche">Oui</label>
-
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="taloche"
-                            id="non-taloche"
-                            value="non"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-danger" for="non-taloche">Non</label>
-                </div>
-
-                <div>
-                    <label>Malaxeur à main</label><br>
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="malaxeur"
-                            id="oui-malaxeur"
-                            value="oui"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-success" for="oui-malaxeur">Oui</label>
-
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="malaxeur"
-                            id="non-malaxeur"
-                            value="non"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-danger" for="non-malaxeur">Non</label>
-                </div>
-
-                <div>
-                    <label>Malaxeur vertical</label><br>
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="malaxeurv"
-                            id="oui-malaxeurv"
-                            value="oui"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-success" for="oui-malaxeurv">Oui</label>
-
-                    <input
-                            type="radio"
-                            class="btn-check"
-                            name="malaxeurv"
-                            id="non-malaxeurv"
-                            value="non"
-                            autocomplete="off"
-                    >
-                    <label class="btn btn-outline-danger" for="non-malaxeurv">Non</label>
-                </div>
-
-                <div class="col-12">
-                    <label for="commentaires-outils">Commentaires</label><br>
-                    <textarea
-                            id="commentaires-outils"
-                            class="form-control"
-                            name="commentaires-outils"
-                            rows="4"
-                    ></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div id="renseignements" class="p-4 my-3 bg-yellow-clear">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="baskerville size-3">Renseignements utiles</h3>
-                <div>
-                    <i class="far fa-file-alt form-icon"></i>
-                </div>
-            </div>
-
-            <div class="row">
-                <div>
-                    {{ form_label(form.knowsUs) }}
-                    {% for child in form.knowsUs.children %}
-                        <div class="">
-                            <div class="">
-                                {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-                <div class="col-12 col-md-8" id="autre_cnn_champ" style="display:none;">
-                    <label for="autre_connu_champ">A quel autre moyen pensez vous ?</label><br>
-                    <input
-                            type="text"
-                            class="form-control"
-                            id="autre_connu_champ"
-                            name="other[knowsUs]"
-                    >
-                </div>
-            </div>
-        </div>
-
-        <div>
-            {{ form_label(form.consents) }}
-            {% for child in form.consents.children %}
-                <div class="">
-                    <div class="form-check">
-                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-
-        <div class="text-center">
-            {{ form_row(form.save) }}
-        </div>
         {{ form_end(form) }}
     </main>
 {% endblock %}

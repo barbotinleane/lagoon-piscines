@@ -127,10 +127,6 @@
 
     <u>Pense financer la formation par...</u>
     <ul>
-        {% for item in ask.funding %}
-            <li>{{ item }}</li>
-        {% else %}
-            <em>Aucune donnée</em>
-        {% endfor %}
+        <li>{{ ask.funding }}</li>
     </ul>
 </body>

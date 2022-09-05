@@ -18,8 +18,10 @@ $(function() {
 
 		if (value === 0) {
 			$('#cost-when-alone').show();
+			$('#costs').hide();
 		} else {
 			$('#cost-when-alone').hide();
+			$('#costs').show();
 		}
 	})
 
@@ -72,7 +74,7 @@ $(function() {
 			}
 		}
 
-		document.querySelector('#cost-calculated').innerHTML = price+' €';
+		//document.querySelector('#cost-calculated').innerHTML = price+' €';
 	}
 
 	const addStagiaireFormDeleteLink = (item) => {

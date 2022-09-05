@@ -5,12 +5,10 @@ $('.btn-save-formation-ask').prop('disabled', true);
 $(function() {
 	const showInput = (id) => {
 		$('#formation_asks_'+id).val('');
-		$('#'+id).show();
 	}
 
 	const hideInput = (id) => {
 		$('#formation_asks_'+id).val('null');
-		$('#'+id).hide();
 	}
 
 	$('input[name^="formation_asks[isStagiaireMultiple]"]').click(function() {
@@ -74,7 +72,7 @@ $(function() {
 			}
 		}
 
-		//document.querySelector('#cost-calculated').innerHTML = price+' €';
+		document.querySelector('#cost-calculated').innerHTML = price+' €';
 	}
 
 	const addStagiaireFormDeleteLink = (item) => {

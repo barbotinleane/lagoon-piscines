@@ -371,25 +371,6 @@
                         <div class="form-error">
                             {{ form_errors(form.isStagiaireMultiple) }}
                         </div>
-
-                        <div class="fw-light my-4 text-center mx-auto w-adaptative border border-dark" id="costs">
-                            <div class="">TARIFS : </div>
-                            <ul class="list-group">
-                                {% for value in prices %}
-                                    {% if loop.index != 0 %}
-                                        <li style="list-style-type: none;">
-                                            {{ loop.index }}
-                                            {% if loop.index > 1 %}
-                                                personnes
-                                            {% else %}
-                                                personne
-                                            {% endif %}
-                                            : {{ value }} €
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="text-end fw-bold mb-4" id="cost-when-alone" style="display:none;">
@@ -444,6 +425,10 @@
                     </div>
 
                     <div class="text-end fw-bold mb-4" id="cost-when-multiple" data={{ prices|json_encode }}>
+                        Coût estimé :
+                        <div class="size-2" id="cost-calculated">
+                            {{ priceForStagiairesSaved }} €
+                        </div>
                     </div>
                 {% endif %}
 

@@ -106,30 +106,32 @@
 </div>
 
 <div>
-    <h2>Les stagiaires : </h2>
+    {% if ask.stagiaires %}
+        <h2>Les stagiaires : </h2>
 
-    {% if ask.personnalizedSession == 1 %}
-        <p>Session personnalisée : Oui</p>
-    {% else %}
-        <p>Session personnalisée : Non</p>
-    {% endif %}
-
-    {% for stagiaire in stagiaires %}
-    <ul>
-        <li>Prénom : {{ stagiaire.firstName }}</li>
-        <li>Nom : {{ stagiaire.lastName }}</li>
-        <li>Email : {{ stagiaire.email }}</li>
-        <li>Numéro de téléphone : {{ stagiaire.phoneNumber }}</li>
-        <li>Poste occupé et depuis combien de temps : {{ stagiaire.currentJob }}</li>
-        {% if stagiaire.handicap == 1 %}
-            <li>Handicap : Oui</li>
+        {% if ask.personnalizedSession == 1 %}
+            <p>Session personnalisée : Oui</p>
         {% else %}
-            <li>Handicap : Non</li>
+            <p>Session personnalisée : Non</p>
         {% endif %}
-    </ul>
-    {% else %}
-    <p><i>Pas de stagiaire</i></p>
-    {% endfor %}
+
+        {% for stagiaire in stagiaires %}
+        <ul>
+            <li>Prénom : {{ stagiaire.firstName }}</li>
+            <li>Nom : {{ stagiaire.lastName }}</li>
+            <li>Email : {{ stagiaire.email }}</li>
+            <li>Numéro de téléphone : {{ stagiaire.phoneNumber }}</li>
+            <li>Poste occupé et depuis combien de temps : {{ stagiaire.currentJob }}</li>
+            {% if stagiaire.handicap == 1 %}
+                <li>Handicap : Oui</li>
+            {% else %}
+                <li>Handicap : Non</li>
+            {% endif %}
+        </ul>
+        {% else %}
+        <p><i>Pas de stagiaire</i></p>
+        {% endfor %}
+    {% endif %}
 </div>
 
 <div>

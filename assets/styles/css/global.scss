@@ -46,6 +46,10 @@
   font-size:1.1em;
 }
 
+.size-little {
+  font-size: 0.9em;
+}
+
 
 /*Colors : */
 .text-blue {
@@ -266,6 +270,25 @@ a:hover {
   font-size: 4.5em;
 }
 
+.form-error {
+  color: red;
+  font-size: 0.8em;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+
+    li::before {
+      content: 'ERREUR';
+      color: white;
+      background-color: red;
+      border-radius: 10px;
+      font-size: 0.8em;
+      padding: 3px;
+    }
+  }
+}
+
 .mt-none {
   margin-top: 0px!important;
 }
@@ -432,12 +455,16 @@ li.timeline-item-dark::before {
 #formation_asks_stagiaires {
   > div {
     flex: 0 0 auto;
-    width: 50%;
+    width: 33%;
     padding: 1.5rem;
     background-color: #5ebfce;
     box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
 
     @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: 576px) {
       width: 100%;
     }
 

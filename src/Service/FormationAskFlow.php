@@ -2,14 +2,12 @@
 
 namespace App\Service;
 
-use App\Entity\Stagiaires;
 use App\Form\FormationAsksType;
 use Craue\FormFlowBundle\Form\FormFlow;
 use Craue\FormFlowBundle\Form\FormFlowInterface;
 
 class FormationAskFlow extends FormFlow {
     protected $allowRedirectAfterSubmit = true;
-    protected $allowDynamicStepNavigation = true;
 
     protected function loadStepsConfig() {
         return [

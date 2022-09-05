@@ -70,19 +70,18 @@ class FormationController extends AbstractController
                         $companyDirectorStagiaire->setPhoneNumber($flow->getFormData()->getPhoneNumber());
 
                         $flow->getFormData()->addStagiaire($companyDirectorStagiaire);
-                    } else {
-                        $numberOfLearners = $flow->getFormData()->getStagiaires()->count();
-                        $priceWhenNumberOfLearnersBigger = 0;
-                        foreach($prices as $price) {
-                            if($price->getNumberOfPeople() == $numberOfLearners) {
-                                $priceToShow = $price->getPrice();
-                            } elseif ($price->getNumberOfPeople() == 0) {
-                                $priceWhenNumberOfLearnersBigger = $price->getPrice();
-                            }
+                    }
+                    $numberOfLearners = $flow->getFormData()->getStagiaires()->count();
+                    $priceWhenNumberOfLearnersBigger = 0;
+                    foreach($prices as $price) {
+                        if($price->getNumberOfPeople() == $numberOfLearners) {
+                            $priceToShow = $price->getPrice();
+                        } elseif ($price->getNumberOfPeople() == 0) {
+                            $priceWhenNumberOfLearnersBigger = $price->getPrice();
                         }
-                        if($priceToShow == 0) {
-                            $priceToShow = $priceWhenNumberOfLearnersBigger*$numberOfLearners;
-                        }
+                    }
+                    if($priceToShow == 0) {
+                        $priceToShow = $priceWhenNumberOfLearnersBigger*$numberOfLearners;
                     }
                 }
 

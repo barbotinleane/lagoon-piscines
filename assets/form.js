@@ -89,6 +89,11 @@ $(function() {
 			e.preventDefault();
 			item.remove();
 			let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) - 1;
+
+			if(numberOfPeople < 6) {
+				$('#personnalized-session').hide();
+			}
+
 			document.querySelector('#asks_stagiaires').setAttribute("data", ""+numberOfPeople+"");
 			calculatePriceWhenStagiaireAdded(numberOfPeople);
 		});
@@ -103,6 +108,7 @@ $(function() {
 		item.classList.add("bg-blue");
 		item.classList.add("col-12");
 		item.classList.add("col-sm-6");
+		item.classList.add("col-md-4");
 		item.classList.add("shadow-lg");
 		item.classList.add("p-4");
 
@@ -122,6 +128,11 @@ $(function() {
 
 		addStagiaireFormDeleteLink(item);
 		let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) + 1;
+
+		if(numberOfPeople >= 6) {
+			$('#personnalized-session').show();
+		}
+
 		document.querySelector('#asks_stagiaires').setAttribute("data", ""+numberOfPeople+"");
 		calculatePriceWhenStagiaireAdded(numberOfPeople);
 	};

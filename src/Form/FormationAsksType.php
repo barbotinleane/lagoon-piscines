@@ -123,7 +123,7 @@ class FormationAsksType extends AbstractType
                             'class' => 'form-label'
                         ]
                     ])
-                    ->add('phoneNumber', TelType::class, [
+                    ->add('phoneNumber', NumberType::class, [
                         'label' => 'Numéro de téléphone',
                         'attr' => [
                             'class' => 'form-control'
@@ -178,11 +178,14 @@ class FormationAsksType extends AbstractType
                     ->add('activityCategory', ChoiceType::class, [
                         'label' => 'Catégorie d\'Activité',
                         'choices' => [
-                            'Aménagement Paysager' => 'Aménagement Paysager',
-                            'Application de résine' => 'Application de résine',
-                            'Terrassement' => 'Terrassement',
-                            'Construction' => 'Construction',
-                            'Piscine' => 'Piscine',
+                            'Piscinier' => 'Piscinier',
+                            'Paysagiste' => 'Paysagiste',
+                            'Etancheur' => 'Etancheur',
+                            'Façadier' => 'Façadier',
+                            'Carreleur' => 'Carreleur',
+                            'Plombier' => 'Plombier',
+                            'Applicateur de revêtement de sol' => 'Applicateur de revêtement de sol',
+                            'Terrassier' => 'Terrassier',
                             'Autre' => 'Autre',
                         ],
                         'choice_attr' => function() {
@@ -191,7 +194,8 @@ class FormationAsksType extends AbstractType
                         'row_attr' => [
                             'class' => 'form-check',
                         ],
-                        'expanded' => true
+                        'expanded' => true,
+                        "multiple" => true,
                     ])
                     ->add('handicap', CheckboxType::class, [
                         'attr' => [
@@ -290,11 +294,23 @@ class FormationAsksType extends AbstractType
                         'class' => 'row g-2'
                     ],
                     'allow_delete' => true,
+                ])
+                ->add('personnalizedSession', ChoiceType::class, [
+                    'label' => 'Souhaitez vous une session personnalisée (à partir de 6 stagiaires) ?',
+                    'choices' => [
+                        'Oui' => 1,
+                        'Non' => 0,
+                    ],
+                    'attr' => [
+                        'class' => 'buttons-group',
+                        'role' => 'group',
+                    ],
+                    'expanded' => true,
                 ]);
                 break;
             case 6 :
                 $builder->add('knowsUs', ChoiceType::class, [
-                    'label' => 'Comment avez-vous connu notre centre de formation ?',
+                    'label' => 'J\'ai connu le centre de formation LAGOON® par...',
                     'choices' => [
                         'Recommandation par un proche/collègue' => 'Recommandation par un proche/collègue',
                         'Article ou Publicité dans un magazine' => 'Article ou Publicité dans un magazine',
@@ -307,7 +323,7 @@ class FormationAsksType extends AbstractType
                     'expanded' => true
                 ])
                 ->add('funding', ChoiceType::class, [
-                    'label' => 'Comment pensez-vous financer la formation ?',
+                    'label' => 'Je pense financer la formation par...',
                     'choices' => [
                         'Mes fonds personnels' => 'Mes fonds personnels',
                         'Les fonds de formation des entreprises' => 'Les fonds de formation des entreprises',
@@ -326,8 +342,7 @@ class FormationAsksType extends AbstractType
                 des données relative à la RGPD disponible en cliquant ici.' => 1,
                         'J\'ai lu et j’accepte les Conditions Générales de Vente de LAGOON® DISTRIBUTION CORPORATION.' => 2,
                         'J\'ai été informé que si ma candidature est retenue, 30% du montant total de la formation est 
-                nécessaire pour valider définitivement mon inscription ; le solde total devant être réglé avant 
-                le début de la formation. ' => 3
+                nécessaire pour réserver ma (ou mes) place(s) ; le solde devant etre réglé au plus tard 15 jours avant le début de ma formation.' => 3
                     ],
                     'mapped' => false,
                     'multiple' => true,

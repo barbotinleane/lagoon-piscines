@@ -47,7 +47,7 @@
         {{ form_start(form) }}
 
         {% if not form.vars.valid %}
-            <div class="alert alert-danger" role="alert">
+            <div class="form-error">
                 {{ form_errors(form) }}
             </div>
         {% endif %}
@@ -73,6 +73,10 @@
                                 </div>
                             {% endfor %}
                         </div>
+
+                        <div class="form-error">
+                            {{ form_errors(form.status) }}
+                        </div>
                     </div>
                     <br>
 
@@ -95,6 +99,10 @@
                                 </div>
                             </div>
                         {% endfor %}
+
+                        <div class="form-error">
+                            {{ form_errors(form.goal) }}
+                        </div>
                     </div>
 
 
@@ -121,7 +129,7 @@
                                         Installation de bassins de type LAGON
                                     </strong><br>
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                     Au centre de formation LAGOON®
+                                     Au centre de formation LAGOON® à Vence (06)
                                 </div>
                             </div>
                         </div>
@@ -139,6 +147,10 @@
                                         </div>
                                     </div>
                                 {% endfor %}
+                            </div>
+
+                            <div class="form-error">
+                                {{ form_errors(form.formationSession) }}
                             </div>
                         </div>
                     </div>
@@ -165,83 +177,156 @@
                     <div class="row">
                         {% if form.companyName is defined %}
                             <div class="col-12 col-md-6 col-lg-3" id="companyName">
-                                {{ form_row(form.companyName) }}
+                                {{ form_label(form.companyName) }}
+                                {{ form_widget(form.companyName) }}
+
+                                <div class="form-error">
+                                    {{ form_errors(form.companyName) }}
+                                </div>
                             </div>
                         {% endif %}
                         {% if form.sirenOrRm is defined %}
                             <div class="col-12 col-md-6 col-lg-3" id="sirenOrRm">
-                                {{ form_row(form.sirenOrRm) }}
+                                {{ form_label(form.sirenOrRm) }}
+                                {{ form_widget(form.sirenOrRm) }}
+
+                                <div class="form-error">
+                                    {{ form_errors(form.sirenOrRm) }}
+                                </div>
                             </div>
                         {% endif %}
                         {% if form.siret is defined %}
                             <div class="col-12 col-md-6 col-lg-3">
-                                {{ form_row(form.siret) }}
+                                {{ form_label(form.siret) }}
+                                {{ form_widget(form.siret) }}
+
+                                <div class="form-error">
+                                    {{ form_errors(form.siret) }}
+                                </div>
                             </div>
                         {% endif %}
                         {% if form.idPoleEmploi is defined %}
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                {{ form_row(form.idPoleEmploi) }}
+                                {{ form_label(form.idPoleEmploi) }}
+                                {{ form_widget(form.idPoleEmploi) }}
+
+                                <div class="form-error">
+                                    {{ form_errors(form.idPoleEmploi) }}
+                                </div>
                             </div>
                         {% endif %}
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-3">
-                            {{ form_row(form.firstName) }}
+                            {{ form_label(form.firstName) }}
+                            {{ form_widget(form.firstName) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.firstName) }}
+                            </div>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-3">
-                            {{ form_row(form.lastName) }}
+                            {{ form_label(form.lastName) }}
+                            {{ form_widget(form.lastName) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.lastName) }}
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-7 col-lg-4">
-                            {{ form_row(form.email) }}
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.email) }}
+                            </div>
                         </div>
 
                         <div class="col-12 col-md-5 col-lg-3">
-                            {{ form_row(form.phoneNumber) }}
+                            {{ form_label(form.phoneNumber) }}
+                            {{ form_widget(form.phoneNumber) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.phoneNumber) }}
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-11">
-                            {{ form_row(form.address) }}
+                            {{ form_label(form.address) }}
+                            {{ form_widget(form.address) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.address) }}
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 col-md-5 col-lg-2">
-                            {{ form_row(form.postalCode) }}
+                            {{ form_label(form.postalCode) }}
+                            {{ form_widget(form.postalCode) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.postalCode) }}
+                            </div>
                         </div>
 
                         <div class="col-12 col-md-7 col-lg-3">
-                            {{ form_row(form.city) }}
+                            {{ form_label(form.city) }}
+                            {{ form_widget(form.city) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.city) }}
+                            </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12 col-md-6 col-lg-4">
-                                <div class="form-label">{{ form_label(form.department) }}</div>
+                                <div class="form-label">
+                                    {{ form_label(form.department) }}
+                                </div>
                                 {{ form_widget(form.department) }}
+
+                                <div class="form-error">
+                                    {{ form_errors(form.department) }}
+                                </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-3">
-                                {{ form_row(form.country) }}
+                                {{ form_label(form.country) }}
+                                {{ form_widget(form.country) }}
+
+                                <div class="form-error">
+                                    {{ form_errors(form.country) }}
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {% if form.activityCategory is defined %}
                         <div class="mt-2 ms-1">
-                            {{ form_label(form.activityCategory) }}
-                            {% for child in form.activityCategory.children %}
-                                <div class="">
+                            <div class="fw-bold">
+                                {{ form_label(form.activityCategory) }}
+                            </div>
+                            <div class="ms-3">
+                                {% for child in form.activityCategory.children %}
                                     <div class="">
-                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="form-error">
+                                {{ form_errors(form.activityCategory) }}
+                            </div>
                         </div>
 
                         <div class="col-12 col-md-8" id="autre_activite_champ" style="display: none;">
@@ -254,6 +339,10 @@
                         <div class="mt-4" id="handicap">
                             {{ form_widget(form.handicap) }}
                             {{ form_label(form.handicap) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.handicap) }}
+                            </div>
                         </div>
                     {% endif %}
                 </div>
@@ -277,6 +366,10 @@
                                     </div>
                                 {% endfor %}
                             </div>
+                        </div>
+
+                        <div class="form-error">
+                            {{ form_errors(form.isStagiaireMultiple) }}
                         </div>
                     </div>
 
@@ -306,11 +399,28 @@
                             </div>
                         </ul>
 
-                        <div class="text-center">
+                        <div class="text-center pb-3">
                             <button type="button" class="add_stagiaire_link btn btn-success" data-collection-holder-class="stagiaires">
                                 <i class="fas fa-user-plus"></i>
                                 Ajouter un stagiaire
                             </button>
+                        </div>
+
+                        <div id="personnalized-session" class="pt-5" style="display: none;">
+                            <label>{{ form_label(form.personnalizedSession) }}</label>
+                            <div class="buttons-group">
+                                {% for child in form.personnalizedSession.children %}
+                                    <div class="">
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="form-error">
+                                {{ form_errors(form.personnalizedSession) }}
+                            </div>
                         </div>
                     </div>
 
@@ -332,12 +442,12 @@
                     </div>
 
                     {% if flow.getFormData.isStagiaireMultiple == 1 %}
-                        <label class="mt-1" id="prerequis_stagiaires">
+                        <label class="mt-1 fw-bold" id="prerequis_stagiaires">
                             Les stagiaires savent-ils utiliser les outils suivants ?
                         </label>
                     {% else %}
-                        <label class="mt-1" id="prerequis_autre">
-                            Savez-vous utiliser les outils suivants ?
+                        <label class="mt-1 fw-bold" id="prerequis_autre">
+                            Je sais utiliser les outils suivants
                         </label>
                     {% endif %}
 
@@ -355,6 +465,7 @@
                                     id="oui-visseuse"
                                     value="oui"
                                     autocomplete="off"
+                                    required
                             >
                             <label class="btn btn-outline-success" for="oui-visseuse">Oui</label>
 
@@ -378,6 +489,7 @@
                                     id="oui-perceuse"
                                     value="oui"
                                     autocomplete="off"
+                                    required
                             >
                             <label class="btn btn-outline-success" for="oui-perceuse">Oui</label>
 
@@ -401,6 +513,7 @@
                                     id="oui-taloche"
                                     value="oui"
                                     autocomplete="off"
+                                    required
                             >
                             <label class="btn btn-outline-success" for="oui-taloche">Oui</label>
 
@@ -424,6 +537,7 @@
                                     id="oui-malaxeur"
                                     value="oui"
                                     autocomplete="off"
+                                    required
                             >
                             <label class="btn btn-outline-success" for="oui-malaxeur">Oui</label>
 
@@ -447,6 +561,7 @@
                                     id="oui-malaxeurv"
                                     value="oui"
                                     autocomplete="off"
+                                    required
                             >
                             <label class="btn btn-outline-success" for="oui-malaxeurv">Oui</label>
 
@@ -471,6 +586,76 @@
                             ></textarea>
                         </div>
                     </div>
+
+                    <div class="mt-5">
+                        {% if flow.getFormData.isStagiaireMultiple == 1 %}
+                            <label class="fw-bold">
+                                Les compétences actuelles des stagiaires
+                            </label>
+                        {% else %}
+                            <label class="fw-bold">
+                                Mes compétences actuelles
+                            </label>
+                        {% endif %}
+
+                        <div class="ms-3">
+                            <div>
+                                {% if flow.getFormData.isStagiaireMultiple == 1 %}
+                                    <label>Au moins un stagiaire a des connaissances sur un logiciel de dessin 2D/3D (de type Autocad, Microstation, Draftsight….)</label><br>
+                                {% else %}
+                                    <label>J’ai des connaissances sur un logiciel de dessin 2D/3D (de type Autocad, Microstation, Draftsight….)</label><br>
+                                {% endif %}
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="3d-drawing-software"
+                                        id="yes-3d-drawing-software"
+                                        value="oui"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-success" for="yes-3d-drawing-software">Oui</label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="3d-drawing-software"
+                                        id="no-3d-drawing-software"
+                                        value="non"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-danger" for="no-3d-drawing-software">Non</label>
+                            </div>
+
+                            <div>
+                                {% if flow.getFormData.isStagiaireMultiple == 1 %}
+                                    <label>Au moins un stagiaire a une expérience de 2 ans ou plus dans un bureau d’étude concepteur, architecte ou autre</label><br>
+                                {% else %}
+                                    <label>J’ai une expérience de 2 ans ou plus dans un bureau d’étude concepteur, architecte ou autre</label><br>
+                                {% endif %}
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="architect-experience"
+                                        id="yes-architect-experience"
+                                        value="oui"
+                                        autocomplete="off"
+                                        required
+                                >
+                                <label class="btn btn-outline-success" for="yes-architect-experience">Oui</label>
+
+                                <input
+                                        type="radio"
+                                        class="btn-check"
+                                        name="architect-experience"
+                                        id="no-architect-experience"
+                                        value="non"
+                                        autocomplete="off"
+                                >
+                                <label class="btn btn-outline-danger" for="no-architect-experience">Non</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="renseignements" class="p-4 my-3 bg-yellow-clear">
@@ -481,21 +666,28 @@
                         </div>
                     </div>
 
-                    <div class="row mt-3">
+                    <div class="row mt-1">
                         <div>
-                            {{ form_label(form.knowsUs) }}
-                            {% for child in form.knowsUs.children %}
-                                <div class="">
+                            <div class="fw-bold">
+                                {{ form_label(form.knowsUs) }}
+                            </div>
+                            <div class="ms-3">
+                                {% for child in form.knowsUs.children %}
                                     <div class="">
-                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="form-error">
+                                {{ form_errors(form.knowsUs) }}
+                            </div>
                         </div>
 
                         <div class="col-12 col-md-8" id="autre_cnn_champ" style="display:none;">
-                            <label for="autre_connu_champ">A quel autre moyen pensez vous ?</label><br>
+                            <label for="autre_connu_champ">Précisez :</label><br>
                             <input
                                     type="text"
                                     class="form-control"
@@ -505,17 +697,24 @@
                         </div>
                     </div>
 
-                    <div class="row mt-3">
+                    <div class="row mt-5">
                         <div>
-                            {{ form_label(form.funding) }}
-                            {% for child in form.funding.children %}
-                                <div class="">
+                            <div class="fw-bold">
+                                {{ form_label(form.funding) }}
+                            </div>
+                            <div class="ms-3">
+                                {% for child in form.funding.children %}
                                     <div class="">
-                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="form-error">
+                                {{ form_errors(form.funding) }}
+                            </div>
                         </div>
                     </div>
 
@@ -524,6 +723,10 @@
                             <div>Situation de handicap</div>
                             {{ form_widget(form.handicap) }}
                             {{ form_label(form.handicap) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.handicap) }}
+                            </div>
                         </div>
                     {% endif %}
                 </div>
@@ -538,6 +741,10 @@
                             </div>
                         </div>
                     {% endfor %}
+
+                    <div class="form-error">
+                        {{ form_errors(form.consents) }}
+                    </div>
                 </div>
             {% endif %}
 

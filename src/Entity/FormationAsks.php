@@ -6,6 +6,7 @@ use App\Repository\FormationAsksRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /***
  * Entity used to store formation asks
@@ -42,12 +43,14 @@ class FormationAsks
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 
+    #[Assert\Type('integer')]
     #[ORM\Column(type: 'integer')]
     private $phoneNumber;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $address;
 
+    #[Assert\Type('integer')]
     #[ORM\Column(type: 'integer', nullable: true)]
     private $postalCode;
 
@@ -60,7 +63,7 @@ class FormationAsks
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'array', nullable: true)]
     private $activityCategory;
 
     #[ORM\Column(nullable: true)]
@@ -92,6 +95,9 @@ class FormationAsks
 
     #[ORM\Column(length: 255)]
     private ?string $funding = null;
+
+    #[ORM\Column]
+    private ?bool $personnalizedSession = false;
 
     public function __construct($formationLibelle)
     {
@@ -260,12 +266,12 @@ class FormationAsks
         return $this;
     }
 
-    public function getActivityCategory(): ?string
+    public function getActivityCategory(): ?array
     {
         return $this->activityCategory;
     }
 
-    public function setActivityCategory(?string $activityCategory): self
+    public function setActivityCategory(?array $activityCategory): self
     {
         $this->activityCategory = $activityCategory;
 
@@ -400,6 +406,18 @@ class FormationAsks
     public function setFunding(string $funding): self
     {
         $this->funding = $funding;
+
+        return $this;
+    }
+
+    public function isPersonnalizedSession(): ?bool
+    {
+        return $this->personnalizedSession;
+    }
+
+    public function setPersonnalizedSession(bool $personnalizedSession): self
+    {
+        $this->personnalizedSession = $personnalizedSession;
 
         return $this;
     }

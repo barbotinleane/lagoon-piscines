@@ -75,7 +75,16 @@
             <li>Pays : {{ ask.country }}</li>
         {% endif %}
         {% if ask.activityCategory %}
-            <li>Catégorie d'activité : {{ ask.activityCategory }}</li>
+            <li>
+                Catégorie d'activité :
+                <ul>
+                    {% for item in ask.activityCategory %}
+                        <li>{{ item }}</li>
+                    {% else %}
+                        <i>Aucune donnée</i>
+                    {% endfor %}
+                </ul>
+            </li>
         {% endif %}
         {% if ask.handicap == 1 %}
             <li>Handicap : Oui</li>
@@ -98,6 +107,13 @@
 
 <div>
     <h2>Les stagiaires : </h2>
+
+    {% if ask.personnalizedSession == 1 %}
+        <p>Session personnalisée : Oui</p>
+    {% else %}
+        <p>Session personnalisée : Non</p>
+    {% endif %}
+
     {% for stagiaire in stagiaires %}
     <ul>
         <li>Prénom : {{ stagiaire.firstName }}</li>
@@ -124,6 +140,15 @@
         <li>{{ item }}</li>
         {% else %}
         <i>Aucune donnée</i>
+        {% endfor %}
+    </ul>
+
+    <h3>Pense financer la formation par...</h3>
+    <ul>
+        {% for item in ask.funding %}
+            <li>{{ item }}</li>
+        {% else %}
+            <i>Aucune donnée</i>
         {% endfor %}
     </ul>
 </div>

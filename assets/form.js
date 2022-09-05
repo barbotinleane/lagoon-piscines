@@ -1,5 +1,7 @@
 const datepicker = require('js-datepicker');
 
+$('.btn-save-formation-ask').prop('disabled', true);
+
 $(function() {
 	const showInput = (id) => {
 		$('#formation_asks_'+id).val('');
@@ -156,9 +158,9 @@ $(function() {
 		value.change(function() {
 			//if all checked
 			if($consents[0].is(':checked') && $consents[1].is(':checked') && $consents[2].is(':checked')) {
-				$('#formation_asks_save').prop('disabled', false);
+				$('.btn-save-formation-ask').prop('disabled', false);
 			} else {
-				$('#formation_asks_save').prop('disabled', true);
+				$('.btn-save-formation-ask').prop('disabled', true);
 			}
 		})
 	});

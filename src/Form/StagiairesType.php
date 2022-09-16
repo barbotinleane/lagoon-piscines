@@ -60,11 +60,12 @@ class StagiairesType extends AbstractType
             ->add('currentJob', TextType::class, [
                 'label' => 'Poste occupé et depuis combien de temps',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('handicap', CheckboxType::class, [
                 'attr' => [

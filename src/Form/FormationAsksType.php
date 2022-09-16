@@ -176,7 +176,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('activityCategory', ChoiceType::class, [
-                        'label' => 'Catégorie d\'Activité',
+                        'label' => 'Catégorie d\'Activité Actuelle',
                         'choices' => [
                             'Piscinier' => 'Piscinier',
                             'Paysagiste' => 'Paysagiste',
@@ -184,7 +184,7 @@ class FormationAsksType extends AbstractType
                             'Façadier' => 'Façadier',
                             'Carreleur' => 'Carreleur',
                             'Plombier' => 'Plombier',
-                            'Applicateur de revêtement de sol' => 'Applicateur de revêtement de sol',
+                            'Applicateur de résine' => 'Applicateur de résine',
                             'Terrassier' => 'Terrassier',
                             'Autre' => 'Autre',
                         ],
@@ -317,6 +317,7 @@ class FormationAsksType extends AbstractType
                         'Lors d’un salon' => 'Lors d’un salon',
                         'Par un site internet' => 'Par un site internet',
                         'Dans une boutique' => 'Dans une boutique',
+                        'J\'ai reçu un mail' => 'J\'ai reçu un mail',
                         'Autre' => 'Autre',
                     ],
                     'multiple' => true,
@@ -328,7 +329,7 @@ class FormationAsksType extends AbstractType
                         'Mes fonds personnels' => 'Mes fonds personnels',
                         'Les fonds de formation des entreprises' => 'Les fonds de formation des entreprises',
                         'Le financement Pôle Emploi' => 'Le financement Pôle Emploi',
-                        'Le financement mixte' => 'Le financement mixte',
+                        'Un financement mixte' => 'Un financement mixte',
                     ],
                     'multiple' => false,
                     'expanded' => true

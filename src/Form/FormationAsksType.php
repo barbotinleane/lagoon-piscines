@@ -312,7 +312,7 @@ class FormationAsksType extends AbstractType
                 $builder->add('knowsUs', ChoiceType::class, [
                     'label' => 'J\'ai connu le centre de formation LAGOON® par...',
                     'choices' => [
-                        'Recommandation par un proche/collègue' => 'Recommandation par un proche/collègue',
+                        'Recommandation d\'un proche/collègue' => 'Recommandation d\'un proche/collègue',
                         'Article ou Publicité dans un magazine' => 'Article ou Publicité dans un magazine',
                         'Lors d’un salon' => 'Lors d’un salon',
                         'Par un site internet' => 'Par un site internet',
@@ -328,7 +328,7 @@ class FormationAsksType extends AbstractType
                     'choices' => [
                         'Mes fonds personnels' => 'Mes fonds personnels',
                         'Les fonds de formation des entreprises' => 'Les fonds de formation des entreprises',
-                        'Le financement Pôle Emploi' => 'Le financement Pôle Emploi',
+                        'Le financement Pôle Emploi/Région' => 'Le financement Pôle Emploi/Région',
                         'Un financement mixte' => 'Un financement mixte',
                     ],
                     'multiple' => false,

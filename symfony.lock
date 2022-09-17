@@ -5,6 +5,9 @@
     "asana/asana": {
         "version": "v0.10.8"
     },
+    "craue/formflow-bundle": {
+        "version": "3.6.0"
+    },
     "deployer/deployer": {
         "version": "v7.0.0-rc.8"
     },
@@ -367,6 +370,18 @@
         "files": [
             "./config/packages/twig.yaml",
             "./templates/base.html.twig"
+        ]
+    },
+    "symfony/validator": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "c32cfd98f714894c4f128bb99aa2530c1227603c"
+        },
+        "files": [
+            "./config/packages/validator.yaml"
         ]
     },
     "symfony/var-dumper": {

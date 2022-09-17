@@ -33,9 +33,21 @@
   padding-right:0px;
 }
 
+.f-start {
+  float: start;
+}
+
+.f-end {
+  float: end;
+}
+
 /*Sizes :*/
 .size-4 {
   font-size:1.1em;
+}
+
+.size-little {
+  font-size: 0.9em;
 }
 
 
@@ -50,6 +62,10 @@
 
 .text-yellow {
   color:#FEDB00;
+}
+
+.text-red {
+  color: red;
 }
 
 
@@ -78,6 +94,12 @@
 {
   background-color:#3cb1c3;
   color:white
+}
+
+.btn-grey
+{
+  background-color:#e2e2e2;
+  color: #212529;
 }
 
 .btn-yellow {
@@ -248,6 +270,25 @@ a:hover {
   font-size: 4.5em;
 }
 
+.form-error {
+  color: red;
+  font-size: 0.8em;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+
+    li::before {
+      content: 'ERREUR';
+      color: white;
+      background-color: red;
+      border-radius: 10px;
+      font-size: 0.8em;
+      padding: 3px;
+    }
+  }
+}
+
 .mt-none {
   margin-top: 0px!important;
 }
@@ -287,6 +328,27 @@ a:hover {
     &:hover {
       background-color: black;
       color: white;
+    }
+  }
+
+  input[type="radio"][disabled]+label {
+    opacity: 1;
+    color: grey;
+    background-color: rgba(1,1,1,0.15);
+    border-color: gray;
+
+    &:hover {
+      background-color: rgba(1,1,1,0.15);
+      color: grey;
+      cursor: default;
+    }
+
+    &::after {
+      content: "REMPLIE";
+      position: absolute;
+      color: red;
+      font-weight: bold;
+      font-size: 2em;
     }
   }
 
@@ -389,7 +451,29 @@ li.timeline-item-dark::before {
   z-index: 400;
 }
 
+/*For formation asks */
+#formation_asks_stagiaires {
+  > div {
+    flex: 0 0 auto;
+    width: 33%;
+    padding: 1.5rem;
+    background-color: #5ebfce;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
 
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+
+    > label {
+      font-size: calc(1.275rem + .3vw);
+      text-align: center;
+    }
+  }
+}
 
 
 /*For nous.php*/

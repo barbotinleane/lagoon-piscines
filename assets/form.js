@@ -1,145 +1,32 @@
 const datepicker = require('js-datepicker');
 
+$('.btn-save-formation-ask').prop('disabled', true);
+
 $(function() {
 	const showInput = (id) => {
 		$('#formation_asks_'+id).val('');
-		$('#'+id).show();
 	}
 
 	const hideInput = (id) => {
 		$('#formation_asks_'+id).val('null');
-		$('#'+id).hide();
 	}
 
-	$('input[name^="formation_asks[status]"]').change(function() {
-		let status = parseInt($("input[name='formation_asks[status]']:checked").val());
+	$('input[name^="formation_asks[isStagiaireMultiple]"]').click(function() {
+		let value = parseInt($("input[name^=\"formation_asks[isStagiaireMultiple]\"]:checked").val());
 
-		if (status === 1) {
-			let fieldsToShow = [
-				'companyName',
-				'sirenOrRm',
-			];
-
-			let fieldsToHide = [
-				'siret',
-				'idPoleEmploi',
-			];
-
-			fieldsToShow.forEach((value) => {
-				showInput(value);
-			})
-
-			fieldsToHide.forEach((value) => {
-				hideInput(value);
-			})
-
-			$('#activite').show();
-			$('#stagiaires').show();
-
-			$('#prerequis_autre').hide();
-			$('#handicap').hide();
-		}    
-		else if (status === 2) {
-			let fieldsToShow = [
-				'idPoleEmploi',
-			];
-
-			let fieldsToHide = [
-				'siret',
-				'companyName',
-				'sirenOrRm',
-			];
-
-			fieldsToShow.forEach((value) => {
-				showInput(value);
-			})
-
-			fieldsToHide.forEach((value) => {
-				hideInput(value);
-			})
-
-			$('#handicap').show();
-
-			$('#stagiaires').hide();
-			$('#prerequis_autre').show();
-
-			$('#activite').show();
+		if (value === 0) {
+			$('#cost-when-alone').show();
+			$('#costs').hide();
+		} else {
+			$('#cost-when-alone').hide();
+			$('#costs').show();
 		}
-		else if (status === 3) {
-			let fieldsToShow = [
-				'sirenOrRm',
-			];
-
-			let fieldsToHide = [
-				'siret',
-				'companyName',
-				'idPoleEmploi',
-			];
-
-			fieldsToShow.forEach((value) => {
-				showInput(value);
-			})
-
-			fieldsToHide.forEach((value) => {
-				hideInput(value);
-			})
-
-			$('#handicap').show();
-
-			$('#stagiaires').hide();
-			$('#prerequis_autre').show();
-
-			$('#activite').show();
-		}
-		else if (status === 4) {
-			let fieldsToShow = [
-				'siret',
-			];
-
-			let fieldsToHide = [
-				'sirenOrRm',
-				'companyName',
-				'idPoleEmploi',
-			];
-
-			fieldsToShow.forEach((value) => {
-				showInput(value);
-			})
-
-			fieldsToHide.forEach((value) => {
-				hideInput(value);
-			})
-
-			$('#handicap').show();
-
-			$('#stagiaires').hide();
-			$('#prerequis_autre').show();
-
-			$('#activite').hide();
-		}
-		else {
-			let fieldsToHide = [
-				'siret',
-				'companyName',
-				'idPoleEmploi',
-				'sirenOrRm',
-			];
-
-			fieldsToHide.forEach((value) => {
-				hideInput(value);
-			})
-
-			$('#handicap').show();
-
-			$('#stagiaires').hide();
-			$('#prerequis_autre').show();
-		}
-	});
+	})
 
 	$('input[name^="formation_asks[status]"]').change(() => {
 		let status = parseInt($("input[name='formation_asks[status]']:checked").val());
 
-		if(status === 5) {
+		if(status === 6) {
 			$('#autre_statut_champ').show();
 		} else {
 			$('#autre_statut_champ').hide();
@@ -174,6 +61,19 @@ $(function() {
 		}
 	})
 
+	const calculatePriceWhenStagiaireAdded = (numberOfPeople) => {
+		let pricesList = document.querySelector('#cost-when-multiple').getAttribute('data');
+		pricesList = JSON.parse(pricesList);
+		let price = numberOfPeople*pricesList[0];
+
+		for(let i = 1; i < pricesList.length; i++) {
+			if(i === numberOfPeople) {
+				price = pricesList[i];
+			}
+		}
+
+		document.querySelector('#cost-calculated').innerHTML = price+' €';
+	}
 
 	const addStagiaireFormDeleteLink = (item) => {
 		const container = document.createElement('div');
@@ -190,6 +90,14 @@ $(function() {
 		removeFormButton.addEventListener('click', (e) => {
 			e.preventDefault();
 			item.remove();
+			let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) - 1;
+
+			if(numberOfPeople < 6) {
+				$('#personnalized-session').hide();
+			}
+
+			document.querySelector('#asks_stagiaires').setAttribute("data", ""+numberOfPeople+"");
+			calculatePriceWhenStagiaireAdded(numberOfPeople);
 		});
 	}
 
@@ -200,11 +108,13 @@ $(function() {
 
 		const item = document.createElement('li');
 		item.classList.add("bg-blue");
+		item.classList.add("col-12");
+		item.classList.add("col-sm-6");
+		item.classList.add("col-md-4");
 		item.classList.add("shadow-lg");
 		item.classList.add("p-4");
-		item.classList.add("m-2");
 
-		item.innerHTML = '<h4 class="text-center">STAGIAIRE</h4>';
+		item.innerHTML = '<h4>STAGIAIRE</h4>';
 
 		item.insertAdjacentHTML('beforeend', collectionHolder
 			.dataset
@@ -216,10 +126,17 @@ $(function() {
 
 		/*container.appendChild(item);*/
 		collectionHolder.appendChild(item);
-
 		collectionHolder.dataset.index++;
 
 		addStagiaireFormDeleteLink(item);
+		let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) + 1;
+
+		if(numberOfPeople >= 6) {
+			$('#personnalized-session').show();
+		}
+
+		document.querySelector('#asks_stagiaires').setAttribute("data", ""+numberOfPeople+"");
+		calculatePriceWhenStagiaireAdded(numberOfPeople);
 	};
 
 	document
@@ -229,7 +146,7 @@ $(function() {
 		})
 
 	document
-		.querySelectorAll('div.stagiaires div')
+		.querySelectorAll('#formation_asks_stagiaires > div')
 		.forEach((stagiaire) => {
 			addStagiaireFormDeleteLink(stagiaire)
 		})
@@ -241,9 +158,9 @@ $(function() {
 		value.change(function() {
 			//if all checked
 			if($consents[0].is(':checked') && $consents[1].is(':checked') && $consents[2].is(':checked')) {
-				$('#formation_asks_save').prop('disabled', false);
+				$('.btn-save-formation-ask').prop('disabled', false);
 			} else {
-				$('#formation_asks_save').prop('disabled', true);
+				$('.btn-save-formation-ask').prop('disabled', true);
 			}
 		})
 	});

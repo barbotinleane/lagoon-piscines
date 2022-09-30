@@ -65,6 +65,11 @@ class FormationSessions
         return $string . '</div></div>';
     }
 
+    public function getDate() {
+        $string = 'Du ' . date_format($this->dateStart, 'd/m/Y') . ' au ' . date_format($this->dateEnd, 'd/m/Y');
+        return $string;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

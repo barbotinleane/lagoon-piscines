@@ -8,6 +8,7 @@ use Craue\FormFlowBundle\Form\FormFlowInterface;
 
 class FormationAskFlow extends FormFlow {
     protected $allowRedirectAfterSubmit = true;
+    protected $allowDynamicStepNavigation = true;
 
     protected function loadStepsConfig() {
         return [
@@ -58,6 +59,10 @@ class FormationAskFlow extends FormFlow {
             ],
             [
                 'label' => 'Autres renseignements',
+                'form_type' => FormationAsksType::class,
+            ],
+            [
+                'label' => 'Récapitulatif',
                 'form_type' => FormationAsksType::class,
             ],
         ];

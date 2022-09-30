@@ -334,28 +334,6 @@ class FormationAsksType extends AbstractType
                     'multiple' => false,
                     'expanded' => true
                 ])
-                ->add('consents', ChoiceType::class, [
-                    'label' => 'Consentements',
-                    'choices' => [
-                        'En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans 
-                le cadre de ma demande et de la relation commerciale éthique et personnalisée qui pourrait en découler 
-                si je le souhaite et je reconnais avoir pris connaissance de la politique de traitement et d\'utilisation 
-                des données relative à la RGPD disponible en cliquant ici.' => 1,
-                        'J\'ai lu et j’accepte les Conditions Générales de Vente de LAGOON® DISTRIBUTION CORPORATION.' => 2,
-                        'J\'ai été informé que si ma candidature est retenue, 30% du montant total de la formation est 
-                nécessaire pour réserver ma (ou mes) place(s) ; le solde devant etre réglé au plus tard 15 jours avant le début de ma formation.' => 3
-                    ],
-                    'mapped' => false,
-                    'multiple' => true,
-                    'expanded' => true,
-                    'required' => true,
-                    'attr' => [
-                        'class' => 'form-check'
-                    ],
-                    'label_attr' => [
-                        'class' => 'form-check-label'
-                    ],
-                ])
                 ->add('prerequisites', TextType::class, [
                     'attr' => [
                         'value' => 'null',
@@ -378,6 +356,30 @@ class FormationAsksType extends AbstractType
                         'required' => false,
                     ]);
                 }
+                break;
+            case 7 :
+                $builder->add('consents', ChoiceType::class, [
+                    'label' => 'Consentements',
+                    'choices' => [
+                        'En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans 
+                le cadre de ma demande et de la relation commerciale éthique et personnalisée qui pourrait en découler 
+                si je le souhaite et je reconnais avoir pris connaissance de la politique de traitement et d\'utilisation 
+                des données relative à la RGPD disponible en cliquant ici.' => 1,
+                        'J\'ai lu et j’accepte les Conditions Générales de Vente de LAGOON® DISTRIBUTION CORPORATION.' => 2,
+                        'J\'ai été informé que si ma candidature est retenue, 30% du montant total de la formation est 
+                nécessaire pour réserver ma (ou mes) place(s) ; le solde devant etre réglé au plus tard 15 jours avant le début de ma formation.' => 3
+                    ],
+                    'mapped' => false,
+                    'multiple' => true,
+                    'expanded' => true,
+                    'required' => true,
+                    'attr' => [
+                        'class' => 'form-check'
+                    ],
+                    'label_attr' => [
+                        'class' => 'form-check-label'
+                    ],
+                ]);
                 break;
         }
     }

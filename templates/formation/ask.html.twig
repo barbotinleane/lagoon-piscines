@@ -467,6 +467,11 @@
                                     value="oui"
                                     autocomplete="off"
                                     required
+                                    {% if prerequisites != null %}
+                                        {% if prerequisites.visseuse == "oui" %}
+                                            checked
+                                        {% endif %}
+                                    {% endif %}
                             >
                             <label class="btn btn-outline-success" for="oui-visseuse">Oui</label>
 
@@ -477,6 +482,11 @@
                                     id="non-visseuse"
                                     value="non"
                                     autocomplete="off"
+                                    {% if prerequisites != null %}
+                                        {% if prerequisites.visseuse == "non" %}
+                                            checked
+                                        {% endif %}
+                                    {% endif %}
                             >
                             <label class="btn btn-outline-danger" for="non-visseuse">Non</label>
                         </div>
@@ -731,7 +741,9 @@
                         </div>
                     {% endif %}
                 </div>
-
+            {% elseif flow.getCurrentStepNumber() == 7 %}
+                <h3>Récapitulatif de la demande</h3>
+                {% include './formation/reusables/show_formation_ask.html.twig' %}
                 <div>
                     {{ form_label(form.consents) }}
                     {% for child in form.consents.children %}

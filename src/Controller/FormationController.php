@@ -56,13 +56,15 @@ class FormationController extends AbstractController
         $flow->setGenericFormOptions(['departments' => $departments]);
         $flow->bind($ask);
         $form = $flow->createForm();
+        $instance = $flow->getInstanceId();
+        $prerequisites = null;
 
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
 
             if ($flow->nextStep()) {
-                if($flow->getCurrentStep() === 5) {
-                    if($flow->getFormData()->getStagiaires()->isEmpty()) {
+                if ($flow->getCurrentStepLabel() === 'Coordonnées des stagiaires') {
+                    if ($flow->getFormData()->getStagiaires()->isEmpty()) {
                         $companyDirectorStagiaire = new Stagiaires();
                         $companyDirectorStagiaire->setFirstName($flow->getFormData()->getFirstName());
                         $companyDirectorStagiaire->setLastName($flow->getFormData()->getLastName());
@@ -73,24 +75,28 @@ class FormationController extends AbstractController
                     }
                     $numberOfLearners = $flow->getFormData()->getStagiaires()->count();
                     $priceWhenNumberOfLearnersBigger = 0;
-                    foreach($prices as $price) {
-                        if($price->getNumberOfPeople() == $numberOfLearners) {
+                    foreach ($prices as $price) {
+                        if ($price->getNumberOfPeople() == $numberOfLearners) {
                             $priceToShow = $price->getPrice();
                         } elseif ($price->getNumberOfPeople() == 0) {
                             $priceWhenNumberOfLearnersBigger = $price->getPrice();
                         }
                     }
-                    if($priceToShow == 0) {
-                        $priceToShow = $priceWhenNumberOfLearnersBigger*$numberOfLearners;
+                    if ($priceToShow == 0) {
+                        $priceToShow = $priceWhenNumberOfLearnersBigger * $numberOfLearners;
                     }
+                } else if ($flow->getCurrentStepLabel() === 'Récapitulatif') {
+                    $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
+                    $prerequisites = json_decode($ask->getPrerequisites());
                 }
 
                 // form for the next step
                 $form = $flow->createForm();
             } else {
                 $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
+                $prerequisites = json_decode($ask->getPrerequisites());
 
-                if($ask->getStagiaires() !== null) {
+                if ($ask->getStagiaires() !== null) {
                     foreach ($ask->getStagiaires() as $stagiaire) {
                         $em->persist($stagiaire);
                     }
@@ -112,6 +118,9 @@ class FormationController extends AbstractController
             "flow" => $flow,
             "prices" => $pricesArray,
             "priceForStagiairesSaved" => $priceToShow,
+            "ask" => $ask,
+            "instance" => $instance,
+            "prerequisites" => $prerequisites,
         ]);
     }
 }

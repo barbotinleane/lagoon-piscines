@@ -742,8 +742,16 @@
                     {% endif %}
                 </div>
             {% elseif flow.getCurrentStepNumber() == 7 %}
-                <h3>Récapitulatif de la demande</h3>
-                {% include './formation/reusables/show_formation_ask.html.twig' %}
+                <div class="p-4 my-3 bg-grey">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="baskerville size-3">Récapitulatif de la demande</h3>
+                        <div>
+                            <i class="fas fa-file-check"></i>
+                        </div>
+                    </div>
+                    {% include './formation/reusables/show_formation_ask.html.twig' %}
+                </div>
+
                 <div>
                     {{ form_label(form.consents) }}
                     {% for child in form.consents.children %}

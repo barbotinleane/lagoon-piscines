@@ -112,6 +112,7 @@ class FormationController extends AbstractController
                 return $this->redirectToRoute('app_home');
             }
         }
+        $prerequisites = (array) $prerequisites;
 
         return $this->render('formation/ask.html.twig', [
             "form" => $form->createView(),

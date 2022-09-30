@@ -1,140 +1,192 @@
 <div>
-    <div class="row p-4 my-3 bg-form-blue">
+    <div class="row my-3">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="baskerville size-3">Mon statut</h3>
-            <div>
-                <i class="fas fa-briefcase form-icon"></i>
-            </div>
+            <h4 class="baskerville">
+                Mon statut
+            </h4>
         </div>
         <div class="col-12 col-sm-6">
-            <h4>Statut</h4>
+            <div class="fw-bold">Statut</div>
             {{ ask.status }}
         </div>
         <div class="col-12 col-sm-6">
-            <h5>Objectif</h5>
+            <div class="fw-bold">Objectif</div>
             {{ ask.goal }}
         </div>
     </div>
 
-    <div class="row p-4 my-3 bg-yellow-clear">
+    <hr>
+
+    <div class="row my-3">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="baskerville size-3">Ma formation</h3>
-            <div>
-                <i class="fas fa-chalkboard-teacher form-icon"></i>
-            </div>
+            <h4 class="baskerville">
+                Ma formation
+            </h4>
         </div>
         <div class="col-12 col-sm-6">
-            <h5>Formation demandée</h5>
+            <div class="fw-bold">Formation demandée</div>
             {{ ask.formationLibelle }}
         </div>
         <div class="col-12 col-sm-6">
-            <h5>Session</h5>
+            <div class="fw-bold">Session</div>
             {{ ask.formationSession.date }}
         </div>
-        <a class="btn-success" href='/demande-de-formation?instance={{ instance }}&step=2'>
-            <i class="fas fa-pen"></i>
-            Modifier
-        </a>
+        <div class="text-end">
+            <a class="btn btn-success" href='/demande-de-formation?instance={{ instance }}&step=2'>
+                <i class="fas fa-pen"></i>
+                Modifier
+            </a>
+        </div>
     </div>
 
-    <div class="row p-4 my-3 bg-form-blue">
+    <hr>
+
+    <div class="row my-3">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="baskerville size-3">Mes coordonnées</h3>
-            <div>
-                <i class="fas fa-user form-icon"></i>
-            </div>
+            <h4 class="baskerville">
+                Mes coordonnées
+            </h4>
         </div>
-        <div class="col-12 col-sm-6">
-            <h5>Prénom</h5>
-            {{ ask.firstName }}
+        <div class="row py-2">
+            {% if ask.companyName != null %}
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">Nom de l'entreprise</div>
+                    {{ ask.companyName }}
+                </div>
+            {% endif %}
+
+            {% if ask.siret != null %}
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">SIRET</div>
+                    {{ ask.siret }}
+                </div>
+            {% endif %}
+
+            {% if ask.sirenOrRm != null %}
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">SIREN ou RM</div>
+                    {{ ask.sirenOrRm }}
+                </div>
+            {% endif %}
+
+            {% if ask.idPoleEmploi != null %}
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">Identifiant Pôle Emploi</div>
+                    {{ ask.idPoleEmploi }}
+                </div>
+            {% endif %}
         </div>
-        <div class="col-12 col-sm-6">
-            <h5>Nom</h5>
-            {{ ask.lastName }}
-        </div>
-        <div class="row">
+
+        <div class="row py-2">
             <div class="col-12 col-sm-6">
-                <h5>Email</h5>
-                {{ ask.email }}
+                <div class="fw-bold">Prénom</div>
+                {{ ask.firstName }}
             </div>
             <div class="col-12 col-sm-6">
-                <h5>Téléphone</h5>
-                {{ ask.phoneNumber }}
+                <div class="fw-bold">Nom</div>
+                {{ ask.lastName }}
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">Email</div>
+                    {{ ask.email }}
+                </div>
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">Téléphone</div>
+                    {{ ask.phoneNumber }}
+                </div>
+            </div>
+            <div class="col-12 col-sm-10 col-md-8">
+                <div class="fw-bold">Adresse</div>
+                {{ ask.address }}
+            </div>
+            <div class="row">
+                <div class="col-6 col-sm-4">
+                    <div class="fw-bold">Code Postal</div>
+                    {{ ask.postalCode }}
+                </div>
+                <div class="col-6 col-sm-4">
+                    <div class="fw-bold">Ville</div>
+                    {{ ask.city }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-4">
+                    <div class="fw-bold">Département</div>
+                    {{ ask.department }}
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="fw-bold">Pays</div>
+                    {{ ask.country }}
+                </div>
             </div>
         </div>
-        <div class="col-12 col-sm-10 col-md-8">
-            <h5>Adresse</h5>
-            {{ ask.address }}
+
+        <div class="col-12 pt-2">
+            <div class="fw-bold">Catégorie d'activité actuelle</div>
+            <ul>
+                {% for activity in ask.activityCategory %}
+                    <li>{{ activity }}</li>
+                {% endfor %}
+            </ul>
         </div>
-        <div class="row">
-            <div class="col-6 col-sm-4">
-                <h5>Code Postal</h5>
-                {{ ask.postalCode }}
-            </div>
-            <div class="col-6 col-sm-4">
-                <h5>Ville</h5>
-                {{ ask.city }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-4">
-                <h5>Département</h5>
-                {{ ask.department }}
-            </div>
-            <div class="col-12 col-sm-4">
-                <h5>Pays</h5>
-                {{ ask.country }}
-            </div>
-        </div>
+
         <div class="col-12 col-sm-4">
-            <h5>Situation de handicap</h5>
+            <div class="fw-bold">Situation de handicap</div>
             {% if ask.handicap == null %}
                 Non
             {% else %}
                 Oui
             {% endif %}
         </div>
-        <a class="btn-success" href='/demande-de-formation?instance={{ instance }}&step=3'>
-            <i class="fas fa-pen"></i>
-            Modifier
-        </a>
+
+        <div class="text-end">
+            <a class="btn btn-success" href='/demande-de-formation?instance={{ instance }}&step=3'>
+                <i class="fas fa-pen"></i>
+                Modifier
+            </a>
+        </div>
     </div>
 
     {% if ask.isStagiaireMultiple == true %}
-        <div class="row p-4 my-3 bg-yellow-clear">
+        <hr>
+
+        <div class="row my-3">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="baskerville size-3">Les stagiaires</h3>
+                <h4 class="baskerville">
+                    Les stagiaires
+                </h4>
             </div>
-            <ul class="stagiaires row ps-0 g-2">
+            <ul class="stagiaires row ps-0 g-2" style="list-style-type: none;">
                 {% for stagiaire in ask.stagiaires %}
-                    <li class="bg-blue col-12 col-sm-6 col-md-4 shadow-lg p-4">
+                    <li class="col-12 col-sm-6 col-md-4 shadow-lg p-4 border">
                         <h4>STAGIAIRE</h4>
                         <div class="col-12 col-sm-6">
-                            <h5>Prénom</h5>
+                            <div class="fw-bold">Prénom</div>
                             {{ stagiaire.firstName }}
                         </div>
                         <div class="col-12 col-sm-6">
-                            <h5>Nom</h5>
+                            <div class="fw-bold">Nom</div>
                             {{ stagiaire.lastName }}
                         </div>
                         <div class="row">
                             <div class="col-12 col-sm-6">
-                                <h5>Email</h5>
+                                <div class="fw-bold">Email</div>
                                 {{ stagiaire.email }}
                             </div>
                             <div class="col-12 col-sm-6">
-                                <h5>Téléphone</h5>
+                                <div class="fw-bold">Téléphone</div>
                                 {{ stagiaire.phoneNumber }}
                             </div>
                         </div>
                         {% if stagiaire.currentJob != null %}
                             <div class="col-12 col-sm-6">
-                                <h5>Poste occupé</h5>
+                                <div class="fw-bold">Poste occupé</div>
                                 {{ stagiaire.currentJob }}
                             </div>
                         {% endif %}
                         <div class="col-12 col-sm-4">
-                            <h5>Situation de handicap</h5>
+                            <div class="fw-bold">Situation de handicap</div>
                             {% if ask.handicap == null %}
                                 Non
                             {% else %}
@@ -144,19 +196,99 @@
                     </li>
                 {% endfor %}
             </ul>
+
+            {% if ask.personnalizedSession == true %}
+                <div class="col-12 col-sm-6">
+                    <div class="fw-bold">Session personnalisée</div>
+                    Oui
+                </div>
+            {% endif %}
+
+            <div class="text-end">
+                <a class="btn btn-success" href='/demande-de-formation?instance={{ instance }}&step=5'>
+                    <i class="fas fa-pen"></i>
+                    Modifier
+                </a>
+            </div>
         </div>
     {% endif %}
 
-    <div class="p-4 my-3 bg-form-blue">
+    <hr>
+
+    <div class="row my-3">
         <div class="d-flex justify-content-between align-items-center">
-            <h3 class="baskerville size-3">Pré-requis : </h3>
-            <div>
-                <i class="fas fa-tools form-icon"></i>
-            </div>
+            <h4 class="baskerville">
+                Pré-requis :
+            </h4>
         </div>
 
-        {% for key, prerequisite in prerequisites %}
-            {{ key }} : {{ prerequisite }}
-        {% endfor %}
+        <div class="row">
+            {% for key, prerequisite in prerequisites %}
+                {% if key == "Commentaires" %}
+                    <div class="col-12 py-3">
+                {% else %}
+                    <div class="col-6 col-sm-4 col-md-3">
+                {% endif %}
+                        <div class="fw-bold">{{ key }}</div>
+                        {{ prerequisite|capitalize }}
+                    </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-end">
+            <a
+            class="btn btn-success"
+            {% if ask.stagiaires == null %}
+                href='/demande-de-formation?instance={{ instance }}&step=4'
+            {% elseif ask.isStagiaireMultiple == false %}
+                href='/demande-de-formation?instance={{ instance }}&step=5'
+            {% else %}
+                href='/demande-de-formation?instance={{ instance }}&step=6'
+            {% endif %}
+            >
+                <i class="fas fa-pen"></i>
+                Modifier
+            </a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="renseignements" class="row my-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4 class="baskerville">
+                Renseignements utiles
+            </h4>
+        </div>
+        <div>
+            <span class="fw-bold">J'ai connu le centre de formation LAGOON® par...</span>
+            <ul>
+                {% for known in ask.knowsUs %}
+                    <li>{{ known }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <span class="fw-bold">Je pense financer la formation par...</span>
+            <ul>
+                <li>{{ ask.funding }}</li>
+            </ul>
+        </div>
+
+        <div class="text-end">
+            <a
+                    class="btn btn-success"
+                    {% if ask.stagiaires == null %}
+                        href='/demande-de-formation?instance={{ instance }}&step=4#renseignements'
+                    {% elseif ask.isStagiaireMultiple == false %}
+                        href='/demande-de-formation?instance={{ instance }}&step=5#renseignements'
+                    {% else %}
+                        href='/demande-de-formation?instance={{ instance }}&step=6#renseignements'
+                    {% endif %}
+            >
+                <i class="fas fa-pen"></i>
+                Modifier
+            </a>
+        </div>
     </div>
 </div>

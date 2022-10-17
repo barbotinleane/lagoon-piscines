@@ -37,8 +37,8 @@ class ProjectController extends AbstractController
                 $entityManager->persist($projectAsk);
                 $entityManager->flush();
 
-                $asanaManager->addProjectTask($projectAsk);
-                $mailer->sendProjectAskMail($projectAsk);
+                //$asanaManager->addProjectTask($projectAsk);
+                //$mailer->sendProjectAskMail($projectAsk);
 
                 $this->addFlash('success', 'Votre demande de devis a bien été envoyée.');
                 return $this->redirectToRoute('app_home');

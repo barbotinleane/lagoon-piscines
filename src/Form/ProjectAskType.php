@@ -239,9 +239,18 @@ class ProjectAskType extends AbstractType
                 ],
                 'expanded' => true
             ])
-            ->add('buildingStarts', TextType::class, [
+            ->add('buildingStarts', DateType::class, [
                 'label' => 'Début de construction souhaité :',
-                'attr' => ['class' => 'form-control js-datepicker'],
+                'row_attr' => [
+                    'class' => 'col-12 col-sm-4'
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                    'min' => ( new \DateTime() )->format('Y-m-d'),
+                ],
+                'widget' => 'single_text',
+                'input' => 'string',
+                'html5' => true,
             ])
             ->add('budget', TextType::class, [
                 'label' => 'Budget alloué au projet (facultatif) : ',

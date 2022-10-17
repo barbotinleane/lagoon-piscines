@@ -1,0 +1,186 @@
+<div id="contact" class="row py-4">
+    <div class="col-12 col-sm-4">
+        <h3 class="baskerville size-3">Mes coordonnées</h3>
+        {% include 'formation/ask/steps/reusables/list.html.twig' %}
+    </div>
+
+    <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5">
+        <div class="py-3">
+            <div>
+                <i class="fas fa-briefcase form-icon"></i>
+            </div>
+            <div class="row">
+                {% if form.companyName is defined %}
+                    <div class="col-12 col-md-6 col-lg-4" id="companyName">
+                        {{ form_label(form.companyName) }}
+                        {{ form_widget(form.companyName) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.companyName) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.sirenOrRm is defined %}
+                    <div class="col-12 col-md-6 col-lg-4" id="sirenOrRm">
+                        {{ form_label(form.sirenOrRm) }}
+                        {{ form_widget(form.sirenOrRm) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.sirenOrRm) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.siret is defined %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        {{ form_label(form.siret) }}
+                        {{ form_widget(form.siret) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.siret) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.idPoleEmploi is defined %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        {{ form_label(form.idPoleEmploi) }}
+                        {{ form_widget(form.idPoleEmploi) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.idPoleEmploi) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.activityCategory is defined %}
+                    <div class="mt-2 ms-1">
+                        <div>
+                            {{ form_label(form.activityCategory) }}
+                        </div>
+                        <div class="ms-3">
+                            {% for child in form.activityCategory.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-error">
+                            {{ form_errors(form.activityCategory) }}
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-8" id="autre_activite_champ" style="display: none;">
+                        <label for="autre_act_champ">Veuillez renseigner votre catégorie d'activité :</label><br>
+                        <input type="text" class="form-control" id="autre_act_champ" name="other[activityCategory]">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <div class="py-4">
+            <div>
+                <i class="fas fa-user form-icon"></i>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    {{ form_label(form.firstName) }}
+                    {{ form_widget(form.firstName) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.firstName) }}
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    {{ form_label(form.lastName) }}
+                    {{ form_widget(form.lastName) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.lastName) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-7 col-lg-6">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+
+                <div class="form-error">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5 col-lg-4">
+                {{ form_label(form.phoneNumber) }}
+                {{ form_widget(form.phoneNumber) }}
+
+                <div class="form-error">
+                    {{ form_errors(form.phoneNumber) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-11">
+                    {{ form_label(form.address) }}
+                    {{ form_widget(form.address) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.address) }}
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-5 col-lg-4">
+                    {{ form_label(form.postalCode) }}
+                    {{ form_widget(form.postalCode) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.postalCode) }}
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-7 col-lg-4">
+                    {{ form_label(form.city) }}
+                    {{ form_widget(form.city) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.city) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-5">
+                        {{ form_label(form.department) }}
+                        {{ form_widget(form.department) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.department) }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        {{ form_label(form.country) }}
+                        {{ form_widget(form.country) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.country) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if form.handicap is defined %}
+            <div class="mt-4 form-check" id="handicap">
+                {{ form_widget(form.handicap) }}
+                {{ form_label(form.handicap) }}
+
+                <div class="form-error">
+                    {{ form_errors(form.handicap) }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+    </div>
+</div>

@@ -8,24 +8,24 @@ use Craue\FormFlowBundle\Form\FormFlowInterface;
 
 class FormationAskFlow extends FormFlow {
     protected $allowRedirectAfterSubmit = true;
-    protected $allowDynamicStepNavigation = true;
+    protected $allowDynamicStepNavigation = false;
 
     protected function loadStepsConfig() {
         return [
             [
-                'label' => 'Mon Statut',
+                'label' => 'S',
                 'form_type' => FormationAsksType::class,
                 'form_options' => [
                     'status' => $this->getFormData()->getStatus(),
                 ],
             ],
             [
-                'label' => 'Ma formation',
+                'label' => 'F',
                 'form_type' => FormationAsksType::class,
                 'skip' => false,
             ],
             [
-                'label' => 'Mes coordonnées',
+                'label' => 'C',
                 'form_type' => FormationAsksType::class,
                 'skip' => false,
                 'form_options' => [
@@ -33,7 +33,7 @@ class FormationAskFlow extends FormFlow {
                 ],
             ],
             [
-                'label' => 'Les Stagiaires',
+                'label' => 'S',
                 'form_type' => FormationAsksType::class,
                 'skip' => function($estimatedCurrentStepNumber, FormFlowInterface $flow) {
                     if ($flow->getFormData()->getStatus() === null) {
@@ -47,7 +47,7 @@ class FormationAskFlow extends FormFlow {
                 ],
             ],
             [
-                'label' => 'Coordonnées des stagiaires',
+                'label' => 'CS',
                 'form_type' => FormationAsksType::class,
                 'skip' => function($estimatedCurrentStepNumber, FormFlowInterface $flow) {
                     if ($flow->getFormData()->isIsStagiaireMultiple() === true) {
@@ -58,11 +58,11 @@ class FormationAskFlow extends FormFlow {
                 },
             ],
             [
-                'label' => 'Autres renseignements',
+                'label' => 'AR',
                 'form_type' => FormationAsksType::class,
             ],
             [
-                'label' => 'Récapitulatif',
+                'label' => 'R',
                 'form_type' => FormationAsksType::class,
             ],
         ];

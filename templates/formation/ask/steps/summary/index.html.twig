@@ -1,0 +1,19 @@
+<div class="row">
+    {% include 'formation/ask/steps/summary/contact.html.twig' %}
+
+    {% include 'formation/ask/steps/summary/status.html.twig' %}
+</div>
+
+<div class="row py-5">
+    {% include 'formation/ask/steps/summary/formation.html.twig' %}
+</div>
+
+
+{% if ask.isStagiaireMultiple == true %}
+    {% include 'formation/ask/steps/summary/students.html.twig' %}
+{% endif %}
+
+
+
+<div class="row py-5">
+    {% include 'formation/ask/steps/summary/otherInformations.html.twig' %}

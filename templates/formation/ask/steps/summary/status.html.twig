@@ -1,0 +1,48 @@
+<div class="col-12 col-md-6 pt-5 pt-md-0">
+    <div>
+        <i class="fas fa-briefcase form-icon"></i>
+    </div>
+    <div class="py-3 d-flex align-items-end justify-content-between">
+        <div>
+            <div>
+                {{ ask.status }}
+            </div>
+            <div class="ps-4">
+                {% if ask.companyName != null %}
+                    <div>
+                        {{ ask.companyName }}
+                    </div>
+                {% endif %}
+
+                {% if ask.siret != null %}
+                    <div>
+                        SIRET : {{ ask.siret }}
+                    </div>
+                {% endif %}
+
+                {% if ask.sirenOrRm != null %}
+                    <div>
+                        SIREN ou RM : {{ ask.sirenOrRm }}
+                    </div>
+                {% endif %}
+
+                {% if ask.idPoleEmploi != null %}
+                    <div>
+                        Identifiant Pôle Emploi : {{ ask.idPoleEmploi }}
+                    </div>
+                {% endif %}
+                <div>Catégorie d'activité : </div>
+                <ul>
+                    {% for activity in ask.activityCategory %}
+                        <li>{{ activity }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="text-end">
+            <a class="btn btn-success rounded-corners" href='/demande-de-formation?instance={{ instance }}&step=3'>
+                <i class="fas fa-pen"></i>
+            </a>
+        </div>
+    </div>
+</div>

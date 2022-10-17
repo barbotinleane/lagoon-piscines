@@ -1,0 +1,28 @@
+<div id="workers" class="row py-4">
+    <div class="col-12 col-sm-4">
+        <h3 class="baskerville size-3">Récapitulatif de la demande</h3>
+        {% include 'formation/ask/steps/reusables/list.html.twig' %}
+    </div>
+
+    <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5 d-flex flex-column justify-content-between">
+        {% include 'formation/ask/steps/summary/index.html.twig' %}
+
+        <div>
+            {{ form_label(form.consents) }}
+            {% for child in form.consents.children %}
+                <div class="">
+                    <div class="form-check">
+                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="form-error">
+                {{ form_errors(form.consents) }}
+            </div>
+        </div>
+
+        {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+    </div>
+</div>

@@ -1,0 +1,57 @@
+{% if form.stagiaires is defined %}
+    <div id="workers" class="row py-4">
+        <div class="col-12 col-sm-4">
+            <h3 class="baskerville size-3">Coordonnées des stagiaires</h3>
+            {% include 'formation/ask/steps/reusables/list.html.twig' %}
+        </div>
+
+        <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5 d-flex flex-column justify-content-between">
+            <div>
+                <ul class="stagiaires ps-0 g-2"
+                    id="asks_stagiaires"
+                    data-index="{{ form.stagiaires|length }}"
+                    data="{{ form.stagiaires|length }}"
+                    data-prototype="{{ form_widget(form.stagiaires.vars.prototype)|e('html_attr') }}"
+                >
+                    <div class="d-block">
+                        {{ form_row(form.stagiaires) }}
+                    </div>
+                </ul>
+
+                <div class="text-center pb-3">
+                    <button type="button" class="add_stagiaire_link btn btn-success" data-collection-holder-class="stagiaires">
+                        <i class="fas fa-user-plus"></i>
+                        Ajouter un stagiaire
+                    </button>
+                </div>
+
+                <div id="personnalized-session" class="pt-5" style="display: none;">
+                    <label>{{ form_label(form.personnalizedSession) }}</label>
+                    <div class="buttons-group">
+                        {% for child in form.personnalizedSession.children %}
+                            <div class="">
+                                <div class="">
+                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                    <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-error">
+                        {{ form_errors(form.personnalizedSession) }}
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="text-end fw-bold mb-4" id="cost-when-multiple" data={{ prices|json_encode }}>
+                    Coût estimé :
+                    <div class="size-2" id="cost-calculated">
+                        {{ priceForStagiairesSaved }} €
+                    </div>
+                </div>
+                {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,51 @@
+<div id="formation" class="row py-4">
+    <div class="col-12 col-sm-4">
+        <h3 class="baskerville size-3">Ma formation</h3>
+        {% include 'formation/ask/steps/reusables/list.html.twig' %}
+    </div>
+
+    <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5">
+        <div class="my-3">
+            <label>Formation demandée :</label>
+            <div class="text-center d-grid gap-2">
+                <div class="btn btn-dark" style="cursor:default;">
+                    <strong>
+                        Installation de bassins de type LAGON
+                    </strong><br>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                     Au centre de formation LAGOON® à Vence (06)
+                </div>
+            </div>
+        </div>
+
+        <div id="session">
+            {{ form_label(form.formationSession) }}
+            <div class="buttons-group">
+                {% for child in form.formationSession.children %}
+                    <div class="">
+                        <div class="">
+                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                            <label class="form-check-label fw-normal text-center" for="{{ child.vars.id }}" >
+                                {{ child.vars.label|raw }}
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-error">
+                {{ form_errors(form.formationSession) }}
+            </div>
+        </div>
+        {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+    </div>
+</div>
+
+{% if flow.formData.status.getId != 1 %}
+    <div class="text-end fw-bold mb-4">
+        Coût estimé :
+        <div class="size-2">
+            2200 €
+        </div>
+    </div>
+{% endif %}

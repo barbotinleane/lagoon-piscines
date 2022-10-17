@@ -1,0 +1,39 @@
+{% if form.isStagiaireMultiple is defined %}
+    <div id="students" class="row py-4">
+        <div class="col-12 col-sm-4">
+            <h3 class="baskerville size-3">Les Stagiaires</h3>
+            {% include 'formation/ask/steps/reusables/list.html.twig' %}
+        </div>
+
+        <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5 d-flex flex-column justify-content-between">
+            <div>
+                <div>
+                    <label>{{ form_label(form.isStagiaireMultiple) }}</label>
+                    <div class="buttons-group">
+                        {% for child in form.isStagiaireMultiple.children %}
+                            <div class="">
+                                <div class="">
+                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                    <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-error">
+                        {{ form_errors(form.isStagiaireMultiple) }}
+                    </div>
+                </div>
+
+                <div class="text-end fw-bold mb-4" id="cost-when-alone" style="display:none;">
+                    Coût estimé pour une personne :
+                    <div class="size-2">
+                        2200 €
+                    </div>
+                </div>
+            </div>
+
+            {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+        </div>
+    </div>
+{% endif %}

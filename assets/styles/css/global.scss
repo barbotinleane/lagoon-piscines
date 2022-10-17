@@ -26,6 +26,27 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'IBM Plex Sans Light';
+  src: url('../fonts/IBMPlexSans-Light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Regular';
+  src: url('../fonts/IBMPlexSans-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans Bold';
+  src: url('../fonts/IBMPlexSans-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+/*Colors*/
+$brand-color: #5ebfce;
+$secondary-color: #FEDB00;
 
 /*Boxes with paddings and margins : */
 .no-padding {
@@ -53,7 +74,7 @@
 
 /*Colors : */
 .text-blue {
-  color:#5ebfce;
+  color:$brand-color;
 }
 
 .text-darkblue {
@@ -61,7 +82,7 @@
 }
 
 .text-yellow {
-  color:#FEDB00;
+  color:$secondary-color;
 }
 
 .text-red {
@@ -73,23 +94,41 @@
 /*Fonts : */
 .philosopher
 {
-  font-family: 'Philosopher', serif;
+  font-family: 'Philosopher', serif !important;
 }
 
 .baskerville
 {
-  font-family: 'Baskerville', serif;
+  font-family: 'Baskerville', serif !important;
 }
 
 .the-girl-next-door
 {
-  font-family: 'TheGirlNextDoor', serif;
+  font-family: 'TheGirlNextDoor', serif !important;
+}
+
+.ibm-plex-regular
+{
+  font-family: 'IBM Plex Sans Regular', sans-serif !important;
+}
+
+.ibm-plex-bold
+{
+  font-family: 'IBM Plex Sans Bold', sans-serif !important;
+}
+
+.ibm-plex-light
+{
+  font-family: 'IBM Plex Sans Light', sans-serif !important;
 }
 
 
-
-
 /*Buttons : */
+*:focus {
+  border-color: #212529 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(94, 191, 206, 0.6) !important;
+}
+
 .btn-blue
 {
   background-color:#3cb1c3;
@@ -103,12 +142,12 @@
 }
 
 .btn-yellow {
-  background-color:#FEDB00;
+  background-color:$secondary-color;
   border-color: #ffc300;
 }
 
 .btn-yellow:hover {
-  background-color:lighten(#FEDB00, 10%);
+  background-color:lighten($secondary-color, 10%);
   border-color:#ffc300;
 }
 
@@ -134,7 +173,7 @@
 
 .bg-grey
 {
-  background-color:#F2f2f2;
+  background-color: #e0e0e0;
 }
 
 .bg-clear {
@@ -142,15 +181,15 @@
 }
 
 .bg-yellow {
-  background-color:#FEDB00;
+  background-color:$secondary-color;
 }
 
 .bg-yellow-clear {
-  background-color:lighten(#FEDB00, 38%);
+  background-color:lighten($secondary-color, 38%);
 }
 
 .bg-blue {
-  background-color:#5ebfce;
+  background-color:$brand-color;
 }
 
 .bg-form-blue {
@@ -215,11 +254,15 @@ img {
   object-fit: cover;
 }
 
+.rounded-corners {
+  border-radius: 4em;
+}
+
 
 
 /*Links for the website: */
 a {
-  color: #5ebfce;
+  color: $brand-color;
   text-decoration: none;
 }
 
@@ -235,7 +278,7 @@ a:hover {
 
 .blank-link:hover
 {
-  color: #5ebfce;
+  color: $brand-color;
 }
 
 .dark-link
@@ -245,7 +288,7 @@ a:hover {
 
 .dark-link:hover
 {
-  color: #5ebfce;
+  color: $brand-color;
 }
 
 
@@ -286,6 +329,19 @@ a:hover {
       font-size: 0.8em;
       padding: 3px;
     }
+  }
+}
+
+label.form-label {
+  margin-bottom: 0px !important;
+}
+
+input.form-control, input.form-check-input, select.form-select, textarea.form-control {
+  border: 1px solid black !important;
+  border-radius: .6em !important;
+
+  &:checked {
+    background-color: $brand-color;
   }
 }
 
@@ -454,25 +510,23 @@ li.timeline-item-dark::before {
 /*For formation asks */
 #formation_asks_stagiaires {
   > div {
-    flex: 0 0 auto;
-    width: 33%;
     padding: 1.5rem;
-    background-color: #5ebfce;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+    background-color: #e0e0e0;
+    border-radius: 4em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem !important;
 
-    @media screen and (max-width: 768px) {
-      width: 50%;
-    }
-
-    @media screen and (max-width: 576px) {
-      width: 100%;
-    }
-
-    > label {
-      font-size: calc(1.275rem + .3vw);
-      text-align: center;
+    @media (min-width: 992px) {
+      flex-direction: row;
     }
   }
+}
+
+.remove-students-button {
+  position: relative;
+  top: -30px;
+  right: -30px;
 }
 
 
@@ -555,5 +609,90 @@ li.timeline-item-dark::before {
     font-size: .75em;
     margin-left: -5em;
     width: 10em;
+  }
+}
+
+/*For form with steps*/
+// RESET
+ol.craue_formflow_steplist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// TIMELINE ORDERED LIST
+ol.craue_formflow_steplist {
+  $bullet-line-width: 3px;
+  $bullet-color: #adadad;
+  $bullet-border-width: $bullet-line-width;
+  $bullet-background-color: #212529;
+  $bullet-size: 30px;
+  counter-reset: numbered-list;
+  border-left: 1px solid $bullet-color;
+  margin-left: 10px;
+  position: relative;
+
+  li {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    padding-left: 30px;
+
+    &:last-child {
+      border-left: 4px solid $bullet-background-color;
+      margin-left: -$bullet-line-width;
+    }
+
+    &:before {
+      $half-of-font-size: -0.5em;
+      $bullet-size: 13px;
+      background-color: $bullet-color;
+      border-radius: 50%;
+      color: rgba(0,0,0,0);
+      content: '';
+      counter-increment: numbered-list;
+      display: block;
+      font-weight: bold;
+      width: $bullet-size;
+      height: $bullet-size;
+      margin-top: $half-of-font-size;
+      line-height: $bullet-size;
+      position: absolute;
+      left: - (calc($bullet-size / 2) + calc($bullet-line-width / 2) - 1);
+      text-align: center;
+    }
+  }
+
+  li.craue_formflow_done_step {
+    &:last-child {
+      border-top: $bullet-line-width solid #e2e2e2;
+    }
+  }
+
+  li.craue_formflow_current_step {
+    &:before {
+      $bullet-size: 30px;
+      $bullet-border-width: 5px;
+      background-color: #212529;
+      color: #212529;
+      border: $bullet-border-width solid #FFF;
+      width: $bullet-size;
+      height: $bullet-size;
+      left: - (calc($bullet-size / 2) + calc($bullet-border-width / 2) - 2);
+      margin-top: -16.5px;
+    }
+  }
+
+  li.craue_formflow_skipped_step {
+    display: none;
+
+    &:before {
+      content: '';
+    }
   }
 }

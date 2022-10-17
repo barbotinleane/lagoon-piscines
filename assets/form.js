@@ -33,10 +33,13 @@ $(function() {
 		}
 	})
 
-	$('input[name^="formation_asks[activityCategory]"]').change(() => {
-		let activityCategory = $("input[name='formation_asks[activityCategory]']:checked").val();
+	$('input[name^="formation_asks[activityCategory][]"]').change(() => {
+		let activityCategory = [];
+		$("input:checkbox[name='formation_asks[activityCategory][]']:checked").each(function(){
+			activityCategory.push($(this).val());
+		});
 
-		if(activityCategory === "Autre") {
+		if(activityCategory.indexOf("Autre") > -1) {
 			$('#autre_activite_champ').show();
 		} else {
 			$('#autre_activite_champ').hide();
@@ -53,8 +56,13 @@ $(function() {
 		}
 	})
 
-	$('#formation_asks_knowsUs_5').on("click", () => {
-		if($('#formation_asks_knowsUs_5').prop('checked')){
+	$('input[name^="formation_asks[knowsUs][]"]').click(() => {
+		let knowsUs = [];
+		$("input:checkbox[name='formation_asks[knowsUs][]']:checked").each(function(){
+			knowsUs.push($(this).val());
+		});
+
+		if(knowsUs.indexOf("Autre") > -1) {
 			$('#autre_cnn_champ').show();
 		} else {
 			$('#autre_cnn_champ').hide();
@@ -77,19 +85,23 @@ $(function() {
 
 	const addStagiaireFormDeleteLink = (item) => {
 		const container = document.createElement('div');
-		container.classList.add("text-center");
+		container.classList.add("text-end");
+		container.classList.add("remove-students-button");
+		container.classList.add("order-1");
+		container.classList.add("order-lg-3");
 
 		const removeFormButton = document.createElement('button');
 		removeFormButton.classList.add("btn");
 		removeFormButton.classList.add("btn-danger");
-		removeFormButton.innerHTML = '<i class="fas fa-user-minus"></i>&nbsp;Supprimer ce stagiaire';
+		removeFormButton.classList.add("rounded-corners");
+		removeFormButton.innerHTML = '<i class="fas fa-minus"></i>';
 
 		container.appendChild(removeFormButton);
 		item.append(container);
 
 		removeFormButton.addEventListener('click', (e) => {
 			e.preventDefault();
-			item.remove();
+			$(item).fadeOut(400, function() { $(this).remove(); });
 			let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) - 1;
 
 			if(numberOfPeople < 6) {
@@ -107,14 +119,12 @@ $(function() {
 		collectionHolder.classList.add("px-1");
 
 		const item = document.createElement('li');
-		item.classList.add("bg-blue");
-		item.classList.add("col-12");
-		item.classList.add("col-sm-6");
-		item.classList.add("col-md-4");
-		item.classList.add("shadow-lg");
-		item.classList.add("p-4");
+		item.classList.add("bg-grey", "d-flex", "flex-column", "flex-lg-row", "justify-content-center");
+		item.classList.add("rounded-corners", "p-4", "mb-3");
 
-		item.innerHTML = '<h4>STAGIAIRE</h4>';
+		item.innerHTML = '<div class="pe-2 pb-2 order-2 order-lg-1 text-center">\n' +
+			'                <i class="fas fa-user form-icon"></i>\n' +
+			'            </div>';
 
 		item.insertAdjacentHTML('beforeend', collectionHolder
 			.dataset
@@ -126,6 +136,7 @@ $(function() {
 
 		/*container.appendChild(item);*/
 		collectionHolder.appendChild(item);
+		$(item).hide().fadeIn();
 		collectionHolder.dataset.index++;
 
 		addStagiaireFormDeleteLink(item);

@@ -124,7 +124,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('phoneNumber', NumberType::class, [
-                        'label' => 'Numéro de téléphone',
+                        'label' => 'Téléphone',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -161,6 +161,9 @@ class FormationAsksType extends AbstractType
                     ])
                     ->add('department',  ChoiceType::class, [
                         'label' => 'Département',
+                        'label_attr' => [
+                            'class' => 'form-label'
+                        ],
                         'choices' => $departmentsNames,
                         'attr' => [
                             'class' => 'form-select'
@@ -177,6 +180,9 @@ class FormationAsksType extends AbstractType
                     ])
                     ->add('activityCategory', ChoiceType::class, [
                         'label' => 'Catégorie d\'Activité Actuelle',
+                        'label_attr' => [
+                            'class' => 'form-label'
+                        ],
                         'choices' => [
                             'Piscinier' => 'Piscinier',
                             'Paysagiste' => 'Paysagiste',
@@ -200,6 +206,9 @@ class FormationAsksType extends AbstractType
                     ->add('handicap', CheckboxType::class, [
                         'attr' => [
                             'class' => 'form-check-input',
+                        ],
+                        'row_attr' => [
+                            'class' => 'form-check',
                         ],
                         'label' => 'Je suis en situation de handicap, je souhaite que vous étudiiez les solutions possibles pour que j\'accède à cette formation.',
                         'label_attr' => [
@@ -287,11 +296,13 @@ class FormationAsksType extends AbstractType
                 ->add('stagiaires', CollectionType::class, [
                     'entry_type' => StagiairesType::class,
                     'label' => false,
-                    'entry_options' => ['label' => 'STAGIAIRE'],
+                    'entry_options' => [
+                        'label' => ' ',
+                        'attr' => ['class' => 'row order-3 order-lg-2'],
+                    ],
                     'allow_add' => true,
                     'attr' => [
-                        'value' => 'null',
-                        'class' => 'row g-2'
+                        'value' => 'null'
                     ],
                     'allow_delete' => true,
                 ])
@@ -349,6 +360,9 @@ class FormationAsksType extends AbstractType
                         'attr' => [
                             'class' => 'form-check-input',
                         ],
+                        'row_attr' => [
+                            'class' => 'form-check',
+                        ],
                         'label' => 'Je suis en situation de handicap, je souhaite que vous étudiiez les solutions possibles pour que j\'accède à cette formation.',
                         'label_attr' => [
                             'class' => 'form-check-label'
@@ -359,7 +373,7 @@ class FormationAsksType extends AbstractType
                 break;
             case 7 :
                 $builder->add('consents', ChoiceType::class, [
-                    'label' => 'Consentements',
+                    'label' => ' ',
                     'choices' => [
                         'En soumettant ce formulaire, j’accepte que mes informations soient utilisées exclusivement dans 
                 le cadre de ma demande et de la relation commerciale éthique et personnalisée qui pourrait en découler 

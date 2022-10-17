@@ -1,0 +1,60 @@
+<div id="status" class="row py-4">
+    <div class="col-12 col-sm-4">
+        <h3 class="baskerville size-3">Mon statut</h3>
+        {% include 'formation/ask/steps/reusables/list.html.twig' %}
+    </div>
+
+    <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5">
+        <div class="pt-3">
+            <label>{{ form_label(form.status) }}</label>
+            <div class="buttons-group">
+                {% for child in form.status.children %}
+                    <div class="">
+                        <div class="">
+                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                            <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-error">
+                {{ form_errors(form.status) }}
+            </div>
+        </div>
+        <br>
+
+        <div class="row text-secondary mx-3" id="autre_statut_champ" style="display:none;">
+            <div class="col-12">
+                <label for="autre1" class="mt-none">
+                    Veuillez préciser :
+                </label><br>
+                <input type="text" class="form-control" id="autre1" name="other[status]">
+            </div>
+        </div><br>
+
+        <div class="mt-2 ms-1">
+            {{ form_label(form.goal) }}
+            {% for child in form.goal.children %}
+                <div class="">
+                    <div class="form-check">
+                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                        <label class="form-check-label" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="form-error">
+                {{ form_errors(form.goal) }}
+            </div>
+        </div>
+
+
+        <div class="col-12 col-md-8" id="autre_obj_champ" style="display:none;">
+            <label for="autre_objectif_champ">Veuillez renseigner votre objectif :</label><br>
+            <input type="text" class="form-control" id="autre_objectif_champ" name="other[goal]">
+        </div>
+
+        {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+    </div>
+</div>

@@ -23,9 +23,7 @@ class FormationController extends AbstractController
     #[Route('/formation', name: 'app_formation')]
     public function index(): Response
     {
-        return $this->render('formation/index.html.twig', [
-            'controller_name' => 'FormationController',
-        ]);
+        return $this->render('formation/presentation/index.html.twig');
     }
 
     /***
@@ -63,7 +61,7 @@ class FormationController extends AbstractController
             $flow->saveCurrentStepData($form);
 
             if ($flow->nextStep()) {
-                if ($flow->getCurrentStepLabel() === 'Coordonnées des stagiaires') {
+                if ($flow->getCurrentStepLabel() === 'CS') {
                     if ($flow->getFormData()->getStagiaires()->isEmpty()) {
                         $companyDirectorStagiaire = new Stagiaires();
                         $companyDirectorStagiaire->setFirstName($flow->getFormData()->getFirstName());
@@ -85,7 +83,7 @@ class FormationController extends AbstractController
                     if ($priceToShow == 0) {
                         $priceToShow = $priceWhenNumberOfLearnersBigger * $numberOfLearners;
                     }
-                } else if ($flow->getCurrentStepLabel() === 'Récapitulatif') {
+                } else if ($flow->getCurrentStepLabel() === 'R') {
                     $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
                     $prerequisites = json_decode($ask->getPrerequisites());
                 }
@@ -112,9 +110,10 @@ class FormationController extends AbstractController
                 return $this->redirectToRoute('app_home');
             }
         }
+        $prerequisites = json_decode($ask->getPrerequisites());
         $prerequisites = (array) $prerequisites;
 
-        return $this->render('formation/ask.html.twig', [
+        return $this->render('formation/ask/index.html.twig', [
             "form" => $form->createView(),
             "flow" => $flow,
             "prices" => $pricesArray,

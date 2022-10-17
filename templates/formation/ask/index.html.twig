@@ -8,35 +8,66 @@
     Augmentez en compétences ou faites une reconversion professionnelle en vous inscrivant à notre formation certifiée Qualiopi. Vous apprendrez les techniques et matériaux d'éco-construction de piscines.
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('formationAsk') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('formationAsk') }}
+{% endblock %}
+
 {% block body %}
-    <main id="corps" class="my-5 container">
-        <div class="pt-5 pb-2 text-center">
+    <main id="corps" class="my-5 container bg-dark">
+        <div class="pt-5 pb-2">
             <h1 class="baskerville size-2">
                 Pré-inscription en ligne
             </h1>
-            <hr>
-            <div class="fw-light fs-4">DEMANDE D'INFORMATION ET DEVIS</div>
+            <div class="ibm-plex-light fs-5 text-blue">
+                DEMANDE D'INFORMATION ET DEVIS
+            </div>
+        </div>
 
-            <p class="p-3">
-                <em>
-                    Augmentez vos compétences !
-                    Vous apprendrez à maîtriser des techniques et matériaux d'éco-construction pour installer des piscines naturelles
-                    LAGON respectueuses de l'environnement.
-                </em>
-            </p>
-
-            <div class="w-adaptative mx-auto bg-white d-flex justify-content-around">
-                <img src="{{ asset('build/images/datadock.png') }}" alt="Logo de datadock" class="img-size">
-                <div class="d-flex align-items-center">
-                    <img src="{{ asset('build/images/qualiopi.png') }}" alt="Certification Qualiopi de notre formation" class="img-size">
-                    <a
-                            href="https://certificats-attestations.afnor.org/certification=128289183752"
-                            target="_blank"
+        <div class="row py-3 align-items-center">
+            <div class="col-12 col-md-5">
+                <div class="w-75 m-auto">
+                    <img
+                        src="{{ asset('build/images/formation/man_working.jpg') }}"
+                        alt="Homme apprenant à appliquer de la résine sur une maquette de bassin LAGOON"
+                        class="w-100 rounded-corners"
                     >
-                        <img src="{{ asset('build/images/qr.png') }}" alt="QR code prouvant la validité de notre certification Qualiopi" class="img-size">
-                    </a>
                 </div>
             </div>
+            <div class="col-12 col-md-7 fs-5">
+                <p>
+                    Augmentez vos compétences !
+                </p>
+                <p>
+                    Vous apprendrez à maîtriser des techniques et matériaux d'éco-construction pour installer des piscines
+                    naturelles LAGON respectueuses de l'environnement.
+                </p>
+
+                <div class="w-adaptative mx-auto bg-dark d-flex justify-content-around">
+                    <img src="{{ asset('build/images/datadock.png') }}"
+                         alt="Logo de datadock"
+                         class="img-size">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('build/images/qualiopi.png') }}"
+                             alt="Certification Qualiopi de notre formation"
+                             class="img-size">
+                        <a href="https://certificats-attestations.afnor.org/certification=128289183752"
+                           target="_blank">
+                            <img src="{{ asset('build/images/qr-certif-dark.png') }}"
+                                 alt="QR code prouvant la validité de notre certification Qualiopi"
+                                 class="img-size">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         </div>
 
         <div class="pt-5">
@@ -468,7 +499,7 @@
                                     autocomplete="off"
                                     required
                                     {% if prerequisites != null %}
-                                        {% if prerequisites.visseuse == "oui" %}
+                                        {% if prerequisites.Visseuse == "oui" %}
                                             checked
                                         {% endif %}
                                     {% endif %}
@@ -746,7 +777,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="baskerville size-3">Récapitulatif de la demande</h3>
                         <div>
-                            <i class="fas fa-file-check"></i>
+                            <i class="fas fa-check form-icon"></i>
                         </div>
                     </div>
                     {% include './formation/reusables/show_formation_ask.html.twig' %}

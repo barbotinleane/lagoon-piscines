@@ -26,6 +26,9 @@ class StagiairesType extends AbstractType
                 'attr' => [
                     'class' => 'form-control'
                 ],
+                'row_attr' => [
+                    'class' => 'col-10 col-md-5'
+                ],
                 'label_attr' => [
                     'class' => 'form-label'
                 ]
@@ -34,6 +37,9 @@ class StagiairesType extends AbstractType
                 'label' => 'Nom',
                 'attr' => [
                     'class' => 'form-control'
+                ],
+                'row_attr' => [
+                    'class' => 'col-10 col-md-5'
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
@@ -44,14 +50,20 @@ class StagiairesType extends AbstractType
                 'attr' => [
                     'class' => 'form-control'
                 ],
+                'row_attr' => [
+                    'class' => 'col-12 col-md-6'
+                ],
                 'label_attr' => [
                     'class' => 'form-label'
                 ]
             ])
             ->add('phoneNumber', NumberType::class, [
-                'label' => 'Numéro de Téléphone',
+                'label' => 'Téléphone',
                 'attr' => [
                     'class' => 'form-control'
+                ],
+                'row_attr' => [
+                    'class' => 'col-9 col-md-4'
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
@@ -62,6 +74,9 @@ class StagiairesType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                 ],
+                'row_attr' => [
+                    'class' => 'col-12'
+                ],
                 'label_attr' => [
                     'class' => 'form-label'
                 ],
@@ -70,10 +85,10 @@ class StagiairesType extends AbstractType
             ->add('handicap', CheckboxType::class, [
                 'attr' => [
                     'value' => 'null',
-                    'class' => 'form-check-input ps-2 pe-1 me-1'
+                    'class' => 'form-check-input'
                 ],
                 'row_attr' => [
-                    'class' => 'd-flex flex-row-reverse my-3'
+                    'class' => 'form-check'
                 ],
                 'label' => 'Stagiaire en situation de handicap, je souhaite que vous étudiiez les solutions possibles pour qu\'il accède à cette formation.',
                 'label_attr' => [

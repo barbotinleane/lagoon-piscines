@@ -1,0 +1,53 @@
+/* xs */
+.gallery-title
+{
+  background-image: url(../../../photos/couple_piscine_petit.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center top;
+  color:rgba(255,255,255,0);
+  margin-top:70px;
+}
+
+/* sm */
+@media (min-width: 768px) {
+  .gallery-title {
+    background-image: url(../../../photos/couple_piscine.jpg);
+    background-repeat: no-repeat;
+    background-size: 280px 172px;
+    background-position:right center;
+  }
+}
+
+/* md */
+@media (min-width: 992px) {
+  .gallery-title {
+    background-image: url(../../../photos/couple_piscine.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: right center;
+    margin-top: 90px;
+  }
+}
+
+/* lg */
+@media (min-width: 1200px) {
+  .gallery-title {
+    background-image: url(../../../photos/couple_piscine.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: right center;
+    margin-top: 90px;
+  }
+}
+
+/* xl */
+@media (min-width: 1400px) {
+  .gallery-title {
+    background-image: url(../../../photos/couple_piscine.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position:right center;
+    margin-top:90px;
+  }
+}

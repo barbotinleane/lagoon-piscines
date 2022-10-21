@@ -1,8 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}LAGOON&reg; Piscines - Le concept breveté des piscines LAGOON&reg;{% endblock %}
+
 {% block description %}
-    Apprenez en plus sur les techniques de construction de nos piscines. Construites en résine et EPDM, adaptables aux PMR, elles sont respectueuses de votre jardin et de l'écologie.
+    Apprenez en plus sur les techniques de construction de nos piscines. Construites en résine et EPDM, adaptables aux
+    PMR, elles sont respectueuses de votre jardin et de l'écologie.
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('concept') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('concept') }}
 {% endblock %}
 
 {% block body %}

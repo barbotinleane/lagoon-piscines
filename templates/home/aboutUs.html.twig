@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}LAGOON&reg; Piscines - A Propos de Nous{% endblock %}
-{% block description %}Apprenez à mieux connaître l'équipe LAGOON&reg;, notre centre de formation et notre histoire. Contactez nous par téléphone, email ou adresse.{% endblock description %}
+
+{% block description %}
+    Apprenez à mieux connaître l'équipe LAGOON&reg;, notre centre de formation et notre histoire.
+    Contactez nous par téléphone, email ou adresse.
+{% endblock description %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('aboutUs') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('aboutUs') }}
+{% endblock %}
 
 {% block body %}
     <div id="corps" class="mt-5 container-fluid">

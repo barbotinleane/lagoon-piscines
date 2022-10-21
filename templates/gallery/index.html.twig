@@ -1,7 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}LAGOON&reg; Piscines - Galerie de nos plus belles piscines naturelles{% endblock %}
-{% block description %}Découvrez des photos de nos plus beaux projets. Entre construction et rénovation de piscines écologiques en résine.{% endblock %}
+
+{% block description %}
+    Découvrez des photos de nos plus beaux projets. Entre construction et rénovation de piscines écologiques en résine.
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('gallery') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('gallery') }}
+{% endblock %}
 
 {% block body %}
     <div id="corps" class="mt-5 container-fluid">

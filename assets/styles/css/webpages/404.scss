@@ -1,0 +1,63 @@
+/* xs */
+.profondeur
+{
+  background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 40%),
+  no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  font-size:0.8em;
+}
+
+@media (min-width: 400px) {
+  .profondeur {
+    background: linear-gradient(0deg, rgba(60, 177, 195, 0.75) 0%, rgba(255, 255, 255, 1) 65%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+}
+
+@media (min-width: 450px) {
+  .profondeur {
+    background: linear-gradient(0deg, rgba(60, 177, 195, 0.75) 0%, rgba(255, 255, 255, 1) 70%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+}
+
+@media (min-width: 510px) {
+  .profondeur {
+    background: linear-gradient(0deg, rgba(60, 177, 195, 0.75) 0%, rgba(255, 255, 255, 1) 70%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+}
+
+/* sm */
+@media (min-width: 768px) {
+  .profondeur {
+    background: linear-gradient(0deg, rgba(60, 177, 195, 0.75) 0%, rgba(255, 255, 255, 1) 70%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+}
+
+/* md */
+@media (min-width: 992px) {
+  .profondeur
+  {
+    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 70%),
+    no-repeat bottom/100% url('../../../photos/profondeurs.jpg');
+  }
+}
+
+/* lg */
+@media (min-width: 1200px) {
+  .profondeur
+  {
+    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 70%),
+    no-repeat bottom/100% url('../../../photos/profondeurs.jpg');
+  }
+}
+
+/* xl */
+@media (min-width: 1400px) {
+  .profondeur
+  {
+    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 70%),
+    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
+  }
+}

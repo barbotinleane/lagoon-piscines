@@ -1,8 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}LAGOON&reg; Piscines - Constructeur de piscines naturelles basé sur la Côte d'Azur{% endblock %}
-{% block description %}Les piscines LAGOON®, piscines durables du 21ème Siècle, sont entièrement personnalisables.
-Composez et imaginez dès maintenant le LAGOON® de vos rêves !{% endblock description %}
+{% block title %}LAGOON&reg; Piscines - Constructeur de piscines écologiques basé sur la Côte d'Azur{% endblock %}
+
+{% block description %}
+    Découvrez les piscines écologiques LAGOON®, sans béton, entièrement personnalisables et respectueuses de l'environnement.
+    Un concept breveté unique, pour des piscines en résine qui respectent vos valeurs.
+{% endblock description %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}
 
 {% block body %}
     <div id="corps" class="container-fluid">

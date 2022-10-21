@@ -1,7 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}LAGOON&reg; Piscines - Formation installation de bassin paysager de type LAGOON&reg;{% endblock %}
-{% block description %}Devenez installateur de piscines écologiques LAGOON® en résine naturelle et EPDM au cours d'une formation certifiée Qualiopi dans les alpes maritimes. Ce concept d'éco-construction est breveté.{% endblock %}
+
+{% block description %}
+    Devenez installateur de piscines écologiques LAGOON® en résine naturelle et EPDM au cours d'une formation certifiée
+    Qualiopi dans les alpes maritimes. Ce concept d'éco-construction est breveté.
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('formation') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('formation') }}
+{% endblock %}
 
 {% block body %}
     <div id="corps" class="mt-5 container-fluid">

@@ -13,6 +13,3 @@ import './bootstrap';
 
 const $ = require('jquery');
 const bootstrap = require('bootstrap');
-
-import './form';
-import './project';

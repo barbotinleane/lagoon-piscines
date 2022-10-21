@@ -1,21 +1,23 @@
-import adige from './photos/colorsBigger/Adige.png';
-import bianco from './photos/colorsBigger/Bianco.png';
-import caraibi from './photos/colorsBigger/Caraibi.png';
-import corsica from './photos/colorsBigger/Corsica.png';
-import grecia from './photos/colorsBigger/Grecia.png';
-import panama from './photos/colorsBigger/Panama.png';
-import rosso from './photos/colorsBigger/Rosso.png';
-import sardegna from './photos/colorsBigger/Sardegna.png';
+import '../styles/css/webpages/project.scss';
 
-import bali from './photos/shapesBigger/bali.png';
-import benitiers from './photos/shapesBigger/benitiers.png';
-import ibiza from './photos/shapesBigger/Ibiza.png';
-import majorque from './photos/shapesBigger/Majorque.png';
-import moorea from './photos/shapesBigger/Moorea.png';
-import phuket from './photos/shapesBigger/Phuket.png';
-import santorin from './photos/shapesBigger/Santorin.png';
-import seychelles from './photos/shapesBigger/Seychelles.png';
-import zanzibar from './photos/shapesBigger/Zanzibar.png';
+import adige from '../photos/colorsBigger/Adige.png';
+import bianco from '../photos/colorsBigger/Bianco.png';
+import caraibi from '../photos/colorsBigger/Caraibi.png';
+import corsica from '../photos/colorsBigger/Corsica.png';
+import grecia from '../photos/colorsBigger/Grecia.png';
+import panama from '../photos/colorsBigger/Panama.png';
+import rosso from '../photos/colorsBigger/Rosso.png';
+import sardegna from '../photos/colorsBigger/Sardegna.png';
+
+import bali from '../photos/shapesBigger/bali.png';
+import benitiers from '../photos/shapesBigger/benitiers.png';
+import ibiza from '../photos/shapesBigger/Ibiza.png';
+import majorque from '../photos/shapesBigger/Majorque.png';
+import moorea from '../photos/shapesBigger/Moorea.png';
+import phuket from '../photos/shapesBigger/Phuket.png';
+import santorin from '../photos/shapesBigger/Santorin.png';
+import seychelles from '../photos/shapesBigger/Seychelles.png';
+import zanzibar from '../photos/shapesBigger/Zanzibar.png';
 
 $(function() {
     $('input[name^="project_ask[shape]"]').change(function() {

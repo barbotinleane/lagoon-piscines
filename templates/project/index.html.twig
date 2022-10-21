@@ -1,9 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}LAGOON&reg; Piscines - Votre projet de piscine naturelle{% endblock %}
+{% block title %}LAGOON&reg; Piscines - Demande de devis pour votre projet de piscine écologique{% endblock %}
+
 {% block description %}
-    Faites une demande de devis et commencez à composer dès maintenant le LAGOON® de vos rêves ! Entièrement personnalisables dans leurs formes, et leurs couleurs, votre piscine sera unique.
+    Des rochers, une cascade, ou des bains relaxants ?
+    Faites une demande de devis en nous décrivant le LAGOON® de vos rêves.
 {% endblock description %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('project') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('project') }}
+{% endblock %}
 
 {% block body %}
     <div id="corps" class="mt-5 container-fluid">

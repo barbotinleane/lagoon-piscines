@@ -1,0 +1,57 @@
+/* xs */
+.titre-concept
+{
+  background-image: url(../../../photos/concept.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position:center top;
+  color:rgba(255,255,255,0);
+  margin-top:70px;
+}
+
+/* sm */
+@media (min-width: 768px) {
+  .titre-concept
+  {
+    background-image: url(../../../photos/conceptpetit.jpg);
+    background-repeat: no-repeat;
+    background-size: 280px 172px;
+    background-position:right center;
+  }
+}
+
+/* md */
+@media (min-width: 992px) {
+  .titre-concept
+  {
+    background-image: url(../../../photos/conceptpetit.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 60%;
+    background-position:right center;
+    margin-top:50px;
+  }
+}
+
+/* lg */
+@media (min-width: 1200px) {
+  .titre-concept
+  {
+    background-image: url(../../../photos/conceptpetit.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position:right center;
+    margin-top:90px;
+  }
+}
+
+/* xl */
+@media (min-width: 1400px) {
+  .titre-concept
+  {
+    background-image: url(../../../photos/conceptpetit.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position:right center;
+    margin-top:90px;
+  }
+}

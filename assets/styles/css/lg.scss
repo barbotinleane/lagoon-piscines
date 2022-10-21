@@ -25,22 +25,6 @@
     height: 400px;
   }
 
-  .title-responsive {
-    margin: 90px auto;
-    position: relative;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0.24939306777398462) 0%, rgb(255, 255, 255) 54%);
-    height: auto;
-    width: 70%;
-    text-align: center;
-    border-radius: 50%;
-    padding: 70px;
-  }
-
-  .image-fond {
-    margin-top:-300px;
-  }
-
   .section {
     padding-top:40px;
     padding-bottom:30px;
@@ -59,71 +43,12 @@
     padding:0px 120px;
   }
 
-  .left-a
-  {
-    width:70%;
-    background-color:#212529;
-    color:white;
-    margin-left:0px;
-    display:flex!important;
-  }
-
-  .right-a
-  {
-    width:70%;
-    background-color:#5ebfce;
-    color:white;
-    margin-right:0px;
-    margin-left:auto;
-    display:flex!important;
-  }
-
-  .titre
-  {
-    background-image: url(../../photos/photo-projet.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position:right center;
-    margin-top:90px;
-  }
-
   .text-title
   {
     background:none;
     margin: 0px 0px;
     padding: 0px 0px;
     width:80%;
-  }
-
-
-
-  /*for concept */
-
-  .titre-concept
-  {
-    background-image: url(../../photos/conceptpetit.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position:right center;
-    margin-top:90px;
-  }
-
-  .text-video {
-    padding: 30px 20px;
-  }
-
-  .bg-video {
-    background-image: url(../../photos/schema2.png);
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: auto 490px;
-    height:380px;
-  }
-
-  .etapes
-  {
-    width:75%;
-    margin:auto;
   }
 
   /*for timeline */
@@ -135,63 +60,5 @@
   .overlay-picture-right {
     position: relative;
     margin-right: -90px;
-  }
-
-  /*for formation*/
-  .titre-formation
-  {
-    background-image: url(../../photos/formation-cote.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position:right center;
-    margin-top:90px;
-  }
-
-  .plus
-  {
-    border-right:1px solid #212529;
-    border-bottom:none;
-    padding-bottom: 0px;
-  }
-
-  .bg-formation-video {
-    background-image: url(../../photos/travailleurs.jpeg);
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: auto 80%;
-    height:380px;
-    font-size:1.3em;
-  }
-
-  .text-formation
-  {
-    margin-top:0px;
-    z-index:3;
-    padding-top:15px;
-  }
-
-
-  /*for gallery */
-  .gallery-title {
-    background-image: url(../../photos/couple_piscine.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position:right center;
-    margin-top:90px;
-  }
-
-  .carousel-comment {
-    position:relative;
-    margin-top:-90px;
-    padding:20px;
-    text-align: center;
-    background-color:rgba(33,37,41,0.49082109210872);
-  }
-
-  /*for 404 */
-  .profondeur
-  {
-    background:linear-gradient(0deg, rgba(60,177,195,0.75) 0%, rgba(255,255,255,1) 70%),
-    no-repeat bottom/100% url('../../photos/profondeurs.jpg');
   }
 }

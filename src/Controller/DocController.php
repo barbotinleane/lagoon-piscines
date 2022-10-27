@@ -16,7 +16,7 @@ class DocController extends AbstractController
     #[Route('/documentation/rgpd', name: 'app_doc_rgpd')]
     public function rgpd(): Response
     {
-        return $this->render('doc/index.html.twig', [
+        return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'RGPD',
             'name' => 'Règlement Général pour la Protection des Données',
         ]);
@@ -25,7 +25,7 @@ class DocController extends AbstractController
     #[Route('/documentation/cgv', name: 'app_doc_cgv')]
     public function cgv(): Response
     {
-        return $this->render('doc/index.html.twig', [
+        return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'conditions_generales_vente',
             'name' => 'Conditions Générales de Vente',
         ]);
@@ -34,7 +34,7 @@ class DocController extends AbstractController
     #[Route('/documentation/charte-qualite', name: 'app_doc_quality')]
     public function quality(): Response
     {
-        return $this->render('doc/index.html.twig', [
+        return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'charte_qualite',
             'name' => 'Charte de qualité'
         ]);
@@ -43,7 +43,7 @@ class DocController extends AbstractController
     #[Route('/documentation/installation-bassin-paysager', name: 'app_doc_bassin')]
     public function bassin(): Response
     {
-        return $this->render('doc/index.html.twig', [
+        return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'bassin',
             'name' => 'Programme de la formation Installation de Bassin Paysager de type Lagoon'
         ]);
@@ -52,7 +52,7 @@ class DocController extends AbstractController
     #[Route('/documentation/livret-accueil', name: 'app_doc_livret')]
     public function livret(): Response
     {
-        return $this->render('doc/index.html.twig', [
+        return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'livret_accueil',
             'name' => 'Livret d\'accueil'
         ]);
@@ -61,7 +61,7 @@ class DocController extends AbstractController
     #[Route('/documentation/reglement-interieur', name: 'app_doc_reglement')]
     public function reglement(): Response
     {
-        return $this->render('doc/index.html.twig', [
+        return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'reglement_interieur',
             'name' => 'Règlement intérieur de LAGOON Formations'
         ]);

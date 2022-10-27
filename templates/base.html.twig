@@ -19,12 +19,12 @@
     </head>
     <body class="ibm-plex-regular">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top baskerville bg-white p-0">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-clear p-0">
                 <div class="container">
                     <a class="navbar-brand" href="{{ path('app_home') }}">
                         <img src="{{ asset('build/images/logo.svg') }}"
                              alt="Logo lagoon piscines"
-                             height="45"
+                             height="39"
                              width="120"
                              style="object-fit: cover;"
                         >
@@ -42,15 +42,89 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
-                        <div class="nav navbar-nav pull-right">
-                            <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">
-                                Accueil
+                    <div class="collapse navbar-collapse justify-content-between text-start" id="navbarNav">
+                        <div class="nav navbar-nav pull-left">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_home') }}">
+                                    <span class="{% if app.request.attributes.get('_route') == 'app_home' %}fw-bold underline-blue{% endif %}">
+                                        Accueil
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"
+                                   href="#" id="navbarDropdownSwimmingPools"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Nos piscines
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownSwimmingPools">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_concept') }}">
+                                            <span class="{% if app.request.attributes.get('_route') == 'app_concept' %}fw-bold underline-blue{% endif %}">
+                                                Le concept
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_gallery') }}">
+                                            <span class="{% if app.request.attributes.get('_route') == 'app_gallery' %}fw-bold underline-blue{% endif %}">
+                                                Nos réalisations
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_project') }}">
+                                            <span class="{% if app.request.attributes.get('_route') == 'app_project' %}fw-bold underline-blue{% endif %}">
+                                                Demander un devis
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <a class="nav-link" href="{{ path('app_formation') }}">
+                                <span class="{% if (app.request.attributes.get('_route') == 'app_formation') or (app.request.attributes.get('_route') == 'app_ask') %}fw-bold underline-blue{% endif %}">
+                                    Formation
+                                </span>
                             </a>
-                            <a class="nav-link" href="{{ path('app_concept') }}">Le concept</a>
-                            <a class="nav-link" href="{{ path('app_project') }}">Votre projet</a>
-                            <a class="nav-link" href="{{ path('app_formation') }}">Formation</a>
-                            <a class="nav-link" href="{{ path('app_about_us') }}">A propos de nous</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"
+                                   href="#" id="navbarDropdownAboutUs"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    A propos de nous
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownAboutUs">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_news') }}">
+                                            <span class="{% if (app.request.attributes.get('_route') == 'app_news') %}fw-bold underline-blue{% endif %}">
+                                                Actualités
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_faq') }}">
+                                            <span class="{% if (app.request.attributes.get('_route') == 'app_faq') %}fw-bold underline-blue{% endif %}">
+                                                FAQ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_about_us') }}">
+                                            <span class="{% if (app.request.attributes.get('_route') == 'app_about_us') %}fw-bold underline-blue{% endif %}">
+                                                Qui sommes nous ?
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+                        <div>
+                            <a class="btn rounded-corners btn-yellow" href="{{ path('app_project') }}#devis">
+                                Demander un devis
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - Le procédé de construcion des piscines écologiques LAGOON&reg;{% endblock %}
+
+{% block description %}
+    Apprenez en plus sur les techniques de construction de nos piscines. Sans béton ni ferraille, mais construites en
+    résine et EPDM, nos piscines sont éco-responsables.
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('concept') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('concept') }}
+{% endblock %}
+
+{% block body %}
+    <div id="corps" class="mt-5 container-fluid"></div>
+{% endblock %}

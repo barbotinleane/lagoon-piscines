@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}LAGOON&reg; Piscines - Formation installation de bassin paysager de type LAGOON&reg;{% endblock %}
+{% block title %}LAGOON&reg; Piscines - Formation installation de piscine écologique de type LAGOON&reg;{% endblock %}
 
 {% block description %}
-    Devenez installateur de piscines écologiques LAGOON® en résine naturelle et EPDM au cours d'une formation certifiée
-    Qualiopi dans les alpes maritimes. Ce concept d'éco-construction est breveté.
+    Devenez installateur de piscines écologiques LAGOON® en résine et EPDM au cours d'une formation certifiée
+    Qualiopi dans les Alpes Maritimes. Cette formation est financée par Pole Emploi.
 {% endblock %}
 
 {% block stylesheets %}
@@ -21,14 +21,16 @@
     <div id="corps" class="mt-5 container-fluid">
         <div class="row py-5 px-none px-md-4 px-lg-5 titre-formation">
             <div class="text-title">
-                <h1 class="baskerville size-1">FORMATION</h1>
+                <h1 class="baskerville size-1">Formation installation de piscine écologique de type LAGOON&reg;</h1>
                 <div class="w-75">
                     <p>
                         Vous êtes paysagiste, applicateur indépendant, maçon, chef de chantiers, chef d'entreprise,
-                        carreleur ou encore pisciniste et êtes intéressé par la technologie des piscines naturelles LAGOON&reg; ?
+                        carreleur ou encore pisciniste ?
+                        Vous souhaitez augmenter en compétences ou effectuer une reconversion professionnelle ?
                     </p>
                     <p>
-                        Devenez installateur LAGOON&reg; et entrez dans un marché en pleine expansion !
+                        Grace à notre formation professionnelle certifiée Qualiopi, devenez installateur LAGOON&reg; et
+                        entrez dans un marché en pleine expansion !
                     </p>
                 </div>
                 <a
@@ -42,125 +44,64 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-10 mx-auto my-5">
-                <h2 class="text-center baskerville size-2">Votre formation pas à pas</h2>
-                <ul class="timeline-dark">
-                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue1 bg-shape-all">
-                        <div class="row align-items-center">
-                            <div class="col-12 col-md-5 text-center">
-                                <picture>
-                                    <source srcset="{{ asset('build/images/demande.webp') }}" type="image/webp" class="">
-                                    <source srcset="{{ asset('build/images/demande.jpg') }}" type="image/jpeg" class="">
-                                    <img
-                                            src="{{ asset('build/images/demande.jpg') }}"
-                                            alt="Une personne remplissant un formulaire de demande de formation sur un ordinateur portable"
-                                            class="m-3 m-md-5 w-75"
-                                    >
-                                </picture>
-                            </div>
-                            <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">1</div>
-                            <div class="col-12 col-md-6 px-4 p-md-2 text-center">
-                                <h3 class="baskerville size-3">
-                                    Vous faites une demande de formation en ligne
-                                </h3>
-                                <p>
-                                    En quelques clics, vous effectuez une demande de formation en ligne en
-                                    nous indiquant vos compétences, et les dates auxquelles vous souhaitez
-                                    effectuer votre formation.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
+            <div class="col-12 col-md-8 p-2 p-md-5">
+                <div class="d-flex align-items-center">
+                    <div class="fs-1 pe-3">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h2 class="baskerville">Objectifs de la formation</h2>
+                </div>
+                <div class="ps-5">
+                    Dans les conditions réelles d’un
+                    chantier, vous apprendrez aux côtés de formateurs expérimentés :
+                    <ul>
+                        <li>Contrôle du terrassement</li>
+                        <li>Etanchéité de bassin</li>
+                        <li>Aménagement paysager</li>
+                        <li>Hydraulique de bassin</li>
+                        <li>Application de résine décorative</li>
+                        <li>
+                            Maitrise des outils professionnels pour obtenir un résultat
+                            de qualité
+                        </li>
+                        <li>
+                            Les gestes et postures de sécurité pour des réalisations en
+                            toute sécurité
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 p-2 p-md-5">
+                <div class="bg-dark text-light rounded-corners p-5 h-100">
+                    <p><i class="fas fa-clock"></i>&nbsp;4 jours max.</p>
+                    <p><i class="fas fa-users"></i>&nbsp;< 6 personnes</p>
+                </div>
+            </div>
+        </div>
 
-                    <li class="timeline-item-dark row align-items-center bg-shape-yellow1 bg-shape-all">
-                        <div class="col-12 col-md-5">
-                            <div class="row">
-                                <div class="col-12 w-75 mx-auto">
-                                    <picture>
-                                        <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp" class="">
-                                        <source srcset="{{ asset('build/images/form-1.jpg') }}" type="image/jpeg" class="">
-                                        <img src="{{ asset('build/images/form-1.jpg') }}"
-                                             alt="Un homme apprenant à appliquer de l'enduit ou de la résine sur les bords d'un bassin LAGOON"
-                                             class="mx-3 mx-md-none my-3 w-100">
-                                    </picture>
-                                </div>
-                                <div class="col-12 d-flex align-items-start w-75 mx-auto">
-                                    <picture>
-                                        <source srcset="{{ asset('build/images/form-2.webp') }}" type="image/webp" class="">
-                                        <source srcset="{{ asset('build/images/form-2.jpg') }}" type="image/jpeg" class="">
-                                        <img src="{{ asset('build/images/form-2.jpg') }}" alt="Un homme en formation LAGOON" class="ms-3 me-3 w-75">
-                                    </picture>
-                                    <picture>
-                                        <source srcset="{{ asset('build/images/form-4.webp') }}" type="image/webp" class="">
-                                        <source srcset="{{ asset('build/images/form-4.jpg') }}" type="image/jpeg" class="">
-                                        <img src="{{ asset('build/images/form-4.jpg') }}" alt="Plusieurs personnes à une table écoutant un formateur LAGOON" class="w-100">
-                                    </picture>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">2</div>
-                        <div class="col-12 col-md-6 text-center px-4 px-md-none">
-                            <h2 class="baskerville size-3">
-                                Vous démarrez une formation personnalisée, rapide, pratique et
-                                efficace
-                            </h2>
-                            <p>
-                                Sur une durée maximale de 4 jours dans les conditions réelles d’un
-                                chantier, vous apprendrez aux côtés de formateurs expérimentés :
-                            <ul>
-                                <li>Contrôle du terrassement</li>
-                                <li>Etanchéité de bassin</li>
-                                <li>Aménagement paysager</li>
-                                <li>Hydraulique de bassin</li>
-                                <li>Application de résine décorative</li>
-                                <li>
-                                    Maitrise des outils professionnels pour obtenir un résultat
-                                    de qualité
-                                </li>
-                                <li>
-                                    Les gestes et postures de sécurité pour des réalisations en
-                                    toute sécurité
-                                </li>
-                            </ul>
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="timeline-item-dark d-flex align-items-center bg-shape-yellow2 bg-shape-all">
-                        <div class="row align-items-center">
-                            <div class="col-12 col-md-5 text-center">
-                                <picture>
-                                    <source srcset="{{ asset('build/images/partenariat.webp') }}" type="image/webp" class="">
-                                    <source srcset="{{ asset('build/images/partenariat.jpg') }}" type="image/jpeg" class="">
-                                    <img src="{{ asset('build/images/partenariat.jpg') }}" alt="Poignée de main" class="m-3 m-md-5 w-75">
-                                </picture>
-                            </div>
-                            <div class="col-12 col-md-1 overlay-picture size-big baskerville text-center">4</div>
-                            <div class="col-12 col-md-6 py-none py-sm-2 px-3 text-center px-4 px-md-none">
-                                <h3 class="baskerville size-3">
-                                    Un partenariat sur la durée
-                                </h3>
-                                <p>
-                                    Après votre formation, vous ne serez pas livrés à vous-mêmes ! Si vous le désirez,
-                                    vous pourrez faire partie du réseau des installateurs LAGOON&reg;.
-                                    <span class="tool"
-                                          data-tip="Pour faire partie du réseau des installateurs de piscines naturelles LAGOON&reg;, votre entreprise doit présenter 3 collaborateurs ayant suivi la formation INSTALLATION DE BASSIN PAYSAGER DE TYPE LAGON. Après le contrôle qualité réussi de son premier chantier, votre entreprise est agréée."
-                                          tabindex="1">
-                                        <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                                    </span>
-								</span><br>
-                                    Vous pourrez alors bénéficier :
-                                <ul><li>de matériaux à prix préférentiels</li>
-                                    <li>d’une assistance commerciale pour créer votre clientèle</li>
-                                    <li>
-                                        d'une assistance technique qui vous suivra dans la réalisation de vos chantiers
-                                    </li>
-                                </ul>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+        <div class="row py-5">
+            <div class="col-12 col-sm-5">
+                <picture>
+                    <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp" class="">
+                    <source srcset="{{ asset('build/images/form-1.jpg') }}" type="image/jpeg" class="">
+                    <img src="{{ asset('build/images/form-1.jpg') }}"
+                         alt="Un homme apprenant à appliquer de l'enduit ou de la résine sur les bords d'un bassin LAGOON"
+                         class="h-100 img-gallery">
+                </picture>
+            </div>
+            <div class="col-12 col-sm-3">
+                <picture>
+                    <source srcset="{{ asset('build/images/form-2.webp') }}" type="image/webp" class="">
+                    <source srcset="{{ asset('build/images/form-2.jpg') }}" type="image/jpeg" class="">
+                    <img src="{{ asset('build/images/form-2.jpg') }}" alt="Un stagiaire avec une maquette de piscine LAGOON et une taloche" class="h-100 img-gallery">
+                </picture>
+            </div>
+            <div class="col-12 col-sm-4">
+                <picture>
+                    <source srcset="{{ asset('build/images/form-4.webp') }}" type="image/webp" class="">
+                    <source srcset="{{ asset('build/images/form-4.jpg') }}" type="image/jpeg" class="">
+                    <img src="{{ asset('build/images/form-4.jpg') }}" alt="Plusieurs stagiaires autour d'une table écoutant un formateur LAGOON" class="h-100 img-gallery">
+                </picture>
             </div>
         </div>
 
@@ -185,13 +126,13 @@
                         <picture>
                             <source srcset="{{ asset('build/images/datadock.webp') }}" type="image/webp" class="img-size">
                             <source srcset="{{ asset('build/images/datadock.png') }}" type="image/png" class="img-size">
-                            <img src="{{ asset('build/images/datadock.png') }}" alt="Datadock LAGOON" class="img-size">
+                            <img src="{{ asset('build/images/datadock.png') }}" alt="Logo du datadock de la formation de piscine écologique LAGOON" class="img-size">
                         </picture>
                         <div class="d-flex align-items-center">
                             <picture>
                                 <source srcset="{{ asset('build/images/qualiopi.webp') }}" type="image/webp" class="img-size">
                                 <source srcset="{{ asset('build/images/qualiopi.png') }}" type="image/png" class="img-size">
-                                <img src="{{ asset('build/images/qualiopi.png') }}" alt="Qualiopi LAGOON" class="img-size">
+                                <img src="{{ asset('build/images/qualiopi.png') }}" alt="Logo du qualiopi de la formation LAGOON" class="img-size">
                             </picture>
                             <a
                                     href="https://certificats-attestations.afnor.org/certification=128289183752"
@@ -200,7 +141,7 @@
                                 <picture>
                                     <source srcset="{{ asset('build/images/qr-certif.webp') }}" type="image/webp" class="img-size">
                                     <source srcset="{{ asset('build/images/qr-certif.png') }}" type="image/png" class="img-size">
-                                    <img src="{{ asset('build/images/qr-certif.png') }}" alt="Qualiopi QR code LAGOON" class="img-size">
+                                    <img src="{{ asset('build/images/qr-certif.png') }}" alt="QR code prouvant la validité du certificat afnor de la formation proposée par LAGOON" class="img-size">
                                 </picture>
                             </a>
                         </div>
@@ -211,7 +152,7 @@
                             <picture>
                                 <source srcset="{{ asset('build/images/logo_pole_emploi.webp') }}" type="image/webp" class="img-size">
                                 <source srcset="{{ asset('build/images/logo_pole_emploi.png') }}" type="image/png" class="img-size">
-                                <img src="{{ asset('build/images/logo_pole_emploi.png') }}" alt="Logo pole emploi" class="img-size">
+                                <img src="{{ asset('build/images/logo_pole_emploi.png') }}" alt="Logo pole emploi indiquant que la formation est finançable par pole emploi" class="img-size">
                             </picture>
                         </a>
                     </div>
@@ -221,7 +162,7 @@
 
         <div class="row section big-spacing bg-light">
             <div class="row">
-                <h2 class="text-center baskerville size-2 mb-5">Nos partenaires sont satisfaits</h2>
+                <h2 class="text-center baskerville size-2 mb-5">Nos partenaires sont satisfaits de notre formation</h2>
 
                 <div class="col-12 col-sm-4 text-center">
                     <div class="baskerville size-1">
@@ -247,7 +188,7 @@
         </div>
 
         <div class="row section bg-dark text-light">
-            <h2 class="text-center thin">Des commentaires</h2>
+            <h2 class="text-center baskerville">Des commentaires de stagiaires</h2>
 
             <div id="carouselClients" class="carousel carousel-light slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -328,7 +269,7 @@
                 <picture>
                     <source srcset="{{ asset('build/images/demarrer_metier.webp') }}" type="image/webp" class="w-100">
                     <source srcset="{{ asset('build/images/demarrer_metier.jpg') }}" type="image/jpeg" class="w-100">
-                    <img src="{{ asset('build/images/demarrer_metier.jpg') }}" alt="Trois personnes démarrant leur équipe et ayant été formées par LAGOON" class="w-100">
+                    <img src="{{ asset('build/images/demarrer_metier.jpg') }}" alt="Trois installateurs de piscine écologique souriant démarrant leur équipe et ayant été formées par LAGOON" class="w-100">
                 </picture>
             </div>
             <div class="col-12 col-sm-8">
@@ -350,9 +291,9 @@
 
         <div class="row section d-flex justify-content-around align-items-center">
             <div class="col-12 col-sm-8 order-2 order-sm-1 pt-4">
-                <h2 class="baskerville size-3">
+                <h3 class="baskerville size-3">
                     Envie d'en savoir plus ?
-                </h2>
+                </h3>
                 <p>
                     Parcourez notre charte de qualité, les conditions de la formation, ou encore le
                     programme de la formation proposée.

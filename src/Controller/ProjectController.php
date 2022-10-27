@@ -24,7 +24,7 @@ class ProjectController extends AbstractController
      * @param AskSaver $askSaver
      * @return Response
      */
-    #[Route('/votre-projet', name: 'app_project')]
+    #[Route('/demande-devis', name: 'app_project')]
     public function index(EntityManagerInterface $entityManager, Request $request, DepartmentsRepository $departmentsRepository, AsanaManager $asanaManager, CustomMailer $mailer, AskSaver $askSaver): Response
     {
         $projectAsk = new ProjectAsk();

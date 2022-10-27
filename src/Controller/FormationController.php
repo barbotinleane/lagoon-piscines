@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FormationController extends AbstractController
 {
-    #[Route('/formation', name: 'app_formation')]
+    #[Route('/formation-installation-piscine-ecologique', name: 'app_formation')]
     public function index(): Response
     {
         return $this->render('formation/presentation/index.html.twig');

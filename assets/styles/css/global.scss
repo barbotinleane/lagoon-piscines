@@ -154,7 +154,7 @@ $secondary-color: #FEDB00;
 }
 
 .bg-clear {
-  background-color: rgba(255,255,255,0.684939306777398462);
+  background-color: rgba(255,255,255,0.784939306777398462);
 }
 
 .bg-yellow {
@@ -212,6 +212,11 @@ $secondary-color: #FEDB00;
 .bg-shape-all
 {
   background-size: 98% 89%;
+}
+
+/*Underlines : */
+.underline-blue {
+  border-bottom: 4px solid $brand-color;
 }
 
 

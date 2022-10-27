@@ -1,24 +1,30 @@
 /* xs */
 .title-responsive {
-  margin: -25px auto;
+  top: -90px;
   position: relative;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgb(255, 255, 255) 96%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(0deg, rgb(255, 255, 255) 90%, rgba(255, 255, 255, 0) 100%);
   height: auto;
   width: 100%;
-  text-align: center;
+  text-align: left;
   border-radius: 0%;
-  padding: 25px 0px 60px;
+  padding: 1.5rem 20px 0px;
 }
 
 .img-fond {
-  margin-top: 70px;
+  margin-top: 49px;
+}
+
+.img-home-responsive {
+  object-fit: cover;
+  height: 70vh;
+  object-position: right;
+  width: 100%;
 }
 
 .text-intro
 {
-  padding-left: 50px;
-  padding-right:50px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .left-a {
@@ -38,7 +44,7 @@
 /* sm */
 @media (min-width: 768px) {
   .title-responsive {
-    margin: 50px auto;
+    top: 30px;
     position: relative;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,0.24939306777398462) 0%, rgb(255, 255, 255)30%);
@@ -47,10 +53,18 @@
     text-align: center;
     border-radius: 50%;
     padding: 70px;
+    margin: auto;
   }
 
   .img-fond {
     margin-top: -200px;
+  }
+
+  .img-home-responsive {
+    object-fit: cover;
+    height: 100%;
+    object-position: right;
+    width: 100%;
   }
 
   .left-a {
@@ -74,19 +88,19 @@
 /* md */
 @media (min-width: 992px) {
   .title-responsive {
-    margin: 90px auto;
+    top: 40px;
     position: relative;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0.24939306777398462) 0%, rgb(255, 255, 255) 54%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2493930678) 0%, rgb(255, 255, 255) 54%);
     height: auto;
     width: 85%;
     text-align: center;
     border-radius: 50%;
     padding: 70px;
+    margin: auto;
   }
 
   .img-fond {
-    margin-top: -300px;
+    margin-top: -180px;
   }
 
   .left-a {
@@ -110,15 +124,15 @@
 /* lg */
 @media (min-width: 1200px) {
   .title-responsive {
-    margin: 90px auto;
+    top: 40px;
     position: relative;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0.24939306777398462) 0%, rgb(255, 255, 255) 54%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2493930678) 0%, rgb(255, 255, 255) 54%);
     height: auto;
     width: 70%;
     text-align: center;
     border-radius: 50%;
     padding: 70px;
+    margin: auto;
   }
 
   .left-a {
@@ -142,15 +156,15 @@
 /* xl */
 @media (min-width: 1400px) {
   .title-responsive {
-    margin: 90px auto;
+    top: 40px;
     position: relative;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0.24939306777398462) 0%, rgb(255, 255, 255) 54%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2493930678) 0%, rgb(255, 255, 255) 54%);
     height: auto;
     width: 70%;
     text-align: center;
     border-radius: 50%;
     padding: 70px;
+    margin: auto;
   }
 
   .img-fond {

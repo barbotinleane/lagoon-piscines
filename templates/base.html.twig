@@ -165,7 +165,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ path('app_login') }}" class="blank-link">
+                            <a {% if app.user %}
+                                    href="{{ path('app_dashboard') }}"
+                                {% else %}
+                                    href="{{ path('app_login') }}"
+                                {% endif %}
+                                    class="blank-link">
                                 Espace privé
                             </a>
                         </li>

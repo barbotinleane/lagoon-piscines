@@ -1,0 +1,14 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+    <div class="row section">
+        <div class="pb-4">
+            <a class="btn btn-dark" href="{{ path('app_sessions_index') }}">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+        </div>
+        <h1 class="baskerville">Créer une nouvelle session</h1>
+
+        {{ include('dashboard/sessions/_form.html.twig') }}
+    </div>
+{% endblock %}

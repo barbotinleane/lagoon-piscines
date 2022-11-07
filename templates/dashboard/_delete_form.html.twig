@@ -1,9 +1,0 @@
-<form method="post" action="{{ path('app_dashboard_delete', {'id': formation_session.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-    <div class="text-center">
-        <button class="btn btn-danger">
-            <i class="fa fa-trash"></i>
-            Supprimer la session
-        </button>
-    </div>
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formation_session.id) }}">
-</form>

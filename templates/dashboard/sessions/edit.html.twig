@@ -1,0 +1,15 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+    <div class="row section">
+        <div class="pb-4">
+            <a class="btn btn-dark" href="{{ path('app_sessions_index') }}">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+        </div>
+        <h1 class="baskerville">Modifier une session</h1>
+
+        {{ include('dashboard/sessions/_form.html.twig', {'button_label': 'Valider'}) }}
+        {{ include('dashboard/sessions/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

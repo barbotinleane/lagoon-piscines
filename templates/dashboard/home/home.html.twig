@@ -1,0 +1,15 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+    <div class="d-flex vh-100 align-items-center justify-content-center">
+        <div class="text-center">
+            <picture>
+                <source srcset="{{ asset('build/images/logo.webp') }}" type="image/webp" class="w-100">
+                <source srcset="{{ asset('build/images/logo.png') }}" type="image/png" class="w-100">
+                <img src="{{ asset('build/images/logo.png') }}"
+                     alt="Vue d'ensemble d'une bio piscine LAGOON au milieu de la verdure, d'une maison et de la montagne"
+                     class="w-100">
+            </picture>
+        </div>
+    </div>
+{% endblock %}

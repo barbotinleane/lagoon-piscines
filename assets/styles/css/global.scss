@@ -240,6 +240,14 @@ img {
   border-radius: 4em;
 }
 
+.h-180p {
+  height: 180px;
+}
+
+.h-650p {
+  height: 650px;
+}
+
 
 
 /*Links for the website: */
@@ -559,4 +567,24 @@ li.timeline-item-dark::before {
     margin-left: -5em;
     width: 10em;
   }
+}
+
+
+/* Accordion */
+.accordion-button {
+  font-weight: bold;
+  font-size: 0.65em;
+}
+
+.accordion-button:not(.collapsed) {
+  color: $brand-color;
+  background-color: rgba(254, 219, 0, 0.1);
+}
+
+.accordion-button:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(94,191,206, 0.6) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
 }

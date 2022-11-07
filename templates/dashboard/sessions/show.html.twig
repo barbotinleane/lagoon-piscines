@@ -1,0 +1,40 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+    <div class="section pt-2 pb-0">
+        <a class="btn btn-dark" href="{{ path('app_sessions_index') }}">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </div>
+    <div class="row section">
+        <h1 class="text-roboto-bold">Session</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ formation_session.id }}</td>
+                </tr>
+                <tr>
+                    <th>Date de début</th>
+                    <td>{{ formation_session.dateStart ? formation_session.dateStart|date('d/m/Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Date de fin</th>
+                    <td>{{ formation_session.dateEnd ? formation_session.dateEnd|date('d/m/Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Inscrits</th>
+                    <td>{{ formation_session.registered }}</td>
+                </tr>
+                <tr>
+                    <th>Capacité</th>
+                    <td>{{ formation_session.capacity }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_sessions_edit', {'id': formation_session.id}) }}">Modifier les informations</a>
+
+        {{ include('dashboard/sessions/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+<div class="py-1">
+    <div class="row py-2">
+        {{ form_row(form.dateStart) }}
+        {{ form_row(form.dateEnd) }}
+    </div>
+
+    <div class="row py-2">
+        {{ form_row(form.registered) }}
+        {{ form_row(form.capacity) }}
+    </div>
+
+    <div class="row py-2">
+        {{ form_row(form.formation) }}
+    </div>
+
+    <div class="pt-4 text-center">
+        <button class="btn btn-lg btn-success">
+            <i class="fa fa-check"></i>
+            {{ button_label|default('Valider') }}
+        </button>
+    </div>
+</div>
+{{ form_end(form) }}

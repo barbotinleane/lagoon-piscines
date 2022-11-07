@@ -1,0 +1,46 @@
+<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    <div class="pt-5 mt-3">
+        <a href="{{ path('app_dashboard') }}"
+           class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 baskerville d-none d-sm-inline">Administration</span>
+        </a>
+    </div>
+    <ul class="nav nav-pills flex-column mb-auto align-items-center align-items-sm-start"
+        id="menu">
+        <li class="nav-item">
+            <a href="{{ path('app_dashboard') }}" class="align-middle px-0">
+                <i class="fs-4 fas fa-home"></i>
+                <span class="ms-1 d-none d-sm-inline">Accueil</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('app_sessions_index') }}"
+               class="px-0 align-middle">
+                <i class="fs-4 fas fa-calendar"></i>
+                <span class="ms-1 d-none d-sm-inline">Sessions</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('app_news_index') }}"
+               class="px-0 align-middle">
+                <i class="fs-4 far fa-newspaper"></i>
+                <span class="ms-1 d-none d-sm-inline">Actualités</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('app_faq_index') }}"
+               class="px-0 align-middle disabled">
+                <i class="fs-4 fas fa-question"></i>
+                <span class="ms-1 d-none d-sm-inline">FAQ</span>
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div class="pb-4">
+        <a href="{{ path('app_logout') }}"
+           class="px-0 align-middle blank-link">
+            <i class="fs-4 fa fa-sign-out"></i>
+            <span class="ms-1 d-none d-sm-inline">Se déconnecter</span>
+        </a>
+    </div>
+</div>

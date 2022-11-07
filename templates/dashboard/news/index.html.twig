@@ -1,0 +1,55 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+<div class="row section">
+    <h2 class="text-center py-3">Actualités</h2>
+
+    <div class="text-center py-4">
+        <a class="btn btn-yellow" href="{{ path('app_news_new') }}">
+            <i class="fa fa-plus"></i>
+            Ajouter une actualité
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Date</th>
+                    <th>Contenu</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for news in news %}
+                <tr>
+                    <td>{{ news.title }}</td>
+                    <td>{{ news.date ? news.date|date('d/m/Y') : '' }}</td>
+                    <td>{{ news.content }}</td>
+                    <td>
+                        <a href="{{ path('app_news_edit', {'id': news.id}) }}"
+                           class="btn btn-success"
+                        >
+                            <i class="fa fa-pen"></i>
+                            Modifier
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Pas d'actualités enregistrées</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-yellow" href="{{ path('app_news_new') }}">
+            <i class="fa fa-plus"></i>
+            Ajouter une actualité
+        </a>
+    </div>
+</div>
+{% endblock %}

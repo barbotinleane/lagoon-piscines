@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - {{ new.title }}{% endblock %}
+
+{% block description %}
+    {{ new.content|u.truncate(70, '...') }}
+{% endblock %}
+
+{% block body %}
+    <div id="corps" class="mt-5 container-fluid">
+        <div class="row py-5 section">
+            <img src="{{ asset('uploads/images/news/'~new.imageName) }}"
+                 alt="{{ new.title|u.truncate(10, '...') }}"
+                 class="img-gallery h-180p">
+            <h1 class="baskerville size-1 pt-3 text-center">{{ new.title }}</h1>
+            <div class="section">
+                {{ new.content }}
+                <div class="text-center py-3">
+                    <a class="btn btn-yellow"
+                       href="{{ path("app_news") }}">
+                        <i class="fa fa-arrow-left"></i>
+                        Revenir aux actualités
+                    </a>
+                </div>
+            </div>
+
+            <img src="{{ asset('uploads/images/news/'~new.imageName) }}"
+                 alt="{{ new.title|u.truncate(10, '...') }}"
+                 class="img-gallery">
+        </div>
+    </div>
+{% endblock %}

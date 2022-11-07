@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+<div class="row py-2">
+    {{ form_row(form.question) }}
+</div>
+
+<div class="row py-2">
+    {{ form_row(form.answer) }}
+</div>
+
+<div class="pt-4 text-center">
+    <button class="btn btn-lg btn-success">
+        <i class="fa fa-check"></i>
+        {{ button_label|default('Valider') }}
+    </button>
+</div>
+{{ form_end(form) }}

@@ -6,9 +6,9 @@
 <form method="post">
     <div class="bg-dark">
         {% if app.user %}
-            <div class="mb-3">
+            <div class="my-5 py-5 bg-light text-center">
                 Vous êtes connecté en tant que {{ app.user.userIdentifier }},
-                <a href="{{ path('app_logout') }}">se déconnecter.</a>
+                <a href="{{ path('app_logout') }}"> se déconnecter.</a>
             </div>
         {% else %}
             <div class="vh-100 d-flex justify-content-center flex-column">

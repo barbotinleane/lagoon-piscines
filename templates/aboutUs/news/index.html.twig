@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - Nos Actualités{% endblock %}
+
+{% block description %}
+    Suivez les évènements autour de l'évolution des piscines écologiques LAGOON&reg;, ou d'autres actualités en rapport avec LAGOON&reg; Piscines.
+{% endblock %}
+
+{% block body %}
+    <div id="corps" class="mt-5 container-fluid">
+        <div class="row py-5 px-none px-md-4 px-lg-5">
+            <h1 class="baskerville size-1">Actualités</h1>
+            <div>
+                <p>
+                    Quoi de neuf chez LAGOON&reg; Piscines ? Un évènement public, une piscine terminée, ou une formation
+                    en cours, suivez les actualités de LAGOON&reg; Piscines !
+                </p>
+            </div>
+
+            <div class="row pt-4">
+                {% for new in news %}
+                    <div class="col-12 col-sm-6 col-md-4 py-2">
+                        <div class="p-5 bg-blue-clear rounded-corners h-650p">
+                            <img src="{{ asset('uploads/images/news/'~new.imageName) }}"
+                                 alt="{{ new.title|u.truncate(10, '...') }}"
+                                 height="40"
+                                 class="img-gallery h-180p">
+                            <h2 class="baskerville size-3 pt-3">{{ new.title|u.truncate(50, '...') }}</h2>
+                            <div class="text-secondary">Le {{ new.date|date('d/m/Y') }}</div>
+                            <p>{{ new.content|u.truncate(150, '...') }}</p>
+                            <div class="text-center">
+                                <a class="btn btn-yellow"
+                                   href="{{ path('app_new_show', {'id': new.id}) }}">
+                                    Voir plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

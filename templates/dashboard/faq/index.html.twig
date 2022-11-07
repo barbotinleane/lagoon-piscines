@@ -1,0 +1,45 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+    <div class="row section">
+        <h2 class="text-center py-3">Les questions</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Réponse</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for faq in faqs %}
+                    <tr>
+                        <td>{{ faq.question }}</td>
+                        <td>{{ faq.answer }}</td>
+                        <td>
+                            <a href="{{ path('app_faq_edit', {'id': faq.id}) }}"
+                               class="btn btn-success"
+                            >
+                                <i class="fa fa-pen"></i>
+                                Modifier
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">Pas de questions enregistrées</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-lg btn-blue" href="{{ path('app_faq_new') }}">
+                <i class="fa fa-plus"></i>
+                Ajouter une question
+            </a>
+        </div>
+    </div>
+{% endblock %}

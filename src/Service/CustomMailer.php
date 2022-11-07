@@ -50,8 +50,8 @@ class CustomMailer
             $prerequisites = json_decode($ask->getPrerequisites(), true);
         }
 
-        $to = 'barbotinleane@gmail.com';
-        //$to = 'formation@lagoon-piscines.com';
+        //$to = 'barbotinleane@gmail.com';
+        $to = 'formation@lagoon-piscines.com';
         $subject = 'Nouvelle demande de formation !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';
@@ -66,8 +66,8 @@ class CustomMailer
     }
 
     public function sendProjectAskMail(ProjectAsk $projectAsk) {
-        $to = 'barbotinleane@gmail.com';
-        //$to = 'devislagoon@gmail.com';
+        //$to = 'barbotinleane@gmail.com';
+        $to = 'devislagoon@gmail.com';
         $subject = 'Nouvelle demande de devis !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';

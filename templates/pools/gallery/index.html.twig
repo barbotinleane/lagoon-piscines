@@ -18,9 +18,9 @@
 
 {% block body %}
     <div id="corps" class="mt-5 container-fluid">
-        <div class="row py-5 px-none px-md-4 px-lg-5 gallery-title">
+        <div class="row py-5 px-none px-md-4 px-lg-5">
             <div class="text-title">
-                <h1 class="baskerville size-1">Nos réalisations</h1>
+                <h1 class="baskerville size-1">Galerie</h1>
                 <p>
                     Découvrez quelques uns de nos plus beaux projets réalisés et voyez à quel point chaque
                     piscine LAGOON est unique. Laissez vous inspirer !
@@ -28,98 +28,304 @@
             </div>
         </div>
 
-        <div class="section row align-items-center my-5">
-            <div class="col-12 col-sm-4 py-2">
-                <picture>
-                    <source srcset="{{ asset('build/images/8.webp') }}" type="image/webp" class="w-100">
-                    <source srcset="{{ asset('build/images/8.jpg') }}" type="image/jpeg" class="w-100">
-                    <img src="{{ asset('build/images/8.jpg') }}"
-                         alt="Une piscine Lagoon avec un fond ayant un revêtement avec du marbre vert"
-                         class="w-100">
-                </picture>
-            </div>
-
-            <div class="col-12 col-sm-7 overlay-picture py-4">
-                <div class="bg-shape-yellow1 bg-shape-all p-5">
-                    <p class="size-3 baskerville">
-                        La rencontre du marbre vert et de l'eau...
-                    </p>
-                    <p class="text-end">
-                        - <strong>Contes</strong>, Alpes Maritimes
-                    </p>
+        <div class="py-5 row align-items-center justify-content-center">
+            <div class="col-12 col-sm-8">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/1.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/1.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/1.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/2.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/2.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/2.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/3.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/3.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/3.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/4.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/4.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/4.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/5.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/5.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/5.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/6.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/6.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/6.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/7.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/7.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/7.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/8.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/8.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/8.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/9.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/9.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/9.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/10.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/10.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/10.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/11.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/11.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/11.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/12.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/12.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/12.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/13.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/13.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/13.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                        <div class="carousel-item">
+                            <picture>
+                                <source srcset="{{ asset('build/images/gallery/14.webp') }}" type="image/webp" class="img-gallery">
+                                <source srcset="{{ asset('build/images/gallery/14.jpg') }}" type="image/jpeg" class="img-gallery">
+                                <img src="{{ asset('build/images/gallery/14.jpg') }}"
+                                     alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                     class="img-gallery">
+                            </picture>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    <ul class="carousel-indicators list-inline mx-auto my-3 position-relative justify-content-start" style="overflow: scroll;">
+                        <li class="list-inline-item active">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/1.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/1.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/1.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/2.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/2.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/2.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/3.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/3.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/3.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/4.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/4.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/4.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/5.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/5.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/5.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/6.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/6.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/6.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/7.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/7.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/7.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/8.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/8.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/8.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/9.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/9.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/9.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/10.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/10.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/10.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10" aria-label="Slide 11">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/11.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/11.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/11.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11" aria-label="Slide 12">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/12.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/12.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/12.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12" aria-label="Slide 13">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/13.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/13.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/13.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13" aria-label="Slide 14">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/gallery/14.webp') }}" type="image/webp" class="img-gallery h-60p">
+                                    <source srcset="{{ asset('build/images/gallery/14.jpg') }}" type="image/jpeg" class="img-gallery h-60p">
+                                    <img src="{{ asset('build/images/gallery/14.jpg') }}"
+                                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
+                                         class="img-gallery h-60p w-60p">
+                                </picture>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <div class="section row align-items-center justify-content-end my-5">
-            <div class="col-12 col-sm-7 order-2 order-sm-1 overlay-picture-right py-4">
-                <div class="bg-shape-blue1 bg-shape-all p-5">
-                    <p class="size-3 baskerville">
-                        Quand la piscine s'embellie avec une plage LAGOON&reg;...
-                    </p>
-                    <p class="text-end">
-                        - <strong>Nice</strong>, Alpes Maritimes
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-5 order-1 order-sm-2 py-2 text-end">
-                <picture>
-                    <source srcset="{{ asset('build/images/15.webp') }}" type="image/webp" class="w-100">
-                    <source srcset="{{ asset('build/images/15.jpg') }}" type="image/jpeg" class="w-100">
-                    <img src="{{ asset('build/images/15.jpg') }}"
-                         alt="Un bassin rectangulaire auquel on a ajouté un revêtement et une plage avec la résine brevetée proposée par Lagoon"
-                         class="w-100">
-                </picture>
-            </div>
-        </div>
-
-        <div class="section row align-items-center my-5">
-            <div class="col-12 col-sm-6 py-2">
-                <picture>
-                    <source srcset="{{ asset('build/images/12.webp') }}" type="image/webp" class="w-100">
-                    <source srcset="{{ asset('build/images/12.jpg') }}" type="image/jpeg" class="w-100">
-                    <img src="{{ asset('build/images/12.jpg') }}"
-                         alt="Un bassin Lagoon avec un revêtement de couleur bleue au fond"
-                         class="w-100">
-                </picture>
-            </div>
-
-            <div class="col-12 col-sm-6 overlay-picture py-4">
-                <div class="bg-shape-yellow2 bg-shape-all p-5">
-                    <p class="size-3 baskerville">
-                        Et que pensez-vous d'une piscine avec un fond bleu ?
-                    </p>
-                    <p class="text-end">
-                        - <strong>La Colle sur Loup</strong>, Alpes Maritimes
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section row align-items-center justify-content-end my-5">
-            <div class="col-12 col-sm-7 order-2 order-sm-1 overlay-picture-right py-4">
-                <div class="bg-shape-blue2 bg-shape-all p-5">
-                    <p class="size-3 baskerville">
-                        Une cascade, des rochers et bain relaxant...
-                    </p>
-                    <p class="text-end">
-                        - <strong>Nice</strong>, Alpes Maritimes
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-5 order-1 order-sm-2 py-2 text-end">
-                <picture>
-                    <source srcset="{{ asset('build/images/bain.webp') }}" type="image/webp" class="w-100">
-                    <source srcset="{{ asset('build/images/bain.jpg') }}" type="image/jpeg" class="w-100">
-                    <img src="{{ asset('build/images/bain.jpg') }}"
-                         alt="Une piscine Lagoon avec une cascade et une eau bleue"
-                         class="w-100">
-                </picture>
-            </div>
-        </div>
-
 
         <div class="row section mx-xs-none bg-dark text-light">
             <div>
@@ -205,7 +411,7 @@
                 <div class="m-2 text-center">
                     <a
                             type="button"
-                            class="btn btn-yellow spoke"
+                            class="btn btn-yellow"
                             href="{{ path('app_project') }}"
                     >
                         <i class="fa fa-play" aria-hidden="true"></i>

@@ -120,41 +120,55 @@
                             FIFPL</a>, <a href="https://www.ocapiat.fr/" target="_blank" class="text-darkblue">
                             OCAPIAT</a>, <a href="https://www.fafcea.com/" target="_blank" class="text-darkblue">
                             FAFCEA</a>, <a href="https://communication-agefice.fr/" target="_blank" class="text-darkblue">
-                            AGEFICE</a>, <a href="https://www.pole-emploi.fr/accueil/" target="_blank" class="text-darkblue">Pôle Emploi</a>...).
+                            AGEFICE</a>, <a href="https://vivea.fr/" target="_blank" class="text-darkblue">Vivea</a>, <a href="https://www.pole-emploi.fr/accueil/" target="_blank" class="text-darkblue">Pôle Emploi</a>...).
                     </p>
-                    <div class="w-adaptative mx-auto bg-blue d-flex justify-content-around">
-                        <picture>
-                            <source srcset="{{ asset('build/images/datadock.webp') }}" type="image/webp" class="img-size">
-                            <source srcset="{{ asset('build/images/datadock.png') }}" type="image/png" class="img-size">
-                            <img src="{{ asset('build/images/datadock.png') }}" alt="Logo du datadock de la formation de piscine écologique LAGOON" class="img-size">
-                        </picture>
-                        <div class="d-flex align-items-center">
+                    <div class="w-adaptative mx-auto bg-blue d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-around bg-white">
                             <picture>
-                                <source srcset="{{ asset('build/images/qualiopi.webp') }}" type="image/webp" class="img-size">
-                                <source srcset="{{ asset('build/images/qualiopi.png') }}" type="image/png" class="img-size">
-                                <img src="{{ asset('build/images/qualiopi.png') }}" alt="Logo du qualiopi de la formation LAGOON" class="img-size">
+                                <source srcset="{{ asset('build/images/datadock.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/datadock.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/datadock.png') }}" alt="Logo du datadock de la formation de piscine écologique LAGOON" class="img-size">
                             </picture>
+                            <div class="d-flex">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/qualiopi.webp') }}" type="image/webp" class="img-size">
+                                    <source srcset="{{ asset('build/images/qualiopi.png') }}" type="image/png" class="img-size">
+                                    <img src="{{ asset('build/images/qualiopi.png') }}" alt="Logo du qualiopi de la formation LAGOON" class="img-size">
+                                </picture>
+                                <a
+                                        href="https://certificats-attestations.afnor.org/certification=128289183752"
+                                        target="_blank"
+                                >
+                                    <picture>
+                                        <source srcset="{{ asset('build/images/qr-certif.webp') }}" type="image/webp" class="img-size">
+                                        <source srcset="{{ asset('build/images/qr-certif.png') }}" type="image/png" class="img-size">
+                                        <img src="{{ asset('build/images/qr-certif.png') }}" alt="QR code prouvant la validité du certificat afnor de la formation proposée par LAGOON" class="img-size">
+                                    </picture>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center bg-white justify-content-around pt-3">
                             <a
-                                    href="https://certificats-attestations.afnor.org/certification=128289183752"
+                                    href="https://candidat.pole-emploi.fr/formations/detail/4158608/true"
                                     target="_blank"
                             >
                                 <picture>
-                                    <source srcset="{{ asset('build/images/qr-certif.webp') }}" type="image/webp" class="img-size">
-                                    <source srcset="{{ asset('build/images/qr-certif.png') }}" type="image/png" class="img-size">
-                                    <img src="{{ asset('build/images/qr-certif.png') }}" alt="QR code prouvant la validité du certificat afnor de la formation proposée par LAGOON" class="img-size">
+                                    <source srcset="{{ asset('build/images/logo_pole_emploi.webp') }}" type="image/webp" class="img-size">
+                                    <source srcset="{{ asset('build/images/logo_pole_emploi.png') }}" type="image/png" class="img-size">
+                                    <img src="{{ asset('build/images/logo_pole_emploi.png') }}" alt="Logo pole emploi indiquant que la formation est finançable par pole emploi" class="img-size">
                                 </picture>
                             </a>
-                        </div>
-                        <a
-                                href="https://candidat.pole-emploi.fr/formations/detail/4158608/true"
-                                target="_blank"
-                        >
                             <picture>
-                                <source srcset="{{ asset('build/images/logo_pole_emploi.webp') }}" type="image/webp" class="img-size">
-                                <source srcset="{{ asset('build/images/logo_pole_emploi.png') }}" type="image/png" class="img-size">
-                                <img src="{{ asset('build/images/logo_pole_emploi.png') }}" alt="Logo pole emploi indiquant que la formation est finançable par pole emploi" class="img-size">
+                                <source srcset="{{ asset('build/images/logo_vivea.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/logo_vivea.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/logo_vivea.png') }}" alt="Logo vivea indiquant que la formation est finançable par pole emploi" class="img-size">
                             </picture>
-                        </a>
+                            <picture>
+                                <source srcset="{{ asset('build/images/ocapiat_logo.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/ocapiat_logo.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/ocapiat_logo.png') }}" alt="Logo ocapiat indiquant que la formation est finançable par pole emploi" class="img-size">
+                            </picture>
+                        </div>
                     </div>
                 </div>
             </div>

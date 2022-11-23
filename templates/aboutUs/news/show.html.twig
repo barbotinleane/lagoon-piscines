@@ -11,7 +11,8 @@
         <div class="row py-5 section">
             <img src="{{ asset('uploads/images/news/'~new.imageName) }}"
                  alt="{{ new.title|u.truncate(10, '...') }}"
-                 class="img-gallery h-180p">
+                 class="img-gallery">
+
             <h1 class="baskerville size-1 pt-3 text-center">{{ new.title }}</h1>
             <div class="section">
                 {{ new.content }}
@@ -23,10 +24,6 @@
                     </a>
                 </div>
             </div>
-
-            <img src="{{ asset('uploads/images/news/'~new.imageName) }}"
-                 alt="{{ new.title|u.truncate(10, '...') }}"
-                 class="img-gallery">
         </div>
     </div>
 {% endblock %}

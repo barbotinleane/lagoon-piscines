@@ -348,7 +348,7 @@ class FormationAsksType extends AbstractType
                     'label' => 'Souhaitez-vous préinscrire plusieurs stagiaires de votre entreprise à cette formation ?',
                     'choices' => [
                         'Oui' => 1,
-                        'Non' => 0,
+                        'Non, que moi' => 0,
                     ],
                     'attr' => [
                         'class' => 'buttons-group',

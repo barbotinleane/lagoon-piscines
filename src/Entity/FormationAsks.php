@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FormationAsksRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -40,11 +41,11 @@ class FormationAsks
     #[ORM\Column(type: 'string', length: 255)]
     private $lastName;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $email;
 
     #[Assert\Type('integer')]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $phoneNumber;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -60,7 +61,7 @@ class FormationAsks
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $department;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $country;
 
     #[ORM\Column(type: 'array', nullable: true)]
@@ -98,6 +99,30 @@ class FormationAsks
 
     #[ORM\Column]
     private ?bool $personnalizedSession = false;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $dateOfBirth = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $placeOfBirth = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $companyAddress = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $companyPostalCode = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $companyCity = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $companyCountry = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $companyPhone = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $companyEmail = null;
 
     public function __construct($formationLibelle)
     {
@@ -418,6 +443,102 @@ class FormationAsks
     public function setPersonnalizedSession(bool $personnalizedSession): self
     {
         $this->personnalizedSession = $personnalizedSession;
+
+        return $this;
+    }
+
+    public function getDateOfBirth(): ?string
+    {
+        return $this->dateOfBirth;
+    }
+
+    public function setDateOfBirth(string $dateOfBirth): self
+    {
+        $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
+    }
+
+    public function getPlaceOfBirth(): ?string
+    {
+        return $this->placeOfBirth;
+    }
+
+    public function setPlaceOfBirth(string $placeOfBirth): self
+    {
+        $this->placeOfBirth = $placeOfBirth;
+
+        return $this;
+    }
+
+    public function getCompanyAddress(): ?string
+    {
+        return $this->companyAddress;
+    }
+
+    public function setCompanyAddress(string $companyAddress): self
+    {
+        $this->companyAddress = $companyAddress;
+
+        return $this;
+    }
+
+    public function getCompanyPostalCode(): ?int
+    {
+        return $this->companyPostalCode;
+    }
+
+    public function setCompanyPostalCode(?int $companyPostalCode): self
+    {
+        $this->companyPostalCode = $companyPostalCode;
+
+        return $this;
+    }
+
+    public function getCompanyCity(): ?string
+    {
+        return $this->companyCity;
+    }
+
+    public function setCompanyCity(?string $companyCity): self
+    {
+        $this->companyCity = $companyCity;
+
+        return $this;
+    }
+
+    public function getCompanyCountry(): ?string
+    {
+        return $this->companyCountry;
+    }
+
+    public function setCompanyCountry(?string $companyCountry): self
+    {
+        $this->companyCountry = $companyCountry;
+
+        return $this;
+    }
+
+    public function getCompanyPhone(): ?int
+    {
+        return $this->companyPhone;
+    }
+
+    public function setCompanyPhone(?int $companyPhone): self
+    {
+        $this->companyPhone = $companyPhone;
+
+        return $this;
+    }
+
+    public function getCompanyEmail(): ?string
+    {
+        return $this->companyEmail;
+    }
+
+    public function setCompanyEmail(string $companyEmail): self
+    {
+        $this->companyEmail = $companyEmail;
 
         return $this;
     }

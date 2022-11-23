@@ -30,6 +30,46 @@
                         </div>
                     </div>
                 {% endif %}
+                {% if form.companyAddress is defined %}
+                    <div class="col-12" id="companyAddress">
+                        {{ form_label(form.companyAddress) }}
+                        {{ form_widget(form.companyAddress) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.companyAddress) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.companyPostalCode is defined %}
+                    <div class="col-12 col-md-4 col-lg-3" id="companyPostalCode">
+                        {{ form_label(form.companyPostalCode) }}
+                        {{ form_widget(form.companyPostalCode) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.companyPostalCode) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.companyCity is defined %}
+                    <div class="col-12 col-md-6 col-lg-4" id="companyCity">
+                        {{ form_label(form.companyCity) }}
+                        {{ form_widget(form.companyCity) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.companyCity) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if form.companyCountry is defined %}
+                    <div class="col-12 col-md-6 col-lg-4" id="companyCountry">
+                        {{ form_label(form.companyCountry) }}
+                        {{ form_widget(form.companyCountry) }}
+
+                        <div class="form-error">
+                            {{ form_errors(form.companyCountry) }}
+                        </div>
+                    </div>
+                {% endif %}
                 {% if form.siret is defined %}
                     <div class="col-12 col-md-6 col-lg-4">
                         {{ form_label(form.siret) }}
@@ -103,69 +143,104 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-7 col-lg-6">
-                {{ form_label(form.email) }}
-                {{ form_widget(form.email) }}
+            <div class="row">
+                <div class="col-12 col-md-5 col-lg-4">
+                    {{ form_label(form.dateOfBirth) }}
+                    {{ form_widget(form.dateOfBirth) }}
 
-                <div class="form-error">
-                    {{ form_errors(form.email) }}
+                    <div class="form-error">
+                        {{ form_errors(form.dateOfBirth) }}
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-7 col-lg-5">
+                    {{ form_label(form.placeOfBirth) }}
+                    {{ form_widget(form.placeOfBirth) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.placeOfBirth) }}
+                    </div>
                 </div>
             </div>
 
-            <div class="col-12 col-md-5 col-lg-4">
-                {{ form_label(form.phoneNumber) }}
-                {{ form_widget(form.phoneNumber) }}
+            {% if form.email is defined %}
+                <div class="col-12 col-md-7 col-lg-6">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
 
-                <div class="form-error">
-                    {{ form_errors(form.phoneNumber) }}
+                    <div class="form-error">
+                        {{ form_errors(form.email) }}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
+
+            {% if form.phoneNumber is defined %}
+                <div class="col-12 col-md-5 col-lg-4">
+                    {{ form_label(form.phoneNumber) }}
+                    {{ form_widget(form.phoneNumber) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.phoneNumber) }}
+                    </div>
+                </div>
+            {% endif %}
 
             <div class="row">
-                <div class="col-12 col-md-11">
-                    {{ form_label(form.address) }}
-                    {{ form_widget(form.address) }}
+                {% if form.address is defined %}
+                    <div class="col-12 col-md-11">
+                        {{ form_label(form.address) }}
+                        {{ form_widget(form.address) }}
 
-                    <div class="form-error">
-                        {{ form_errors(form.address) }}
+                        <div class="form-error">
+                            {{ form_errors(form.address) }}
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
-                <div class="col-12 col-md-5 col-lg-4">
-                    {{ form_label(form.postalCode) }}
-                    {{ form_widget(form.postalCode) }}
+                {% if form.postalCode is defined %}
+                    <div class="col-12 col-md-5 col-lg-4">
+                        {{ form_label(form.postalCode) }}
+                        {{ form_widget(form.postalCode) }}
 
-                    <div class="form-error">
-                        {{ form_errors(form.postalCode) }}
+                        <div class="form-error">
+                            {{ form_errors(form.postalCode) }}
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
-                <div class="col-12 col-md-7 col-lg-4">
-                    {{ form_label(form.city) }}
-                    {{ form_widget(form.city) }}
+                {% if form.city is defined %}
+                    <div class="col-12 col-md-7 col-lg-4">
+                        {{ form_label(form.city) }}
+                        {{ form_widget(form.city) }}
 
-                    <div class="form-error">
-                        {{ form_errors(form.city) }}
+                        <div class="form-error">
+                            {{ form_errors(form.city) }}
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
                 <div class="row">
-                    <div class="col-12 col-md-6 col-lg-5">
-                        {{ form_label(form.department) }}
-                        {{ form_widget(form.department) }}
+                    {% if form.department is defined %}
+                        <div class="col-12 col-md-6 col-lg-5">
+                            {{ form_label(form.department) }}
+                            {{ form_widget(form.department) }}
 
-                        <div class="form-error">
-                            {{ form_errors(form.department) }}
+                            <div class="form-error">
+                                {{ form_errors(form.department) }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        {{ form_label(form.country) }}
-                        {{ form_widget(form.country) }}
+                    {% endif %}
 
-                        <div class="form-error">
-                            {{ form_errors(form.country) }}
+                    {% if form.country is defined %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            {{ form_label(form.country) }}
+                            {{ form_widget(form.country) }}
+
+                            <div class="form-error">
+                                {{ form_errors(form.country) }}
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

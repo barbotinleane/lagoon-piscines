@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -107,6 +108,28 @@ class FormationAsksType extends AbstractType
                     ])
                     ->add('lastName', TextType::class, [
                         'label' => 'Nom',
+                        'attr' => [
+                            'class' => 'form-control'
+                        ],
+                        'label_attr' => [
+                            'class' => 'form-label'
+                        ]
+                    ])
+                    ->add('dateOfBirth', DateType::class, [
+                        'label' => 'Date de naissance',
+                        'row_attr' => [
+                            'class' => 'col-12 col-sm-4'
+                        ],
+                        'attr' => [
+                            'class' => 'form-control',
+                            'max' => ( new \DateTime() )->format('Y-m-d'),
+                        ],
+                        'widget' => 'single_text',
+                        'input' => 'string',
+                        'html5' => true,
+                    ])
+                    ->add('placeOfBirth', TextType::class, [
+                        'label' => 'Lieu de naissance',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -237,7 +260,50 @@ class FormationAsksType extends AbstractType
                                 'class' => 'form-label'
                             ]
                         ])
-                        ->remove('handicap');
+                        ->add('companyAddress', TextType::class, [
+                            'label' => 'Siège social',
+                            'attr' => [
+                                'class' => 'form-control'
+                            ],
+                            'label_attr' => [
+                                'class' => 'form-label'
+                            ]
+                        ])
+                        ->add('companyPostalCode', NumberType::class, [
+                            'label' => 'Code Postal',
+                            'attr' => [
+                                'class' => 'form-control'
+                            ],
+                            'label_attr' => [
+                                'class' => 'form-label'
+                            ]
+                        ])
+                        ->add('companyCity', TextType::class, [
+                            'label' => 'Ville',
+                            'attr' => [
+                                'class' => 'form-control'
+                            ],
+                            'label_attr' => [
+                                'class' => 'form-label'
+                            ]
+                        ])
+                        ->add('companyCountry', TextType::class, [
+                            'label' => 'Pays',
+                            'attr' => [
+                                'class' => 'form-control'
+                            ],
+                            'label_attr' => [
+                                'class' => 'form-label'
+                            ]
+                        ])
+                        ->remove('handicap')
+                        ->remove('address')
+                        ->remove('postalCode')
+                        ->remove('city')
+                        ->remove('country')
+                        ->remove('email')
+                        ->remove('phoneNumber')
+                        ->remove('department');
                         break;
                     case 2 :
                         $builder->add('idPoleEmploi', TextType::class, [

@@ -38,6 +38,28 @@
         {% if ask.companyName and ask.companyName != "null" %}
             <li>Nom de l'entreprise : {{ ask.companyName }}</li>
         {% endif %}
+        {% if ask.companyAddress and ask.companyAddress != "null" %}
+            <li>
+                Siège social : {{ ask.companyName }}
+                <br>
+                {% if ask.companyPostalCode and ask.companyPostalCode != "null" %}
+                    {{ ask.companyPostalCode }}
+                {% endif %}
+                {% if ask.companyCity and ask.companyCity != "null" %}
+                    {{ ask.companyCity }}
+                {% endif %}
+                <br>
+                {% if ask.companyCountry and ask.companyCountry != "null" %}
+                    {{ ask.companyCountry }}
+                {% endif %}
+            </li>
+        {% endif %}
+        {% if ask.companyPhone and ask.companyPhone != "null" %}
+            <li>Téléphone de l'entreprise : {{ ask.companyPhone }}</li>
+        {% endif %}
+        {% if ask.companyEmail and ask.companyEmail != "null" %}
+            <li>Email de l'entreprise : {{ ask.companyEmail }}</li>
+        {% endif %}
         {% if ask.idPoleEmploi and ask.idPoleEmploi != "null" %}
             <li>Identifiant Pole Emploi : {{ ask.idPoleEmploi}}</li>
         {% endif %}
@@ -52,6 +74,12 @@
         {% endif %}
         {% if ask.firstName %}
             <li>Prénom : {{ ask.firstName }}</li>
+        {% endif %}
+        {% if ask.dateOfBirth %}
+            <li>Date de naissance : {{ ask.dateOfBirth }}</li>
+        {% endif %}
+        {% if ask.placeOfBirth %}
+            <li>Lieu de naissance : {{ ask.placeOfBirth }}</li>
         {% endif %}
         {% if ask.email %}
             <li>Email : {{ ask.email }}</li>
@@ -97,6 +125,14 @@
 <div>
     <h2>Pré-requis : </h2>
     <ul>
+        <li>
+            Allergique aux mathématiques de base :
+            {% if ask.mathematics == 1 %}
+                 Oui
+            {% else %}
+                Non
+            {% endif %}
+        </li>
         {% for key, value in prerequisites %}
             <li>{{ key }} : {{ value }}</li>
         {% else %}
@@ -109,19 +145,10 @@
     {% if ask.stagiaires %}
         <h2>Les stagiaires : </h2>
 
-        {% if ask.personnalizedSession == 1 %}
-            <p>Session personnalisée : Oui</p>
-        {% else %}
-            <p>Session personnalisée : Non</p>
-        {% endif %}
-
         {% for stagiaire in stagiaires %}
         <ul>
             <li>Prénom : {{ stagiaire.firstName }}</li>
             <li>Nom : {{ stagiaire.lastName }}</li>
-            <li>Email : {{ stagiaire.email }}</li>
-            <li>Numéro de téléphone : {{ stagiaire.phoneNumber }}</li>
-            <li>Poste occupé et depuis combien de temps : {{ stagiaire.currentJob }}</li>
             {% if stagiaire.handicap == 1 %}
                 <li>Handicap : Oui</li>
             {% else %}

@@ -16,33 +16,6 @@
                     <div>
                         {{ stagiaire.firstName }} {{ stagiaire.lastName }}
                     </div>
-                    <div class="d-flex">
-                        <div class="pe-2">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            {{ stagiaire.email }}
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="pe-2">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            {{ stagiaire.phoneNumber }}
-                        </div>
-                    </div>
-                </div>
-                {% if stagiaire.currentJob != null %}
-                    <div class="ps-5 d-flex">
-                        <div class="pe-2">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div>
-                            {{ stagiaire.currentJob }}
-                        </div>
-                    </div>
-                {% endif %}
                 <div class="ps-5">
                     {% if ask.handicap != null %}
                         Situation de handicap
@@ -51,12 +24,6 @@
             </li>
         {% endfor %}
     </ul>
-
-    {% if ask.personnalizedSession == true %}
-        <div class="col-12 col-sm-6">
-            Session personnalisée : Oui
-        </div>
-    {% endif %}
 
     <div class="text-end">
         <a class="btn btn-success rounded-corners" href='/demande-de-formation?instance={{ instance }}&step=5'>

@@ -45,43 +45,6 @@ class StagiairesType extends AbstractType
                     'class' => 'form-label'
                 ]
             ])
-            ->add('email', TextType::class, [
-                'label' => 'Email',
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                'row_attr' => [
-                    'class' => 'col-12 col-md-6'
-                ],
-                'label_attr' => [
-                    'class' => 'form-label'
-                ]
-            ])
-            ->add('phoneNumber', NumberType::class, [
-                'label' => 'Téléphone',
-                'attr' => [
-                    'class' => 'form-control'
-                ],
-                'row_attr' => [
-                    'class' => 'col-9 col-md-4'
-                ],
-                'label_attr' => [
-                    'class' => 'form-label'
-                ]
-            ])
-            ->add('currentJob', TextType::class, [
-                'label' => 'Poste occupé et depuis combien de temps',
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-                'row_attr' => [
-                    'class' => 'col-12'
-                ],
-                'label_attr' => [
-                    'class' => 'form-label'
-                ],
-                'required' => false,
-            ])
             ->add('handicap', CheckboxType::class, [
                 'attr' => [
                     'value' => 'null',

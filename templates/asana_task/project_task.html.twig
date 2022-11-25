@@ -1,4 +1,5 @@
 <body>
+    <em>Une demande de devis a été effectuée le {{ 'now'|date("d/m/Y \\à H:i") }}</em>
     <strong>Informations personnelles : </strong>
     <ul>
         {% if projectAsk.lastName and projectAsk.lastName != "null" %}

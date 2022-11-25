@@ -3,28 +3,19 @@
 namespace App\Form;
 
 use App\Entity\FormationAsks;
-use App\Entity\FormationLibelles;
 use App\Entity\FormationSessions;
-use App\Repository\FormationLibellesRepository;
 use App\Entity\Status;
 use App\Repository\FormationSessionsRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /***
@@ -46,7 +37,7 @@ class FormationAsksType extends AbstractType
             case 1:
                 $builder->add('status', EntityType::class, [
                     'class' => Status::class,
-                    'label' => 'Je suis...',
+                    'label' => 'Je suis... *',
                     'attr' => [
                         'class' => 'buttons-group',
                         'role' => 'group',
@@ -67,7 +58,7 @@ class FormationAsksType extends AbstractType
                     'row_attr' => [
                         'class' => 'form-check',
                     ],
-                    'label' => 'Mon objectif :',
+                    'label' => 'Mon objectif ',
                     'expanded' => true
                 ]);
                 break;
@@ -82,7 +73,7 @@ class FormationAsksType extends AbstractType
                                 ->setParameter('now', new \DateTimeImmutable());
                         },
                         'expanded' => true,
-                        'label' => 'Date de formation souhaitée : ',
+                        'label' => 'Date de formation souhaitée *',
                         'placeholder' => 'Choisissez une date...',
                         'attr' => [
                             'class' => 'buttons-group',
@@ -98,7 +89,7 @@ class FormationAsksType extends AbstractType
                 break;
             case 3:
                 $builder->add('firstName', TextType::class, [
-                        'label' => 'Prénom',
+                        'label' => 'Prénom *',
                         'attr' => [
                             'class' => 'form-control',
                         ],
@@ -107,7 +98,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('lastName', TextType::class, [
-                        'label' => 'Nom',
+                        'label' => 'Nom *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -116,7 +107,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('dateOfBirth', DateType::class, [
-                        'label' => 'Date de naissance',
+                        'label' => 'Date de naissance *',
                         'row_attr' => [
                             'class' => 'col-12 col-sm-4'
                         ],
@@ -129,7 +120,7 @@ class FormationAsksType extends AbstractType
                         'html5' => true,
                     ])
                     ->add('placeOfBirth', TextType::class, [
-                        'label' => 'Lieu de naissance',
+                        'label' => 'Lieu de naissance *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -138,7 +129,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('email', EmailType::class, [
-                        'label' => 'Email',
+                        'label' => 'Email *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -147,16 +138,16 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('phoneNumber', NumberType::class, [
-                        'label' => 'Téléphone',
+                        'label' => 'Téléphone *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
                         'label_attr' => [
                             'class' => 'form-label'
-                        ]
+                        ],
                     ])
                     ->add('address',  TextType::class, [
-                        'label' => 'Adresse',
+                        'label' => 'Adresse *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -165,7 +156,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('postalCode',  NumberType::class, [
-                        'label' => 'Code Postal',
+                        'label' => 'Code Postal *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -174,7 +165,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('city',  TextType::class, [
-                        'label' => 'Ville',
+                        'label' => 'Ville *',
                         'attr' => [
                             'class' => 'form-control'
                         ],
@@ -183,7 +174,7 @@ class FormationAsksType extends AbstractType
                         ]
                     ])
                     ->add('department',  ChoiceType::class, [
-                        'label' => 'Département',
+                        'label' => 'Département *',
                         'label_attr' => [
                             'class' => 'form-label'
                         ],
@@ -199,7 +190,8 @@ class FormationAsksType extends AbstractType
                         ],
                         'label_attr' => [
                             'class' => 'form-label'
-                        ]
+                        ],
+                        'required' => false,
                     ])
                     ->add('activityCategory', ChoiceType::class, [
                         'label' => 'Catégorie d\'Activité Actuelle',
@@ -243,7 +235,7 @@ class FormationAsksType extends AbstractType
                 switch($options['data']->getStatus()->getId()) {
                     case 1 :
                         $builder->add('sirenOrRm', TextType::class, [
-                                'label' => 'SIREN ou RM',
+                                'label' => 'SIREN ou RM *',
                                 'attr' => [
                                     'class' => 'form-control'
                                 ],
@@ -252,16 +244,17 @@ class FormationAsksType extends AbstractType
                                 ]
                             ])
                         ->add('companyName', TextType::class, [
-                            'label' => 'Nom de l\'entreprise',
+                            'label' => 'Nom de l\'entreprise *',
                             'attr' => [
                                 'class' => 'form-control'
                             ],
                             'label_attr' => [
                                 'class' => 'form-label'
-                            ]
+                            ],
+                            'required' => true,
                         ])
                         ->add('companyAddress', TextType::class, [
-                            'label' => 'Siège social',
+                            'label' => 'Siège social *',
                             'attr' => [
                                 'class' => 'form-control'
                             ],
@@ -276,10 +269,11 @@ class FormationAsksType extends AbstractType
                             ],
                             'label_attr' => [
                                 'class' => 'form-label'
-                            ]
+                            ],
+                            'required' => false,
                         ])
                         ->add('companyCity', TextType::class, [
-                            'label' => 'Ville',
+                            'label' => 'Ville *',
                             'attr' => [
                                 'class' => 'form-control'
                             ],
@@ -294,7 +288,8 @@ class FormationAsksType extends AbstractType
                             ],
                             'label_attr' => [
                                 'class' => 'form-label'
-                            ]
+                            ],
+                            'required' => false,
                         ])
                         ->remove('handicap')
                         ->remove('address')
@@ -307,7 +302,7 @@ class FormationAsksType extends AbstractType
                         break;
                     case 2 :
                         $builder->add('idPoleEmploi', TextType::class, [
-                            'label' => 'Identifiant Pole Emploi',
+                            'label' => 'Identifiant Pole Emploi *',
                             'attr' => [
                                 'class' => 'form-control'
                             ],
@@ -319,7 +314,7 @@ class FormationAsksType extends AbstractType
                         break;
                     case 3 :
                         $builder->add('sirenOrRm', TextType::class, [
-                            'label' => 'SIREN ou RM',
+                            'label' => 'SIREN ou RM *',
                             'attr' => [
                                 'class' => 'form-control'
                             ],
@@ -330,7 +325,7 @@ class FormationAsksType extends AbstractType
                         break;
                     case 4 :
                         $builder->add('siret', TextType::class, [
-                            'label' => 'SIRET',
+                            'label' => 'SIRET *',
                             'attr' => [
                                 'class' => 'form-control'
                             ],
@@ -345,7 +340,7 @@ class FormationAsksType extends AbstractType
                 break;
             case 4 :
                 $builder->add('isStagiaireMultiple', ChoiceType::class, [
-                    'label' => 'Souhaitez-vous préinscrire plusieurs stagiaires de votre entreprise à cette formation ?',
+                    'label' => 'Souhaitez-vous préinscrire plusieurs stagiaires de votre entreprise à cette formation ? *',
                     'choices' => [
                         'Oui' => 1,
                         'Non, que moi' => 0,
@@ -371,18 +366,6 @@ class FormationAsksType extends AbstractType
                         'value' => 'null'
                     ],
                     'allow_delete' => true,
-                ])
-                ->add('personnalizedSession', ChoiceType::class, [
-                    'label' => 'Souhaitez vous une session personnalisée (à partir de 6 stagiaires) ?',
-                    'choices' => [
-                        'Oui' => 1,
-                        'Non' => 0,
-                    ],
-                    'attr' => [
-                        'class' => 'buttons-group',
-                        'role' => 'group',
-                    ],
-                    'expanded' => true,
                 ]);
                 break;
             case 6 :
@@ -398,18 +381,21 @@ class FormationAsksType extends AbstractType
                         'Autre' => 'Autre',
                     ],
                     'multiple' => true,
-                    'expanded' => true
+                    'expanded' => true,
+                    'required' => false,
                 ])
                 ->add('funding', ChoiceType::class, [
-                    'label' => 'Je pense financer la formation par...',
+                    'label' => 'Je pense financer la formation par... *',
                     'choices' => [
                         'Mes fonds personnels' => 'Mes fonds personnels',
                         'Les fonds de formation des entreprises' => 'Les fonds de formation des entreprises',
                         'Le financement Pôle Emploi/Région' => 'Le financement Pôle Emploi/Région',
                         'Un financement mixte' => 'Un financement mixte',
+                        'Je ne sais pas encore' => 'Je ne sais pas encore',
                     ],
                     'multiple' => false,
-                    'expanded' => true
+                    'expanded' => true,
+                    'required' => true,
                 ])
                 ->add('prerequisites', TextType::class, [
                     'attr' => [
@@ -419,6 +405,19 @@ class FormationAsksType extends AbstractType
                     'label_attr' => [
                         'class' => 'form-label'
                     ]
+                ])
+                ->add('mathematics', CheckboxType::class, [
+                    'attr' => [
+                        'class' => 'form-check-input',
+                    ],
+                    'row_attr' => [
+                        'class' => 'form-check',
+                    ],
+                    'label' => 'Je ne suis pas allergique aux mathématiques de base (+, -, x, :...)',
+                    'label_attr' => [
+                        'class' => 'form-check-label'
+                    ],
+                    'required' => false,
                 ]);
 
                 if($options['data']->getStatus()->getId() === 1 && $options['data']->isIsStagiaireMultiple() === false) {

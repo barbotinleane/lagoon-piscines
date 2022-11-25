@@ -12,6 +12,22 @@
                     <div>
                         {{ ask.companyName }}
                     </div>
+                    {% if ask.companyAddress is defined %}
+                        <div>
+                            {{ ask.companyAddress }}
+                            <br>
+                            {% if ask.companyPostalCode is defined %}
+                                {{ ask.companyPostalCode }}
+                            {% endif %}
+                            {% if ask.companyCity is defined %}
+                                {{ ask.companyCity }}
+                            {% endif %}
+                            <br>
+                            {% if ask.companyCountry is defined %}
+                                {{ ask.companyCountry }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 {% endif %}
 
                 {% if ask.siret != null %}

@@ -24,23 +24,6 @@
                         Ajouter un stagiaire
                     </button>
                 </div>
-
-                <div id="personnalized-session" class="pt-5" style="display: none;">
-                    <label>{{ form_label(form.personnalizedSession) }}</label>
-                    <div class="buttons-group">
-                        {% for child in form.personnalizedSession.children %}
-                            <div class="">
-                                <div class="">
-                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                                    <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="form-error">
-                        {{ form_errors(form.personnalizedSession) }}
-                    </div>
-                </div>
             </div>
 
             <div>

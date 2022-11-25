@@ -97,9 +97,6 @@ class FormationAsks
     #[ORM\Column(length: 255)]
     private ?string $funding = null;
 
-    #[ORM\Column]
-    private ?bool $personnalizedSession = false;
-
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $dateOfBirth = null;
 
@@ -123,6 +120,9 @@ class FormationAsks
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $companyEmail = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $mathematics = null;
 
     public function __construct($formationLibelle)
     {
@@ -435,18 +435,6 @@ class FormationAsks
         return $this;
     }
 
-    public function isPersonnalizedSession(): ?bool
-    {
-        return $this->personnalizedSession;
-    }
-
-    public function setPersonnalizedSession(bool $personnalizedSession): self
-    {
-        $this->personnalizedSession = $personnalizedSession;
-
-        return $this;
-    }
-
     public function getDateOfBirth(): ?string
     {
         return $this->dateOfBirth;
@@ -539,6 +527,18 @@ class FormationAsks
     public function setCompanyEmail(string $companyEmail): self
     {
         $this->companyEmail = $companyEmail;
+
+        return $this;
+    }
+
+    public function isMathematics(): ?bool
+    {
+        return $this->mathematics;
+    }
+
+    public function setMathematics(?bool $mathematics): self
+    {
+        $this->mathematics = $mathematics;
 
         return $this;
     }

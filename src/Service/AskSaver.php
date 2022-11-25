@@ -23,11 +23,7 @@ class AskSaver
             'Visseuse' => $data['visseuse'],
             'Perceuse' => $data['perceuse'],
             'Taloche' => $data['taloche'],
-            'Malaxeur' => $data['malaxeur'],
-            'Malaxeur Vertical' => $data['malaxeurv'],
             'Commentaires' => $data['commentaires-outils'],
-            'Logiciel de dessin 3D' => $data['3d-drawing-software'],
-            'Expérience de 2 ans ou plus dans un bureau d’étude concepteur, architecte ou autre' => $data['architect-experience']
         ];
         $ask->setPrerequisites(json_encode($prerequisites));
     }

@@ -66,8 +66,6 @@ class FormationController extends AbstractController
                         $companyDirectorStagiaire = new Stagiaires();
                         $companyDirectorStagiaire->setFirstName($flow->getFormData()->getFirstName());
                         $companyDirectorStagiaire->setLastName($flow->getFormData()->getLastName());
-                        $companyDirectorStagiaire->setEmail($flow->getFormData()->getEmail());
-                        $companyDirectorStagiaire->setPhoneNumber($flow->getFormData()->getPhoneNumber());
 
                         $flow->getFormData()->addStagiaire($companyDirectorStagiaire);
                     }

@@ -118,10 +118,6 @@ $(function() {
             $(item).fadeOut(400, function() { $(this).remove(); });
             let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) - 1;
 
-            if(numberOfPeople < 6) {
-                $('#personnalized-session').hide();
-            }
-
             document.querySelector('#asks_stagiaires').setAttribute("data", ""+numberOfPeople+"");
             calculatePriceWhenStagiaireAdded(numberOfPeople);
         });
@@ -155,10 +151,6 @@ $(function() {
 
         addStagiaireFormDeleteLink(item);
         let numberOfPeople = parseInt(document.querySelector('#asks_stagiaires').getAttribute("data")) + 1;
-
-        if(numberOfPeople >= 6) {
-            $('#personnalized-session').show();
-        }
 
         document.querySelector('#asks_stagiaires').setAttribute("data", ""+numberOfPeople+"");
         calculatePriceWhenStagiaireAdded(numberOfPeople);

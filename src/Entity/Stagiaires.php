@@ -26,15 +26,6 @@ class Stagiaires
     #[ORM\Column(type: 'string', length: 255)]
     private $lastName;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $email;
-
-    #[ORM\Column(type: 'integer', nullable: true)]
-    private $phoneNumber;
-
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $currentJob;
-
     #[ORM\Column(type: 'boolean')]
     private $handicap;
 
@@ -71,42 +62,6 @@ class Stagiaires
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPhoneNumber(): ?int
-    {
-        return $this->phoneNumber;
-    }
-
-    public function setPhoneNumber(?int $phoneNumber): self
-    {
-        $this->phoneNumber = $phoneNumber;
-
-        return $this;
-    }
-
-    public function getCurrentJob(): ?string
-    {
-        return $this->currentJob;
-    }
-
-    public function setCurrentJob(?string $currentJob): self
-    {
-        $this->currentJob = $currentJob;
 
         return $this;
     }

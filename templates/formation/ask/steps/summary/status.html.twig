@@ -4,50 +4,60 @@
     </div>
     <div class="py-3 d-flex align-items-end justify-content-between">
         <div>
-            <div>
+            <div class="fw-bold">
                 {{ ask.status }}
             </div>
-            <div class="ps-4">
+            <div>
                 {% if ask.companyName != null %}
-                    <div>
-                        {{ ask.companyName }}
+                    <div class="d-flex">
+                        <div class="pe-2">
+                            <i class="fa-regular fa-building"></i>
+                        </div>
+                        <div>
+                            {{ ask.companyName }}
+                        </div>
                     </div>
                     {% if ask.companyAddress is defined %}
-                        <div>
-                            {{ ask.companyAddress }}
-                            <br>
-                            {% if ask.companyPostalCode is defined %}
-                                {{ ask.companyPostalCode }}
-                            {% endif %}
-                            {% if ask.companyCity is defined %}
-                                {{ ask.companyCity }}
-                            {% endif %}
-                            <br>
-                            {% if ask.companyCountry is defined %}
-                                {{ ask.companyCountry }}
-                            {% endif %}
+                        <div class="d-flex">
+                            <div class="pe-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                {{ ask.companyAddress }}
+                                <br>
+                                {% if ask.companyPostalCode is defined %}
+                                    {{ ask.companyPostalCode }}
+                                {% endif %}
+                                {% if ask.companyCity is defined %}
+                                    {{ ask.companyCity }}
+                                {% endif %}
+                                <br>
+                                {% if ask.companyCountry is defined %}
+                                    {{ ask.companyCountry }}
+                                {% endif %}
+                            </div>
                         </div>
                     {% endif %}
                 {% endif %}
 
                 {% if ask.siret != null %}
                     <div>
-                        SIRET : {{ ask.siret }}
+                        <span class="fw-bold">SIRET : </span>{{ ask.siret }}
                     </div>
                 {% endif %}
 
                 {% if ask.sirenOrRm != null %}
                     <div>
-                        SIREN ou RM : {{ ask.sirenOrRm }}
+                        <span class="fw-bold">SIREN ou RM : </span>{{ ask.sirenOrRm }}
                     </div>
                 {% endif %}
 
                 {% if ask.idPoleEmploi != null %}
                     <div>
-                        Identifiant Pôle Emploi : {{ ask.idPoleEmploi }}
+                        <span class="fw-bold">Identifiant Pôle Emploi :</span>{{ ask.idPoleEmploi }}
                     </div>
                 {% endif %}
-                <div>Catégorie d'activité : </div>
+                <div class="fw-bold">Catégorie d'activité : </div>
                 <ul>
                     {% for activity in ask.activityCategory %}
                         <li>{{ activity }}</li>

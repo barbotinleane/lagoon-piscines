@@ -5,62 +5,63 @@
 
     <div class="py-3 row">
         {% for key, prerequisite in prerequisites %}
-        {% if key == "Commentaires" %}
-        <div class="col-12 py-3">
-            {% else %}
-            <div>
+            {% if prerequisite != "" %}
+                <div
+                {% if key == "Commentaires" %}
+                    class="col-12 py-3"
                 {% endif %}
-                <div>{{ key }} : {{ prerequisite|capitalize }}</div>
-            </div>
-            {% endfor %}
-        </div>
-
-        <div class="text-end">
-            <a class="btn btn-success rounded-corners"
-                    {% if ask.stagiaires == null %}
-                        href='/demande-de-formation?instance={{ instance }}&step=4'
-                    {% elseif ask.isStagiaireMultiple == false %}
-                        href='/demande-de-formation?instance={{ instance }}&step=5'
-                    {% else %}
-                        href='/demande-de-formation?instance={{ instance }}&step=6'
-                    {% endif %}
-            >
-                <i class="fas fa-pen"></i>
-            </a>
-        </div>
+                >
+                    <div><span class="fw-bold">{{ key }} : </span>{{ prerequisite|capitalize }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 
-    <div class="col-12 col-md-6 pt-5 pt-md-0">
-        <div>
-            <i class="far fa-file-alt form-icon"></i>
-        </div>
-        <div class="pt-3">
-            <span>J'ai connu le centre de formation LAGOON® par...</span>
-            <ul>
-                {% for known in ask.knowsUs %}
-                    <li>{{ known }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div>
-            <span>Je pense financer la formation par...</span>
-            <ul>
-                <li>{{ ask.funding }}</li>
-            </ul>
-        </div>
+    <div class="text-end">
+        <a class="btn btn-success rounded-corners"
+                {% if ask.stagiaires == null %}
+                    href='/demande-de-formation?instance={{ instance }}&step=4'
+                {% elseif ask.isStagiaireMultiple == false %}
+                    href='/demande-de-formation?instance={{ instance }}&step=5'
+                {% else %}
+                    href='/demande-de-formation?instance={{ instance }}&step=6'
+                {% endif %}
+        >
+            <i class="fas fa-pen"></i>
+        </a>
+    </div>
+</div>
 
-        <div class="text-end">
-            <a class="btn btn-success rounded-corners"
-                    {% if ask.stagiaires == null %}
-                        href='/demande-de-formation?instance={{ instance }}&step=4#renseignements'
-                    {% elseif ask.isStagiaireMultiple == false %}
-                        href='/demande-de-formation?instance={{ instance }}&step=5#renseignements'
-                    {% else %}
-                        href='/demande-de-formation?instance={{ instance }}&step=6#renseignements'
-                    {% endif %}
-            >
-                <i class="fas fa-pen"></i>
-            </a>
-        </div>
+<div class="col-12 col-md-6 pt-5 pt-md-0">
+    <div>
+        <i class="far fa-file-alt form-icon"></i>
+    </div>
+    <div class="pt-3">
+        <span class="fw-bold">J'ai connu le centre de formation LAGOON® par...</span>
+        <ul>
+            {% for known in ask.knowsUs %}
+                <li>{{ known }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <span class="fw-bold">Je pense financer la formation par...</span>
+        <ul>
+            <li>{{ ask.funding }}</li>
+        </ul>
+    </div>
+
+    <div class="text-end">
+        <a class="btn btn-success rounded-corners"
+                {% if ask.stagiaires == null %}
+                    href='/demande-de-formation?instance={{ instance }}&step=4#renseignements'
+                {% elseif ask.isStagiaireMultiple == false %}
+                    href='/demande-de-formation?instance={{ instance }}&step=5#renseignements'
+                {% else %}
+                    href='/demande-de-formation?instance={{ instance }}&step=6#renseignements'
+                {% endif %}
+        >
+            <i class="fas fa-pen"></i>
+        </a>
     </div>
 </div>

@@ -89,9 +89,6 @@ class FormationController extends AbstractController
                 // form for the next step
                 $form = $flow->createForm();
             } else {
-                $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
-                $prerequisites = json_decode($ask->getPrerequisites());
-
                 if ($ask->getStagiaires() !== null) {
                     foreach ($ask->getStagiaires() as $stagiaire) {
                         $em->persist($stagiaire);
@@ -119,6 +116,7 @@ class FormationController extends AbstractController
             "ask" => $ask,
             "instance" => $instance,
             "prerequisites" => $prerequisites,
+            "formation" => $formation,
         ]);
     }
 }

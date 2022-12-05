@@ -6,24 +6,21 @@
             Les stagiaires
         </h4>
     </div>
-    <ul class="stagiaires row ps-0 g-2" style="list-style-type: none;">
+    <div class="stagiaires row ps-0 g-2" style="list-style-type: none;">
         {% for stagiaire in ask.stagiaires %}
-            <li class="bg-grey d-flex flex-column flex-lg-row justify-content-between rounded-corners p-4 mb-3">
-                <div class="ps-5">
+            <div class="col-12 col-sm-6 col-lg-4">
+                 <div class="bg-grey justify-content-between rounded-corners mx-2 py-3 mb-3 text-center">
                     <i class="fas fa-user size-1"></i>
-                </div>
-                <div class="ps-5">
-                    <div>
+                    <div class="pt-4 fw-bold">
+                        {% if stagiaire.handicap != null %}
+                            <i class="fa-solid fa-wheelchair"></i>
+                        {% endif %}
                         {{ stagiaire.firstName }} {{ stagiaire.lastName }}
                     </div>
-                <div class="ps-5">
-                    {% if ask.handicap != null %}
-                        Situation de handicap
-                    {% endif %}
-                </div>
-            </li>
+                 </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 
     <div class="text-end">
         <a class="btn btn-success rounded-corners" href='/demande-de-formation?instance={{ instance }}&step=5'>

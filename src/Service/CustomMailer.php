@@ -21,15 +21,11 @@ class CustomMailer
 {
     private $mailer;
     private $router;
-    private $asanaManager;
-    private $twig;
 
-    public function __construct(TransportInterface $mailer, RouterInterface $router, AsanaManager $asana, Environment $twig)
+    public function __construct(TransportInterface $mailer, RouterInterface $router)
     {
         $this->mailer = $mailer;
         $this->router = $router;
-        $this->asanaManager = $asana;
-        $this->twig = $twig;
     }
 
     /***
@@ -50,31 +46,44 @@ class CustomMailer
             $prerequisites = json_decode($ask->getPrerequisites(), true);
         }
 
-        $to = 'barbotinleane@gmail.com';
         //$to = 'formation@lagoon-piscines.com';
-        $subject = 'Nouvelle demande de formation !';
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-        $content = $this->twig->render('email/email_ask.html.twig', [
-            'ask' => $ask,
-            'stagiaires' => $stagiaires,
-            'prerequisites' => $prerequisites,
-            'status' => $status,
-        ]);
+        $email = (new TemplatedEmail())
+            ->from('form@lagoon-formations.com')
+            ->to('barbotinleane@gmail.com')
+            ->subject('Nouvelle demande de formation !')
+            ->htmlTemplate('email/email_ask.html.twig')
+            ->context([
+                'ask' => $ask,
+                'stagiaires' => $stagiaires,
+                'prerequisites' => $prerequisites,
+                'status' => $status,
+            ])
+        ;
 
-        mail($to, $subject, $content, implode("\r\n", $headers));
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            return new RedirectResponse($this->router->generate('app_404_error'));
+        }
     }
 
     public function sendProjectAskMail(ProjectAsk $projectAsk) {
-        $to = 'barbotinleane@gmail.com';
         //$to = 'devislagoon@gmail.com';
-        $subject = 'Nouvelle demande de devis !';
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-        $content = $this->twig->render('email/email_project_ask.html.twig', [
-            'projectAsk' => $projectAsk,
-        ]);
 
-        mail($to, $subject, $content, implode("\r\n", $headers));
+        $email = (new TemplatedEmail())
+            ->from('form@lagoon-formations.com')
+            ->to('barbotinleane@gmail.com')
+            ->subject('Nouvelle demande de devis !')
+            ->htmlTemplate('email/email_project_ask.html.twig')
+            ->context([
+                'projectAsk' => $projectAsk,
+            ])
+        ;
+
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            return new RedirectResponse($this->router->generate('app_404_error'));
+        }
     }
 }

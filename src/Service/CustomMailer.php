@@ -21,11 +21,13 @@ class CustomMailer
 {
     private $mailer;
     private $router;
+    private $twig;
 
-    public function __construct(TransportInterface $mailer, RouterInterface $router)
+    public function __construct(TransportInterface $mailer, RouterInterface $router, Environment $twig)
     {
         $this->mailer = $mailer;
         $this->router = $router;
+        $this->twig = $twig;
     }
 
     /***

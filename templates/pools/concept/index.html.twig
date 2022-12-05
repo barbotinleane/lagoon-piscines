@@ -18,59 +18,65 @@
 {% endblock %}
 
 {% block body %}
-    <div id="corps" class="mt-5 container-fluid">
-        <div class="row py-5 px-none px-md-4 px-lg-5 titre-concept">
-            <div class="text-title">
-                <h1 class="baskerville size-1">Le procédé de construction des piscines LAGOON&reg;</h1>
+    <div id="corps">
+        <div class="row py-5 px-none px-md-4 px-lg-5">
+            <div class="my-5 text-dark">
+                <h1 class="inter-black size-1 pt-5">Le procédé de construction des piscines LAGOON&reg;</h1>
                 <p>
-                    Découvrez ici le procédé de construction des piscines écologiques LAGOON&reg; et ses avantages par rapport aux piscines
-                    traditionnelles. <br>
+                    Découvrez ici le procédé de construction des piscines écologiques LAGOON&reg; et ses avantages par
+                    rapport aux piscines traditionnelles. <br>
                     Déjà convaincu ? Vous pouvez dès maintenant cliquer sur le bouton ci-dessous.
                 </p>
-                <a
-                        class="btn btn-blue"
-                        href="{{ path('app_project') }}"
-                >
+                <a class="btn btn-yellow rounded-corners"
+                   href="{{ path('app_project') }}">
                     <i class="fa fa-play" aria-hidden="true"></i>
                     &nbsp;Je demande un devis
                 </a>
             </div>
         </div>
 
-        <div class="row bg-dark section text-light">
-            <div class="row py-5 align-items-center">
-                <div class="col-12 col-md-6 p-none p-sm-1 p-md-3 bg-shape-blue1">
+        <div class="row bg-dark text-light">
+            <div class="row py-5 align-items-center g-0">
+                <div class="col-12 col-md-5 g-0">
                     <picture>
-                        <source srcset="{{ asset('build/images/unique.webp') }}" type="image/webp" class="w-75">
-                        <source srcset="{{ asset('build/images/unique.jpg') }}" type="image/jpeg" class="w-75">
-                        <img src="{{ asset('build/images/unique.jpg') }}" alt="Une plage LAGOON unique et son eau claire" class="w-75">
+                        <source srcset="{{ asset('build/images/unique.webp') }}" type="image/webp">
+                        <source srcset="{{ asset('build/images/unique.jpg') }}" type="image/jpeg">
+                        <img src="{{ asset('build/images/unique.jpg') }}"
+                             alt="Une plage LAGOON unique et son eau claire"
+                             class="w-100">
                     </picture>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-7 section ps-0">
                     <div class="w-75 mx-auto my-5">
-                        <h2 class="baskerville size-3">Un système breveté pour la répartition de l'eau</h2>
+                        <h2 class="inter-black size-3">
+                            Un système <span class="underline-blue">breveté</span> pour la répartition de l'eau
+                        </h2>
                         <p>
-                            Le système unique SORGIVA, intégré dans la construction des piscines écologiques LAGOON®, réduit les points
-                            de stagnation de l'eau en permettant une parfaite répartition de celle-ci dans le bassin.
-                            Cela limite l'apparition d'algues et facilite ainsi son entretien.
+                            Le système unique SORGIVA, intégré dans la construction des piscines écologiques LAGOON®,
+                            réduit les points de stagnation de l'eau en permettant une parfaite répartition de celle-ci
+                            dans le bassin. Cela limite l'apparition d'algues et facilite ainsi son entretien.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="row py-5 align-items-center">
-                <div class="col-12 col-md-6 order-md-2 py-4 bg-shape-yellow1">
+            <div class="row py-5 align-items-center g-0">
+                <div class="col-12 col-md-6 order-md-2 py-4 g-0">
                     <picture>
-                        <source srcset="{{ asset('build/images/pmr.webp') }}" type="image/webp" class="w-75">
-                        <source srcset="{{ asset('build/images/pmr.jpg') }}" type="image/jpeg" class="w-75">
-                        <img src="{{ asset('build/images/pmr.jpg') }}" alt="Une piscine lagoon écologique avec rochers et une eau bleutée claire" class="w-75">
+                        <source srcset="{{ asset('build/images/pmr.webp') }}" type="image/webp">
+                        <source srcset="{{ asset('build/images/pmr.jpg') }}" type="image/jpeg">
+                        <img src="{{ asset('build/images/pmr.jpg') }}"
+                             alt="Une piscine lagoon écologique avec rochers et une eau bleutée claire"
+                             class="w-100">
                     </picture>
                 </div>
 
-                <div class="col-12 col-md-6 right order-md-1">
-                    <div class="w-75 mx-auto my-5">
-                        <h2 class="baskerville size-3">Une filtration biologique</h2>
+                <div class="col-12 col-md-6 right order-md-1 section pe-0">
+                    <div class="w-75 mx-auto my-5 text-end">
+                        <h2 class="inter-black size-3">
+                            Une filtration <span class="underline-blue">biologique</span>
+                        </h2>
                         <p>
                             LAGOON® associe dans la construcion de ses piscines écologiques le système breveté SORGIVA
                             à la filtration nouvelle génération BIO-UV&reg;.
@@ -79,45 +85,52 @@
                 </div>
             </div>
 
-            <div class="row py-5 align-items-center">
-                <div class="col-12 col-md-7 py-4 bg-shape-blue2">
+            <div class="row py-5 align-items-center g-0">
+                <div class="col-12 col-md-4 py-4 g-0">
                     <picture>
-                        <source srcset="{{ asset('build/images/entretien.webp') }}" type="image/webp" class="w-75">
-                        <source srcset="{{ asset('build/images/entretien.jpg') }}" type="image/jpeg" class="w-75">
-                        <img src="{{ asset('build/images/entretien.jpg') }}" alt="Un bassin naturel LAGOON en résine avec un rocher décoratif" class="w-75">
+                        <source srcset="{{ asset('build/images/entretien.webp') }}" type="image/webp">
+                        <source srcset="{{ asset('build/images/entretien.jpg') }}" type="image/jpeg">
+                        <img src="{{ asset('build/images/entretien.jpg') }}"
+                             alt="Un bassin naturel LAGOON en résine avec un rocher décoratif"
+                             class="w-100">
                     </picture>
                 </div>
 
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-8 section ps-0">
                     <div class="w-75 mx-auto my-5">
-                        <h2 class="baskerville size-3">Des matériaux écologiques</h2>
+                        <h2 class="inter-black size-3">
+                            Des matériaux <span class="underline-blue">écologiques</span>
+                        </h2>
                         <p>
-                            Le procédé de construction des piscines naturelles LAGOON® est non invasif (sans béton, feraille...)
-                            pour votre jardin. Une fois le terrassement effectué, nous utilisons uniquement des matériaux
-                            recyclables tels que l'EPDM, ou encore un revêtement à base de résine brevetée LAGOON® by Sorgiva.
+                            Le procédé de construction des piscines naturelles LAGOON® est non invasif (sans béton,
+                            feraille...) pour votre jardin. Une fois le terrassement effectué, nous utilisons uniquement
+                            des matériaux recyclables tels que l'EPDM, ou encore un revêtement à base de résine brevetée
+                            LAGOON® by Sorgiva.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row section">
+        <div class="row section pb-0 mb-0">
             <div class="col-lg-10 mx-auto mt-5">
                 <h2 class="text-center baskerville size-2">La construction d'une piscine naturelle étape par étape</h2>
                 <ul class="timeline-dark pb-5">
-                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue1 bg-shape-all">
-                        <div class="row align-items-center">
+                    <li class="timeline-item-dark d-flex align-items-center">
+                        <div class="row align-items-center justify-content-center">
                             <div class="col-12 col-sm-5 text-center">
                                 <picture>
-                                    <source srcset="{{ asset('build/images/modelage_forme.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
-                                    <source srcset="{{ asset('build/images/modelage_forme.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
-                                    <img src="{{ asset('build/images/modelage_forme.jpg') }}" alt="Après terrassement, modelage de l'exacavation, de la forme du bassin naturel." class="m-3 m-sm-5 w-75">
+                                    <source srcset="{{ asset('build/images/modelage_forme.webp') }}" type="image/webp">
+                                    <source srcset="{{ asset('build/images/modelage_forme.jpg') }}" type="image/jpeg">
+                                    <img src="{{ asset('build/images/modelage_forme.jpg') }}"
+                                         alt="Après terrassement, modelage de l'exacavation, de la forme du bassin naturel."
+                                         class="w-100 rounded-corners">
                                 </picture>
                             </div>
-                            <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">1</div>
-                            <div class="col-12 col-sm-6 p-none p-sm-2 text-center">
-                                <h3 class="baskerville">Modelage du bassin</h3>
-                                <p class="size-4 p-3">
+                            <div class="col-12 col-sm-1 size-big baskerville text-center">1</div>
+                            <div class="col-12 col-sm-6 p-none p-sm-2 ps-sm-5 text-center text-sm-start">
+                                <h3 class="inter-black">Modelage du bassin</h3>
+                                <p>
                                     Une fois le terrassement exécuté, nous modelons la forme du bassin de baignade
                                     à votre convenance puis nous procédons à l'installation du réseau primaire de
                                     distribution d'eau.
@@ -126,98 +139,100 @@
                         </div>
                     </li>
 
-                    <li class="timeline-item-dark row align-items-center bg-shape-yellow1 bg-shape-all">
-                        <div class="col-12 col-sm-5 text-center">
-                            <picture>
-                                <source srcset="{{ asset('build/images/epdm.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
-                                <source srcset="{{ asset('build/images/epdm.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
-                                <img src="{{ asset('build/images/epdm.jpg') }}" alt="Pose d'une membrane d'étanchéité epdm sur la totalité du bassin" class="m-3 m-sm-5 w-75">
-                            </picture>
-                        </div>
-                        <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">2</div>
-                        <div class="col-12 col-sm-6 p-none p-sm-2 text-center">
-                            <h3 class="baskerville">Pose de la membrane d'étancheité EPDM</h3>
-                            <p>
-                                L'EPDM est une matière très robuste, réputée pour son élasticité et sa résistance.
-                                Dans le cas des piscines LAGOON&reg;, cette membrane a pour but d'absorber les mouvements du
-                                terrain tout en maintenant une étanchéité parfaite.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="timeline-item-dark d-flex align-items-center bg-shape-blue2 bg-shape-all">
-                        <div class="row align-items-center">
+                    <li class="timeline-item-dark d-flex align-items-center">
+                        <div class="row align-items-center justify-content-center">
                             <div class="col-12 col-sm-5 text-center">
                                 <picture>
-                                    <source srcset="{{ asset('build/images/reseau_secondaire.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
-                                    <source srcset="{{ asset('build/images/reseau_secondaire.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
-                                    <img src="{{ asset('build/images/reseau_secondaire.jpg') }}" alt="Une personne travaillant sur une piscine lagoon pour poser un tuyau de distribution d'eau" class="m-3 m-sm-5 w-75">
+                                    <source srcset="{{ asset('build/images/epdm.webp') }}" type="image/webp">
+                                    <source srcset="{{ asset('build/images/epdm.jpg') }}" type="image/jpeg">
+                                    <img src="{{ asset('build/images/epdm.jpg') }}"
+                                         alt="Pose d'une membrane d'étanchéité epdm sur la totalité du bassin"
+                                         class="w-100 rounded-corners">
                                 </picture>
                             </div>
-                            <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">3</div>
-                            <div class="col-12 col-sm-6 p-none p-sm-2 text-center">
-                                <h3 class="baskerville">Installation du réseau de distribution d'eau</h3>
-                                <p class="size-4 p-3">
-                                    Installation du réseau secondaire de distribution d'eau dans tout le bassin
-                                    selon le système breveté LAGOON&reg; by Sorgiva. Cette étape permet d'éviter les points
-                                    de stagnation possibles de l'eau (plages immergée, fond de bassin, contour de rocher immergé...).
+                            <div class="col-12 col-sm-1 size-big baskerville text-center">2</div>
+                            <div class="col-12 col-sm-6 p-none p-sm-2 ps-sm-5 text-center text-sm-start">
+                                <h3 class="inter-black">Pose de la membrane d'étancheité EPDM</h3>
+                                <p>
+                                    L'EPDM est une matière très robuste, réputée pour son élasticité et sa résistance.
+                                    Dans le cas des piscines LAGOON&reg;, cette membrane a pour but d'absorber les mouvements du
+                                    terrain tout en maintenant une étanchéité parfaite.
                                 </p>
                             </div>
                         </div>
                     </li>
 
-                    <li class="timeline-item-dark d-flex align-items-center bg-shape-yellow2 bg-shape-all">
+                    <li class="timeline-item-dark d-flex align-items-center">
                         <div class="row align-items-center">
                             <div class="col-12 col-sm-5 text-center">
                                 <picture>
-                                    <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp" class="m-3 m-sm-5 w-75">
-                                    <source srcset="{{ asset('build/images/form-1.jpg') }}" type="image/jpeg" class="m-3 m-sm-5 w-75">
-                                    <img src="{{ asset('build/images/form-1.jpeg') }}" alt="Homme appliquant de la résine sur la pente d'une piscine écologique à l'aide d'une taloche" class="m-3 m-sm-5 w-75">
+                                    <source srcset="{{ asset('build/images/reseau_secondaire.webp') }}" type="image/webp">
+                                    <source srcset="{{ asset('build/images/reseau_secondaire.jpg') }}" type="image/jpeg">
+                                    <img src="{{ asset('build/images/reseau_secondaire.jpg') }}"
+                                         alt="Une personne travaillant sur une piscine lagoon pour poser un tuyau de distribution d'eau"
+                                         class="w-100 rounded-corners">
                                 </picture>
                             </div>
-                            <div class="col-12 col-sm-1 overlay-picture size-big baskerville text-center">4</div>
-                            <div class="col-12 col-sm-6 p-none p-sm-2 text-center">
-                                <h3 class="baskerville">Application du revêtement</h3>
-                                <p class="size-4 p-3">
+                            <div class="col-12 col-sm-1 size-big baskerville text-center">3</div>
+                            <div class="col-12 col-sm-6 p-none p-sm-2 ps-sm-5 text-center text-sm-start">
+                                <h3 class="inter-black">Installation du réseau de distribution d'eau</h3>
+                                <p>
+                                    Installation du réseau secondaire de distribution d'eau dans tout le bassin
+                                    selon le système breveté LAGOON&reg; by Sorgiva. Cette étape permet d'éviter les points
+                                    de stagnation possibles de l'eau (plages immergée, fond de bassin, contour de rocher
+                                    immergé...).
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item-dark d-flex align-items-center">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-sm-5 text-center">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp">
+                                    <source srcset="{{ asset('build/images/form-1.jpg') }}" type="image/jpeg">
+                                    <img src="{{ asset('build/images/form-1.jpeg') }}"
+                                         alt="Homme appliquant de la résine sur la pente d'une piscine écologique à l'aide d'une taloche"
+                                         class="w-100 rounded-corners">
+                                </picture>
+                            </div>
+                            <div class="col-12 col-sm-1 size-big baskerville text-center">4</div>
+                            <div class="col-12 col-sm-6 p-none p-sm-2 ps-sm-5 text-center text-sm-start">
+                                <h3 class="inter-black">Application du revêtement</h3>
+                                <p>
                                     Positionnement des aménagements décoratifs : rochers, cascades, plantes.. Ensuite,
-                                    nous procédons à l'application d'un revêtement bi-composant en quartz et marbre mélangé à la résine
-                                    brevetée LAGOON&reg; by Sorgiva.
+                                    nous procédons à l'application d'un revêtement bi-composant en quartz et marbre
+                                    mélangé à la résine brevetée LAGOON&reg; by Sorgiva.
                                 </p>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
+        </div>
 
-            <div class="row pb-5 align-items-center">
-                <div class="col-12 col-sm-7 text-center">
-                    <picture>
-                        <source srcset="{{ asset('build/images/piscine_vue_haute.webp') }}" type="image/webp" class="w-100">
-                        <source srcset="{{ asset('build/images/piscine_vue_haute.jpg') }}" type="image/jpeg" class="w-100">
-                        <img src="{{ asset('build/images/piscine_vue_haute.jpg') }}" alt="Vue de drone du bassin d'une piscine naturelle lagoon en résine avec rochers et escaliers" class="w-100 rounded-circle">
-                    </picture>
-                </div>
-                <div class="col-12 col-sm-5 d-flex">
-                        <div class="size-3 baskerville ps-5">
-                            Mise en eau quelques jours plus tard et...
-                            <span class="size-2 text-blue">profitez !</span>
-                        </div>
+        <div class="row p-0 p-sm-5 bg-pool align-items-center inter-black">
+            <div class="section">
+                <div class="size-3 ps-2 ps-sm-5">
+                    Mise en eau quelques jours plus tard et...
+                    <br>
+                    <div class="size-2 text-yellow underlined inter-black text-end">...profitez !</div>
                 </div>
             </div>
         </div>
 
-        <div class="row big-spacing bg-yellow-clear">
-            <p class="baskerville size-3 pb-5">
-                Découvrez quelques uns de nos plus beaux projets de piscines écologiques déjà réalisés
+        <div class="row big-spacing bg-yellow">
+            <p class="size-3 pb-5">
+                Découvrez quelques uns de <span class="underline-blue inter-black">nos plus beaux projets</span> de
+                piscines écologiques déjà réalisés.
             </p>
 
             <div class="m-2 text-center">
-                <a
-                        type="button"
-                        class="btn btn-yellow spoke"
-                        href="{{ path('app_gallery') }}"
-                >
-                    <i class="fa fa-play" aria-hidden="true"></i>
+                <a type="button"
+                   class="btn btn-lg btn-dark rounded-corners"
+                   href="{{ path('app_gallery') }}">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
                     &nbsp;Voir la galerie
                 </a>
             </div>

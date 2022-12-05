@@ -18,10 +18,12 @@
 {% endblock %}
 
 {% block body %}
-    <div id="corps" class="mt-5 container-fluid">
-        <div class="row py-5 px-none px-md-4 px-lg-5 titre-formation">
+    <div id="corps" class="mt-5">
+        <div class="row py-5 px-none px-md-4 px-lg-5">
             <div class="text-title">
-                <h1 class="baskerville size-1">Formation installation de piscine écologique de type LAGOON&reg;</h1>
+                <h1 class="inter-black size-1">
+                    Formation installation de piscine écologique de type LAGOON&reg;
+                </h1>
                 <div class="w-75">
                     <p>
                         Vous êtes paysagiste, applicateur indépendant, maçon, chef de chantiers, chef d'entreprise,
@@ -33,17 +35,15 @@
                         entrez dans un marché en pleine expansion !
                     </p>
                 </div>
-                <a
-                        class="btn btn-blue btn-lg"
-                        href="{{ path('app_ask') }}"
-                >
+                <a class="btn btn-blue btn-lg rounded-corners"
+                   href="{{ path('app_ask') }}">
                     <i class="fa fa-play" aria-hidden="true"></i>
                     &nbsp;Faire une demande de formation
                 </a>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row bg-dark text-white">
             <div class="col-12 col-md-8 p-2 p-md-5">
                 <div class="d-flex align-items-center">
                     <div class="fs-1 pe-3">
@@ -72,14 +72,39 @@
                 </div>
             </div>
             <div class="col-12 col-md-4 p-2 p-md-5">
-                <div class="bg-dark text-light rounded-corners p-5 h-100">
-                    <p><i class="fas fa-clock"></i>&nbsp;4 jours max.</p>
-                    <p><i class="fas fa-users"></i>&nbsp;< 8 personnes</p>
+                <div class="bg-yellow text-dark rounded-corners p-5 fw-bold">
+                    <table>
+                        <tr>
+                            <td>
+                                <i class="fas fa-clock"></i>
+                            </td>
+                            <td>
+                                &nbsp;4 jours max.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fas fa-users"></i>
+                            </td>
+                            <td>
+                                &nbsp;< 8 personnes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top">
+                                <i class="fas fa-map"></i>
+                            </td>
+                            <td>
+                                &nbsp;Au centre de formation LAGOON&reg; à
+                                <span class="fst-italic"> Vence, 06</span>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <div class="row py-5">
+        <div class="row bg-dark py-5">
             <div class="col-12 col-sm-5">
                 <picture>
                     <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp" class="">
@@ -123,7 +148,7 @@
                             AGEFICE</a>, <a href="https://vivea.fr/" target="_blank" class="text-darkblue">Vivea</a>, <a href="https://www.pole-emploi.fr/accueil/" target="_blank" class="text-darkblue">Pôle Emploi</a>...).
                     </p>
                     <div class="w-adaptative mx-auto bg-blue d-flex flex-column">
-                        <div class="d-flex align-items-center justify-content-around bg-white">
+                        <div class="d-flex align-items-center justify-content-around">
                             <picture>
                                 <source srcset="{{ asset('build/images/datadock.webp') }}" type="image/webp" class="img-size">
                                 <source srcset="{{ asset('build/images/datadock.png') }}" type="image/png" class="img-size">
@@ -147,7 +172,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center bg-white justify-content-around pt-3">
+                        <div class="d-flex align-items-center justify-content-around pt-3">
                             <a
                                     href="https://candidat.pole-emploi.fr/formations/detail/4158608/true"
                                     target="_blank"
@@ -155,18 +180,24 @@
                                 <picture>
                                     <source srcset="{{ asset('build/images/logo_pole_emploi.webp') }}" type="image/webp" class="img-size">
                                     <source srcset="{{ asset('build/images/logo_pole_emploi.png') }}" type="image/png" class="img-size">
-                                    <img src="{{ asset('build/images/logo_pole_emploi.png') }}" alt="Logo pole emploi indiquant que la formation est finançable par pole emploi" class="img-size">
+                                    <img src="{{ asset('build/images/logo_pole_emploi.png') }}"
+                                         alt="Logo pole emploi indiquant que la formation est finançable par pole emploi"
+                                         class="img-size bg-white">
                                 </picture>
                             </a>
                             <picture>
                                 <source srcset="{{ asset('build/images/logo_vivea.webp') }}" type="image/webp" class="img-size">
                                 <source srcset="{{ asset('build/images/logo_vivea.png') }}" type="image/png" class="img-size">
-                                <img src="{{ asset('build/images/logo_vivea.png') }}" alt="Logo vivea indiquant que la formation est finançable par pole emploi" class="img-size">
+                                <img src="{{ asset('build/images/logo_vivea.png') }}"
+                                     alt="Logo vivea indiquant que la formation est finançable par vivea"
+                                     class="img-size">
                             </picture>
                             <picture>
                                 <source srcset="{{ asset('build/images/ocapiat_logo.webp') }}" type="image/webp" class="img-size">
                                 <source srcset="{{ asset('build/images/ocapiat_logo.png') }}" type="image/png" class="img-size">
-                                <img src="{{ asset('build/images/ocapiat_logo.png') }}" alt="Logo ocapiat indiquant que la formation est finançable par pole emploi" class="img-size">
+                                <img src="{{ asset('build/images/ocapiat_logo.png') }}"
+                                     alt="Logo ocapiat indiquant que la formation est finançable par ocapiat"
+                                     class="img-size bg-white">
                             </picture>
                         </div>
                     </div>
@@ -179,21 +210,21 @@
                 <h2 class="text-center baskerville size-2 mb-5">Nos partenaires sont satisfaits de notre formation</h2>
 
                 <div class="col-12 col-sm-4 text-center">
-                    <div class="baskerville size-1">
+                    <div class="inter-black size-1">
                         85%
                     </div>
                     Taux d'agrément entreprise
                 </div>
 
                 <div class="col-12 col-sm-4 text-center">
-                    <div class="baskerville size-1">
+                    <div class="inter-black size-1">
                         100%
                     </div>
                     Taux de réussite individuelle
                 </div>
 
                 <div class="col-12 col-sm-4 text-center">
-                    <div class="baskerville size-1">
+                    <div class="inter-black size-1">
                         95%
                     </div>
                     Taux de satisfaction
@@ -287,25 +318,25 @@
                 </picture>
             </div>
             <div class="col-12 col-sm-8">
-                <h2 class="baskerville size-2">
-                    Prêts à démarrer votre nouveau métier ?
+                <h2 class="inter-black size-2">
+                    Prêts à démarrer votre <span class="underline-blue">nouveau métier</span> ?
                 </h2>
-                <div class="text-center">
-                    <a
-                            type="button"
-                            class="btn btn-blue btn-lg"
-                            href="{{ path('app_ask') }}"
-                    >
-                        <i class="fa fa-play" aria-hidden="true"></i>
-                        &nbsp;Faites une demande de formation en ligne
-                    </a>
+                <div class="pt-5 d-flex justify-content-end">
+                    <div>
+                        <a type="button"
+                           class="btn btn-yellow btn-lg rounded-corners"
+                           href="{{ path('app_ask') }}">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                            &nbsp;Faites une demande de formation en ligne
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row section d-flex justify-content-around align-items-center">
+        <div class="row section d-flex justify-content-around align-items-center bg-yellow">
             <div class="col-12 col-sm-8 order-2 order-sm-1 pt-4">
-                <h3 class="baskerville size-3">
+                <h3 class="inter-black size-3">
                     Envie d'en savoir plus ?
                 </h3>
                 <p>
@@ -315,7 +346,7 @@
                 <div>
                     <button
                             type="button"
-                            class="btn btn-dark btn-lg"
+                            class="btn btn-dark btn-lg rounded-corners"
                             data-bs-toggle="modal"
                             data-bs-target="#documentation"
                             style="background-color:#212529; color:white"

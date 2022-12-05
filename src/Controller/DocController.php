@@ -40,12 +40,12 @@ class DocController extends AbstractController
         ]);
     }
 
-    #[Route('/documentation/installation-bassin-paysager', name: 'app_doc_bassin')]
+    #[Route('/documentation/realisation-piscine-bassin-ecologique', name: 'app_doc_bassin')]
     public function bassin(): Response
     {
         return $this->render('formation/presentation/doc/index.html.twig', [
             'fileName' => 'bassin',
-            'name' => 'Programme de la formation Installation de Bassin Paysager de type Lagoon'
+            'name' => 'Programme de la formation Réalisation de Piscine ou Bassin écologique de type Lagon'
         ]);
     }
 

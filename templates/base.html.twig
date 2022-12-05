@@ -17,10 +17,10 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="ibm-plex-regular">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-clear p-0">
-                <div class="container">
+    <body class="container-fluid">
+        <header class="row">
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark-clear p-0">
+                <div class="container-fluid inter-semi-bold">
                     <a class="navbar-brand" href="{{ path('app_home') }}">
                         <img src="{{ asset('build/images/logo.svg') }}"
                              alt="Logo lagoon piscines"
@@ -44,13 +44,6 @@
 
                     <div class="collapse navbar-collapse justify-content-between text-start" id="navbarNav">
                         <div class="nav navbar-nav pull-left">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_home') }}">
-                                    <span class="{% if app.request.attributes.get('_route') == 'app_home' %}fw-bold underline-blue{% endif %}">
-                                        Accueil
-                                    </span>
-                                </a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
                                    href="#" id="navbarDropdownSwimmingPools"
@@ -83,11 +76,13 @@
                                     </li>
                                 </ul>
                             </li>
-                            <a class="nav-link" href="{{ path('app_formation') }}">
-                                <span class="{% if (app.request.attributes.get('_route') == 'app_formation') or (app.request.attributes.get('_route') == 'app_ask') %}fw-bold underline-blue{% endif %}">
-                                    Formation
-                                </span>
-                            </a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_formation') }}">
+                                    <span class="{% if (app.request.attributes.get('_route') == 'app_formation') or (app.request.attributes.get('_route') == 'app_ask') %}fw-bold underline-blue{% endif %}">
+                                        Formation
+                                    </span>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"
                                    href="#" id="navbarDropdownAboutUs"
@@ -123,7 +118,8 @@
                         </div>
                         <div>
                             <a class="btn rounded-corners btn-yellow" href="{{ path('app_project') }}#devis">
-                                Demander un devis
+                                <i class="fa fa-arrow-right"></i>
+                                &nbsp;Demander un devis
                             </a>
                         </div>
                     </div>
@@ -131,8 +127,8 @@
             </nav>
         </header>
         {% block body %}{% endblock %}
-        <footer class="bg-dark text-light pad">
-            <div class="row py-5">
+        <footer class="row bg-dark text-light">
+            <div class="row py-5 inter-black fs-5">
                 <div class="col-5">
                     <ul style="list-style:none">
                         <li><a
@@ -160,8 +156,13 @@
                     <ul style="list-style:none">
                         <li><a href="{{ path('app_about_us') }}" class="blank-link">Qui sommes nous ?</a></li>
                         <li>
-                            <a href="{{ path('app_project') }}" class="blank-link">
-                                Votre projet piscine LAGOON&reg; pas-à-pas expliqué
+                            <a href="{{ path('app_faq') }}" class="blank-link">
+                                FAQ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_news') }}" class="blank-link">
+                                Actualités
                             </a>
                         </li>
                         <li>

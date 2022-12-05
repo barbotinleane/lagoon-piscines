@@ -31,7 +31,7 @@ class SessionsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $formationSessionsRepository->add($formationSession, true);
 
-            return $this->redirectToRoute('app_dashboard_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_sessions_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('dashboard/sessions/new.html.twig', [
@@ -57,7 +57,7 @@ class SessionsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $formationSessionsRepository->add($formationSession, true);
 
-            return $this->redirectToRoute('app_dashboard_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_sessions_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('dashboard/sessions/edit.html.twig', [
@@ -73,6 +73,6 @@ class SessionsController extends AbstractController
             $formationSessionsRepository->remove($formationSession, true);
         }
 
-        return $this->redirectToRoute('app_dashboard_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_sessions_index', [], Response::HTTP_SEE_OTHER);
     }
 }

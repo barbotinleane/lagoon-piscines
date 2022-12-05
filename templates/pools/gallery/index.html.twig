@@ -17,10 +17,10 @@
 {% endblock %}
 
 {% block body %}
-    <div id="corps" class="mt-5 container-fluid">
+    <div id="corps" class="mt-5">
         <div class="row py-5 px-none px-md-4 px-lg-5">
-            <div class="text-title">
-                <h1 class="baskerville size-1">Galerie</h1>
+            <div class="">
+                <h1 class="inter-black size-1">Galerie</h1>
                 <p>
                     Découvrez quelques uns de nos plus beaux projets réalisés et voyez à quel point chaque
                     piscine LAGOON est unique. Laissez vous inspirer !
@@ -330,7 +330,7 @@
         <div class="row section mx-xs-none bg-dark text-light">
             <div>
                 <p class="text-uppercase">Et parce que quand il y en a plus, il y en a encore...</p>
-                <h2 class="text-center baskerville size-2 py-4">Découvrez quelques projets hors normes !</h2>
+                <h2 class="text-center baskerville size-2 py-4">Découvrez quelques projets <span class="underlined size-2">hors normes !</span></h2>
             </div>
 
             <div class="">
@@ -402,18 +402,16 @@
             </div>
         </div>
 
-        <div class="big-spacing">
-            <div class="section">
+        <div class="row big-spacing bg-yellow">
+            <div class="">
                 <p class="baskerville size-3 pb-5">
-                    Et vous alors ? Quel est <span class="text-blue">votre</span> rêve ?
+                    Et vous alors ? Quel est <span class="underline-blue inter-black">votre rêve</span> ?
                 </p>
 
                 <div class="m-2 text-center">
-                    <a
-                            type="button"
-                            class="btn btn-yellow"
-                            href="{{ path('app_project') }}"
-                    >
+                    <a type="button"
+                       class="btn btn-lg btn-dark rounded-corners"
+                       href="{{ path('app_project') }}">
                         <i class="fa fa-play" aria-hidden="true"></i>
                         &nbsp;Composer mon rêve
                     </a>

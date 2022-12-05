@@ -1,4 +1,38 @@
 /* xs */
+.bg-pool-home {
+  background-image: url(../../../photos/piscine_rochers.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:right top;
+
+  @media (min-width: 768px) {
+    background-image: url(../../../photos/piscine_rochers_landscape.jpg);
+    background-size: cover;
+  }
+
+  > div {
+    width: 80%;
+    font-size: 3em;
+    line-height: 1.3em;
+
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+
+    @media (min-width: 992px) {
+      width: 70%;
+    }
+
+    @media (min-width: 1200px) {
+      width: 45%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 45%;
+    }
+  }
+}
+
 .title-responsive {
   top: -90px;
   position: relative;

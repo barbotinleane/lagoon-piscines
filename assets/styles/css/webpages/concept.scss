@@ -1,22 +1,43 @@
 /* xs */
 .titre-concept
 {
-  background-image: url(../../../photos/concept.jpg);
+  background-image: url(../../../photos/piscine_plage_fond.jpg);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position:center top;
   color:rgba(255,255,255,0);
-  margin-top:70px;
+}
+
+.bg-pool {
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 20%), url(../../../photos/piscine_vue_haute.jpg) no-repeat center;
+  background-size: cover;
+  height: 400px;
+  margin-top: -50px;
+}
+
+.titre {
+  padding-top: 100px;
+}
+
+@media (min-width: 430px) {
+  .titre {
+    padding-top: 150px;
+  }
 }
 
 /* sm */
 @media (min-width: 768px) {
   .titre-concept
   {
-    background-image: url(../../../photos/conceptpetit.jpg);
+    background-image: url(../../../photos/piscine_plage_fond.jpg);
     background-repeat: no-repeat;
     background-size: 280px 172px;
     background-position:right center;
+  }
+
+  .bg-pool {
+    background-size: 100% auto;
+    height: 450px;
   }
 }
 
@@ -24,11 +45,14 @@
 @media (min-width: 992px) {
   .titre-concept
   {
-    background-image: url(../../../photos/conceptpetit.jpg);
+    background-image: url(../../../photos/piscine_plage_fond.jpg);
     background-repeat: no-repeat;
     background-size: auto 60%;
     background-position:right center;
-    margin-top:50px;
+  }
+
+  .bg-pool {
+    height: 600px;
   }
 }
 
@@ -40,7 +64,10 @@
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position:right center;
-    margin-top:90px;
+  }
+
+  .bg-pool {
+    height: 720px;
   }
 }
 
@@ -52,6 +79,10 @@
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position:right center;
-    margin-top:90px;
+  }
+
+  .bg-pool {
+    height: 800px;
   }
 }
+

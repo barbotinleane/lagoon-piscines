@@ -65,22 +65,15 @@ class CustomMailer
     }
 
     public function sendProjectAskMail(ProjectAsk $projectAsk) {
+        $to = 'barbotinleane@gmail.com';
         //$to = 'devislagoon@gmail.com';
+        $subject = 'Nouvelle demande de devis !';
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        $content = $this->twig->render('email/email_project_ask.html.twig', [
+            'projectAsk' => $projectAsk,
+        ]);
 
-        $email = (new TemplatedEmail())
-            ->from('form@lagoon-formations.com')
-            ->to('barbotinleane@gmail.com')
-            ->subject('Nouvelle demande de devis !')
-            ->htmlTemplate('email/email_project_ask.html.twig')
-            ->context([
-                'projectAsk' => $projectAsk,
-            ])
-        ;
-
-        try {
-            $this->mailer->send($email);
-        } catch (TransportExceptionInterface $e) {
-            return new RedirectResponse($this->router->generate('app_404_error'));
-        }
+        mail($to, $subject, $content, implode("\r\n", $headers));
     }
 }

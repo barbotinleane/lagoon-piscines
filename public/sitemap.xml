@@ -8,69 +8,124 @@
 
 
 <url>
-  <loc>https://lagoon-piscines.com/</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/concept</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/procede-construction-piscines</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/galerie</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/galerie</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/votre-projet</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/demande-devis</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/formation</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/formation-installation-piscine-ecologique</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/a-propos-de-nous</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/actualites</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/documentation/rgpd</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/foire-aux-questions</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/a-propos-de-nous</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/login</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/documentation/rgpd</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/demande-de-formation</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/demande-de-formation</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/documentation/charte-qualite</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/documentation/charte-qualite</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/documentation/livret-accueil</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/documentation/livret-accueil</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/documentation/installation-bassin-paysager</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/documentation/realisation-piscine-bassin-ecologique</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/documentation/cgv</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/documentation/cgv</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://lagoon-piscines.com/documentation/reglement-interieur</loc>
-  <lastmod>2022-06-06T10:22:38+00:00</lastmod>
+  <loc>https://www.lagoon-piscines.com/documentation/reglement-interieur</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/actualites/1</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/actualites/2</loc>
+  <lastmod>2022-12-06T14:23:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/build/pdf/RGPD.97297135.pdf</loc>
+  <lastmod>2022-12-06T14:20:39+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/build/pdf/charte_qualite.37182ee6.pdf</loc>
+  <lastmod>2022-12-06T14:20:39+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/build/pdf/livret_accueil.e508ce9e.pdf</loc>
+  <lastmod>2022-12-06T14:20:39+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/build/pdf/bassin.57530783.pdf</loc>
+  <lastmod>2022-12-06T14:20:39+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/build/pdf/conditions_generales_vente.6a4f5189.pdf</loc>
+  <lastmod>2022-12-06T14:20:39+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.lagoon-piscines.com/build/pdf/reglement_interieur.f16fe219.pdf</loc>
+  <lastmod>2022-12-06T14:20:39+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 
 

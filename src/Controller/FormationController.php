@@ -82,13 +82,14 @@ class FormationController extends AbstractController
                         $priceToShow = $priceWhenNumberOfLearnersBigger * $numberOfLearners;
                     }
                 } else if ($flow->getCurrentStepLabel() === 'R') {
-                    $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
+                    $ask = $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
                     $prerequisites = json_decode($ask->getPrerequisites());
                 }
 
                 // form for the next step
                 $form = $flow->createForm();
             } else {
+                $ask->setPrerequisites($_POST['prerequisites']);
                 if ($ask->getStagiaires() !== null) {
                     foreach ($ask->getStagiaires() as $stagiaire) {
                         $em->persist($stagiaire);

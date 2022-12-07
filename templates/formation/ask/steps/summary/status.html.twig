@@ -57,12 +57,14 @@
                         <span class="fw-bold">Identifiant Pôle Emploi :</span>{{ ask.idPoleEmploi }}
                     </div>
                 {% endif %}
-                <div class="fw-bold">Catégorie d'activité : </div>
-                <ul>
-                    {% for activity in ask.activityCategory %}
-                        <li>{{ activity }}</li>
-                    {% endfor %}
-                </ul>
+                {% if ask.activityCategory != null %}
+                    <div class="fw-bold">Catégorie d'activité : </div>
+                    <ul>
+                        {% for activity in ask.activityCategory %}
+                            <li>{{ activity }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
         </div>
         <div class="text-end">

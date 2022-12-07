@@ -17,6 +17,8 @@
         {% endfor %}
     </div>
 
+    <input type="hidden" name="prerequisites" value="{{ prerequisites|json_encode }}"/>
+
     <div class="text-end">
         <a class="btn btn-success rounded-corners"
                 {% if ask.stagiaires == null %}

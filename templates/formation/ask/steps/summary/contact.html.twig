@@ -59,7 +59,7 @@
                 {% if ask.dateOfBirth is defined and ask.dateOfBirth != "" %}
                     <div class="d-flex">
                         <div class="pe-2">
-                            <i class="fa-solid fa-cake-candles"></i>
+                            <i class="fas fa-birthday-cake"></i>
                         </div>
                         <div>
                             {{ ask.dateOfBirth|date("d/m/Y") }}
@@ -70,7 +70,7 @@
                 {% if ask.placeOfBirth is defined and ask.placeOfBirth != "" %}
                     <div class="d-flex">
                         <div class="pe-2">
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
                             {{ ask.placeOfBirth }}

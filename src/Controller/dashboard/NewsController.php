@@ -35,7 +35,7 @@ class NewsController extends AbstractController
             $imageFile = $form->get('image')->getData();
 
             if ($imageFile) {
-                $imageName = $fileUploader->upload($imageFile);
+                $imageName = $fileUploader->upload($imageFile, "/images/news");
                 $new->setImageName($imageName);
             }
 
@@ -64,7 +64,7 @@ class NewsController extends AbstractController
             if ($imageFile) {
                 $oldFilePath = $this->getParameter('images_news_directory').'/'.$oldImage;
                 if(file_exists($oldFilePath)) unlink($oldFilePath);
-                $imageName = $fileUploader->upload($imageFile);
+                $imageName = $fileUploader->upload($imageFile, "/images/news");
                 $new->setImageName($imageName);
             }
 

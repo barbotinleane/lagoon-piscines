@@ -2,7 +2,13 @@
 
 {% block dashboardBody %}
     <div class="row section">
-        <h2 class="text-center py-3">Sessions de formation</h2>
+        <h2 class="text-center py-3 inter-black">Sessions de formation</h2>
+        <div class="text-center">
+            <a class="btn btn-yellow rounded-corners" href="{{ path('app_sessions_new') }}">
+                <i class="fa fa-plus"></i>
+                Ajouter une session
+            </a>
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -25,10 +31,9 @@
                         <td>{{ formation_session.capacity }}</td>
                         <td>
                             <a href="{{ path('app_sessions_edit', {'id': formation_session.id}) }}"
-                               class="btn btn-success"
+                               class="btn btn-success rounded-corners"
                             >
                                 <i class="fa fa-pen"></i>
-                                Modifier
                             </a>
                         </td>
                     </tr>
@@ -41,7 +46,7 @@
             </table>
         </div>
         <div class="text-center">
-            <a class="btn btn-lg btn-blue" href="{{ path('app_sessions_new') }}">
+            <a class="btn btn-yellow rounded-corners" href="{{ path('app_sessions_new') }}">
                 <i class="fa fa-plus"></i>
                 Ajouter une session
             </a>

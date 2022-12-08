@@ -1,0 +1,11 @@
+<form method="post"
+      action="{{ path('app_formation_libelles_delete', {'id': formation_libelle.id}) }}"
+      onsubmit="return confirm('Etes vous sûr de supprimer cette formation ? Attention, cette action est irréversible.');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ formation_libelle.id) }}">
+    <div class="text-center">
+        <button class="btn btn-danger rounded-corners">
+            <i class="fa fa-trash"></i>
+            Supprimer la formation
+        </button>
+    </div>
+</form>

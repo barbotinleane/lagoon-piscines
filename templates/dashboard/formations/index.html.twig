@@ -1,0 +1,65 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+<div class="row section">
+    <h2 class="text-center inter-black py-3">Les formations</h2>
+
+    <div class="text-center py-4">
+        <a class="btn btn-yellow rounded-corners" href="{{ path('app_formation_libelles_new') }}">
+            <i class="fa fa-plus"></i>
+            Ajouter une formation
+        </a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr class="inter-black">
+                <th>Nom</th>
+                <th>Agrément</th>
+                <th>Durée</th>
+                <th>Prix</th>
+                <th>Lieu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation_libelle in formation_libelles %}
+            <tr>
+                <td class="fw-bold">{{ formation_libelle.libelle }}</td>
+                <td>
+                    {% if formation_libelle.agrement %}
+                        <span class="text-success">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    {% else %}
+                        <span class="text-danger">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    {% endif %}
+                </td>
+                <td>{{ formation_libelle.duration }}</td>
+                <td>{{ formation_libelle.cost }} €</td>
+                <td>{{ formation_libelle.place }}</td>
+                <td>
+                    <a href="{{ path('app_formation_libelles_edit', {'id': formation_libelle.id}) }}"
+                       class="btn btn-success rounded-corners"
+                    >
+                        <i class="fa fa-pen"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">Pas de formations trouvées</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center py-4">
+        <a class="btn btn-yellow rounded-corners" href="{{ path('app_formation_libelles_new') }}">
+            <i class="fa fa-plus"></i>
+            Ajouter une formation
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block dashboardBody %}
+    <div class="row section">
+        <div class="pb-4">
+            <a class="btn btn-dark" href="{{ path('app_formation_libelles_index') }}">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+        </div>
+        <h1 class="inter-black">Créer une nouvelle formation</h1>
+
+        {{ include('dashboard/formations/_form.html.twig') }}
+    </div>
+{% endblock %}

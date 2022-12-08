@@ -3,62 +3,64 @@
 {% block title %}LAGOON&reg; Piscines - Connexion{% endblock %}
 
 {% block body %}
-<form method="post">
-    <div class="bg-dark">
-        {% if app.user %}
-            <div class="my-5 py-5 bg-light text-center">
-                Vous êtes connecté en tant que {{ app.user.userIdentifier }},
-                <a href="{{ path('app_logout') }}"> se déconnecter.</a>
-            </div>
-        {% else %}
-            <div class="vh-100 d-flex justify-content-center flex-column">
-                {% if error %}
-                    <div class="mt-5 pt-5">
-                        <div class="alert alert-danger">
-                            {{ error.messageKey|trans(error.messageData, 'security') }}
+    <div class="row">
+        <form method="post" class="row g-0">
+            <div class="bg-dark">
+                {% if app.user %}
+                    <div class="my-5 py-5 bg-light text-center">
+                        Vous êtes connecté en tant que {{ app.user.userIdentifier }},
+                        <a href="{{ path('app_logout') }}"> se déconnecter.</a>
+                    </div>
+                {% else %}
+                    <div class="vh-100 d-flex justify-content-center flex-column">
+                        {% if error %}
+                            <div class="mt-5 pt-5">
+                                <div class="alert alert-danger">
+                                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <div class="d-block p-3 w-adaptative mx-auto bg-white rounded-corners">
+                            <h1 class="inter-black text-center">
+                                Connexion
+                            </h1>
+                            <label for="inputEmail">
+                                Email
+                            </label>
+                            <input type="email"
+                                   value="{{ last_username }}"
+                                   name="email"
+                                   id="inputEmail"
+                                   class="form-control"
+                                   autocomplete="email"
+                                   required
+                                   autofocus
+                            >
+                            <label for="inputPassword">
+                                Mot de passe
+                            </label>
+                            <input type="password"
+                                   name="password"
+                                   id="inputPassword"
+                                   class="form-control"
+                                   autocomplete="current-password"
+                                   required
+                            >
+
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+
+                            <div class="text-center p-3">
+                                <button class="btn btn-lg btn-yellow rounded-corners" type="submit">
+                                    Se connecter
+                                </button>
+                            </div>
                         </div>
                     </div>
                 {% endif %}
-
-                <div class="d-block p-3 w-adaptative mx-auto bg-white rounded-corners">
-                    <h1 class="baskerville text-center">
-                        Connexion
-                    </h1>
-                    <label for="inputEmail">
-                        Email
-                    </label>
-                    <input type="email"
-                           value="{{ last_username }}"
-                           name="email"
-                           id="inputEmail"
-                           class="form-control"
-                           autocomplete="email"
-                           required
-                           autofocus
-                    >
-                    <label for="inputPassword">
-                        Mot de passe
-                    </label>
-                    <input type="password"
-                           name="password"
-                           id="inputPassword"
-                           class="form-control"
-                           autocomplete="current-password"
-                           required
-                    >
-
-                    <input type="hidden" name="_csrf_token"
-                           value="{{ csrf_token('authenticate') }}"
-                    >
-
-                    <div class="text-center p-3">
-                        <button class="btn btn-lg btn-blue rounded-corners" type="submit">
-                            Se connecter
-                        </button>
-                    </div>
-                </div>
             </div>
-        {% endif %}
+        </form>
     </div>
-</form>
 {% endblock %}

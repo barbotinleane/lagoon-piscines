@@ -20,10 +20,24 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FormationController extends AbstractController
 {
-    #[Route('/formation-installation-piscine-ecologique', name: 'app_formation')]
-    public function index(): Response
+    #[Route('/nos-formations', name: 'app_formation')]
+    public function index(FormationLibellesRepository $flRepo): Response
     {
-        return $this->render('formation/presentation/index.html.twig');
+        $formations = $flRepo->findAll();
+
+        return $this->render('formation/index.html.twig', [
+            "formations" => $formations,
+        ]);
+    }
+
+    #[Route('/nos-formations/{formationId}', name: 'app_formation_show')]
+    public function show($formationId, FormationLibellesRepository $flRepo): Response
+    {
+        $formation = $flRepo->find($formationId);
+
+        return $this->render('formation/show/index.html.twig', [
+            "formation" => $formation,
+        ]);
     }
 
     /***

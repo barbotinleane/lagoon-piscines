@@ -33,6 +33,8 @@ class FormationAsksType extends AbstractType
             $departmentsNames[$department->getName()] = $department->getCode();
         }
 
+        $formationId = $options['formationId'];
+
         switch ($options['flow_step']) {
             case 1:
                 $builder->add('status', EntityType::class, [
@@ -66,11 +68,12 @@ class FormationAsksType extends AbstractType
                 $builder
                     ->add('formationSession', EntityType::class, [
                         'class' => FormationSessions::class,
-                        'query_builder' => function (FormationSessionsRepository $fsr) {
+                        'query_builder' => function (FormationSessionsRepository $fsr) use($options) {
                             return $fsr->createQueryBuilder('fs')
                                 ->where('fs.dateStart >= :now')
-                                ->andWhere('fs.formation = 1')
-                                ->setParameter('now', new \DateTimeImmutable());
+                                ->setParameter('now', new \DateTimeImmutable())
+                                ->andWhere('fs.formation = :formationId')
+                                ->setParameter('formationId', $options['formationId']);
                         },
                         'expanded' => true,
                         'label' => 'Date de formation souhaitée *',
@@ -469,7 +472,9 @@ class FormationAsksType extends AbstractType
             'data_class' => FormationAsks::class,
             'departments' => [],
             'formation' => null,
+            'formationId' => null,
             'status' => null,
+            'allow_extra_fields' => true,
         ]);
     }
 }

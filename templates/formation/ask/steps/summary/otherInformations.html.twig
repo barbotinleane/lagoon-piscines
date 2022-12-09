@@ -1,38 +1,40 @@
-<div class="col-12 col-md-6">
-    <div>
-        <i class="fas fa-tools form-icon"></i>
-    </div>
+{% if formation.id == 1 %}
+    <div class="col-12 col-md-6">
+        <div>
+            <i class="fas fa-tools form-icon"></i>
+        </div>
 
-    <div class="py-3 row">
-        {% for key, prerequisite in prerequisites %}
-            {% if prerequisite != "" %}
-                <div
-                {% if key == "Commentaires" %}
-                    class="col-12 py-3"
+        <div class="py-3 row">
+            {% for key, prerequisite in prerequisites %}
+                {% if prerequisite != "" %}
+                    <div
+                    {% if key == "Commentaires" %}
+                        class="col-12 py-3"
+                    {% endif %}
+                    >
+                        <div><span class="fw-bold">{{ key }} : </span>{{ prerequisite|capitalize }}</div>
+                    </div>
                 {% endif %}
-                >
-                    <div><span class="fw-bold">{{ key }} : </span>{{ prerequisite|capitalize }}</div>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
 
-    <input type="hidden" name="prerequisites" value="{{ prerequisites|json_encode }}"/>
+        <input type="hidden" name="prerequisites" value="{{ prerequisites|json_encode }}"/>
 
-    <div class="text-end">
-        <a class="btn btn-success rounded-corners"
-                {% if ask.stagiaires == null %}
-                    href='/demande-de-formation?instance={{ instance }}&step=4'
-                {% elseif ask.isStagiaireMultiple == false %}
-                    href='/demande-de-formation?instance={{ instance }}&step=5'
-                {% else %}
-                    href='/demande-de-formation?instance={{ instance }}&step=6'
-                {% endif %}
-        >
-            <i class="fas fa-pen"></i>
-        </a>
+        <div class="text-end">
+            <a class="btn btn-success rounded-corners"
+                    {% if ask.stagiaires == null %}
+                        href='/demande-de-formation?instance={{ instance }}&step=4'
+                    {% elseif ask.isStagiaireMultiple == false %}
+                        href='/demande-de-formation?instance={{ instance }}&step=5'
+                    {% else %}
+                        href='/demande-de-formation?instance={{ instance }}&step=6'
+                    {% endif %}
+            >
+                <i class="fas fa-pen"></i>
+            </a>
+        </div>
     </div>
-</div>
+{% endif %}
 
 <div class="col-12 col-md-6 pt-5 pt-md-0">
     <div>

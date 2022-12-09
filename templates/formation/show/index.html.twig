@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}LAGOON&reg; Piscines - Formation Réalisation de Piscine et Bassin écologique de type Lagon{% endblock %}
+{% block title %}LAGOON&reg; Piscines - Formation {{ formation.libelle }}{% endblock %}
 
 {% block description %}
     Devenez installateur de piscines écologiques LAGOON® en résine et EPDM au cours d'une formation certifiée
@@ -21,22 +21,15 @@
     <div id="corps" class="mt-5">
         <div class="row py-5 px-none px-md-4 px-lg-5">
             <div class="text-title">
+                <div class="text-uppercase fw-light">Formation</div>
                 <h1 class="inter-black size-1">
-                    Formation réalisation de piscine et bassin écologique de type Lagon
+                    {{ formation.libelle }}
                 </h1>
-                <div class="w-75">
-                    <p>
-                        Vous êtes paysagiste, applicateur indépendant, maçon, chef de chantiers, chef d'entreprise,
-                        carreleur ou encore pisciniste ?
-                        Vous souhaitez augmenter en compétences ou effectuer une reconversion professionnelle ?
-                    </p>
-                    <p>
-                        Grace à notre formation professionnelle certifiée Qualiopi, devenez installateur LAGOON&reg; et
-                        entrez dans un marché en pleine expansion !
-                    </p>
-                </div>
+                <p class="w-75">
+                    {{ formation.presentation }}
+                </p>
                 <a class="btn btn-blue btn-lg rounded-corners"
-                   href="{{ path('app_ask') }}">
+                   href="{{ path('app_formation_ask', {formationId: formation.id}) }}">
                     <i class="fa fa-play" aria-hidden="true"></i>
                     &nbsp;Faire une demande de formation
                 </a>
@@ -52,22 +45,11 @@
                     <h2 class="baskerville">Objectifs de la formation</h2>
                 </div>
                 <div class="ps-5">
-                    Dans les conditions réelles d’un
-                    chantier, vous apprendrez aux côtés de formateurs expérimentés :
+                    A l'issue de la formation, les stagiaires seront capables :
                     <ul>
-                        <li>Contrôle du terrassement</li>
-                        <li>Etanchéité de bassin</li>
-                        <li>Aménagement paysager</li>
-                        <li>Hydraulique de bassin</li>
-                        <li>Application de résine décorative</li>
-                        <li>
-                            Maitrise des outils professionnels pour obtenir un résultat
-                            de qualité
-                        </li>
-                        <li>
-                            Les gestes et postures de sécurité pour des réalisations en
-                            toute sécurité
-                        </li>
+                        {% for goal in formation.formationGoals %}
+                            <li>{{ goal.goal }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -76,27 +58,26 @@
                     <table>
                         <tr>
                             <td>
-                                <i class="fas fa-clock"></i>
+                                <i class="fa fa-map-marker"></i>
                             </td>
                             <td>
-                                &nbsp;4 jours max.
+                                &nbsp;{{ formation.place }}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <i class="fas fa-users"></i>
+                                <i class="fa fa-euro"></i>
                             </td>
                             <td>
-                                &nbsp;< 8 personnes
+                                &nbsp;{{ formation.cost }} €
                             </td>
                         </tr>
                         <tr>
                             <td style="vertical-align: top">
-                                <i class="fas fa-map"></i>
+                                <i class="fa fa-calendar"></i>
                             </td>
                             <td>
-                                &nbsp;Au centre de formation LAGOON&reg; à
-                                <span class="fst-italic"> Vence, 06</span>
+                                &nbsp;{{ formation.duration }}
                             </td>
                         </tr>
                     </table>
@@ -104,30 +85,14 @@
             </div>
         </div>
 
-        <div class="row bg-dark py-5">
-            <div class="col-12 col-sm-5">
-                <picture>
-                    <source srcset="{{ asset('build/images/form-1.webp') }}" type="image/webp" class="">
-                    <source srcset="{{ asset('build/images/form-1.jpg') }}" type="image/jpeg" class="">
-                    <img src="{{ asset('build/images/form-1.jpg') }}"
-                         alt="Un homme apprenant à appliquer de l'enduit ou de la résine sur les bords d'un bassin LAGOON"
+        <div class="row bg-dark py-5 justify-content-around">
+            {% for image in formation.formationImages %}
+                <div class="col-12 col-sm-6 col-md-4">
+                    <img src="{{ asset('uploads/images/formations/' ~ image.imageName) }}"
+                         alt="Image descriptive de la formation {{ formation.libelle }}"
                          class="h-100 img-gallery">
-                </picture>
-            </div>
-            <div class="col-12 col-sm-3">
-                <picture>
-                    <source srcset="{{ asset('build/images/form-2.webp') }}" type="image/webp" class="">
-                    <source srcset="{{ asset('build/images/form-2.jpg') }}" type="image/jpeg" class="">
-                    <img src="{{ asset('build/images/form-2.jpg') }}" alt="Un stagiaire avec une maquette de piscine LAGOON et une taloche" class="h-100 img-gallery">
-                </picture>
-            </div>
-            <div class="col-12 col-sm-4">
-                <picture>
-                    <source srcset="{{ asset('build/images/form-4.webp') }}" type="image/webp" class="">
-                    <source srcset="{{ asset('build/images/form-4.jpg') }}" type="image/jpeg" class="">
-                    <img src="{{ asset('build/images/form-4.jpg') }}" alt="Plusieurs stagiaires autour d'une table écoutant un formateur LAGOON" class="h-100 img-gallery">
-                </picture>
-            </div>
+                </div>
+            {% endfor %}
         </div>
 
         <div class="row section big-spacing bg-blue">
@@ -205,108 +170,118 @@
             </div>
         </div>
 
-        <div class="row section big-spacing bg-light">
-            <div class="row">
-                <h2 class="text-center baskerville size-2 mb-5">Nos partenaires sont satisfaits de notre formation</h2>
+        {% if formation.satisfactionRate is not empty or formation.companyApprovalRate is not empty or formation.individualSuccessRate is not empty %}
+            <div class="row section big-spacing bg-light">
+                <div class="row justify-content-around">
+                    <h2 class="text-center baskerville size-2 mb-5">Nos partenaires sont satisfaits de notre formation</h2>
 
-                <div class="col-12 col-sm-4 text-center">
-                    <div class="inter-black size-1">
-                        85%
-                    </div>
-                    Taux d'agrément entreprise
-                </div>
+                    {% if formation.companyApprovalRate is not empty %}
+                        <div class="col-12 col-sm-4 text-center">
+                            <div class="inter-black size-1">
+                                {{ formation.companyApprovalRate }}%
+                            </div>
+                            Taux d'agrément entreprise
+                        </div>
+                    {% endif %}
 
-                <div class="col-12 col-sm-4 text-center">
-                    <div class="inter-black size-1">
-                        100%
-                    </div>
-                    Taux de réussite individuelle
-                </div>
+                    {% if formation.individualSuccessRate is not empty %}
+                        <div class="col-12 col-sm-4 text-center">
+                            <div class="inter-black size-1">
+                                {{ formation.individualSuccessRate }}%
+                            </div>
+                            Taux de réussite individuelle
+                        </div>
+                    {% endif %}
 
-                <div class="col-12 col-sm-4 text-center">
-                    <div class="inter-black size-1">
-                        95%
-                    </div>
-                    Taux de satisfaction
+                    {% if formation.satisfactionRate is not empty %}
+                        <div class="col-12 col-sm-4 text-center">
+                            <div class="inter-black size-1">
+                                {{ formation.satisfactionRate }}%
+                            </div>
+                            Taux de satisfaction
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-        </div>
+        {% endif %}
 
-        <div class="row section bg-dark text-light">
-            <h2 class="text-center baskerville">Des commentaires de stagiaires</h2>
+        {% if formation.id == 1 %}
+            <div class="row section bg-dark text-light">
+                <h2 class="text-center baskerville">Des commentaires de stagiaires</h2>
 
-            <div id="carouselClients" class="carousel carousel-light slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active text-center mt-4" data-bs-interval="5000">
-                        <p class="w-75 mx-auto">
-                            <em>
-                                Top ! L'équilibre temps de théorie et de pratique était très bien. De plus,
-                                les formateurs savent très bien se mobiliser et s'adapter aux participants.
-                            </em>
-                        </p>
+                <div id="carouselClients" class="carousel carousel-light slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active text-center mt-4" data-bs-interval="5000">
+                            <p class="w-75 mx-auto">
+                                <em>
+                                    Top ! L'équilibre temps de théorie et de pratique était très bien. De plus,
+                                    les formateurs savent très bien se mobiliser et s'adapter aux participants.
+                                </em>
+                            </p>
 
-                        <p class="w-75 mx-auto">
-                            <strong>Christophe<br></strong>
-                            Paris
-                        </p>
-                    </div>
+                            <p class="w-75 mx-auto">
+                                <strong>Christophe<br></strong>
+                                Paris
+                            </p>
+                        </div>
 
-                    <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                        <p class="w-75 mx-auto">
-                            <em>Merci pour tout, super équipe, formateurs au top !</em>
-                        </p>
-                        <strong>Florian<br></strong>
-                        Alsace
-                    </div>
-
-                    <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                        <p class="w-75 mx-auto">
-                            <em>
-                                Parfaits formateurs ! Les supports pédagogiques sont suffisants et clairs,
-                                utilisables et exploitables pour la suite
-                            </em>
-                        </p>
-
-                        <p class="w-75 mx-auto">
-                            <strong>Ludovic<br></strong>
-                            Salon de Provence
-                        </p>
-                    </div>
-
-                    <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                        <p class="w-75 mx-auto">
-                            <em>
-                                Un grand merci à toute l'équipe ! J'ai kiffé grave.
-                            </em>
-                        </p>
-
-                        <p class="w-75 mx-auto">
-                            <strong>Lancelot<br></strong>
+                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                            <p class="w-75 mx-auto">
+                                <em>Merci pour tout, super équipe, formateurs au top !</em>
+                            </p>
+                            <strong>Florian<br></strong>
                             Alsace
-                        </p>
-                    </div>
-                </div>
+                        </div>
 
-                <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselClients"
-                        data-bs-slide="prev"
-                >
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselClients"
-                        data-bs-slide="next"
-                >
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                            <p class="w-75 mx-auto">
+                                <em>
+                                    Parfaits formateurs ! Les supports pédagogiques sont suffisants et clairs,
+                                    utilisables et exploitables pour la suite
+                                </em>
+                            </p>
+
+                            <p class="w-75 mx-auto">
+                                <strong>Ludovic<br></strong>
+                                Salon de Provence
+                            </p>
+                        </div>
+
+                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                            <p class="w-75 mx-auto">
+                                <em>
+                                    Un grand merci à toute l'équipe ! J'ai kiffé grave.
+                                </em>
+                            </p>
+
+                            <p class="w-75 mx-auto">
+                                <strong>Lancelot<br></strong>
+                                Alsace
+                            </p>
+                        </div>
+                    </div>
+
+                    <button
+                            class="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#carouselClients"
+                            data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                            class="carousel-control-next"
+                            type="button"
+                            data-bs-target="#carouselClients"
+                            data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-        </div>
+        {% endif %}
 
 
         <div class="row section big-spacing row justify-content-around align-items-center">
@@ -325,7 +300,7 @@
                     <div>
                         <a type="button"
                            class="btn btn-yellow btn-lg rounded-corners"
-                           href="{{ path('app_ask') }}">
+                           href="{{ path('app_formation_ask', {formationId: formation.id}) }}">
                             <i class="fa fa-play" aria-hidden="true"></i>
                             &nbsp;Faites une demande de formation en ligne
                         </a>
@@ -361,6 +336,6 @@
             </div>
         </div>
     </div>
-    {% include 'formation/presentation/documentation.html.twig' %}
+    {% include 'formation/show/documentation.html.twig' %}
 
 {% endblock %}

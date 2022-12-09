@@ -19,7 +19,7 @@
                         <h4 class=" ">Informations générales : </h4>
                         <div class="d-flex flex-column flex-sm-row align-items-center">
                             <div>
-                                <a class="btn btn-outline-dark"
+                                <a class="btn btn-outline-dark rounded-corners"
                                    href="{{ path('app_doc_quality') }}"
                                    target="_blank">
                                     <i class="fa fa-file-o" aria-hidden="true"></i>
@@ -27,7 +27,7 @@
                                 </a>
                             </div>
                             <div>
-                                <a class="btn btn-outline-dark"
+                                <a class="btn btn-outline-dark rounded-corners"
                                    href="{{ path('app_doc_livret') }}"
                                    target="_blank">
                                     <i class="fa fa-file-o" aria-hidden="true"></i>
@@ -46,11 +46,11 @@
 
                         <div class="d-flex flex-column flex-sm-row align-items-center">
                             <div>
-                                <a class="btn btn-outline-dark"
-                                   href="{{ path('app_doc_bassin') }}"
+                                <a class="btn btn-outline-dark rounded-corners"
+                                   href="{{ path('app_doc_program', {formationId: formation.id}) }}"
                                    target="_blank">
                                     <i class="fa fa-file-o" aria-hidden="true"></i>
-                                    Réalisation de Piscine et Bassin écologique de type Lagon
+                                    {{ formation.libelle }}
                                 </a>
                             </div>
                         </div>

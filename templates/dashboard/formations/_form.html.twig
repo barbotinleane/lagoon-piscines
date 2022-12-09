@@ -19,12 +19,15 @@
                 {{ form_label(form.imageName) }}
             </div>
             {% if form.vars.data.image %}
-                <div class= py-4 px-3 text-center">
+                <div class="py-4 px-3 text-center">
                     <img src="{{ asset('uploads/images/formations/' ~ formation_libelle.image) }}"
                          class="w-75 mx-auto rounded-corners">
                 </div>
             {% endif %}
             {{ form_widget(form.imageName) }}
+
+            <div class="form-error">
+                {{ form_errors(form.imageName) }}
         </div>
     </div>
 

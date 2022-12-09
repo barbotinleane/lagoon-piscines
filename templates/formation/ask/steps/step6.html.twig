@@ -5,140 +5,146 @@
     </div>
 
     <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5 d-flex flex-column justify-content-between">
-        <div class="pb-4">
-            <div>
-                <div class="pb-3">
-                    <i class="fas fa-tools form-icon"></i>
-                </div>
-                {% if flow.getFormData.isStagiaireMultiple == 1 %}
-                    <label class="mt-1 fw-bold" id="prerequis_stagiaires">
-                        Les stagiaires savent-ils utiliser les outils suivants ?
-                    </label>
-                {% else %}
-                    <label class="mt-1 fw-bold" id="prerequis_autre">
-                        Je sais utiliser les outils suivants
-                    </label>
-                {% endif %}
-
-                <div style="display:none">
-                    {{ form_row(form.prerequisites) }}
-                </div>
-
-                <div class="ms-3">
-                    <div>
-                        <label>Visseuse</label><br>
-                        <input
-                                type="radio"
-                                class="btn-check"
-                                name="visseuse"
-                                id="oui-visseuse"
-                                value="oui"
-                                autocomplete="off"
-                                {% if prerequisites != null %}
-                                    {% if prerequisites.Visseuse == "oui" %}
-                                        checked
-                                    {% endif %}
-                                {% endif %}
-                        >
-                        <label class="btn btn-outline-success" for="oui-visseuse">Oui</label>
-
-                        <input
-                                type="radio"
-                                class="btn-check"
-                                name="visseuse"
-                                id="non-visseuse"
-                                value="non"
-                                autocomplete="off"
-                                {% if prerequisites != null %}
-                                    {% if prerequisites.visseuse == "non" %}
-                                        checked
-                                    {% endif %}
-                                {% endif %}
-                        >
-                        <label class="btn btn-outline-danger" for="non-visseuse">Non</label>
-                    </div>
-
-                    <div>
-                        <label>Perceuse</label><br>
-                        <input
-                                type="radio"
-                                class="btn-check"
-                                name="perceuse"
-                                id="oui-perceuse"
-                                value="oui"
-                                autocomplete="off"
-                        >
-                        <label class="btn btn-outline-success" for="oui-perceuse">Oui</label>
-
-                        <input
-                                type="radio"
-                                class="btn-check"
-                                name="perceuse"
-                                id="non-perceuse"
-                                value="non"
-                                autocomplete="off"
-                        >
-                        <label class="btn btn-outline-danger" for="non-perceuse">Non</label>
-                    </div>
-
-                    <div>
-                        <label>Taloche</label><br>
-                        <input
-                                type="radio"
-                                class="btn-check"
-                                name="taloche"
-                                id="oui-taloche"
-                                value="oui"
-                                autocomplete="off"
-                        >
-                        <label class="btn btn-outline-success" for="oui-taloche">Oui</label>
-
-                        <input
-                                type="radio"
-                                class="btn-check"
-                                name="taloche"
-                                id="non-taloche"
-                                value="non"
-                                autocomplete="off"
-                        >
-                        <label class="btn btn-outline-danger" for="non-taloche">Non</label>
-                    </div>
-
-                    <div class="col-12">
-                        <label for="commentaires-outils">Commentaires</label><br>
-                        <textarea
-                                id="commentaires-outils"
-                                class="form-control"
-                                name="commentaires-outils"
-                                rows="4"
-                        ></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                {% if form.mathematics is defined %}
-                    <div class="mt-4 form-check" id="mathematics">
-                        {{ form_widget(form.mathematics) }}
-                        {% if flow.getFormData.isStagiaireMultiple == 1 %}
-                            <label class="fw-bold">
-                                Les stagiaires ne sont pas allergiques aux mathématiques de base (+, -, x, :...)
-                            </label>
-                        {% else %}
-                            <label class="fw-bold">
-                                {{ form_label(form.mathematics) }}
-                            </label>
-                        {% endif %}
-
-                        <div class="form-error">
-                            {{ form_errors(form.mathematics) }}
-                        </div>
-                    </div>
-                {% endif %}
-            </div>
+        <div style="display:none">
+            {{ form_row(form.prerequisites) }}
         </div>
 
-        <div class="pt-5">
+        {% if formation.id == 1 %}
+            <div class="pb-5">
+                <div>
+                    <div class="pb-3">
+                        <i class="fas fa-tools form-icon"></i>
+                    </div>
+                    {% if flow.getFormData.isStagiaireMultiple == 1 %}
+                        <label class="mt-1 fw-bold" id="prerequis_stagiaires">
+                            Les stagiaires savent-ils utiliser les outils suivants ?
+                        </label>
+                    {% else %}
+                        <label class="mt-1 fw-bold" id="prerequis_autre">
+                            Je sais utiliser les outils suivants
+                        </label>
+                    {% endif %}
+
+                    <div style="display:none">
+                        {{ form_row(form.prerequisites) }}
+                    </div>
+
+                    <div class="ms-3">
+                        <div>
+                            <label>Visseuse</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="visseuse"
+                                    id="oui-visseuse"
+                                    value="oui"
+                                    autocomplete="off"
+                                    {% if prerequisites != null %}
+                                        {% if prerequisites.Visseuse == "oui" %}
+                                            checked
+                                        {% endif %}
+                                    {% endif %}
+                            >
+                            <label class="btn btn-outline-success" for="oui-visseuse">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="visseuse"
+                                    id="non-visseuse"
+                                    value="non"
+                                    autocomplete="off"
+                                    {% if prerequisites != null %}
+                                        {% if prerequisites.visseuse == "non" %}
+                                            checked
+                                        {% endif %}
+                                    {% endif %}
+                            >
+                            <label class="btn btn-outline-danger" for="non-visseuse">Non</label>
+                        </div>
+
+                        <div>
+                            <label>Perceuse</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="perceuse"
+                                    id="oui-perceuse"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-perceuse">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="perceuse"
+                                    id="non-perceuse"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-perceuse">Non</label>
+                        </div>
+
+                        <div>
+                            <label>Taloche</label><br>
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="taloche"
+                                    id="oui-taloche"
+                                    value="oui"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-success" for="oui-taloche">Oui</label>
+
+                            <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="taloche"
+                                    id="non-taloche"
+                                    value="non"
+                                    autocomplete="off"
+                            >
+                            <label class="btn btn-outline-danger" for="non-taloche">Non</label>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="commentaires-outils">Commentaires</label><br>
+                            <textarea
+                                    id="commentaires-outils"
+                                    class="form-control"
+                                    name="commentaires-outils"
+                                    rows="4"
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    {% if form.mathematics is defined %}
+                        <div class="mt-4 form-check" id="mathematics">
+                            {{ form_widget(form.mathematics) }}
+                            {% if flow.getFormData.isStagiaireMultiple == 1 %}
+                                <label class="fw-bold">
+                                    Les stagiaires ne sont pas allergiques aux mathématiques de base (+, -, x, :...)
+                                </label>
+                            {% else %}
+                                <label class="fw-bold">
+                                    {{ form_label(form.mathematics) }}
+                                </label>
+                            {% endif %}
+
+                            <div class="form-error">
+                                {{ form_errors(form.mathematics) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="pb-5">
             <div class="pb-3">
                 <i class="fas fa-file-alt form-icon"></i>
             </div>

@@ -140,31 +140,36 @@ class FormationLibellesType extends AbstractType
                 'expanded' => true
             ])
             ->add('satisfactionRate', IntegerType::class, [
+                'required' => false,
                 'label' => 'Taux de satisfaction',
                 'attr' => [
                     'class' => 'form-control',
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
-                ]
+                ],
             ])
             ->add('individualSuccessRate', IntegerType::class, [
                 'label' => 'Taux de réussite individuelle',
                 'attr' => [
                     'class' => 'form-control',
+                    'value' => null,
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('companyApprovalRate', IntegerType::class, [
                 'label' => 'Taux d\'agrément entreprise',
                 'attr' => [
                     'class' => 'form-control',
+                    'value' => null,
                 ],
                 'label_attr' => [
                     'class' => 'form-label'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('formationGoals', CollectionType::class, [
                 'entry_type' => FormationGoalsType::class,

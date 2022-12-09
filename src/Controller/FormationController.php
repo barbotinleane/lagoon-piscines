@@ -23,7 +23,7 @@ class FormationController extends AbstractController
     #[Route('/nos-formations', name: 'app_formation')]
     public function index(FormationLibellesRepository $flRepo): Response
     {
-        $formations = $flRepo->findAll();
+        $formations = $flRepo->findAllToDisplayOnLagoonPiscines();
 
         return $this->render('formation/index.html.twig', [
             "formations" => $formations,
@@ -50,10 +50,10 @@ class FormationController extends AbstractController
      * @param AskSaver $askSaver
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    #[Route('/demande-de-formation', name: 'app_ask')]
-    public function ask(EntityManagerInterface $em, FormationAskFlow $flow, Request $request, FormationLibellesRepository $flRepo, FormationPricesRepository $fpRepo, DepartmentsRepository $dRepo, CustomMailer $mailer, AsanaManager $asanaManager, AskSaver $askSaver)
+    #[Route('/demande-de-formation/{formationId}', name: 'app_formation_ask')]
+    public function ask($formationId, EntityManagerInterface $em, FormationAskFlow $flow, Request $request, FormationLibellesRepository $flRepo, FormationPricesRepository $fpRepo, DepartmentsRepository $dRepo, CustomMailer $mailer, AsanaManager $asanaManager, AskSaver $askSaver)
     {
-        $formation = $flRepo->find(1);
+        $formation = $flRepo->find($formationId);
         $departments = $dRepo->findAll();
         $prices = $fpRepo->findAll();
         $pricesArray = [];
@@ -65,7 +65,7 @@ class FormationController extends AbstractController
         $priceToShow = 0;
 
         $ask = new FormationAsks($formation);
-        $flow->setGenericFormOptions(['departments' => $departments]);
+        $flow->setGenericFormOptions(['departments' => $departments, 'formationId' => $formationId]);
         $flow->bind($ask);
         $form = $flow->createForm();
         $instance = $flow->getInstanceId();
@@ -103,7 +103,9 @@ class FormationController extends AbstractController
                 // form for the next step
                 $form = $flow->createForm();
             } else {
-                $ask->setPrerequisites($_POST['prerequisites']);
+                if(isset($_POST['prerequisites'])) {
+                    $ask->setPrerequisites($_POST['prerequisites']);
+                }
                 if ($ask->getStagiaires() !== null) {
                     foreach ($ask->getStagiaires() as $stagiaire) {
                         $em->persist($stagiaire);
@@ -113,8 +115,8 @@ class FormationController extends AbstractController
                 $em->persist($ask);
                 $em->flush();
 
-                $asanaManager->addFormationTask($ask);
-                $mailer->sendAskMail($ask, $ask->getStatus());
+                //$asanaManager->addFormationTask($ask);
+                //$mailer->sendAskMail($ask, $ask->getStatus());
 
                 $this->addFlash('success', 'Votre demande de formation a bien été envoyée.');
                 return $this->redirectToRoute('app_home');

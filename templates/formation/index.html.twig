@@ -7,6 +7,16 @@
     de piscine écologique. Reconvertissez vous ou augmentez en compétences avec LAGOON&reg; !
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('formation') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('formation') }}
+{% endblock %}
+
 {% block body %}
     <div id="corps" class="mt-5">
         <div class="row py-5 px-none px-md-4 px-lg-5">
@@ -20,22 +30,34 @@
 
             <div class="row pt-4">
                 {% for formation in formations %}
-                    <div class="col-12 col-sm-6 col-md-4 py-2">
-                        <div class="p-5 bg-blue-clear rounded-corners h-650p">
+                    <div class="row bg-blue-clear m-3 rounded-corners-start align-items-center g-0">
+                        <div class="col-12 col-md-2 h-adaptative">
                             <img src="{{ asset('uploads/images/formations/'~formation.image) }}"
                                  alt="{{ formation.libelle|u.truncate(10, '...') }}"
-                                 height="40"
-                                 class="img-gallery h-180p">
-                            <h2 class="baskerville size-3 pt-3">{{ formation.libelle }}</h2>
+                                 class="img-presentation rounded-corners-start">
+                        </div>
+                        <div class="col-12 col-md-8 p-3">
+                            <h2 class="inter-black size-3 pt-3">{{ formation.libelle }}</h2>
                             <div class="text-secondary">{{ formation.presentation }}</div>
-                            <ul>
-                                <li>{{ formation.place }}</li>
-                                <li>{{ formation.cost }}</li>
-                                <li>{{ formation.duration }}</li>
-                            </ul>
-                            <div class="text-center">
+                            <div class="py-2 d-flex flex-column flex-sm-row ps-3 ps-sm-0 justify-content-around">
+                                <div>
+                                    <i class="fa fa-map-marker"></i>
+                                    {{ formation.place }}
+                                </div>
+                                <div>
+                                    <i class="fa fa-euro"></i>
+                                    {{ formation.cost }} €
+                                </div>
+                                <div>
+                                    <i class="fa fa-calendar"></i>
+                                    {{ formation.duration }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="text-center py-3">
                                 <a class="btn btn-yellow"
-                                   href="">
+                                   href="{{ path('app_formation_show', {formationId: formation.id}) }}">
                                     Voir plus
                                 </a>
                             </div>

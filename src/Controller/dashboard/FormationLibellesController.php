@@ -34,6 +34,29 @@ class FormationLibellesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile|null $file */
+            $file = $request->files->get('formation_libelles');
+            $formationImagesFiles = $file['formationImages'];
+
+            if($formationImagesFiles) {
+                foreach ($formationImagesFiles as $file) {
+                    $file = $file["image"];
+                    if($file !== null) {
+                        $fileName = $fileUploader->upload($file, "/images/formations");
+                        $formationImage = new FormationImages();
+                        $formationImage->setImageName($fileName);
+                        $formationImage->setFormation($formationLibelle);
+                        $formationLibelle->addFormationImage($formationImage);
+                    }
+                }
+                $formationImages = $formationLibelle->getFormationImages();
+                foreach ($formationImages as $image) {
+                    if ($image->getImageName() === null) {
+                        $formationLibelle->removeFormationImage($image);
+                    }
+                }
+            }
+
             /** @var UploadedFile $imageFile */
             $imageFile = $form->get('imageName')->getData();
             /** @var UploadedFile $programFile */

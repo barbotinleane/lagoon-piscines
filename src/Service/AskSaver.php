@@ -19,13 +19,15 @@ class AskSaver
      * @return void
      */
     public function savePrerequisites($data, FormationAsks $ask) {
-        $prerequisites = [
-            'Visseuse' => $data['visseuse'],
-            'Perceuse' => $data['perceuse'],
-            'Taloche' => $data['taloche'],
-            'Commentaires' => $data['commentaires-outils'],
-        ];
-        $ask->setPrerequisites(json_encode($prerequisites));
+        if(isset($data['visseuse']) && isset($data['perceuse'])) {
+            $prerequisites = [
+                'Visseuse' => $data['visseuse'],
+                'Perceuse' => $data['perceuse'],
+                'Taloche' => $data['taloche'],
+                'Commentaires' => $data['commentaires-outils'],
+            ];
+            $ask->setPrerequisites(json_encode($prerequisites));
+        }
     }
 
     /***

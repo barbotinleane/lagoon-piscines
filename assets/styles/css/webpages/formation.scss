@@ -1,53 +1,21 @@
-/* xs */
-.titre-formation
-{
-  background-image: url(../../../photos/formation.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position:center top;
-  color:rgba(255,255,255,0);
+.img-presentation {
+  object-fit: cover;
+  width: 100%;
 }
 
-/* sm */
-@media (min-width: 768px) {
-  .titre-formation
-  {
-    background-image: url(../../../photos/formation-cote.jpg);
-    background-repeat: no-repeat;
-    background-size: 280px 172px;
-    background-position:right center;
-  }
+.h-adaptative {
+  height: auto;
 }
 
 /* md */
-@media (min-width: 992px) {
-  .titre-formation
-  {
-    background-image: url(../../../photos/formation-cote.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 60%;
-    background-position:right center;
+@media (min-width: 768px) {
+  .img-presentation {
+    object-fit: cover;
+    width: 100%;
+    height: inherit;
   }
-}
 
-/* lg */
-@media (min-width: 1200px) {
-  .titre-formation
-  {
-    background-image: url(../../../photos/formation-cote.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position:right center;
-  }
-}
-
-/* xl */
-@media (min-width: 1400px) {
-  .titre-formation
-  {
-    background-image: url(../../../photos/formation-cote.jpg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position:right center;
+  .h-adaptative {
+    height: 100%;
   }
 }

@@ -36,9 +36,6 @@ class FormationLibelles
     #[ORM\Column(type: 'integer')]
     private $cost;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $route;
-
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: FormationSessions::class, orphanRemoval: true)]
     private $formationSessions;
 
@@ -147,18 +144,6 @@ class FormationLibelles
     public function setCost(int $cost): self
     {
         $this->cost = $cost;
-
-        return $this;
-    }
-
-    public function getRoute(): ?string
-    {
-        return $this->route;
-    }
-
-    public function setRoute(string $route): self
-    {
-        $this->route = $route;
 
         return $this;
     }

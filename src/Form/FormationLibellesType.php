@@ -74,7 +74,7 @@ class FormationLibellesType extends AbstractType
                     'class' => 'form-label'
                 ]
             ])
-            ->add('cost', TextType::class, [
+            ->add('cost', IntegerType::class, [
                 'label' => 'Prix *',
                 'attr' => [
                     'class' => 'form-control',

@@ -69,7 +69,6 @@ class AsanaManager
                 ],
                 'fields' => ['html_notes'],
             ));
-            dd($result);
         } catch (\Exception $e) {
             return new RedirectResponse($this->router->generate('app_404_error'));
         }

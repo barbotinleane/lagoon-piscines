@@ -115,8 +115,8 @@ class FormationController extends AbstractController
                 $em->persist($ask);
                 $em->flush();
 
-                //$asanaManager->addFormationTask($ask);
-                //$mailer->sendAskMail($ask, $ask->getStatus());
+                $asanaManager->addFormationTask($ask);
+                $mailer->sendAskMail($ask, $ask->getStatus());
 
                 $this->addFlash('success', 'Votre demande de formation a bien été envoyée.');
                 return $this->redirectToRoute('app_home');

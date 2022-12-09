@@ -19,7 +19,7 @@ host('lagoonpiscines')
     ->set('remote_user', 'lagoonpiko')
     ->set('http_user', 'lagoonpiko')
     ->set('deploy_path', '~/testlagoonsymfony')
-    ->set('branch', 'formchange')
+    ->set('branch', 'newform')
     ->set('writable_mode', 'chmod');
 
 // Tasks

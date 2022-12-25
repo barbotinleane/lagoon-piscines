@@ -49,7 +49,7 @@ class CustomMailer
         }
 
         //$to = 'barbotinleane@gmail.com';
-        $to = 'formation@lagoon-piscines.com';
+        $to = 'lagoonformations@gmail.com';
         $subject = 'Nouvelle demande de formation !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';

@@ -28,33 +28,30 @@
             </div>
         {% endif %}
 
-        {% if flow.getCurrentStepNumber() == 1 %}
-            <div id="intro">
+        <div class="row pt-5">
+            <div class="col-12 col-md-4 pb-4
+                {% if flow.getCurrentStepNumber() != 1 %}
+                    d-none d-md-block
+                {% endif %}">
                 {% include 'formation/ask/steps/intro.html.twig' %}
             </div>
+            <div class="col-12 col-md-8 bg-white rounded-corners text-dark p-5 d-flex flex-column">
+                {% include 'formation/ask/steps/reusables/list.html.twig' %}
+                <div class="text-grey size-little fw-bold">
+                    ETAPE {{ flow.currentStep }}/{{ flow.stepCount }}
+                </div>
 
-            <div id="step1" style="display: none;">
-                {% include 'formation/ask/steps/step1.html.twig' %}
+                {% if flow.getCurrentStepNumber() == 1 %}
+                    {% include 'formation/ask/steps/step1.html.twig' %}
+
+                {% elseif flow.getCurrentStepNumber() == 2 %}
+                    {% include 'formation/ask/steps/step2.html.twig' %}
+
+                {% elseif flow.getCurrentStepNumber() == 3 %}
+                    {% include 'formation/ask/steps/step3.html.twig' %}
+                {% endif %}
             </div>
-
-        {% elseif flow.getCurrentStepNumber() == 2 %}
-            {% include 'formation/ask/steps/step2.html.twig' %}
-
-        {% elseif flow.getCurrentStepNumber() == 3 %}
-            {% include 'formation/ask/steps/step3.html.twig' %}
-
-        {% elseif flow.getCurrentStepNumber() == 4 %}
-            {% include 'formation/ask/steps/step4.html.twig' %}
-
-        {% elseif flow.getCurrentStepNumber() == 5 %}
-            {% include 'formation/ask/steps/step5.html.twig' %}
-
-        {% elseif flow.getCurrentStepNumber() == 6 %}
-            {% include 'formation/ask/steps/step6.html.twig' %}
-
-        {% elseif flow.getCurrentStepNumber() == 7 %}
-            {% include 'formation/ask/steps/step7.html.twig' %}
-        {% endif %}
+        </div>
 
         {{ form_end(form) }}
     </main>

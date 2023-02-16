@@ -38,16 +38,6 @@ class CustomMailer
      * @return RedirectResponse|void
      */
     public function sendAskMail(FormationAsks $ask, $status = null) {
-        $stagiaires = [];
-        if($ask->getStatus()->getId() == 1) {
-            $stagiaires = $ask->getStagiaires();
-        }
-
-        $prerequisites = [];
-        if($ask->getFormationLibelle()->getId() == 1) {
-            $prerequisites = json_decode($ask->getPrerequisites(), true);
-        }
-
         //$to = 'barbotinleane@gmail.com';
         $to = 'lagoonformations@gmail.com';
         $subject = 'Nouvelle demande de formation !';
@@ -55,8 +45,6 @@ class CustomMailer
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';
         $content = $this->twig->render('email/email_ask.html.twig', [
             'ask' => $ask,
-            'stagiaires' => $stagiaires,
-            'prerequisites' => $prerequisites,
             'status' => $status,
         ]);
 

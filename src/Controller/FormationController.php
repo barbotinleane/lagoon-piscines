@@ -51,66 +51,25 @@ class FormationController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     #[Route('/demande-de-formation/{formationId}', name: 'app_formation_ask')]
-    public function ask($formationId, EntityManagerInterface $em, FormationAskFlow $flow, Request $request, FormationLibellesRepository $flRepo, FormationPricesRepository $fpRepo, DepartmentsRepository $dRepo, CustomMailer $mailer, AsanaManager $asanaManager, AskSaver $askSaver)
+    public function ask($formationId, EntityManagerInterface $em, FormationAskFlow $flow, FormationLibellesRepository $flRepo, CustomMailer $mailer, AsanaManager $asanaManager, AskSaver $askSaver)
     {
         $formation = $flRepo->find($formationId);
-        $departments = $dRepo->findAll();
-        $prices = $fpRepo->findAll();
-        $pricesArray = [];
-
-        foreach($prices as $price) {
-            $pricesArray[$price->getNumberOfPeople()] = $price->getPrice();
-        }
-
-        $priceToShow = 0;
 
         $ask = new FormationAsks($formation);
-        $flow->setGenericFormOptions(['departments' => $departments, 'formationId' => $formationId]);
+        $flow->setGenericFormOptions(['formationId' => $formationId]);
         $flow->bind($ask);
         $form = $flow->createForm();
         $instance = $flow->getInstanceId();
-        $prerequisites = null;
 
         if ($flow->isValid($form)) {
             $flow->saveCurrentStepData($form);
 
             if ($flow->nextStep()) {
-                if ($flow->getCurrentStepLabel() === 'CS') {
-                    if ($flow->getFormData()->getStagiaires()->isEmpty()) {
-                        $companyDirectorStagiaire = new Stagiaires();
-                        $companyDirectorStagiaire->setFirstName($flow->getFormData()->getFirstName());
-                        $companyDirectorStagiaire->setLastName($flow->getFormData()->getLastName());
-
-                        $flow->getFormData()->addStagiaire($companyDirectorStagiaire);
-                    }
-                    $numberOfLearners = $flow->getFormData()->getStagiaires()->count();
-                    $priceWhenNumberOfLearnersBigger = 0;
-                    foreach ($prices as $price) {
-                        if ($price->getNumberOfPeople() == $numberOfLearners) {
-                            $priceToShow = $price->getPrice();
-                        } elseif ($price->getNumberOfPeople() == 0) {
-                            $priceWhenNumberOfLearnersBigger = $price->getPrice();
-                        }
-                    }
-                    if ($priceToShow == 0) {
-                        $priceToShow = $priceWhenNumberOfLearnersBigger * $numberOfLearners;
-                    }
-                } else if ($flow->getCurrentStepLabel() === 'R') {
+                if ($flow->getCurrentStepLabel() === '3') {
                     $ask = $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
-                    $prerequisites = json_decode($ask->getPrerequisites());
                 }
-
-                // form for the next step
                 $form = $flow->createForm();
             } else {
-                if(isset($_POST['prerequisites'])) {
-                    $ask->setPrerequisites($_POST['prerequisites']);
-                }
-                if ($ask->getStagiaires() !== null) {
-                    foreach ($ask->getStagiaires() as $stagiaire) {
-                        $em->persist($stagiaire);
-                    }
-                }
                 $ask->setFormationLibelle($formation);
                 $em->persist($ask);
                 $em->flush();
@@ -122,17 +81,12 @@ class FormationController extends AbstractController
                 return $this->redirectToRoute('app_home');
             }
         }
-        $prerequisites = json_decode($ask->getPrerequisites());
-        $prerequisites = (array) $prerequisites;
 
         return $this->render('formation/ask/index.html.twig', [
             "form" => $form->createView(),
             "flow" => $flow,
-            "prices" => $pricesArray,
-            "priceForStagiairesSaved" => $priceToShow,
             "ask" => $ask,
             "instance" => $instance,
-            "prerequisites" => $prerequisites,
             "formation" => $formation,
         ]);
     }

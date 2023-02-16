@@ -1,51 +1,60 @@
-<div id="formation" class="row py-4">
-    <div class="col-12 col-sm-4">
-        <h3 class="baskerville size-3">Ma formation</h3>
-        {% include 'formation/ask/steps/reusables/list.html.twig' %}
-    </div>
+<h3 class="inter-black size-3">
+    Mon statut
+</h3>
 
-    <div class="col-12 col-sm-8 bg-white rounded-corners text-dark p-5">
-        <div class="my-3">
-            <label>Formation demandée :</label>
-            <div class="text-center d-grid gap-2">
-                <div class="btn btn-dark" style="cursor:default;">
-                    <strong>
-                        {{ formation.libelle }}
-                    </strong><br>
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                     {{ formation.duration }}<br>
-                </div>
-            </div>
-        </div>
-
-        <div id="session">
-            {{ form_label(form.formationSession) }}
+<div class="h-100 d-flex flex-column justify-content-between">
+    <div>
+        <div class="pt-3">
+            <label>{{ form_label(form.status) }}</label>
             <div class="buttons-group">
-                {% for child in form.formationSession.children %}
+                {% for child in form.status.children %}
                     <div class="">
                         <div class="">
                             {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
-                            <label class="form-check-label fw-normal text-center" for="{{ child.vars.id }}" >
-                                {{ child.vars.label|raw }}
-                            </label>
+                            <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
                         </div>
                     </div>
                 {% endfor %}
             </div>
 
             <div class="form-error">
-                {{ form_errors(form.formationSession) }}
+                {{ form_errors(form.status) }}
             </div>
         </div>
-        {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
-    </div>
-</div>
+        <br>
 
-{% if flow.formData.status.getId != 1 %}
-    <div class="text-end fw-bold mb-4">
-        Coût estimé :
-        <div class="size-2">
-            {{ formation.cost }} €
+        <div class="row text-secondary" id="autre_statut_champ" style="display:none;">
+            <div class="col-12">
+                <label for="autre1" class="mt-none">
+                    Veuillez préciser :
+                </label><br>
+                <input type="text" class="form-control" id="autre1" name="other[status]">
+            </div>
+        </div><br>
+
+        <div class="row pb-4" id="companyInformations" style="display:none;">
+            {% if form.companyName is defined %}
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6" id="companyName">
+                    {{ form_label(form.companyName) }}
+                    {{ form_widget(form.companyName) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.companyName) }}
+                    </div>
+                </div>
+            {% endif %}
+            {% if form.companyPostalCode is defined %}
+                <div class="col-12 col-md-5 col-lg-5 col-xl-4" id="companyPostalCode">
+                    {{ form_label(form.companyPostalCode) }}
+                    {{ form_widget(form.companyPostalCode) }}
+
+                    <div class="form-error">
+                        {{ form_errors(form.companyPostalCode) }}
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
-{% endif %}
+
+    {% include 'formation/ask/steps/reusables/buttons.html.twig' %}
+</div>

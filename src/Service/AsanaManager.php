@@ -33,24 +33,12 @@ class AsanaManager
     {
         $status = $ask->getStatus()->getId();
 
-        $stagiaires = [];
-        if($ask->getStatus()->getId() == 1) {
-            $stagiaires = $ask->getStagiaires();
-        }
-
-        $prerequisites = [];
-        if($ask->getFormationLibelle()->getId() == 1) {
-            $prerequisites = json_decode($ask->getPrerequisites(), true);
-        }
-
         $workspaceId = '1201979099877005';
         $projectId = "1202210789483832";
 
         // Load Twig File
         $html = $this->twig->render('asana_task/formation_task.html.twig', [
             'ask' => $ask,
-            'stagiaires' => $stagiaires,
-            'prerequisites' => $prerequisites,
             'status' => $status,
         ]);
 

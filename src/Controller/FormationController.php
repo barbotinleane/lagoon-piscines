@@ -8,6 +8,7 @@ use App\Form\FormationAsksType;
 use App\Repository\DepartmentsRepository;
 use App\Repository\FormationLibellesRepository;
 use App\Repository\FormationPricesRepository;
+use App\Repository\FormationSessionsRepository;
 use App\Service\AsanaManager;
 use App\Service\AskSaver;
 use App\Service\CustomMailer;
@@ -31,12 +32,14 @@ class FormationController extends AbstractController
     }
 
     #[Route('/nos-formations/{formationId}', name: 'app_formation_show')]
-    public function show($formationId, FormationLibellesRepository $flRepo): Response
+    public function show($formationId, FormationLibellesRepository $flRepo, FormationSessionsRepository $fsRepo): Response
     {
         $formation = $flRepo->find($formationId);
+        $sessions = $fsRepo->findAllSessionsInChronologicalOrder($formationId);
 
         return $this->render('formation/show/index.html.twig', [
             "formation" => $formation,
+            "sessions" => $sessions,
         ]);
     }
 

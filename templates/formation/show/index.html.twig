@@ -86,10 +86,10 @@
                         <div>
                             <h3 class="fs-6 fw-bold">Prochaines dates : </h3>
                             <ul class="fw-normal">
-                                {% for session in formation.formationSessions %}
-                                    {% if date(session.dateStart) > date() %}
-                                        <li>du {{ session.dateStart|date("d/m/Y") }} au {{ session.dateEnd|date("d/m/Y") }}</li>
-                                    {% endif %}
+                                {% for session in sessions %}
+                                    <li>
+                                        du {{ session.dateStart|date("d/m/Y") }} au {{ session.dateEnd|date("d/m/Y") }}
+                                    </li>
                                 {% endfor %}
                             </ul>
                         </div>

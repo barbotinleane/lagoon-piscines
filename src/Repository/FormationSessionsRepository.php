@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\FormationLibelles;
 use App\Entity\FormationSessions;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
@@ -55,6 +56,21 @@ class FormationSessionsRepository extends ServiceEntityRepository
             ->orderBy('f.formation')
             ->addOrderBy('f.formation', 'ASC')
             ->addOrderBy('f.dateStart', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return FormationSessions[] Returns an array of FormationSessions objects
+     */
+    public function findAllSessionsInChronologicalOrder(int $id)
+    {
+        return $this->createQueryBuilder('f')
+            ->where('f.dateStart > CURRENT_DATE()')
+            ->andWhere('f.formation = :id')
+            ->orderBy('f.dateStart', 'ASC')
+            ->setParameter('id', $id)
             ->getQuery()
             ->getResult()
             ;

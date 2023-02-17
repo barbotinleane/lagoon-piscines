@@ -33,8 +33,8 @@ class AsanaManager
     {
         $status = $ask->getStatus()->getId();
 
-        $workspaceId = '1202209729086808';
-        $projectId = "1202209874110545";
+        $workspaceId = '1201979099877005';
+        $projectId = "1202210789483832";
 
         // Load Twig File
         $html = $this->twig->render('asana_task/formation_task.html.twig', [
@@ -66,11 +66,11 @@ class AsanaManager
 
     public function addProjectTask(ProjectAsk $ask)
     {
-        $workspaceId = '1202209729086808';
+        $workspaceId = '1201979099877005';
 
         // Test department and change project and subtasks
         if($ask->getDepartment() === "06") {
-            $projectId = "1202209874110531";
+            $projectId = "1202086049265434";
             $subtasks = [
                 "Prise de contact par téléphone",
                 "Prise de RDV sur place",
@@ -78,7 +78,7 @@ class AsanaManager
                 "Présentation du devis"
             ];
         } else {
-            $projectId = "1202209874110538";
+            $projectId = "1202086049265444";
             $subtasks = [
                 "Envoi à l'applicateur",
                 "Retour"

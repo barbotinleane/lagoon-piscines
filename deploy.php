@@ -18,7 +18,7 @@ add('writable_dirs', []);
 host('lagoonpiscines')
     ->set('remote_user', 'lagoonpiko')
     ->set('http_user', 'lagoonpiko')
-    ->set('deploy_path', '~/testlagoonsymfony')
+    ->set('deploy_path', '~/lagoonsymfony')
     ->set('branch', 'newform')
     ->set('writable_mode', 'chmod');
 

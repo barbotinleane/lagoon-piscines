@@ -38,6 +38,12 @@
 }
 
 @font-face {
+  font-family: 'Inter Light';
+  src: url('../fonts/Inter-Light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Inter Semi Bold';
   src: url('../fonts/Inter-SemiBold.ttf') format('truetype');
   font-display: swap;
@@ -115,6 +121,10 @@ $secondary-color: #FFE019;
   font-family: 'IBM Plex Sans Light', sans-serif !important;
 }
 
+.inter-light {
+  font-family: 'Inter Light', sans-serif !important;
+}
+
 .inter-black {
   font-family: 'Inter Black', sans-serif !important;
 }
@@ -137,6 +147,10 @@ $secondary-color: #FFE019;
 {
   background-color:#3cb1c3;
   color:white
+}
+
+.btn-blue:hover {
+  background-color:lighten(#3cb1c3, 10%);
 }
 
 .btn-grey
@@ -263,6 +277,18 @@ img {
   border-radius: 4em 0 0 4em;
 }
 
+.rounded-corners-top {
+  border-radius: 30px 30px 0px 0px;
+}
+
+.rounded-corners-top-start {
+  border-radius: 30px 0px 0px 0px;
+}
+
+.rounded-corners-top-end {
+  border-radius: 0px 30px 0px 0px;
+}
+
 .h-60p {
   height: 60px;
 }
@@ -310,6 +336,11 @@ a:hover {
 .dark-link:hover
 {
   color: $brand-color;
+}
+
+/*Shadows: */
+.shadow-top {
+  box-shadow: -4px -5px 9px rgba(0,0,0,.7);
 }
 
 
@@ -450,6 +481,22 @@ input.form-control, input.form-check-input, select.form-select, textarea.form-co
 /*Navbar : */
 .navbar-nav > .nav-item > .nav-link {
   color: white !important;
+}
+
+.position-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+
+  @media (min-width: 992px) {
+    position: absolute;
+  }
+}
+
+.z-index-fixed {
+  z-index: 1030;
 }
 
 

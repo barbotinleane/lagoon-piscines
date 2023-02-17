@@ -19,19 +19,32 @@
     </head>
     <body class="container-fluid">
         <header class="row">
-            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark-clear p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark position-navbar bg-dark-clear p-0 flex-column">
                 <div class="container-fluid inter-semi-bold">
-                    <a class="navbar-brand" href="{{ path('app_home') }}">
-                        <img src="{{ asset('build/images/logo.svg') }}"
-                             alt="Logo lagoon piscines"
-                             height="39"
-                             width="120"
-                             style="object-fit: cover;"
+                    <div class="d-block d-lg-none">
+                        <a class="blank-link"
+                            {% if app.user %}
+                                href="{{ path('app_dashboard') }}"
+                            {% else %}
+                                href="{{ path('app_login') }}"
+                        {% endif %}
                         >
-                    </a>
+                            <i class="fa fa-user fs-3"></i>
+                        </a>
+                    </div>
+                    <div class="py-2">
+                        <a class="navbar-brand me-0" href="{{ path('app_home') }}">
+                            <img src="{{ asset('build/images/logo.svg') }}"
+                                 alt="Logo lagoon piscines"
+                                 height="39"
+                                 width="120"
+                                 style="object-fit: cover;"
+                            >
+                        </a>
+                    </div>
 
                     <button
-                            class="navbar-toggler"
+                            class="navbar-toggler border-0 px-0 blank-link"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#navbarNav"
@@ -39,92 +52,113 @@
                             aria-expanded="false"
                             aria-label="Toggle navigation"
                     >
-                        <span class="navbar-toggler-icon"></span>
+                        <i class="fa fa-bars fs-3"></i>
                     </button>
 
-                    <div class="collapse navbar-collapse justify-content-between text-start" id="navbarNav">
-                        <div class="nav navbar-nav pull-left">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                   href="#" id="navbarDropdownSwimmingPools"
-                                   role="button"
-                                   data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    Nos piscines
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownSwimmingPools">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ path('app_concept') }}">
-                                            <span class="{% if app.request.attributes.get('_route') == 'app_concept' %}fw-bold underline-blue{% endif %}">
-                                                Le concept
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ path('app_gallery') }}">
-                                            <span class="{% if app.request.attributes.get('_route') == 'app_gallery' %}fw-bold underline-blue{% endif %}">
-                                                Nos réalisations
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ path('app_project') }}">
-                                            <span class="{% if app.request.attributes.get('_route') == 'app_project' %}fw-bold underline-blue{% endif %}">
-                                                Demander un devis
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_formation') }}">
-                                    <span class="{% if (app.request.attributes.get('_route') == 'app_formation') or (app.request.attributes.get('_route') == 'app_ask') %}fw-bold underline-blue{% endif %}">
-                                        Formation
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle"
-                                   href="#" id="navbarDropdownAboutUs"
-                                   role="button"
-                                   data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    A propos de nous
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownAboutUs">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ path('app_news') }}">
-                                            <span class="{% if (app.request.attributes.get('_route') == 'app_news') %}fw-bold underline-blue{% endif %}">
-                                                Actualités
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ path('app_faq') }}">
-                                            <span class="{% if (app.request.attributes.get('_route') == 'app_faq') %}fw-bold underline-blue{% endif %}">
-                                                FAQ
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ path('app_about_us') }}">
-                                            <span class="{% if (app.request.attributes.get('_route') == 'app_about_us') %}fw-bold underline-blue{% endif %}">
-                                                Qui sommes nous ?
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </div>
-                        <div>
-                            <a class="btn rounded-corners btn-yellow" href="{{ path('app_project') }}#devis">
-                                <i class="fa fa-arrow-right"></i>
-                                &nbsp;Demander un devis
+                    <div class="d-none d-lg-block inter-light">
+                        <a class="blank-link pe-3"
+                           {% if app.user %}
+                                href="{{ path('app_dashboard') }}"
+                             {% else %}
+                                href="{{ path('app_login') }}"
+                             {% endif %}">
+                            <i class="fa fa-user"></i>
+                            &nbsp;Espace privé
+                        </a>
+
+                        <a class="btn rounded-corners btn-outline-light border-0 text-dark bg-yellow"
+                           href="{{ path('app_project') }}#devis">
+                            Demander un devis
+                        </a>
+
+                        <a class="btn rounded-corners btn-outline-light border-0 text-dark bg-blue"
+                           href="{{ path('app_formation_ask', {formationId: 1}) }}">
+                            Devenir Lagooniste
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container-fluid g-0">
+                    <div class="collapse navbar-collapse nav navbar-nav flex-column flex-lg-row justify-content-lg-around inter-black" id="navbarNav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_gallery') }}">
+                                <span
+                                    class="{% if (app.request.attributes.get('_route') == 'app_gallery') %}
+                                                fw-bold underline-blue
+                                            {% endif %}">
+                                    Nos réalisations
+                                </span>
                             </a>
-                        </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_concept') }}">
+                                <span class="{% if (app.request.attributes.get('_route') == 'app_concept') %}
+                                                fw-bold underline-blue
+                                             {% endif %}">
+                                    Notre concept
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_formation') }}">
+                                <span class="{% if (app.request.attributes.get('_route') == 'app_formation') or (app.request.attributes.get('_route') == 'app_ask') %}fw-bold underline-blue{% endif %}">
+                                    Nos formations
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               href="#" id="navbarDropdownAboutUs"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                A propos de nous
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAboutUs">
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_news') }}">
+                                        <span class="{% if (app.request.attributes.get('_route') == 'app_news') %}fw-bold underline-blue{% endif %}">
+                                            Actualités
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_faq') }}">
+                                        <span class="{% if (app.request.attributes.get('_route') == 'app_faq') %}fw-bold underline-blue{% endif %}">
+                                            FAQ
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('app_about_us') }}">
+                                        <span class="{% if (app.request.attributes.get('_route') == 'app_about_us') %}fw-bold underline-blue{% endif %}">
+                                            Qui sommes nous ?
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </div>
                 </div>
             </nav>
+
+            <div class="container-fluid g-0 d-block d-lg-none z-index-fixed">
+                <div class="position-fixed bottom-0 start-0 w-100 d-flex rounded-corners-top shadow-top">
+                    <div class="w-50 text-center btn-yellow py-3 rounded-corners-top-start">
+                        <a class="inter-light text-dark"
+                           href="{{ path('app_project') }}#devis">
+                            Demander un devis
+                        </a>
+                    </div>
+
+                    <div class="w-50 text-center btn-blue py-3 rounded-corners-top-end">
+                        <a class="inter-light text-dark"
+                           href="{{ path('app_formation_ask', {formationId: 1}) }}">
+                            Devenir Lagooniste
+                        </a>
+                    </div>
+                </div>
+            </div>
         </header>
         {% block body %}{% endblock %}
         <footer class="row bg-dark text-light">

@@ -5,6 +5,14 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     asana_key: '%env(ASANA_KEY)%'
+    workspace_id: '%env(WORKSPACE_ID)%'
+    formation_project_id: '%env(FORMATION_PROJECT_ID)%'
+    paca_project_id: '%env(PACA_PROJECT_ID)%'
+    other_project_id: '%env(OTHER_PROJECT_ID)%'
+
+    formation_email_receiver: '%env(FORMATION_EMAIL_RECEIVER)%'
+    project_email_receiver: '%env(PROJECT_EMAIL_RECEIVER)%'
+
     upload_directory: '%kernel.project_dir%/public/uploads'
     images_news_directory: '%kernel.project_dir%/public/uploads/images/news'
 

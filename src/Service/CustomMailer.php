@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Entity\FormationAsks;
 use App\Entity\ProjectAsk;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
@@ -37,9 +38,8 @@ class CustomMailer
      * @param $status
      * @return RedirectResponse|void
      */
-    public function sendAskMail(FormationAsks $ask, $status = null) {
-        //$to = 'barbotinleane@gmail.com';
-        $to = 'lagoonformations@gmail.com';
+    public function sendAskMail(FormationAsks $ask, $status = null, ContainerBagInterface $params) {
+        $to = $params->get('formation_email_receiver');
         $subject = 'Nouvelle demande de formation !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';
@@ -51,9 +51,8 @@ class CustomMailer
         mail($to, $subject, $content, implode("\r\n", $headers));
     }
 
-    public function sendProjectAskMail(ProjectAsk $projectAsk) {
-        //$to = 'barbotinleane@gmail.com';
-        $to = 'devislagoon@gmail.com';
+    public function sendProjectAskMail(ProjectAsk $projectAsk, ContainerBagInterface $params) {
+        $to = $params->get('project_email_receiver');
         $subject = 'Nouvelle demande de devis !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';

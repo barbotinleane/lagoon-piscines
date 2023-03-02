@@ -40,7 +40,7 @@ class CustomMailer
      * @param $status
      * @return RedirectResponse|void
      */
-    public function sendAskMail(FormationAsks $ask, $status = null, ContainerBagInterface $params) {
+    public function sendAskMail(FormationAsks $ask, $status = null) {
         $to = $this->params->get('formation_email_receiver');
         $subject = 'Nouvelle demande de formation !';
         $headers[] = 'MIME-Version: 1.0';
@@ -53,7 +53,7 @@ class CustomMailer
         mail($to, $subject, $content, implode("\r\n", $headers));
     }
 
-    public function sendProjectAskMail(ProjectAsk $projectAsk, ContainerBagInterface $params) {
+    public function sendProjectAskMail(ProjectAsk $projectAsk) {
         $to = $this->params->get('project_email_receiver');
         $subject = 'Nouvelle demande de devis !';
         $headers[] = 'MIME-Version: 1.0';

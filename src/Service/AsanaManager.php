@@ -66,7 +66,7 @@ class AsanaManager
         return $result;
     }
 
-    public function addProjectTask(ProjectAsk $ask, ContainerBagInterface $params)
+    public function addProjectTask(ProjectAsk $ask)
     {
         $workspaceId = $this->params->get('workspace_id');
 

@@ -3,8 +3,7 @@
 {% block title %}LAGOON&reg; Piscines - Formation {{ formation.libelle }}{% endblock %}
 
 {% block description %}
-    Devenez installateur de piscines écologiques LAGOON® en résine et EPDM au cours d'une formation certifiée
-    Qualiopi dans les Alpes Maritimes. Cette formation est financée par Pole Emploi.
+    {{ formation.presentation }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -19,8 +18,8 @@
 
 {% block body %}
     <div id="corps" class="mt-5 pt-lg-5">
-        <div class="row py-5 px-none px-md-4 px-lg-5">
-            <div class="text-title">
+        <div class="row py-5 px-3 px-md-4 px-lg-5">
+            <div>
                 <div class="text-uppercase fw-light">Formation</div>
                 <h1 class="inter-black size-1">
                     {{ formation.libelle }}
@@ -36,7 +35,7 @@
             </div>
         </div>
 
-        <div class="row bg-dark text-white">
+        <div class="row bg-dark text-white px-3 pt-5 p-md-0">
             <div class="col-12 col-md-8 p-2 p-md-5">
                 <div class="d-flex align-items-center">
                     <div class="fs-1 pe-3">
@@ -69,7 +68,7 @@
                                 <i class="fa fa-euro"></i>
                             </td>
                             <td>
-                                &nbsp;<i>Sur devis</i>
+                                &nbsp;{{ formation.cost }}&nbsp;€
                             </td>
                         </tr>
                         <tr>
@@ -100,7 +99,7 @@
 
         <div class="row bg-dark py-5 justify-content-around">
             {% for image in formation.formationImages %}
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-4 mb-3">
                     <img src="{{ asset('uploads/images/formations/' ~ image.imageName) }}"
                          alt="Image descriptive de la formation {{ formation.libelle }}"
                          class="h-100 img-gallery">
@@ -227,6 +226,22 @@
                         <div class="carousel-item active text-center mt-4" data-bs-interval="5000">
                             <p class="w-75 mx-auto">
                                 <em>
+                                    Mon équipe et moi même avons suivi cette formation en Septembre 2022. Nous avons
+                                    découvert un métier avec des produits innovants et naturels qui vont nous permettre
+                                    de développer notre activé au sein de notre entreprise. Formation très bien organisée
+                                    et agréable avec un accompagnement professionnel. Merci à toute l'équipe LAGOON.
+                                </em>
+                            </p>
+
+                            <p class="w-75 mx-auto">
+                                <strong>Frédéric<br></strong>
+                                Hauts-De-France
+                            </p>
+                        </div>
+
+                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                            <p class="w-75 mx-auto">
+                                <em>
                                     Top ! L'équilibre temps de théorie et de pratique était très bien. De plus,
                                     les formateurs savent très bien se mobiliser et s'adapter aux participants.
                                 </em>
@@ -240,24 +255,13 @@
 
                         <div class="carousel-item text-center mt-4" data-bs-interval="5000">
                             <p class="w-75 mx-auto">
-                                <em>Merci pour tout, super équipe, formateurs au top !</em>
+                                <em>Je suis très très heureux d'avoir suivi cette formation et je ne m'attendais pas à
+                                    ce potentiel à tous les niveaux : potentiel humain, potentiel économique, potentiel
+                                    de réalisation… Ce spectre d'activités qu'il y a derrière. Les formateurs sont dans
+                                    le sourire, très ouverts… Les échanges étaient très riches.</em>
                             </p>
-                            <strong>Florian<br></strong>
-                            Alsace
-                        </div>
-
-                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                            <p class="w-75 mx-auto">
-                                <em>
-                                    Parfaits formateurs ! Les supports pédagogiques sont suffisants et clairs,
-                                    utilisables et exploitables pour la suite
-                                </em>
-                            </p>
-
-                            <p class="w-75 mx-auto">
-                                <strong>Ludovic<br></strong>
-                                Salon de Provence
-                            </p>
+                            <strong>Steve<br></strong>
+                            Var
                         </div>
 
                         <div class="carousel-item text-center mt-4" data-bs-interval="5000">
@@ -270,6 +274,22 @@
                             <p class="w-75 mx-auto">
                                 <strong>Lancelot<br></strong>
                                 Alsace
+                            </p>
+                        </div>
+
+                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
+                            <p class="w-75 mx-auto">
+                                <em>
+                                    Le métier de Lagoniste est un métier d'avenir, complètement novateur avec toutes les
+                                    nouvelles technologies qu'on ignore complètement. Ca ouvre aussi des perspectives en
+                                    terme de paysagisme, c'est-à-dire qu'on peut intégrer des rochers, des palmiers, des
+                                    monolithes… Et c'est le top.
+                                </em>
+                            </p>
+
+                            <p class="w-75 mx-auto">
+                                <strong>Cédric<br></strong>
+                                Vaucluse
                             </p>
                         </div>
                     </div>

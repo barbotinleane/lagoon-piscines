@@ -36,8 +36,8 @@ class PoolsController extends AbstractController
      * @param AskSaver $askSaver
      * @return Response
      */
-    #[Route('/demande-devis', name: 'app_project')]
-    public function project(EntityManagerInterface $entityManager, Request $request, DepartmentsRepository $departmentsRepository, AsanaManager $asanaManager, CustomMailer $mailer, AskSaver $askSaver): Response
+    #[Route('/demande-devis', name: 'app_project_ask')]
+    public function projectAsk(EntityManagerInterface $entityManager, Request $request, DepartmentsRepository $departmentsRepository, AsanaManager $asanaManager, CustomMailer $mailer, AskSaver $askSaver): Response
     {
         $projectAsk = new ProjectAsk();
         $departments = $departmentsRepository->findAll();
@@ -57,7 +57,7 @@ class PoolsController extends AbstractController
             }
         }
 
-        return $this->render('pools/project/index.html.twig', [
+        return $this->render('pools/ask/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }

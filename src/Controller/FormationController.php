@@ -80,7 +80,11 @@ class FormationController extends AbstractController
                 $asanaManager->addFormationTask($ask);
                 $mailer->sendAskMail($ask, $ask->getStatus());
 
-                $this->addFlash('success', 'Votre demande de formation a bien été envoyée.');
+                if($ask->getStatus()->getId() == 1) {
+                    $this->addFlash('professional', 'Votre demande de formation a bien été envoyée.');
+                } else {
+                    $this->addFlash('individual', 'Votre demande de formation a bien été envoyée.');
+                }
                 return $this->redirectToRoute('app_home');
             }
         }

@@ -1,0 +1,412 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LAGOON&reg; Piscines - Demande de devis pour votre projet de piscine écologique{% endblock %}
+
+{% block description %}
+    Des rochers, une cascade, ou des bains relaxants ?
+    Faites une demande de devis en nous décrivant le LAGOON® de vos rêves.
+{% endblock description %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('projectAsk') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('projectAsk') }}
+{% endblock %}
+
+{% block body %}
+
+<div class="" id="devis">
+    <div class="row section bg-pool-home d-flex align-items-sm-center py-5">
+        <div class="text-white py-3 mt-5">
+            <h1 class="inter-black pt-5 text-shadow">
+                Composez le Lagon de vos rêves
+            </h1>
+            <p class="text-shadow">
+                Couleur de la résine, forme, taille, motifs... La gamme des produits des piscines écologiques
+                LAGOON® permet un nombre infini de formes de piscines.
+                <br>
+                Prêts à commencer à concevoir le Lagon de vos rêves ?
+            </p>
+        </div>
+    </div>
+
+    {{ form_start(form) }}
+    <div class="section">
+        <div id="infos-perso" class="py-5 px-3 px-sm-5 my-3 border border-secondary rounded-corners">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="inter-black size-3">Informations personnelles</h3>
+                <div>
+                    <i class="fa fa-user form-icon"></i>
+                </div>
+            </div>
+
+            <div class="px-3 pb-3">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        {{ form_row(form.firstName) }}
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        {{ form_row(form.lastName) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-7 col-lg-4">
+                        {{ form_row(form.email) }}
+                    </div>
+
+                    <div class="col-12 col-md-5 col-lg-3">
+                        {{ form_row(form.phone) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="lieu" class="py-5 px-3 px-sm-5 my-3 bg-grey rounded-corners">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="inter-black size-3">Lieu de construction</h3>
+                <div>
+                    <i class="fa fa-map-marker form-icon"></i>
+                </div>
+            </div>
+
+            <div class="px-3 pb-3">
+                <div class="row">
+                    <div class="col-12 col-md-11">
+                        {{ form_row(form.address) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-2">
+                        {{ form_row(form.postalCode) }}
+                    </div>
+
+                    <div class="col-12 col-md-5 col-lg-3">
+                        {{ form_row(form.city) }}
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        {{ form_row(form.department) }}
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        {{ form_row(form.country) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="piscine" class="py-5 px-3 px-sm-5 my-3 border border-secondary rounded-corners">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="inter-black size-3">Votre LAGOON&reg;</h3>
+                <div>
+                    <i class="fa fa-umbrella-beach form-icon"></i>
+                </div>
+            </div>
+
+            <div class="p-3">
+                <div class="row" id="m2-nombre">
+                    <label>
+                        {{ form_label(form.waterSurface) }}
+                        <span class="tool"
+                              data-tip="La profondeur de votre piscine sera fonction des dimensions de celle-ci et des parois en pente douce de 45°. La profondeur maximale sera entre 1m20 et 1m75."
+                              tabindex="1">
+                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                </span>
+                    </label>
+                    <div class="buttons-group">
+                        {% for child in form.waterSurface.children %}
+                            <div class="">
+                                <div class="">
+                                    {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                    <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label>{{ form_label(form.shape) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.shape.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required" for="{{ child.vars.id }}" >
+                                            {{ child.vars.label }}
+                                            {% if child.vars.label == "Modèle pré-dessiné" %}
+                                                <span class="tool"
+                                                      data-tip="Possibilité de personnalisation dans les limites de la taille du modèle. Schémas de principe. Formes non contractuelles."
+                                                      tabindex="1">
+                                                            <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                                        </span>
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="choose_forme" style="display:none;">
+                    <div>
+                        <label>{{ form_label(form.poolModel) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.poolModel.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
+                                            <div class="card bg-inherit d-flex flex-row align-items-start justify-content-start">
+                                                <img class="card-img"
+                                                     src="{{ asset('build/images/'~child.vars.label|lower~'.png') }}"
+                                                     height="100"
+                                                     id="{{ 'img_'~child.vars.label }}">
+                                                <div class="card-img-overlay p-1 d-flex align-items-start justify-content-end">
+                                                    <button type="button"
+                                                            class="btn-zoom"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#myModal"
+                                                            id="{{ child.vars.label }}"
+                                                            name="shapeButton"
+                                                            value="{{ asset('build/images/'~child.vars.label~'.png') }}">
+                                                        <i class="fas fa-search-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                {{ child.vars.label }}
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label>{{ form_label(form.poolColor) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.poolColor.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
+                                            {% if child.vars.label != 'Je ne sais pas encore' %}
+                                                <div class="card bg-inherit d-flex flex-row align-items-start justify-content-start">
+                                                    <img class="card-img"
+                                                         src="{{ asset('build/images/'~child.vars.label~'.png') }}"
+                                                         height="100"
+                                                         id="{{ 'img_'~child.vars.label }}">
+                                                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                                                        <button type="button"
+                                                                class="btn-zoom"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#myModal"
+                                                                id="{{ child.vars.label }}"
+                                                                name="colorButton"
+                                                                value="{{ asset('build/images/'~child.vars.label~'.png') }}">
+                                                            <i class="fas fa-search-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            <div>
+                                                {{ child.vars.label }}
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label>{{ form_label(form.beach) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.beach.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="choose_plage" class="p-3 mt-4 bg-light" style="display:none;">
+                    <h4 class="text-center">PLAGE</h4>
+                    <div class="row">
+                        <div>
+                            <label>{{ form_label(form.beachSize) }}</label>
+                            <div class="buttons-group">
+                                {% for child in form.beachSize.children %}
+                                    <div class="">
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <label>{{ form_label(form.beachColor) }}</label>
+                            <div class="buttons-group">
+                                {% for child in form.beachColor.children %}
+                                    <div class="">
+                                        <div class="">
+                                            {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                            <label class="form-check-label required d-flex flex-column p-4" for="{{ child.vars.id }}" >
+                                                {% if child.vars.label != 'Je ne sais pas encore' %}
+                                                    <div class="card bg-inherit d-flex flex-row align-items-start justify-content-start">
+                                                        <img class="card-img"
+                                                             src="{{ asset('build/images/'~child.vars.label~'.png') }}"
+                                                             height="100"
+                                                             id="{{ 'img_'~child.vars.label }}">
+                                                        <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn-zoom"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#myModal"
+                                                                    id="{{ child.vars.label }}"
+                                                                    name="colorButton"
+                                                                    value="{{ asset('build/images/'~child.vars.label~'.png') }}">
+                                                                <i class="fas fa-search-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                <div>
+                                                    {{ child.vars.label }}
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div>
+                        <label>{{ form_label(form.filtrationType) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.filtrationType.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div>
+                        <label>{{ form_label(form.heatPump) }}</label>
+                        <div class="buttons-group">
+                            {% for child in form.heatPump.children %}
+                                <div class="">
+                                    <div class="">
+                                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                                        <label class="form-check-label required" for="{{ child.vars.id }}" >{{ child.vars.label }}</label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                        <label>{{ form_label(form.buildingStarts) }}</label>
+                        <br>
+                        {{ form_widget(form.buildingStarts) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                        {{ form_row(form.budget) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        {{ form_row(form.notes) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-check small px-5">
+            <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    name="consentement[]"
+                    id="consentement_donnees"
+                    value="consentement_donnees"
+                    onclick="able_submit(['consentement_donnees'])"
+            >
+            En soumettant ce formulaire, j’accepte que mes informations soient utilisées
+            exclusivement dans le cadre de ma demande et de la relation commerciale éthique et
+            personnalisée qui pourrait en découler si je le souhaite et je reconnais avoir pris
+            connaissance de la politique de traitement et d'utilisation des données relative à la RGPD
+            disponible en
+            <a
+                    href="{{ path('app_doc_rgpd') }}"
+                    target=_blank
+            >
+                cliquant ici
+            </a>.
+        </div>
+
+        <div class="text-center">
+            <input
+                    type="submit"
+                    class="btn btn-blue btn-lg rounded-corners mt-3"
+                    id="valider"
+                    value="Valider"
+                    disabled
+            />
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-transparent border-0">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="text-white bg-transparent border-0 fs-2" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="content"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

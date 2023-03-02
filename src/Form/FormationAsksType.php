@@ -82,7 +82,7 @@ class FormationAsksType extends AbstractType
                         'expanded' => true
                     ])
                     ->add('companyName', TextType::class, [
-                        'label' => 'Raison sociale de l\'entreprise',
+                        'label' => 'Nom de l\'entreprise',
                         'attr' => [
                             'class' => 'form-control'
                         ],

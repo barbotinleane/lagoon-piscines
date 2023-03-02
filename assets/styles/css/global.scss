@@ -98,6 +98,10 @@ $secondary-color: #FFE019;
   color: #AFAFAF;
 }
 
+.text-shadow {
+  text-shadow: 1px 1px 8px #212529;
+}
+
 
 
 /*Fonts : */
@@ -171,13 +175,13 @@ $secondary-color: #FFE019;
 
 .btn-zoom {
   border-radius: 50%;
-  background-color: #feeaae;
+  background-color: #fff;
   padding: 1px 6px;
   border: 1px solid #212529;
   color: #212529;
 
   &:hover {
-    background-color: darken(#feeaae, 20%);
+    background-color: darken(#fff, 20%);
   }
 }
 
@@ -195,7 +199,7 @@ $secondary-color: #FFE019;
 }
 
 .bg-clear {
-  background-color: rgba(255,255,255,0.784939306777398462);
+  background-color: rgba(255,255,255,0.28);
 }
 
 .bg-dark-clear {
@@ -267,6 +271,12 @@ img {
 .img-gallery {
   width: 100%;
   object-fit: cover;
+}
+
+
+/*Box : */
+.box-shadow {
+  box-shadow: 2px 2px 8px #212529;
 }
 
 .rounded-corners {

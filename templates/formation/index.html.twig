@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}LAGOON&reg; Piscines - Nos Formations{% endblock %}
+{% block title %}LAGOON&reg; Piscines - Nos Formations en Eco-construction et aménagement paysager{% endblock %}
 
 {% block description %}
-    Découvrez nos différentes formations autour de la technologie LAGOON&reg;, entre conception de bassin ou construction
-    de piscine écologique. Reconvertissez vous ou augmentez en compétences avec LAGOON&reg; !
+    Découvrez nos différentes formations autour de la technologie LAGOON&reg;, entre topographie ou construction
+    de piscine écologique, et aménagement paysager. Reconvertissez vous ou augmentez en compétences avec LAGOON&reg; !
 {% endblock %}
 
 {% block stylesheets %}
@@ -19,16 +19,17 @@
 
 {% block body %}
     <div id="corps" class="mt-5 pt-lg-5">
-        <div class="row py-5 px-none px-md-4 px-lg-5">
+        <div class="row py-5 px-3 px-md-4 px-lg-5">
             <h1 class="inter-black size-1">Formations</h1>
             <div>
                 <p>
                     Envie d’augmenter vos compétences ?
-                    Découvrez nos différentes formations autour de la technologique LAGOON.
+                    Découvrez nos différentes formations autour de la conception paysagiste, de la construction de piscines,
+                    de la topographie... et bien d'autres.
                 </p>
             </div>
 
-            <div class="row pt-4">
+            <div class="row py-5">
                 {% for formation in formations %}
                     <div class="row bg-blue-clear m-3 rounded-corners-start align-items-center g-0">
                         <div class="col-12 col-md-2 h-adaptative">
@@ -46,7 +47,7 @@
                                 </div>
                                 <div>
                                     <i class="fa fa-euro"></i>
-                                    <i>Sur devis</i>
+                                    {{ formation.cost }}&nbsp;€
                                 </div>
                                 <div>
                                     <i class="fa fa-calendar"></i>
@@ -55,15 +56,98 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-2">
-                            <div class="text-center py-3">
-                                <a class="btn btn-yellow"
-                                   href="{{ path('app_formation_show', {formationId: formation.id}) }}">
-                                    Voir plus
-                                </a>
+                            <div class="text-center p-3">
+                                <div class="py-1">
+                                    <a class="btn btn-yellow rounded-corners w-100"
+                                       href="{{ path('app_formation_ask', {formationId: formation.id}) }}">
+                                        Demande de devis
+                                    </a>
+                                </div>
+                                <div class="py-1">
+                                    <a class="btn btn-dark rounded-corners w-100"
+                                       href="{{ path('app_formation_show', {formationId: formation.id}) }}">
+                                        Plus d'infos
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
+        </div>
+
+        <div class="big-spacing bg-blue">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-sm-2 pb-2 text-center">
+                    <i class="fa fa-university size-big" aria-hidden="true"></i>
+                </div>
+                <div class="col-12 col-sm-10 ps-none ps-sm-5">
+                    <h2 class="inter-black size-2">
+                        Nos formations peuvent être financées en tout ou partie par l’état
+                    </h2>
+                    <p>
+                        N'hésitez pas à contacter votre organisme collecteur qui vous aidera pour son
+                        financement (<a href="https://www.fifpl.fr/" target="_blank" class="text-darkblue">
+                            FIFPL</a>, <a href="https://www.ocapiat.fr/" target="_blank" class="text-darkblue">
+                            OCAPIAT</a>, <a href="https://www.fafcea.com/" target="_blank" class="text-darkblue">
+                            FAFCEA</a>, <a href="https://communication-agefice.fr/" target="_blank" class="text-darkblue">
+                            AGEFICE</a>, <a href="https://vivea.fr/" target="_blank" class="text-darkblue">Vivea</a>, <a href="https://www.pole-emploi.fr/accueil/" target="_blank" class="text-darkblue">Pôle Emploi</a>...).
+                    </p>
+                    <div class="w-adaptative mx-auto bg-blue d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-around">
+                            <picture>
+                                <source srcset="{{ asset('build/images/datadock.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/datadock.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/datadock.png') }}" alt="Logo du datadock de la formation de piscine écologique LAGOON" class="img-size">
+                            </picture>
+                            <div class="d-flex">
+                                <picture>
+                                    <source srcset="{{ asset('build/images/qualiopi.webp') }}" type="image/webp" class="img-size">
+                                    <source srcset="{{ asset('build/images/qualiopi.png') }}" type="image/png" class="img-size">
+                                    <img src="{{ asset('build/images/qualiopi.png') }}" alt="Logo du qualiopi de la formation LAGOON" class="img-size">
+                                </picture>
+                                <a
+                                        href="https://certificats-attestations.afnor.org/certification=128289183752"
+                                        target="_blank"
+                                >
+                                    <picture>
+                                        <source srcset="{{ asset('build/images/qr-certif.webp') }}" type="image/webp" class="img-size">
+                                        <source srcset="{{ asset('build/images/qr-certif.png') }}" type="image/png" class="img-size">
+                                        <img src="{{ asset('build/images/qr-certif.png') }}" alt="QR code prouvant la validité du certificat afnor de la formation proposée par LAGOON" class="img-size">
+                                    </picture>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-around pt-3">
+                            <a
+                                    href="https://candidat.pole-emploi.fr/formations/detail/4158608/true"
+                                    target="_blank"
+                            >
+                                <picture>
+                                    <source srcset="{{ asset('build/images/logo_pole_emploi.webp') }}" type="image/webp" class="img-size">
+                                    <source srcset="{{ asset('build/images/logo_pole_emploi.png') }}" type="image/png" class="img-size">
+                                    <img src="{{ asset('build/images/logo_pole_emploi.png') }}"
+                                         alt="Logo pole emploi indiquant que la formation est finançable par pole emploi"
+                                         class="img-size bg-white">
+                                </picture>
+                            </a>
+                            <picture>
+                                <source srcset="{{ asset('build/images/logo_vivea.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/logo_vivea.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/logo_vivea.png') }}"
+                                     alt="Logo vivea indiquant que la formation est finançable par vivea"
+                                     class="img-size">
+                            </picture>
+                            <picture>
+                                <source srcset="{{ asset('build/images/ocapiat_logo.webp') }}" type="image/webp" class="img-size">
+                                <source srcset="{{ asset('build/images/ocapiat_logo.png') }}" type="image/png" class="img-size">
+                                <img src="{{ asset('build/images/ocapiat_logo.png') }}"
+                                     alt="Logo ocapiat indiquant que la formation est finançable par ocapiat"
+                                     class="img-size bg-white">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

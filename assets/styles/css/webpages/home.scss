@@ -33,6 +33,41 @@
   }
 }
 
+.bg-build-home {
+  background-image: url(../../../photos/lagoniste.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:left bottom;
+
+  @media (min-width: 768px) {
+    background-image: url(../../../photos/lagoniste.png);
+    background-size: cover;
+    background-position:left bottom;
+  }
+
+  > div {
+    width: 80%;
+    font-size: 3em;
+    line-height: 1.3em;
+
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+
+    @media (min-width: 992px) {
+      width: 70%;
+    }
+
+    @media (min-width: 1200px) {
+      width: 45%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 45%;
+    }
+  }
+}
+
 .title-responsive {
   top: -90px;
   position: relative;

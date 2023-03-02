@@ -26,14 +26,14 @@
             </div>
         {% endfor %}
         {% for message in app.flashes('professional') %}
-            <div class="alert bg-white alert-success-form alert-dismissible fade show" role="alert">
+            <div class="alert bg-white alert-success-form alert-dismissible fade show h-auto" role="alert">
                 <h4>
                     {{ message }}
                 </h4>
                 <p>
                     Aidez nous à étudier vos droits à la formation avec le formulaire suivant :
                     <div class="text-center">
-                        <a class="btn btn-yellow"
+                        <a class="btn btn-success"
                            href="https://docs.google.com/forms/d/e/1FAIpQLSf5tLSEunkSD4zM7YQqvlRcGDoTGCrS1tzJ5P8ScOd0ujcexg/viewform?usp=sf_link">
                             Remplir le formulaire
                         </a>
@@ -43,16 +43,17 @@
             </div>
         {% endfor %}
         {% for message in app.flashes('individual') %}
-            <div class="alert bg-white alert-success-form alert-dismissible fade show" role="alert">
+            <div class="alert bg-white alert-success-form alert-dismissible fade show h-auto" role="alert">
                 <h4>
                     {{ message }}
                 </h4>
                 <p>
                     Aidez nous à étudier vos droits à la formation avec le formulaire suivant :
                 <div class="text-center">
-                    <a class="btn btn-yellow"
+                    <a class="btn btn-success"
                        href="https://docs.google.com/forms/d/e/1FAIpQLSffEMS2_oTKVxhUCVjOg1z7-So3G7GH8DyA58za_dvECZPrgA/viewform?usp=sf_link">
-                        Remplir le formulaire
+                        <i class="fas fa-chevron-right"></i>
+                        &nbsp;Remplir le formulaire
                     </a>
                 </div>
                 </p>

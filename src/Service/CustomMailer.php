@@ -23,12 +23,14 @@ class CustomMailer
     private $mailer;
     private $router;
     private $twig;
+    private $params;
 
-    public function __construct(TransportInterface $mailer, RouterInterface $router, Environment $twig)
+    public function __construct(TransportInterface $mailer, RouterInterface $router, Environment $twig, ContainerBagInterface $params)
     {
         $this->mailer = $mailer;
         $this->router = $router;
         $this->twig = $twig;
+        $this->params = $params;
     }
 
     /***
@@ -39,7 +41,7 @@ class CustomMailer
      * @return RedirectResponse|void
      */
     public function sendAskMail(FormationAsks $ask, $status = null, ContainerBagInterface $params) {
-        $to = $params->get('formation_email_receiver');
+        $to = $this->params->get('formation_email_receiver');
         $subject = 'Nouvelle demande de formation !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';
@@ -52,7 +54,7 @@ class CustomMailer
     }
 
     public function sendProjectAskMail(ProjectAsk $projectAsk, ContainerBagInterface $params) {
-        $to = $params->get('project_email_receiver');
+        $to = $this->params->get('project_email_receiver');
         $subject = 'Nouvelle demande de devis !';
         $headers[] = 'MIME-Version: 1.0';
         $headers[] = 'Content-type: text/html; charset=iso-8859-1';

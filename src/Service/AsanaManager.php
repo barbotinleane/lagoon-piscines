@@ -21,20 +21,22 @@ class AsanaManager
     private $asana;
     private $router;
     private $twig;
+    private $params;
 
     public function __construct(ContainerBagInterface $params, RouterInterface $router, Environment $twig)
     {
         $this->asana = Client::accessToken($params->get('asana_key'));
         $this->router = $router;
         $this->twig = $twig;
+        $this->params = $params;
     }
 
-    public function addFormationTask(FormationAsks $ask, ContainerBagInterface $params)
+    public function addFormationTask(FormationAsks $ask)
     {
         $status = $ask->getStatus()->getId();
 
-        $workspaceId = $params->get('workspace_id');
-        $projectId = $params->get('formation_project_id');
+        $workspaceId = $this->params->get('workspace_id');
+        $projectId = $this->params->get('formation_project_id');
 
         // Load Twig File
         $html = $this->twig->render('asana_task/formation_task.html.twig', [
@@ -66,11 +68,11 @@ class AsanaManager
 
     public function addProjectTask(ProjectAsk $ask, ContainerBagInterface $params)
     {
-        $workspaceId = $params->get('workspace_id');
+        $workspaceId = $this->params->get('workspace_id');
 
         // Test department and change project and subtasks
         if($ask->getDepartment() === "06") {
-            $projectId = $params->get('paca_project_id');
+            $projectId = $this->params->get('paca_project_id');
             $subtasks = [
                 "Prise de contact par téléphone",
                 "Prise de RDV sur place",
@@ -78,7 +80,7 @@ class AsanaManager
                 "Présentation du devis"
             ];
         } else {
-            $projectId = $params->get('other_project_id');
+            $projectId = $this->params->get('other_project_id');
             $subtasks = [
                 "Envoi à l'applicateur",
                 "Retour"

@@ -76,15 +76,32 @@ class FormationSessionsRepository extends ServiceEntityRepository
             ;
     }
 
-    /*
-    public function findOneBySomeField($value): ?FormationSessions
+    public function findAllEvents(int $id): ?array
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
+        $dates = $this->createQueryBuilder('f')
+            ->select('f.dateStart AS start', 'f.dateEnd AS end', 'f.registered', 'f.capacity')
+            ->where('f.dateStart > CURRENT_DATE()')
+            ->andWhere('f.formation = :id')
+            ->orderBy('f.dateStart', 'ASC')
+            ->setParameter('id', $id)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
+        $datesFormated = [];
+
+        foreach($dates as $date) {
+            $description = "Remplissage : ".$date["registered"]."/".$date["capacity"]." pers.";
+            $title = $date["registered"] < $date["capacity"] ? "Reste ".$date["capacity"]-$date["registered"]." places" : "Complet !";
+            $color = $date["registered"] < $date["capacity"] ? "green" : "red";
+            $datesFormated[] = [
+                "start" => $date["start"]->format('Y-m-d'),
+                "end" => $date["end"]->modify('+1 day')->format('Y-m-d'),
+                "title" => $title,
+                "description" => $description,
+                "color" => $color,
+            ];
+        }
+
+        return $datesFormated;
     }
-    */
 }

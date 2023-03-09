@@ -97,4 +97,13 @@ class FormationController extends AbstractController
             "formation" => $formation,
         ]);
     }
+
+    #[Route('/json/dates-formations/{formationId}', name: 'app_formation_get_dates')]
+    public function getDates($formationId, FormationLibellesRepository $flRepo, FormationSessionsRepository $fsRepo): Response
+    {
+        $formation = $flRepo->find($formationId);
+        $sessions = $fsRepo->findAllEvents($formationId);
+
+        return $this->json(json_encode($sessions, JSON_FORCE_OBJECT));
+    }
 }

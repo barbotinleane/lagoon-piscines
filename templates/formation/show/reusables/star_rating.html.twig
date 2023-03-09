@@ -1,0 +1,15 @@
+{% set full_stars = rating|round(0, 'floor') %}
+{% set half_stars = rating - full_stars %}
+
+<div class="text-yellow icon-shadow">
+    {% for i in 1..5 %}
+        {% if i <= full_stars %}
+            <i class="fas fa-star"></i>
+        {% elseif half_stars > 0 %}
+            {% set half_stars = 0 %}
+            <i class="fas fa-star-half-alt"></i>
+        {% else %}
+            <i class="far fa-star"></i>
+        {% endif %}
+    {% endfor %}
+</div>

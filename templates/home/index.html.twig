@@ -19,47 +19,8 @@
 {% endblock %}
 
 {% block body %}
-        {% for message in app.flashes('success') %}
-            <div class="alert bg-white alert-success-form alert-dismissible fade show" role="alert">
-                <strong>{{ message }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('professional') %}
-            <div class="alert bg-white alert-success-form alert-dismissible fade show h-auto" role="alert">
-                <h4>
-                    {{ message }}
-                </h4>
-                <p>
-                    Aidez nous à étudier vos droits à la formation avec le formulaire suivant :
-                    <div class="text-center">
-                        <a class="btn btn-success"
-                           href="https://docs.google.com/forms/d/e/1FAIpQLSf5tLSEunkSD4zM7YQqvlRcGDoTGCrS1tzJ5P8ScOd0ujcexg/viewform?usp=sf_link">
-                            Remplir le formulaire
-                        </a>
-                    </div>
-                </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        {% endfor %}
-        {% for message in app.flashes('individual') %}
-            <div class="alert bg-white alert-success-form alert-dismissible fade show h-auto" role="alert">
-                <h4>
-                    {{ message }}
-                </h4>
-                <p>
-                    Aidez nous à étudier vos droits à la formation avec le formulaire suivant :
-                <div class="text-center">
-                    <a class="btn btn-success"
-                       href="https://docs.google.com/forms/d/e/1FAIpQLSffEMS2_oTKVxhUCVjOg1z7-So3G7GH8DyA58za_dvECZPrgA/viewform?usp=sf_link">
-                        <i class="fas fa-chevron-right"></i>
-                        &nbsp;Remplir le formulaire
-                    </a>
-                </div>
-                </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        {% endfor %}
+        {{ include('home/reusables/modal_project_ask.html.twig') }}
+        {{ include('home/reusables/modals_formation_ask.html.twig') }}
         <div class="row">
             <div id="carouselHomeAction" class="carousel slide g-0" data-bs-ride="true">
                 <div class="carousel-indicators">
@@ -68,16 +29,16 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="row vh-100 bg-pool-home d-flex align-items-end align-items-sm-center justify-content-center pb-5">
-                            <div class="size-1 text-white inter-black text-center">
+                        <div class="row flex-row flex-md-column vh-100 bg-pool-home d-flex align-items-center justify-content-center pb-5">
+                            <div class="size-1 text-white inter-black text-start text-md-center">
                                 <h1 class="underlined">
                                     Réalisez le Lagon de vos rêves
                                 </h1>
-                                <div>
+                                <div class="text-center">
                                     <a class="btn btn-yellow rounded-corners" href="{{ path('app_project_ask') }}">
                                         Composer mon Lagon
                                     </a>
-                                    <a class="btn btn-outline-light rounded-corners" href="{{ path('app_concept') }}">
+                                    <a class="btn btn-light rounded-corners" href="{{ path('app_concept') }}">
                                         Plus d'infos
                                     </a>
                                 </div>
@@ -85,16 +46,18 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row vh-100 bg-build-home d-flex align-items-end align-items-sm-center justify-content-center pb-5">
-                            <div class="size-1 text-white inter-black text-center">
+                        <div class="row flex-row flex-md-column vh-100 bg-build-home d-flex align-items-center justify-content-center pb-5">
+                            <div class="size-1 text-white inter-black text-start text-md-center">
                                 <h1 class="underlined">
                                     Devenez Lagoniste
                                 </h1>
-                                <div>
-                                    <a class="btn btn-yellow rounded-corners" href="{{ path('app_formation_ask', {formationId: 1}) }}">
+                                <div class="text-center">
+                                    <a class="btn btn-blue rounded-corners"
+                                       href="{{ path('app_formation_ask', {formationId: 1}) }}">
                                         Demander une formation
                                     </a>
-                                    <a class="btn btn-outline-light rounded-corners" href="{{ path('app_project_ask') }}">
+                                    <a class="btn btn-light rounded-corners"
+                                       href="{{ path('app_formation_show', {formationId: 1}) }}">
                                         Plus d'infos
                                     </a>
                                 </div>
@@ -113,8 +76,8 @@
             </div>
         </div>
 
-        <div class="container d-flex justify-content-around align-items-center pt-4">
-            <div class="p-4">
+        <div class="row justify-content-around align-items-center pt-4">
+            <div class="col-6 col-md-3 text-center py-3">
                 <a href="https://www.propiscines.fr/" target="_blank">
                     <picture>
                         <source srcset="{{ asset('build/images/logo_fpp2.webp') }}" type="image/webp" width=75 height=84>
@@ -123,7 +86,7 @@
                     </picture>
                 </a>
             </div>
-            <div class="p-4">
+            <div class="col-6 col-md-3 text-center py-3">
                 <a href="https://www.guide-piscine.fr/" target="_blank">
                     <picture>
                         <source srcset="{{ asset('build/images/logo_gp2.webp') }}" type="image/webp" width=160 height=72>
@@ -132,7 +95,7 @@
                     </picture>
                 </a>
             </div>
-            <div class="p-4">
+            <div class="col-6 col-md-3 text-center py-3">
                 <a href="https://maisonetjardinmagazine.fr/" target="_blank">
                     <picture>
                         <source srcset="{{ asset('build/images/logo_mj2.webp') }}" type="image/webp" width=150 height=69>
@@ -141,7 +104,7 @@
                     </picture>
                 </a>
             </div>
-            <div class="p-4">
+            <div class="col-6 col-md-3 text-center py-3">
                 <a href="https://www.linkedin.com/posts/lagoon-piscines_reportage-bfm-tv-activity-6934763358906691584-lTIK?utm_source=linkedin_share&utm_medium=member_desktop_web"
                     target="_blank">
                     <picture>

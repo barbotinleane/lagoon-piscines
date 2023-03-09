@@ -102,6 +102,9 @@ $secondary-color: #FFE019;
   text-shadow: 1px 1px 8px #212529;
 }
 
+.icon-shadow {
+  filter: drop-shadow(0px 0px 2px #212529);
+}
 
 
 /*Fonts : */
@@ -305,6 +308,30 @@ img {
 
 .w-60p {
   width: 60px;
+}
+
+.w-sm-100 {
+  @media (min-width: 576px) {
+    width: 100% !important;
+  }
+}
+
+.h-md-100 {
+  @media (min-width: 768px) {
+    height: 100% !important;
+  }
+}
+
+.w-md-auto {
+  @media (min-width: 768px) {
+    width: auto !important;
+  }
+}
+
+.vh-md-100 {
+  @media (min-width: 768px) {
+    height: 100vh !important;
+  }
 }
 
 .h-180p {
@@ -702,4 +729,3 @@ li.timeline-item-dark::before {
 #myCarousel .carousel-indicators > li.active img {
   opacity: 0.7;
 }
-

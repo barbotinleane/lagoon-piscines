@@ -36,12 +36,12 @@
         </div>
 
         <div class="row bg-dark text-white px-3 pt-5 p-md-0">
-            <div class="col-12 col-md-8 p-2 p-md-5">
+            <div class="col-12 col-lg-7 p-2 p-md-5 d-flex flex-column justify-content-between">
                 <div class="d-flex align-items-center">
                     <div class="fs-1 pe-3">
                         <i class="fas fa-crosshairs"></i>
                     </div>
-                    <h2 class="baskerville">Objectifs de la formation</h2>
+                    <h2 class="inter-black">Objectifs de la formation</h2>
                 </div>
                 <div class="ps-5">
                     A l'issue de la formation, les stagiaires seront capables :
@@ -51,9 +51,30 @@
                         {% endfor %}
                     </ul>
                 </div>
+                <div class="row align-items-center">
+                    <div class="text-center">
+                        <a class="btn btn-blue rounded-corners"
+                           href="{{ path('app_doc_program', {formationId: formation.id}) }}"
+                           target="_blank">
+                            <i class="fa fa-eye"></i>
+                            &nbsp;Programme de la formation
+                        </a>
+                    </div>
+                </div>
+                <div class="row bg-dark py-5 justify-content-around">
+                    {% for image in formation.formationImages %}
+                        <div class="col-12 col-sm-6">
+                            <div class="pb-2">
+                                <img src="{{ asset('uploads/images/formations/' ~ image.imageName) }}"
+                                     alt="Image descriptive de la formation {{ formation.libelle }}"
+                                     class="w-100 img-gallery">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col-12 col-md-4 p-2 p-md-5">
-                <div class="bg-yellow text-dark rounded-corners p-5 fw-bold">
+            <div class="col-12 col-lg-5 p-2 p-md-5">
+                <div class="bg-yellow text-dark rounded-corners p-3 py-5 p-sm-5 fw-bold">
                     <table>
                         <tr>
                             <td>
@@ -82,29 +103,12 @@
                     </table>
                     {% if formation.formationSessions.isEmpty == false %}
                         <hr>
-                        <div>
-                            <h3 class="fs-6 fw-bold">Prochaines dates : </h3>
-                            <ul class="fw-normal">
-                                {% for session in sessions %}
-                                    <li>
-                                        du {{ session.dateStart|date("d/m/Y") }} au {{ session.dateEnd|date("d/m/Y") }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
+                        <div class="bg-white">
+                            {% include 'formation/show/reusables/calendar.html.twig' %}
                         </div>
                     {% endif %}
                 </div>
             </div>
-        </div>
-
-        <div class="row bg-dark py-5 justify-content-around">
-            {% for image in formation.formationImages %}
-                <div class="col-12 col-sm-6 col-md-4 mb-3">
-                    <img src="{{ asset('uploads/images/formations/' ~ image.imageName) }}"
-                         alt="Image descriptive de la formation {{ formation.libelle }}"
-                         class="h-100 img-gallery">
-                </div>
-            {% endfor %}
         </div>
 
         <div class="row section big-spacing bg-blue">
@@ -218,100 +222,97 @@
         {% endif %}
 
         {% if formation.id == 1 %}
-            <div class="row section bg-dark text-light">
-                <h2 class="text-center baskerville">Des commentaires de stagiaires</h2>
+            <div class="row section bg-dark">
+                <h2 class="text-center inter-black text-light">
+                    Des commentaires de stagiaires
+                </h2>
 
-                <div id="carouselClients" class="carousel carousel-light slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active text-center mt-4" data-bs-interval="5000">
-                            <p class="w-75 mx-auto">
-                                <em>
-                                    Mon équipe et moi même avons suivi cette formation en Septembre 2022. Nous avons
-                                    découvert un métier avec des produits innovants et naturels qui vont nous permettre
-                                    de développer notre activé au sein de notre entreprise. Formation très bien organisée
-                                    et agréable avec un accompagnement professionnel. Merci à toute l'équipe LAGOON.
-                                </em>
-                            </p>
-
-                            <p class="w-75 mx-auto">
-                                <strong>Frédéric<br></strong>
-                                Hauts-De-France
-                            </p>
-                        </div>
-
-                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                            <p class="w-75 mx-auto">
-                                <em>
-                                    Top ! L'équilibre temps de théorie et de pratique était très bien. De plus,
-                                    les formateurs savent très bien se mobiliser et s'adapter aux participants.
-                                </em>
-                            </p>
-
-                            <p class="w-75 mx-auto">
-                                <strong>Christophe<br></strong>
-                                Paris
-                            </p>
-                        </div>
-
-                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                            <p class="w-75 mx-auto">
-                                <em>Je suis très très heureux d'avoir suivi cette formation et je ne m'attendais pas à
-                                    ce potentiel à tous les niveaux : potentiel humain, potentiel économique, potentiel
-                                    de réalisation… Ce spectre d'activités qu'il y a derrière. Les formateurs sont dans
-                                    le sourire, très ouverts… Les échanges étaient très riches.</em>
-                            </p>
-                            <strong>Steve<br></strong>
-                            Var
-                        </div>
-
-                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                            <p class="w-75 mx-auto">
-                                <em>
-                                    Un grand merci à toute l'équipe ! J'ai kiffé grave.
-                                </em>
-                            </p>
-
-                            <p class="w-75 mx-auto">
-                                <strong>Lancelot<br></strong>
-                                Alsace
-                            </p>
-                        </div>
-
-                        <div class="carousel-item text-center mt-4" data-bs-interval="5000">
-                            <p class="w-75 mx-auto">
-                                <em>
-                                    Le métier de Lagoniste est un métier d'avenir, complètement novateur avec toutes les
-                                    nouvelles technologies qu'on ignore complètement. Ca ouvre aussi des perspectives en
-                                    terme de paysagisme, c'est-à-dire qu'on peut intégrer des rochers, des palmiers, des
-                                    monolithes… Et c'est le top.
-                                </em>
-                            </p>
-
-                            <p class="w-75 mx-auto">
-                                <strong>Cédric<br></strong>
-                                Vaucluse
-                            </p>
+                <div class="row mt-5 mx-auto">
+                    <div class="col-12 col-md-6">
+                        <div class="h-auto position-relative">
+                            <picture>
+                                <source srcset="{{ asset('build/images/thumbnail_video_learners_oct2022.webp') }}"
+                                        type="image/webp">
+                                <source srcset="{{ asset('build/images/thumbnail_video_learners_oct2022.png') }}"
+                                        type="image/png">
+                                <img src="{{ asset('build/images/thumbnail_video_learners_oct2022.png') }}"
+                                     alt="vidéo interview de stagiaires de la formation paysagistes et géomètres"
+                                     class="w-100 rounded-corners border-blue"
+                                     id="thumbnail-video">
+                            </picture>
+                            <div class="play-button">
+                                <a class="text-white"
+                                   href="https://www.linkedin.com/posts/lagoon-piscines_lagooniste-formationprofessionnelle-coworking-activity-6996511167850393600-847Z?utm_source=share&utm_medium=member_desktop"
+                                   target="_blank">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-12 col-md-6 overflow-auto overflow-md-scroll px-4" id="comments">
+                        <div class="bg-grey text-center rounded-corners p-4">
+                            <div class="pb-4">
+                                {% include 'formation/show/reusables/star_rating.html.twig' with {'rating': 4.5} %}
+                            </div>
+                            <p class="inter-light">
+                                "Mon équipe et moi même avons suivi cette formation en Septembre 2022. Nous avons
+                                découvert un métier avec des produits innovants et naturels qui vont nous permettre
+                                de développer notre activé au sein de notre entreprise. Merci à toute l'équipe LAGOON."
+                            </p>
 
-                    <button
-                            class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#carouselClients"
-                            data-bs-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button
-                            class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#carouselClients"
-                            data-bs-slide="next"
-                    >
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                            <div class="w-75 mx-auto">
+                                <strong>Frédéric<br></strong>
+                                Hauts-De-France
+                            </div>
+                        </div>
+
+                        <div class="bg-grey text-center mt-4 rounded-corners p-4">
+                            <div class="pb-4">
+                                {% include 'formation/show/reusables/star_rating.html.twig' with {'rating': 5} %}
+                            </div>
+                            <p class="inter-light">
+                                "Je suis très très heureux d'avoir suivi cette formation et je ne m'attendais pas à
+                                ce potentiel à tous les niveaux : potentiel humain, potentiel économique, potentiel
+                                de réalisation… Les formateurs sont dans le sourire, très ouverts… Les échanges
+                                étaient très riches."
+                            </p>
+                            <div class="w-75 mx-auto">
+                                <strong>Steve<br></strong>
+                                Var
+                            </div>
+                        </div>
+
+                        <div class="bg-grey text-center mt-4 rounded-corners p-4">
+                            <div class="pb-4">
+                                {% include 'formation/show/reusables/star_rating.html.twig' with {'rating': 5} %}
+                            </div>
+                            <p class="inter-light">
+                                "Un grand merci à toute l'équipe ! J'ai kiffé grave."
+                            </p>
+
+                            <div class="w-75 mx-auto">
+                                <strong>Lancelot<br></strong>
+                                Alsace
+                            </div>
+                        </div>
+
+                        <div class="bg-grey text-center mt-4 rounded-corners p-4">
+                            <div class="pb-4">
+                                {% include 'formation/show/reusables/star_rating.html.twig' with {'rating': 4.5} %}
+                            </div>
+                            <p class="inter-light">
+                                "Le métier de Lagoniste est un métier d'avenir, complètement novateur avec toutes les
+                                nouvelles technologies qu'on ignore complètement. Ca ouvre aussi des perspectives en
+                                terme de paysagisme, c'est-à-dire qu'on peut intégrer des rochers, des palmiers, des
+                                monolithes… Et c'est le top."
+                            </p>
+
+                            <div class="w-75 mx-auto">
+                                <strong>Cédric<br></strong>
+                                Vaucluse
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endif %}

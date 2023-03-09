@@ -7,6 +7,40 @@
   height: auto;
 }
 
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #5EBFCE;
+  color: white;
+  padding: 15px 24px;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color:lighten(#3cb1c3, 10%);
+  }
+}
+
+.border-blue {
+  border: solid 7px #5EBFCE;
+}
+
+.max-height-md-100 {
+  @media (min-width: 768px) {
+    max-height: 100vh !important;
+  }
+}
+
+.overflow-md-scroll {
+  @media (min-width: 768px) {
+    overflow: scroll !important;
+  }
+}
+
 /* md */
 @media (min-width: 768px) {
   .img-presentation {

@@ -66,14 +66,22 @@
         </div>
 
         <div class="row section bg-contact" id="contact">
-            <h2 class="text-center inter-black size-2">Nous contacter</h2>
+            <h2 class="text-center inter-black size-2" style="height:100px;">Nous contacter</h2>
 
-            <p class="">
-                <em>Nous contacter ne vous engage à rien. Notre équipe sera heureuse de répondre à vos
-                    questions !</em>
-            </p>
+            <div style="height:100px;">
+                <div class="fs-3 inter-black">
+                    Votre demande concerne...
+                </div>
+                <select class="form-select mb-3" id="subject-of-ask" aria-label=".form-select-lg example">
+                    <option selected>Choisir...</option>
+                    <option value="build">La construction de Lagons</option>
+                    <option value="formation">Les formations proposées par LAGOON&reg;</option>
+                </select>
+            </div>
 
-            <div class="">
+            <div id="placeholder-contact" style="height:200px;"></div>
+
+            <div id="build-contact" style="display: none">
                 <div class="d-flex align-items-center m-4">
                     <i class="fa fa-map-marker text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
                     <p class="ms-4 fw-bold">
@@ -103,6 +111,41 @@
                                 class="dark-link"
                         >
                             contact@lagoon-piscines.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div id="formation-contact" style="display: none">
+                <div class="d-flex align-items-center m-4">
+                    <i class="fa fa-map-marker text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
+                    <p class="ms-4 fw-bold">
+                        <a href="https://g.page/Nomad-Coworking?share"
+                           target="_blank"
+                           class="dark-link">
+                            427 Chemin de Vosgelade Le Mas Raoum, 06140 VENCE
+                        </a>
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center m-4">
+                    <i class="fa fa-phone text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
+                    <p class="ms-4 fw-bold">
+                        <a href="tel:0645771184" title="Cliquez pour nous appeler" class="dark-link">
+                            +33 6 45 77 11 84
+                        </a>
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center m-4">
+                    <i class="fa fa-envelope-o text-blue mx-none mx-sm-4 size-2" aria-hidden="true"></i>
+                    <p class="ms-4 fw-bold">
+                        <a
+                                href="mailto:lagoonformations@gmail.com"
+                                title="Cliquez pour nous envoyer un email"
+                                class="dark-link"
+                        >
+                            lagoonformations@gmail.com
                         </a>
                     </p>
                 </div>

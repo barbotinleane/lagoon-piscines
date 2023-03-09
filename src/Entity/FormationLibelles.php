@@ -39,7 +39,7 @@ class FormationLibelles
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: FormationSessions::class, orphanRemoval: true)]
     private $formationSessions;
 
-    #[ORM\OneToMany(mappedBy: 'formationLibelle', targetEntity: FormationAsks::class)]
+    #[ORM\OneToMany(mappedBy: 'formationLibelle', targetEntity: FormationAsks::class, orphanRemoval: true)]
     private $asks;
 
     #[ORM\Column(length: 255)]

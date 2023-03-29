@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let formationDates = [];
 
     const url = '/json/dates-formations/';
-    const formation = '1';
+    const formation = $('#formation_id').val();
     fetch(url + formation)
         .then(response => response.json())
         .then(data => {

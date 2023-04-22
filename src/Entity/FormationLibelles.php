@@ -51,9 +51,6 @@ class FormationLibelles
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $place = null;
 
-    #[ORM\Column]
-    private ?bool $displayOnLagoonPiscines = null;
-
     #[ORM\Column(nullable: true)]
     private ?int $satisfactionRate = null;
 
@@ -68,6 +65,9 @@ class FormationLibelles
 
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: FormationImages::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $formationImages;
+
+    #[ORM\ManyToOne(inversedBy: 'formationLibelles')]
+    private FormationCategory $category;
 
     public function __construct()
     {
@@ -244,18 +244,6 @@ class FormationLibelles
         return $this;
     }
 
-    public function isDisplayOnLagoonPiscines(): ?bool
-    {
-        return $this->displayOnLagoonPiscines;
-    }
-
-    public function setDisplayOnLagoonPiscines(bool $displayOnLagoonPiscines): self
-    {
-        $this->displayOnLagoonPiscines = $displayOnLagoonPiscines;
-
-        return $this;
-    }
-
     public function getSatisfactionRate(): ?int
     {
         return $this->satisfactionRate;
@@ -348,6 +336,18 @@ class FormationLibelles
                 $formationImage->setFormation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): FormationCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(FormationCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

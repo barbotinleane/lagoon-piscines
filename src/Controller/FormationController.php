@@ -6,6 +6,7 @@ use App\Entity\FormationAsks;
 use App\Entity\Stagiaires;
 use App\Form\FormationAsksType;
 use App\Repository\DepartmentsRepository;
+use App\Repository\FormationCategoryRepository;
 use App\Repository\FormationLibellesRepository;
 use App\Repository\FormationPricesRepository;
 use App\Repository\FormationSessionsRepository;
@@ -22,9 +23,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormationController extends AbstractController
 {
     #[Route('/nos-formations', name: 'app_formation')]
-    public function index(FormationLibellesRepository $flRepo): Response
+    public function index(FormationLibellesRepository $flRepo, FormationCategoryRepository $fcRepo): Response
     {
-        $formations = $flRepo->findAllToDisplayOnLagoonPiscines();
+        $formations = [];
+        $categories = $fcRepo->findAll();
+
+        foreach ($categories as $category) {
+            $formationsForSelectedCategory = $flRepo->findByCategory($category);
+            $formations[$category->getTitle()] = $formationsForSelectedCategory;
+        }
 
         return $this->render('formation/index.html.twig', [
             "formations" => $formations,

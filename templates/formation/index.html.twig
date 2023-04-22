@@ -30,48 +30,51 @@
             </div>
 
             <div class="row py-5">
-                {% for formation in formations %}
-                    <div class="row bg-blue-clear m-3 rounded-corners-start align-items-center g-0">
-                        <div class="col-12 col-md-2 h-adaptative">
-                            <img src="{{ asset('uploads/images/formations/'~formation.image) }}"
-                                 alt="{{ formation.libelle|u.truncate(10, '...') }}"
-                                 class="img-presentation rounded-corners-start">
-                        </div>
-                        <div class="col-12 col-md-8 p-3">
-                            <h2 class="inter-black size-3 pt-3">{{ formation.libelle }}</h2>
-                            <div class="text-secondary">{{ formation.presentation }}</div>
-                            <div class="py-2 d-flex flex-column flex-sm-row ps-3 ps-sm-0 justify-content-around">
-                                <div>
-                                    <i class="fa fa-map-marker"></i>
-                                    {{ formation.place }}
+                {% for category, formationList in formations %}
+                    <h2 class="inter-light">{{ category }}</h2>
+                    {% for formation in formationList %}
+                        <div class="row bg-blue-clear m-3 rounded-corners-start align-items-center g-0">
+                            <div class="col-12 col-md-2 h-adaptative">
+                                <img src="{{ asset('uploads/images/formations/'~formation.image) }}"
+                                     alt="{{ formation.libelle|u.truncate(10, '...') }}"
+                                     class="img-presentation rounded-corners-start">
+                            </div>
+                            <div class="col-12 col-md-8 p-3">
+                                <h2 class="inter-black size-3 pt-3">{{ formation.libelle }}</h2>
+                                <div class="text-secondary">{{ formation.presentation }}</div>
+                                <div class="py-2 d-flex flex-column flex-sm-row ps-3 ps-sm-0 justify-content-around">
+                                    <div>
+                                        <i class="fa fa-map-marker"></i>
+                                        {{ formation.place }}
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-euro"></i>
+                                        {{ formation.cost }}&nbsp;€
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-calendar"></i>
+                                        {{ formation.duration }}
+                                    </div>
                                 </div>
-                                <div>
-                                    <i class="fa fa-euro"></i>
-                                    {{ formation.cost }}&nbsp;€
-                                </div>
-                                <div>
-                                    <i class="fa fa-calendar"></i>
-                                    {{ formation.duration }}
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <div class="text-center p-3">
+                                    <div class="py-1">
+                                        <a class="btn btn-yellow rounded-corners w-100"
+                                           href="{{ path('app_formation_ask', {formationId: formation.id}) }}">
+                                            Demande de devis
+                                        </a>
+                                    </div>
+                                    <div class="py-1">
+                                        <a class="btn btn-dark rounded-corners w-100"
+                                           href="{{ path('app_formation_show', {formationId: formation.id}) }}">
+                                            Plus d'infos
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-2">
-                            <div class="text-center p-3">
-                                <div class="py-1">
-                                    <a class="btn btn-yellow rounded-corners w-100"
-                                       href="{{ path('app_formation_ask', {formationId: formation.id}) }}">
-                                        Demande de devis
-                                    </a>
-                                </div>
-                                <div class="py-1">
-                                    <a class="btn btn-dark rounded-corners w-100"
-                                       href="{{ path('app_formation_show', {formationId: formation.id}) }}">
-                                        Plus d'infos
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>

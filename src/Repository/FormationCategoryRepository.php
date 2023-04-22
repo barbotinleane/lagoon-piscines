@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\FormationCategories;
+use App\Entity\FormationCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<FormationCategories>
+ * @extends ServiceEntityRepository<FormationCategory>
  *
- * @method FormationCategories|null find($id, $lockMode = null, $lockVersion = null)
- * @method FormationCategories|null findOneBy(array $criteria, array $orderBy = null)
- * @method FormationCategories[]    findAll()
- * @method FormationCategories[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method FormationCategory|null find($id, $lockMode = null, $lockVersion = null)
+ * @method FormationCategory|null findOneBy(array $criteria, array $orderBy = null)
+ * @method FormationCategory[]    findAll()
+ * @method FormationCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FormationCategoriesRepository extends ServiceEntityRepository
+class FormationCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, FormationCategories::class);
+        parent::__construct($registry, FormationCategory::class);
     }
 
-    public function add(FormationCategories $entity, bool $flush = false): void
+    public function save(FormationCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class FormationCategoriesRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(FormationCategories $entity, bool $flush = false): void
+    public function remove(FormationCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class FormationCategoriesRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return FormationCategories[] Returns an array of FormationCategories objects
+//     * @return FormationCategory[] Returns an array of FormationCategory objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class FormationCategoriesRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?FormationCategories
+//    public function findOneBySomeField($value): ?FormationCategory
 //    {
 //        return $this->createQueryBuilder('f')
 //            ->andWhere('f.exampleField = :val')

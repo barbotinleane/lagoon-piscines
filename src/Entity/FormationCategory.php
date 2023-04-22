@@ -2,24 +2,24 @@
 
 namespace App\Entity;
 
-use App\Repository\FormationCategoriesRepository;
+use App\Repository\FormationCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: FormationCategoriesRepository::class)]
-class FormationCategories
+#[ORM\Entity(repositoryClass: FormationCategoryRepository::class)]
+class FormationCategory
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+    #[ORM\Column]
+    private ?int $id = null;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $libelle;
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: FormationLibelles::class)]
-    private $formationLibelles;
+    private Collection $formationLibelles;
 
     public function __construct()
     {
@@ -31,14 +31,14 @@ class FormationCategories
         return $this->id;
     }
 
-    public function getLibelle(): ?string
+    public function getTitle(): ?string
     {
-        return $this->libelle;
+        return $this->title;
     }
 
-    public function setLibelle(string $libelle): self
+    public function setTitle(string $title): self
     {
-        $this->libelle = $libelle;
+        $this->title = $title;
 
         return $this;
     }
@@ -54,7 +54,7 @@ class FormationCategories
     public function addFormationLibelle(FormationLibelles $formationLibelle): self
     {
         if (!$this->formationLibelles->contains($formationLibelle)) {
-            $this->formationLibelles[] = $formationLibelle;
+            $this->formationLibelles->add($formationLibelle);
             $formationLibelle->setCategory($this);
         }
 

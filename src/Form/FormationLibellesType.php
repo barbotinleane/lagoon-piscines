@@ -2,7 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\FormationCategory;
 use App\Entity\FormationLibelles;
+use App\Repository\FormationCategoriesRepository;
+use App\Repository\FormationCategoryRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -118,6 +122,21 @@ class FormationLibellesType extends AbstractType
                     'class' => 'col-12 col-sm-12',
                 ]
             ])
+            ->add('category', EntityType::class, [
+                'class' => FormationCategory::class,
+                'query_builder' => function (FormationCategoryRepository $fcr) {
+                    return $fcr->createQueryBuilder('fc')
+                        ->orderBy('fc.title', 'ASC');
+                },
+                'label' => 'Catégorie',
+                'choice_label' => 'title',
+                'label_attr' => [
+                    'class' => 'form-label'
+                ],
+                'attr' => [
+                    'class' => 'form-select'
+                ],
+            ])
             ->add('place', TextType::class, [
                 'label' => 'Lieu *',
                 'attr' => [
@@ -126,18 +145,6 @@ class FormationLibellesType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label'
                 ]
-            ])
-            ->add('displayOnLagoonPiscines', ChoiceType::class, [
-                'label' => 'Afficher la formation sur le site internet de Lagoon Piscines ? *',
-                'choices' => [
-                    'Oui' => 1,
-                    'Non' => 0,
-                ],
-                'attr' => [
-                    'class' => 'buttons-group',
-                    'role' => 'group',
-                ],
-                'expanded' => true
             ])
             ->add('satisfactionRate', IntegerType::class, [
                 'required' => false,

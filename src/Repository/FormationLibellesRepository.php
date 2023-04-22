@@ -45,10 +45,11 @@ class FormationLibellesRepository extends ServiceEntityRepository
         }
     }
 
-    public function findAllToDisplayOnLagoonPiscines()
+    public function findByCategory($category)
     {
         return $this->createQueryBuilder('f')
-            ->andWhere('f.displayOnLagoonPiscines = 1')
+            ->andWhere('f.category = :category')
+            ->setParameter('category', $category)
             ->getQuery()
             ->getResult()
         ;

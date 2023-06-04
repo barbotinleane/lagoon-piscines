@@ -7,6 +7,41 @@
     {{ form_row(form.answer) }}
 </div>
 
+<div class="row py-2">
+    <div class="form-group" id="categories">
+        <label class="control-label required">Catégorie</label>
+        {% for child in form.category.children %}
+            <div class="">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        {{ form_widget(child, {'attr': {'class': 'form-check-input'}}) }}
+                        <label class="form-check-label" for="{{ child.vars.id }}" >
+                            {{ child.vars.label }}
+                        </label>
+                    </div>
+                    <a
+                            {% if categoriesHasQuestions[child.vars.id] %}
+                                class="btn btn-danger rounded-corners remove_category disabled"
+                            {% else %}
+                                class="btn btn-danger rounded-corners remove_category"
+                            {% endif %}
+                            name="{{ child.vars.id }}">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="button"
+            class="btn btn-success add_faq_category_link rounded-corners"
+            data-bs-toggle="modal"
+            data-bs-target="#create_category">
+        <i class="fa fa-plus"></i>
+        Créer une nouvelle catégorie
+    </button>
+</div>
+
 <div class="pt-4 text-center">
     <button class="btn btn-lg btn-success">
         <i class="fa fa-check"></i>
@@ -14,3 +49,17 @@
     </button>
 </div>
 {{ form_end(form) }}
+
+<div class="modal fade" id="create_category" tabindex="-1" aria-labelledby="create_category_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Créer une catégorie</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="form_category">
+                {% include 'dashboard/faq/category/_form.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>

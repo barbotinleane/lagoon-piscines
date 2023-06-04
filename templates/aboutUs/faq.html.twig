@@ -18,19 +18,24 @@
             </div>
 
             <div class="pt-5 accordion accordion-flush" id="questionsList">
-                {% for faq in faqs %}
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="{{ "item"~faq.id }}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="{{ "#collapse"~faq.id }}" aria-expanded="false" aria-controls="{{ "collapse"~faq.id }}">
-                                {{ faq.question }}
-                            </button>
-                        </h2>
-                        <div id="{{ "collapse"~faq.id }}" class="accordion-collapse collapse" aria-labelledby="{{ "item"~faq.id }}" data-bs-parent="#questionsList">
-                            <div class="accordion-body">
-                                {{ faq.answer }}
+                {% for category in categories %}
+                    {% if category.questions is not empty %}
+                        <h2 class="inter-black py-3">{{ category.name }}</h2>
+                        {% for faq in category.questions %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="{{ "item"~faq.id }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="{{ "#collapse"~faq.id }}" aria-expanded="false" aria-controls="{{ "collapse"~faq.id }}">
+                                        {{ faq.question }}
+                                    </button>
+                                </h2>
+                                <div id="{{ "collapse"~faq.id }}" class="accordion-collapse collapse" aria-labelledby="{{ "item"~faq.id }}" data-bs-parent="#questionsList">
+                                    <div class="accordion-body">
+                                        {{ faq.answer }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        {% endfor %}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

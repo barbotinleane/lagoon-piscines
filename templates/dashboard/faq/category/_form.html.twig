@@ -1,0 +1,15 @@
+{% if formCategoryHtml is defined %}
+    {{ form_start(formCategoryHtml, {'action': path('app_faq_save_category')}) }}
+    <div class="row py-2">
+        {{ form_row(formCategoryHtml.name) }}
+    </div>
+
+    <div class="pt-4 text-center">
+        <button class="btn btn-lg btn-success"
+                id="submit_create_category">
+            <i class="fa fa-check"></i>
+            {{ button_label|default('Valider') }}
+        </button>
+    </div>
+    {{ form_end(formCategoryHtml) }}
+{% endif %}

@@ -87,4 +87,42 @@ $(function() {
         .forEach((image) => {
             addFormDeleteLink(image)
         })
+
+    const generateFaqCategoryForm = (e) => {
+        fetch('/dashboard/foire-aux-questions/creer-categorie')
+            .then(response => response.text())
+            .then(html => {
+                const modal = document.getElementById('form_category');
+                modal.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
+
+    document
+        .querySelectorAll('.add_faq_category_link')
+        .forEach(btn => {
+            btn.addEventListener("click", generateFaqCategoryForm)
+        });
+
+    document.querySelectorAll('.remove_category').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            var name = e.currentTarget.getAttribute("name");
+            var jsondata = new FormData();
+            jsondata.append("id", document.getElementById(name).getAttribute("value"));
+            $.ajax({
+                method: 'POST',
+                url: '/dashboard/foire-aux-questions/supprimer-categorie',
+                data: jsondata,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    window.location.reload()
+                }
+            });
+        });
+    })
+
 });

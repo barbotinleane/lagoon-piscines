@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\News;
+use App\Repository\FaqCategoryRepository;
 use App\Repository\FAQRepository;
 use App\Repository\NewsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,12 +31,12 @@ class AboutUsController extends AbstractController
     }
 
     #[Route('/foire-aux-questions', name: 'app_faq')]
-    public function faq(FAQRepository $FAQRepository): Response
+    public function faq(FaqCategoryRepository $faqCategoryRepository): Response
     {
-        $faqs = $FAQRepository->findAll();
+        $categories = $faqCategoryRepository->findAll();
 
         return $this->render('aboutUs/faq.html.twig', [
-            "faqs" => $faqs,
+            "categories" => $categories,
         ]);
     }
 

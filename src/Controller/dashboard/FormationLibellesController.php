@@ -121,6 +121,7 @@ class FormationLibellesController extends AbstractController
             foreach ($originalImages as $image) {
                 if (false === $formationLibelle->getFormationImages()->contains($image)) {
                     // remove the Formation from the Goal
+                    $fileUploader->delete($image->getImageName(), "/images/formations");
                     $em->remove($image);
                 }
             }

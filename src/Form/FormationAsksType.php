@@ -100,6 +100,16 @@ class FormationAsksType extends AbstractType
                             'class' => 'form-label'
                         ],
                         'required' => false,
+                    ])
+                    ->add('numberOfWorkersInCompany', NumberType::class, [
+                        'label' => 'Nombre de salariés dans l\'entreprise',
+                        'attr' => [
+                            'class' => 'form-control'
+                        ],
+                        'label_attr' => [
+                            'class' => 'form-label'
+                        ],
+                        'required' => false,
                     ]);
                 break;
             case 3:

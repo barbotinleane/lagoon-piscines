@@ -28,6 +28,9 @@
         {% if ask.companyPostalCode and ask.companyPostalCode != "null" %}
            <li>Code postal de l'entreprise : {{ ask.companyPostalCode }}</li>
         {% endif %}
+        {% if ask.numberOfWorkersInCompany and ask.numberOfWorkersInCompany != "null" %}
+            <li>Nombre de salariés dans l'entreprise : {{ ask.numberOfWorkersInCompany }}</li>
+        {% endif %}
     </ul>
 
     <strong>La formation : </strong>

@@ -52,6 +52,9 @@ class FormationAsks
     private ?int $companyPostalCode = null;
 
     #[ORM\Column(nullable: true)]
+    private ?int $numberOfWorkersInCompany = null;
+
+    #[ORM\Column(nullable: true)]
     private ?int $numberOfLearners = null;
 
     public function __construct($formationLibelle)
@@ -168,6 +171,18 @@ class FormationAsks
     public function setCompanyPostalCode(?int $companyPostalCode): self
     {
         $this->companyPostalCode = $companyPostalCode;
+
+        return $this;
+    }
+
+    public function getNumberOfWorkersInCompany(): ?int
+    {
+        return $this->numberOfWorkersInCompany;
+    }
+
+    public function setNumberOfWorkersInCompany(?int $numberOfWorkersInCompany): self
+    {
+        $this->numberOfWorkersInCompany = $numberOfWorkersInCompany;
 
         return $this;
     }

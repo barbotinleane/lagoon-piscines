@@ -36,13 +36,8 @@ class FormationSessions
     #[ORM\JoinColumn(nullable: false)]
     private $formation;
 
-    #[ORM\OneToMany(mappedBy: 'formationSession', targetEntity: FormationAsks::class)]
-    private $asks;
-
     public function __construct()
     {
-        $this->formationAsks = new ArrayCollection();
-        $this->asks = new ArrayCollection();
     }
 
     public function __toString()
@@ -131,36 +126,6 @@ class FormationSessions
     public function setFormation(?FormationLibelles $formation): self
     {
         $this->formation = $formation;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, FormationAsks>
-     */
-    public function getAsks(): Collection
-    {
-        return $this->asks;
-    }
-
-    public function addAsk(FormationAsks $ask): self
-    {
-        if (!$this->asks->contains($ask)) {
-            $this->asks[] = $ask;
-            $ask->setFormationSession($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAsk(FormationAsks $ask): self
-    {
-        if ($this->asks->removeElement($ask)) {
-            // set the owning side to null (unless already changed)
-            if ($ask->getFormationSession() === $this) {
-                $ask->setFormationSession(null);
-            }
-        }
 
         return $this;
     }

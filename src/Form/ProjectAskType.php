@@ -279,7 +279,6 @@ class ProjectAskType extends AbstractType
         $resolver->setDefaults([
             'data_class' => ProjectAsk::class,
             'departments' => null,
-            'csrf_protection' => false,
         ]);
     }
 }

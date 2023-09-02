@@ -54,7 +54,7 @@ class AsanaManager
                 'html_notes' => $html
             ), array(
                 'headers' => [
-                    'Asana-Disable' => 'new_memberships',
+                    'Asana-Disable' => 'new_goal_memberships',
                     'Asana-Enable' => 'new_user_task_lists',
                 ],
                 'fields' => ['html_notes'],
@@ -101,7 +101,7 @@ class AsanaManager
             'html_notes' => $html
         ), array(
             'headers' => [
-                'Asana-Disable' => 'new_memberships',
+                'Asana-Disable' => 'new_goal_memberships',
                 'Asana-Enable' => 'new_user_task_lists',
             ],
             'fields' => ['html_notes'],
@@ -115,7 +115,7 @@ class AsanaManager
             ), array(
                 'opt_pretty' => 'true',
                 'headers' => [
-                    'Asana-Disable' => 'new_memberships',
+                    'Asana-Disable' => 'new_goal_memberships',
                     'Asana-Enable' => 'new_user_task_lists',
                 ],
             ));

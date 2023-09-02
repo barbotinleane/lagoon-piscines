@@ -61,26 +61,16 @@ class FormationController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     #[Route('/demande-de-formation/{formationId}', name: 'app_formation_ask')]
-    public function ask($formationId, EntityManagerInterface $em, FormationAskFlow $flow, FormationLibellesRepository $flRepo, CustomMailer $mailer, AsanaManager $asanaManager, AskSaver $askSaver)
+    public function ask($formationId, EntityManagerInterface $em, FormationAskFlow $flow, FormationLibellesRepository $flRepo, CustomMailer $mailer, AsanaManager $asanaManager, AskSaver $askSaver, Request $request)
     {
         $formation = $flRepo->find($formationId);
 
         $ask = new FormationAsks($formation);
-        $flow->setGenericFormOptions(['formationId' => $formationId]);
-        $flow->bind($ask);
-        $form = $flow->createForm();
-        $instance = $flow->getInstanceId();
 
-        if ($flow->isValid($form)) {
-            $flow->saveCurrentStepData($form);
-
-            if ($flow->nextStep()) {
-                if ($flow->getCurrentStepLabel() === '3') {
-                    $ask = $askSaver->saveUnMappedFormFieldsToAsk($_POST, $ask);
-                }
-                $form = $flow->createForm();
-            } else {
-                $ask->setFormationLibelle($formation);
+        $form = $this->createForm(FormationAsksType::class, $ask);
+        $form->handleRequest($request);
+        if (!$request->isXmlHttpRequest()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $em->persist($ask);
                 $em->flush();
 
@@ -98,9 +88,7 @@ class FormationController extends AbstractController
 
         return $this->render('formation/ask/index.html.twig', [
             "form" => $form->createView(),
-            "flow" => $flow,
             "ask" => $ask,
-            "instance" => $instance,
             "formation" => $formation,
         ]);
     }

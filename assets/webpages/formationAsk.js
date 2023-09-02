@@ -14,12 +14,18 @@ $(function() {
 
         if(status === 1) {
             $('#companyInformations').show();
+            $('#numberLearners').show();
             $('#formation_asks_companyName').prop('required',true);
             $('#formation_asks_companyPostalCode').prop('required',true);
+            $('#formation_asks_numberOfWorkersInCompany').prop('required',true);
+            $('#formation_asks_numberOfLearners').prop('required',true);
         } else {
             $('#companyInformations').hide();
+            $('#numberLearners').hide();
             $('#formation_asks_companyName').prop('required',false);
             $('#formation_asks_companyPostalCode').prop('required',false);
+            $('#formation_asks_numberOfWorkersInCompany').prop('required',false);
+            $('#formation_asks_numberOfLearners').prop('required',false);
         }
 
         if(status === 3) {
@@ -48,9 +54,9 @@ $(function() {
         value.change(function() {
             //if all checked
             if($consents[0].is(':checked') && $consents[1].is(':checked') && $consents[2].is(':checked')) {
-                $('.btn-save-formation-ask').prop('disabled', false);
+                $('#validate').prop('disabled', false);
             } else {
-                $('.btn-save-formation-ask').prop('disabled', true);
+                $('#validate').prop('disabled', true);
             }
         })
     });

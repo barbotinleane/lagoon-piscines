@@ -2,9 +2,9 @@
     La formation
 </h3>
 
-<div class="row pt-3">
+<div class="row pt-3" id="numberLearners" style="display:none;">
     {% if form.numberOfLearners is defined %}
-        <div class="col-12" id="companyName">
+        <div class="col-12">
             {{ form_label(form.numberOfLearners) }}
             {{ form_widget(form.numberOfLearners) }}
 
@@ -61,5 +61,3 @@
         {{ form_errors(form.consents) }}
     </div>
 </div>
-
-{% include 'formation/ask/steps/reusables/buttons.html.twig' %}

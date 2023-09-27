@@ -70,4 +70,13 @@ class DocController extends AbstractController
             'name' => 'Règlement intérieur de LAGOON Formations'
         ]);
     }
+
+    #[Route('/documentation/certification-qualiopi', name: 'app_doc_qualiopi')]
+    public function qualiopi(): Response
+    {
+        return $this->render('formation/show/doc/index.html.twig', [
+            'fileName' => 'certificat_qualiopi',
+            'name' => 'Certification Qualiopi'
+        ]);
+    }
 }
